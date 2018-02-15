@@ -1,0 +1,11 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.1 38.1">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #000500;
+      }
+    </style>
+  </defs>
+  <title>fbook</title>
+  <path class="cls-1" d="M94.1,118.8V99.5H90.2V93.4H94s0-1.5,0-4.2-.1-8.5,9-8.5h7v6.7H104c-1,0-1.8,0-1.9,2.8s0,3.1,0,3.1h8l-1.1,6.3h-7v19Z" transform="translate(-90.2 -80.7)"/>
+</svg>
