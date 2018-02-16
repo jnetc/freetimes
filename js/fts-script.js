@@ -1,52 +1,57 @@
 window.onload = function () {
 
   let moreBtn = document.querySelector('.btn-more');
-  let partyInfo = document.querySelector('.party-info');
-  let winTop = window.pageYOffset; // Начальная позиция тела
-  console.log(winTop);
+  let partyInfo = document.querySelector('.info');
+  // let winTop = document.body.offsetTop; // Начальная позиция тела
+  let winTop = window.scrollY; // Начальная позиция тела
+
+  function toTop() {
+    // Scroll the element into the visible area of the browser window
+    // true = top, false = bottom
+    partyInfo.scrollIntoView(true);
+  }
 
   window.onscroll = function () {
-    let winTop = window.pageYOffset; // Начальная позиция тела
+    let winTop = window.scrollY; // Начальная позиция тела
+    let z = partyInfo.offsetTop - window.scrollY;
     // console.log(winTop);
   };
 
 
-
-  moreBtn.onclick = function () {
-    partyInfo.classList.toggle('slide');
-    this.classList.toggle('pressed');
-
-    // Скролить элемент к верху при нажатии
+  // Скролить элемент к верху при нажатии
+  function showTxt() {
     let iInterval = null; // Обнуляем
     let elTop = partyInfo.offsetParent.offsetTop; // Смещение эл. от верха
     let elHeight = partyInfo.offsetTop;
     let elScroll = elTop + elHeight;
-    let iNum = 0; // Начало
+    let i = 0; // Начало
+    // console.log(elScroll);
+    function incNum() {
+      i += 10; // Шаги
+      let x = winTop + i; // Прибавляем шаги от верха
+      // console.log(x);
+      if (x > elScroll) {
+        clearInterval(iInterval); // Прерываем счетчик
 
+      }
+      scrollTo(0, x); // Скролим в заданное положение
+    };
+    iInterval = setInterval(incNum, 4); // Задаем интервал между шагами
+    return false;
+  }
+
+  // Кнопка для мероприятий
+  moreBtn.onclick = function () {
+    partyInfo.classList.toggle('slide');
+    this.classList.toggle('pressed');
     // Замена текста в кнопке
     if (this.classList.contains('pressed')) {
       this.innerHTML = "Свернуть";
-
-      function incNum() {
-        iNum += 10; // Шаги
-        let y = winTop + iNum; // Прибавляем шаги от верха
-        console.log(y);
-        if (y > elScroll) {
-          clearInterval(iInterval); // Прерываем счетчик
-          return true;
-        }
-        scrollTo(0, y); // Скролим в заданное положение
-      };
-      iInterval = setInterval(incNum, 4); // Задаем интервал между шагами
+      toTop();
     } else {
       this.innerHTML = "Узнать больше";
+      toTop();
+      // showTxt();
     }
-
-
   };
-
-
-
-
-
 }

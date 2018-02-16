@@ -121,8 +121,8 @@ header figure::after {
   background: #000000;
   -webkit-border-radius: 50%;
   border-radius: 50%;
-  -webkit-box-shadow: 0 0 100px 25px #000000;
-  box-shadow: 0 0 100px 25px #000000;
+  -webkit-box-shadow: 0 0 100px 25px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 100px 25px rgba(0, 0, 0, 0.9);
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -137,16 +137,15 @@ header h1 {
   font-family: 'Russo';
   font-size: 46px;
 }
-section.party {
+section.paty {
   height: auto;
-  background: top center no-repeat url(../img/bgs/block_1-min.jpg);
+  position: relative;
 }
-section.party h2 {
+section.paty h2 {
   width: 520px;
   margin: auto;
   padding: 230px 0 50px;
   position: relative;
-  color: #ffffff;
   font-family: 'Russo';
   font-size: 50px;
   line-height: 55px;
@@ -154,44 +153,78 @@ section.party h2 {
   text-transform: uppercase;
   letter-spacing: 2px;
 }
-section.party h2::after {
-  content: '18+';
+section.paty h2::after {
   width: 40px;
   height: 40px;
   position: absolute;
   top: 205px;
   right: -5px;
-  color: #ff5795;
   line-height: 40px;
   letter-spacing: 0px;
   font-size: 18px;
   font-weight: 100;
-  border: 3px solid #ff5795;
+  border: 3px solid ;
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
-section.party div.party-blocks {
+section.paty svg.btm-str {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  z-index: 5;
+}
+section.paty svg.btm-str-ad {
+  fill: #000000;
+  bottom: -190px;
+}
+section.paty svg.btm-str-teen {
+  fill: #5ef6ff;
+  bottom: -140px;
+}
+section.paty-ad {
+  background: top center no-repeat #000000 url(../img/bgs/block_1-min.jpg);
+}
+section.paty-ad h2 {
+  color: #ffffff;
+}
+section.paty-ad h2::after {
+  content: '18+';
+  color: #ff5795;
+  border-color: #ff5795;
+}
+section.paty-teen {
+  background: top center no-repeat #5ef6ff url(../img/bgs/block_2-min.jpg);
+}
+section.paty-teen h2 {
+  color: #612971;
+}
+section.paty-teen h2::after {
+  content: '12+';
+  color: #612971;
+  border-color: #612971;
+}
+div.paty-blocks {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
-section.party div.party-blocks article {
+div.paty-blocks article {
   width: 50%;
   height: auto;
   display: block;
   position: relative;
 }
-section.party div.party-blocks article > img:last-of-type {
+div.paty-blocks article > img:last-of-type {
   position: absolute;
   top: 0;
   left: -140px;
 }
-section.party div.party-blocks article:nth-of-type(2) {
+div.paty-blocks article:nth-of-type(2) {
   margin-bottom: 150px;
   padding: 30px 35px 0;
 }
-section.party div.party-blocks article div.party-date {
+div.paty-blocks article div.paty-box {
   width: 410px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -205,43 +238,69 @@ section.party div.party-blocks article div.party-date {
   position: relative;
   font-family: 'Russo';
 }
-section.party div.party-blocks article div.party-date div.date-box {
+div.paty-dat {
   width: 235px;
 }
-section.party div.party-blocks article div.party-date div.date-box span {
+div.paty-dat span {
   display: block;
   text-align: center;
   text-transform: uppercase;
 }
-section.party div.party-blocks article div.party-date div.date-box span:nth-of-type(1) {
-  color: #ff5795;
+div.paty-dat span:nth-of-type(1) {
   font-size: 30px;
   letter-spacing: 1px;
 }
-section.party div.party-blocks article div.party-date div.date-box span:nth-of-type(2) {
+div.paty-dat span:nth-of-type(2) {
   margin-top: -3px;
   padding: 2px 0;
-  color: #ffffff;
   font-size: 26px;
+}
+div.paty-dat-ad span:nth-of-type(1) {
+  color: #ff5795;
+}
+div.paty-dat-ad span:nth-of-type(2) {
+  color: #ffffff;
   background: #612971;
 }
-section.party div.party-blocks article div.party-date time {
+div.paty-dat-teen span:nth-of-type(1) {
+  color: #612971;
+}
+div.paty-dat-teen span:nth-of-type(2) {
+  color: #ffffff;
+  background: #612971;
+}
+time.clk {
   position: relative;
-  color: #ff5795;
   letter-spacing: 2px;
 }
-section.party div.party-blocks article div.party-date time:nth-of-type(1) {
+time.clk:nth-of-type(1) {
   margin-top: -10px;
   font-size: 125px;
   text-align: right;
-  text-shadow: 0px -5px 0px #ffffff;
 }
-section.party div.party-blocks article div.party-date time:nth-of-type(2) {
+time.clk:nth-of-type(2) {
   margin: -25px 0px 100px 25px;
   font-size: 50px;
+}
+time.clk-ad {
+  color: #ff5795;
+}
+time.clk-ad:nth-of-type(1) {
+  text-shadow: 0px -5px 0px #ffffff;
+}
+time.clk-ad:nth-of-type(2) {
   text-shadow: 0px -2px 0px #ffffff;
 }
-section.party div.party-blocks article div.party-date figure {
+time.clk-teen {
+  color: #612971;
+}
+time.clk-teen:nth-of-type(1) {
+  text-shadow: 0px -5px 0px #ff5795;
+}
+time.clk-teen:nth-of-type(2) {
+  text-shadow: 0px -2px 0px #ff5795;
+}
+figure.tag {
   width: 80px;
   height: 150px;
   position: absolute;
@@ -253,10 +312,7 @@ section.party div.party-blocks article div.party-date figure {
   -webkit-animation: yarlik 2s linear infinite;
   animation: yarlik 2s linear infinite;
 }
-section.party div.party-blocks article div.party-date figure svg {
-  fill: #ff5795;
-}
-section.party div.party-blocks article div.party-date figure figcaption {
+figure.tag figcaption {
   width: 80px;
   position: absolute;
   top: 90px;
@@ -266,15 +322,27 @@ section.party div.party-blocks article div.party-date figure figcaption {
   text-align: center;
   line-height: 25px;
 }
-section.party div.party-blocks article div.party-date figure figcaption span {
+figure.tag figcaption span {
   position: relative;
   font-size: 32px;
 }
-section.party div.party-blocks article div.party-date figure figcaption sup {
+figure.tag figcaption sup {
   padding: 0 2px;
   font-size: 18px;
 }
-section.party div.party-blocks article ul.party-info {
+figure.tag-ad svg {
+  fill: #ff5795;
+}
+figure.tag-ad figcaption {
+  color: #000000;
+}
+figure.tag-teen svg {
+  fill: #612971;
+}
+figure.tag-teen figcaption {
+  color: #ffffff;
+}
+ul.inf {
   max-height: 300px;
   margin-bottom: 15px;
   overflow: hidden;
@@ -282,21 +350,31 @@ section.party div.party-blocks article ul.party-info {
   -o-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
 }
-section.party div.party-blocks article ul.party-info li {
+ul.inf li {
   margin-bottom: 15px;
-  color: #ffffff;
   font-size: 20px;
   font-family: 'Exo2-light';
 }
-section.party div.party-blocks article ul.party-info li:first-of-type {
+ul.inf li:first-of-type {
   margin-bottom: 5px;
   padding-top: 5px;
-  color: #ff5795;
   font-size: 30px;
   font-family: 'Russo';
   text-transform: uppercase;
 }
-section.party div.party-blocks article button {
+ul.inf-ad li {
+  color: #ffffff;
+}
+ul.inf-ad li:first-of-type {
+  color: #ff5795;
+}
+ul.inf-teen li {
+  color: #000000;
+}
+ul.inf-teen li:first-of-type {
+  color: #612971;
+}
+button.bt-mo {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -304,28 +382,43 @@ section.party div.party-blocks article button {
   margin: auto;
   padding: 8px 25px;
   overflow: hidden;
-  background: #ff5795;
   -webkit-border-radius: 50px;
   border-radius: 50px;
   border: 3px solid transparent;
-  color: #000000;
   font-size: 20px;
   font-family: 'Russo';
   text-align: center;
-  -webkit-box-shadow: 0 5px 15px 3px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 5px 15px 3px rgba(0, 0, 0, 0.3);
   -webkit-transition: 0.3s cubic-bezier(1, 0.09, 0, 2.93);
   -o-transition: 0.3s cubic-bezier(1, 0.09, 0, 2.93);
   transition: 0.3s cubic-bezier(1, 0.09, 0, 2.93);
   cursor: pointer;
 }
-section.party div.party-blocks article button:hover {
+button.bt-mo:hover {
   padding: 8px 40px;
+}
+button.bt-mo-ad {
+  background: #ff5795;
+  color: #000000;
+  -webkit-box-shadow: 0 5px 15px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 15px 3px rgba(0, 0, 0, 0.3);
+}
+button.bt-mo-ad:hover {
   border-color: #ff5795;
   background: rgba(0, 0, 0, 0.4);
   color: #ff5795;
 }
-section.party div.party-blocks article div.party-btns {
+button.bt-mo-teen {
+  background: #612971;
+  color: #ffffff;
+  -webkit-box-shadow: 0 5px 15px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 15px 3px rgba(0, 0, 0, 0.3);
+}
+button.bt-mo-teen:hover {
+  border-color: #612971;
+  background: rgba(94, 246, 255, 0.4);
+  color: #612971;
+}
+div.paty-bt {
   width: 320px;
   height: auto;
   display: -webkit-box;
@@ -341,20 +434,14 @@ section.party div.party-blocks article div.party-btns {
   justify-content: space-between;
   margin: 50px auto 25px;
 }
-section.party div.party-blocks article div.party-btns a {
+div.paty-bt a {
   width: 150px;
   height: 150px;
   position: relative;
-  background: -webkit-gradient(linear, left bottom, left top, from(#ff5795), color-stop(60%, rgba(255, 87, 149, 0)));
-  background: -webkit-linear-gradient(bottom, #ff5795 0%, rgba(255, 87, 149, 0) 60%);
-  background: -o-linear-gradient(bottom, #ff5795 0%, rgba(255, 87, 149, 0) 60%);
-  background: linear-gradient(bottom, #ff5795 0%, rgba(255, 87, 149, 0) 60%);
   -webkit-border-radius: 50%;
   border-radius: 50%;
-  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
 }
-section.party div.party-blocks article div.party-btns a::before {
+div.paty-bt a::before {
   content: '';
   width: 115px;
   height: 115px;
@@ -367,39 +454,27 @@ section.party div.party-blocks article div.party-btns a::before {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-section.party div.party-blocks article div.party-btns a:hover::before {
-  -webkit-animation: impuls 2s ease infinite;
-  animation: impuls 2s ease infinite;
-}
-section.party div.party-blocks article div.party-btns a::after {
+div.paty-bt a::after {
   content: '';
   width: 115px;
   height: 115px;
   position: absolute;
   top: 50%;
   left: 50%;
-  background: #ff5795;
   -webkit-border-radius: 50%;
   border-radius: 50%;
-  -webkit-box-shadow: inset 0 0 20px 3px rgba(0, 0, 0, 0.5);
-  box-shadow: inset 0 0 20px 3px rgba(0, 0, 0, 0.5);
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   -webkit-transition: 0.3s ease-in-out;
   -o-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
+  opacity: 1;
 }
-section.party div.party-blocks article div.party-btns a:hover::after {
-  background: rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: inset 0 0 20px 5px rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0 0 20px 5px rgba(0, 0, 0, 0.2);
-}
-section.party div.party-blocks article div.party-btns a svg {
+div.paty-bt a svg {
   width: 70px;
-  height: 70px;
+  height: 66px;
   display: block;
-  fill: #000000;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -411,17 +486,77 @@ section.party div.party-blocks article div.party-btns a svg {
   transition: 0.3s cubic-bezier(0, 1.15, 0.46, 1.32);
   z-index: 5;
 }
-section.party div.party-blocks article div.party-btns a:hover svg {
+div.paty-bt-ad a {
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(30%, rgba(255, 87, 149, 0)), to(#ff5795));
+  background: -webkit-linear-gradient(bottom, rgba(255, 87, 149, 0) 30%, #ff5795 100%);
+  background: -o-linear-gradient(bottom, rgba(255, 87, 149, 0) 30%, #ff5795 100%);
+  background: linear-gradient(to top, rgba(255, 87, 149, 0) 30%, #ff5795 100%);
+  -webkit-box-shadow: 0 9px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 9px 20px rgba(0, 0, 0, 0.5);
+}
+div.paty-bt-ad a::after {
+  background: #ff5795;
+  border: 3px solid #ff5795;
+  -webkit-box-shadow: inset 0 0 20px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 20px 3px rgba(0, 0, 0, 0.5);
+}
+div.paty-bt-ad a:hover::before {
+  -webkit-animation: impuls-rose 2s ease infinite;
+  animation: impuls-rose 2s ease infinite;
+}
+div.paty-bt-ad a:hover::after {
+  background: rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 20px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 20px 5px rgba(0, 0, 0, 0.2);
+}
+div.paty-bt-ad a svg {
+  fill: #000000;
+}
+div.paty-bt-ad a:hover svg {
   fill: #ff5795;
 }
-section.party h4 {
-  color: #ff5795;
+div.paty-bt-teen a {
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, rgba(97, 41, 113, 0)), to(#612971));
+  background: -webkit-linear-gradient(bottom, rgba(97, 41, 113, 0) 50%, #612971 100%);
+  background: -o-linear-gradient(bottom, rgba(97, 41, 113, 0) 50%, #612971 100%);
+  background: linear-gradient(to top, rgba(97, 41, 113, 0) 50%, #612971 100%);
+  -webkit-box-shadow: 0 9px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 9px 20px rgba(0, 0, 0, 0.3);
+}
+div.paty-bt-teen a::after {
+  background: #612971;
+  border: 3px solid #5ef6ff;
+  -webkit-box-shadow: inset 0 0 20px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 20px 3px rgba(0, 0, 0, 0.5);
+}
+div.paty-bt-teen a:hover::before {
+  -webkit-animation: impuls-bordo 2s ease infinite;
+  animation: impuls-bordo 2s ease infinite;
+}
+div.paty-bt-teen a:hover::after {
+  background: rgba(97, 41, 113, 0.3);
+  -webkit-box-shadow: inset 0 0 20px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 20px 5px rgba(0, 0, 0, 0.2);
+}
+div.paty-bt-teen a svg {
+  fill: #5ef6ff;
+}
+div.paty-bt-teen a:hover svg {
+  fill: #612971;
+}
+h4.ivt-t {
   font-size: 40px;
   font-family: 'Exo2-thin';
   font-weight: 100;
   text-align: center;
 }
-section.party div.ivents {
+h4.ivt-t-ad {
+  color: #ff5795;
+}
+h4.ivt-t-teen {
+  color: #612971;
+}
+div.ivts {
   width: 100%;
   height: auto;
   display: -webkit-box;
@@ -436,7 +571,7 @@ section.party div.ivents {
   justify-content: space-around;
   margin: 45px auto;
 }
-section.party div.ivents .ivent-box {
+div.ivts .ivt-box {
   width: 300px;
   height: 300px;
   margin: 20px;
@@ -446,7 +581,7 @@ section.party div.ivents .ivent-box {
   font-family: 'Russo';
   text-align: center;
 }
-section.party div.ivents .ivent-box .ivent-date {
+div.ivts .ivt-box .ivt-dat {
   width: 100px;
   height: 100px;
   display: -webkit-box;
@@ -473,19 +608,19 @@ section.party div.ivents .ivent-box .ivent-date {
   box-shadow: 0px 0px 35px 2px #ff5795;
   z-index: 3;
 }
-section.party div.ivents .ivent-box .ivent-date span:first-of-type {
+div.ivts .ivt-box .ivt-dat span:first-of-type {
   width: 100%;
   font-size: 50px;
   position: absolute;
   top: 10px;
 }
-section.party div.ivents .ivent-box .ivent-date span:last-of-type {
+div.ivts .ivt-box .ivt-dat span:last-of-type {
   width: 100%;
   font-size: 15px;
   position: absolute;
   bottom: 22px;
 }
-section.party div.ivents .ivent-box figure {
+div.ivts .ivt-box figure.ivt-inf {
   width: 300px;
   height: 300px;
   position: absolute;
@@ -495,35 +630,58 @@ section.party div.ivents .ivent-box figure {
   pointer-events: none;
   z-index: 2;
 }
-section.party div.ivents .ivent-box figure figcaption {
+div.ivts .ivt-box figure.ivt-inf figcaption {
   width: 300px;
   height: 110px;
   padding: 20px 51px 0;
   position: absolute;
   bottom: 0px;
   left: 0px;
-  color: #000000;
   font-size: 20px;
   text-align: center;
-  background: #ff5795;
   -webkit-transition: 0.3s ease-in-out;
   -o-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
   z-index: 1;
 }
-section.party div.ivents .ivent-box figure figcaption::after {
+div.ivts .ivt-box figure.ivt-inf figcaption::after {
   content: '';
   width: 100px;
   height: 12px;
   position: absolute;
   bottom: 20px;
   left: 50%;
-  background: center no-repeat url(../img/els/stars.svg);
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
 }
-section.party div.ivents .ivent-box:hover figcaption {
+div.ivts-ad .ivt-box .ivt-dat {
+  color: #612971;
+  background: #ff5795;
+  -webkit-box-shadow: 0px 0px 35px 2px #ff5795;
+  box-shadow: 0px 0px 35px 2px #ff5795;
+}
+div.ivts-ad .ivt-box figure.ivt-inf figcaption {
+  color: #000000;
+  background: #ff5795;
+}
+div.ivts-ad .ivt-box figure.ivt-inf figcaption::after {
+  background: center no-repeat url(../img/els/stars-b.svg);
+}
+div.ivts-teen .ivt-box .ivt-dat {
+  color: #ff5795;
+  background: #612971;
+  -webkit-box-shadow: 0px 0px 35px 2px #612971;
+  box-shadow: 0px 0px 35px 2px #612971;
+}
+div.ivts-teen .ivt-box figure.ivt-inf figcaption {
+  color: #ffffff;
+  background: #612971;
+}
+div.ivts-teen .ivt-box figure.ivt-inf figcaption::after {
+  background: center no-repeat url(../img/els/stars-w.svg);
+}
+:hover figcaption {
   height: 300px;
 }
 .slide {
@@ -581,24 +739,44 @@ section.party div.ivents .ivent-box:hover figcaption {
     transform: rotateZ(-4deg);
   }
 }
-@-webkit-keyframes impuls {
+@-webkit-keyframes impuls-rose {
   0% {
-    -webkit-box-shadow: 0 0 0px 1px #ff5795;
-    box-shadow: 0 0 0px 1px #ff5795;
+    -webkit-box-shadow: 0 0 0px 1px rgba(255, 87, 149, 0.7);
+    box-shadow: 0 0 0px 1px rgba(255, 87, 149, 0.7);
   }
   50% {
     -webkit-box-shadow: 0 0 20px 30px rgba(255, 87, 149, 0);
     box-shadow: 0 0 20px 30px rgba(255, 87, 149, 0);
   }
 }
-@keyframes impuls {
+@keyframes impuls-rose {
   0% {
-    -webkit-box-shadow: 0 0 0px 1px #ff5795;
-    box-shadow: 0 0 0px 1px #ff5795;
+    -webkit-box-shadow: 0 0 0px 1px rgba(255, 87, 149, 0.7);
+    box-shadow: 0 0 0px 1px rgba(255, 87, 149, 0.7);
   }
   50% {
     -webkit-box-shadow: 0 0 20px 30px rgba(255, 87, 149, 0);
     box-shadow: 0 0 20px 30px rgba(255, 87, 149, 0);
+  }
+}
+@-webkit-keyframes impuls-bordo {
+  0% {
+    -webkit-box-shadow: 0 0 0px 1px rgba(97, 41, 113, 0.7);
+    box-shadow: 0 0 0px 1px rgba(97, 41, 113, 0.7);
+  }
+  50% {
+    -webkit-box-shadow: 0 0 20px 30px rgba(97, 41, 113, 0);
+    box-shadow: 0 0 20px 30px rgba(97, 41, 113, 0);
+  }
+}
+@keyframes impuls-bordo {
+  0% {
+    -webkit-box-shadow: 0 0 0px 1px rgba(97, 41, 113, 0.7);
+    box-shadow: 0 0 0px 1px rgba(97, 41, 113, 0.7);
+  }
+  50% {
+    -webkit-box-shadow: 0 0 20px 30px rgba(97, 41, 113, 0);
+    box-shadow: 0 0 20px 30px rgba(97, 41, 113, 0);
   }
 }
 @media (max-width: 1200px) {
