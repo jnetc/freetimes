@@ -139,6 +139,7 @@ header h1 {
 }
 section.paty {
   height: auto;
+  padding-bottom: 50px;
   position: relative;
 }
 section.paty h2 {
@@ -167,20 +168,6 @@ section.paty h2::after {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
-section.paty svg.btm-str {
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  z-index: 5;
-}
-section.paty svg.btm-str-ad {
-  fill: #000000;
-  bottom: -190px;
-}
-section.paty svg.btm-str-teen {
-  fill: #5ef6ff;
-  bottom: -140px;
-}
 section.paty-ad {
   background: top center no-repeat #000000 url(../img/bgs/block_1-min.jpg);
 }
@@ -203,28 +190,28 @@ section.paty-teen h2::after {
   color: #612971;
   border-color: #612971;
 }
-div.paty-blocks {
+div.paty-bls {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
-div.paty-blocks article {
+div.paty-bls article {
   width: 50%;
   height: auto;
   display: block;
   position: relative;
 }
-div.paty-blocks article > img:last-of-type {
+div.paty-bls article > img:last-of-type {
   position: absolute;
   top: 0;
   left: -140px;
 }
-div.paty-blocks article:nth-of-type(2) {
+div.paty-bls article:nth-of-type(2) {
   margin-bottom: 150px;
   padding: 30px 35px 0;
 }
-div.paty-blocks article div.paty-box {
+div.paty-bls article div.paty-box {
   width: 410px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -454,6 +441,10 @@ div.paty-bt a::before {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+div.paty-bt a:hover::before {
+  -webkit-animation: impuls 2s ease infinite;
+  animation: impuls 2s ease infinite;
+}
 div.paty-bt a::after {
   content: '';
   width: 115px;
@@ -469,11 +460,10 @@ div.paty-bt a::after {
   -webkit-transition: 0.3s ease-in-out;
   -o-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
-  opacity: 1;
 }
 div.paty-bt a svg {
   width: 70px;
-  height: 66px;
+  height: 70px;
   display: block;
   position: absolute;
   top: 50%;
@@ -487,25 +477,25 @@ div.paty-bt a svg {
   z-index: 5;
 }
 div.paty-bt-ad a {
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(30%, rgba(255, 87, 149, 0)), to(#ff5795));
-  background: -webkit-linear-gradient(bottom, rgba(255, 87, 149, 0) 30%, #ff5795 100%);
-  background: -o-linear-gradient(bottom, rgba(255, 87, 149, 0) 30%, #ff5795 100%);
-  background: linear-gradient(to top, rgba(255, 87, 149, 0) 30%, #ff5795 100%);
-  -webkit-box-shadow: 0 9px 20px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 9px 20px rgba(0, 0, 0, 0.5);
-}
-div.paty-bt-ad a::after {
-  background: #ff5795;
-  border: 3px solid #ff5795;
-  -webkit-box-shadow: inset 0 0 20px 3px rgba(0, 0, 0, 0.5);
-  box-shadow: inset 0 0 20px 3px rgba(0, 0, 0, 0.5);
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, rgba(255, 87, 149, 0)), to(#ff5795));
+  background: -webkit-linear-gradient(bottom, rgba(255, 87, 149, 0) 50%, #ff5795 100%);
+  background: -o-linear-gradient(bottom, rgba(255, 87, 149, 0) 50%, #ff5795 100%);
+  background: linear-gradient(to top, rgba(255, 87, 149, 0) 50%, #ff5795 100%);
+  -webkit-box-shadow: 0 9px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 9px 15px rgba(0, 0, 0, 0.1);
 }
 div.paty-bt-ad a:hover::before {
   -webkit-animation: impuls-rose 2s ease infinite;
   animation: impuls-rose 2s ease infinite;
 }
+div.paty-bt-ad a::after {
+  background: #ff5795;
+  border: 3px solid #ff5795;
+  -webkit-box-shadow: inset 0 0 10px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 10px 3px rgba(0, 0, 0, 0.5);
+}
 div.paty-bt-ad a:hover::after {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: inset 0 0 20px 5px rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 0 20px 5px rgba(0, 0, 0, 0.2);
 }
@@ -520,23 +510,23 @@ div.paty-bt-teen a {
   background: -webkit-linear-gradient(bottom, rgba(97, 41, 113, 0) 50%, #612971 100%);
   background: -o-linear-gradient(bottom, rgba(97, 41, 113, 0) 50%, #612971 100%);
   background: linear-gradient(to top, rgba(97, 41, 113, 0) 50%, #612971 100%);
-  -webkit-box-shadow: 0 9px 20px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 9px 20px rgba(0, 0, 0, 0.3);
-}
-div.paty-bt-teen a::after {
-  background: #612971;
-  border: 3px solid #5ef6ff;
-  -webkit-box-shadow: inset 0 0 20px 3px rgba(0, 0, 0, 0.5);
-  box-shadow: inset 0 0 20px 3px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 9px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 9px 15px rgba(0, 0, 0, 0.1);
 }
 div.paty-bt-teen a:hover::before {
   -webkit-animation: impuls-bordo 2s ease infinite;
   animation: impuls-bordo 2s ease infinite;
 }
+div.paty-bt-teen a::after {
+  background: #612971;
+  border: 3px solid #5ef6ff;
+  -webkit-box-shadow: inset 0 0 10px 3px rgba(94, 246, 255, 0.5);
+  box-shadow: inset 0 0 10px 3px rgba(94, 246, 255, 0.5);
+}
 div.paty-bt-teen a:hover::after {
-  background: rgba(97, 41, 113, 0.3);
-  -webkit-box-shadow: inset 0 0 20px 5px rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0 0 20px 5px rgba(0, 0, 0, 0.2);
+  background: rgba(97, 41, 113, 0.2);
+  -webkit-box-shadow: inset 0 0 20px 5px rgba(94, 246, 255, 0.8);
+  box-shadow: inset 0 0 20px 5px rgba(94, 246, 255, 0.8);
 }
 div.paty-bt-teen a svg {
   fill: #5ef6ff;
@@ -569,12 +559,11 @@ div.ivts {
   -webkit-justify-content: space-around;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  margin: 45px auto;
 }
 div.ivts .ivt-box {
   width: 300px;
   height: 300px;
-  margin: 20px;
+  margin-top: 40px;
   position: relative;
   -webkit-border-radius: 50%;
   border-radius: 50%;
@@ -600,12 +589,8 @@ div.ivts .ivt-box .ivt-dat {
   position: absolute;
   top: -30px;
   left: 0;
-  color: #612971;
-  background: #ff5795;
   -webkit-border-radius: 50%;
   border-radius: 50%;
-  -webkit-box-shadow: 0px 0px 35px 2px #ff5795;
-  box-shadow: 0px 0px 35px 2px #ff5795;
   z-index: 3;
 }
 div.ivts .ivt-box .ivt-dat span:first-of-type {
@@ -637,8 +622,10 @@ div.ivts .ivt-box figure.ivt-inf figcaption {
   position: absolute;
   bottom: 0px;
   left: 0px;
+  color: #000000;
   font-size: 20px;
   text-align: center;
+  background: #ff5795;
   -webkit-transition: 0.3s ease-in-out;
   -o-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
@@ -654,6 +641,7 @@ div.ivts .ivt-box figure.ivt-inf figcaption::after {
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
+  z-index: 3;
 }
 div.ivts-ad .ivt-box .ivt-dat {
   color: #612971;
@@ -681,8 +669,18 @@ div.ivts-teen .ivt-box figure.ivt-inf figcaption {
 div.ivts-teen .ivt-box figure.ivt-inf figcaption::after {
   background: center no-repeat url(../img/els/stars-w.svg);
 }
-:hover figcaption {
-  height: 300px;
+svg.btm-str {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: -145px;
+  z-index: 50;
+}
+svg.btm-str-ad {
+  fill: #000000;
+}
+svg.btm-str-teen {
+  fill: #5ef6ff;
 }
 .slide {
   max-height: 700px !important;

@@ -1,6 +1,5 @@
 textolite/
 node_modules/
-less/
 resource/
 doc/
 img/bgs/original/
@@ -10,7 +9,6 @@ nginx.conf
 gulpfile.js
 package.json
 package-lock.json
-*.less
 *.rar
 *.zip
 *.7z

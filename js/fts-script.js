@@ -1,7 +1,7 @@
 window.onload = function () {
 
-  let moreBtn = document.querySelector('.btn-more');
-  let partyInfo = document.querySelector('.info');
+  let moreBtn = document.querySelector('.bt-mo');
+  let partyInfo = document.querySelector('.inf');
   // let winTop = document.body.offsetTop; // Начальная позиция тела
   let winTop = window.scrollY; // Начальная позиция тела
 
@@ -47,10 +47,10 @@ window.onload = function () {
     // Замена текста в кнопке
     if (this.classList.contains('pressed')) {
       this.innerHTML = "Свернуть";
-      toTop();
+      // toTop();
     } else {
       this.innerHTML = "Узнать больше";
-      toTop();
+      // toTop();
       // showTxt();
     }
   };
