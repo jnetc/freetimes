@@ -1,0 +1,353 @@
+// out: ../css/ivent.css, compress: false
+//////// Color
+@bg:  rgb(37,42,49);
+@box: rgb(55,58,66);
+@rose: rgb(254, 91, 154);
+@antrast: rgb(94, 246, 255);
+@bordo: rgb(114, 56, 104);
+@white: rgb(242, 242, 242);
+@black: rgb(0, 0, 0);
+
+// Ivents blocks
+.iv-blk {
+  width: 1200px;
+  margin: 0 auto 150px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
+  > svg {
+    width: 928px;
+    height: 1030px;
+    position: absolute;
+    &:nth-of-type(1) {
+      top: -185px;
+      left: -155px;
+      fill: @white;
+      transform: rotateZ(134deg);
+      z-index: 3;
+    }
+    &:nth-of-type(2) {
+      top: 80px;
+      left: -40px;
+      fill: @rose;
+      transform: rotateZ(-134deg);
+      z-index: 2;
+    }
+    &:nth-of-type(3) {
+      top: 0;
+      right: -180px;
+      fill: @bordo;
+      z-index: 1;
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+  }
+  > img {
+    position: absolute;
+    top: -70px;
+    right: 0;
+    z-index: 4;
+    @media (max-width: 1075px) {
+      display: none;
+    }
+  }
+  .iv-box {
+    width: 645px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    position: relative;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
+    z-index: 15;
+    @media ( max-width: 1075px) {
+      margin: auto;
+    }
+    @media (max-width: 768px) {
+      width: 96%;
+      justify-content: center;
+    }
+    >img {
+      width: 100%;
+      height: 330px;
+      background: no-repeat center;
+      background-size: cover;
+      object-fit: cover;
+    }
+    .iv-content {
+      padding-top: 100px;
+      position: relative;
+      background: @box;
+      @media (max-width: 480px) {
+        padding-top: 75px;
+      }
+      .iv-dat {
+        position: absolute;
+        top: -105px;
+        left: 50%;
+        color: @rose;
+        font-size: 1.5em;
+        font-family: 'Russo-fts';
+        text-transform: uppercase;
+        transform: translateX(-50%);
+        @media (max-width: 480px) {
+          top: -80px;
+        }
+        span {
+          padding: 7px 20px;
+          background: @box;
+        }
+        time {
+          font-size: 6.6em;
+          text-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
+          @media (max-width: 480px) {
+            font-size: 4.5em;
+          }
+        }
+      }
+      h3 {
+        max-width: 450px;
+        display: table;
+        padding: 8px 15px 8px 20px;
+        position: relative;
+        color: @black;
+        font-size: 2em;
+        font-family: 'Exo2-med-fts';
+        text-transform: uppercase;
+        background: @rose;
+        @media (max-width: 480px) {
+          max-width: 300px;
+          font-size: 1.8em;
+        }
+        &::after {
+          content: '';
+          width: 5px;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: -5px;
+          background: inherit;
+        }
+        &::before {
+          content: '';
+          width: 0;
+          height: 0;
+          position: absolute;
+          top: -7px;
+          left: -7px;
+          border-style: solid;
+          border-color: transparent transparent multiply(@rose, #999999) transparent;
+          border-width: 0 0 7px 7px;
+        }
+      }
+      >svg {
+        width: 70px;
+        display: flex;
+        margin: 40px auto 30px;
+        fill: @rose;
+      }
+      p {
+        padding: 0 60px;
+        color: @white;
+        font-size: 1.2em;
+        font-family: 'Exo2-lt-fts';
+        line-height: 25px;
+        @media (max-width: 480px) {
+          padding: 0 30px;
+        }
+      }
+      .bt-tag {
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        margin: 20px 0;
+        // Button
+        .iv-bt {
+          width: 55px;
+          height: 55px;
+          margin: auto auto auto 60px;
+          position: relative;
+          // background: @rose;
+          border-radius: 50%;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+          cursor: pointer;
+          @media (max-width: 480px) {
+            margin-left: 30px;
+          }
+          &::before {
+            content: '';
+            width: 25px;
+            height: 5px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background: @box;
+            transform: translate(-50%, -50%);
+          }
+          &::after {
+            content: '';
+            width: 25px;
+            height: 5px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background: @box;
+            transform: translate(-50%, -50%) rotateZ(90deg);
+          }
+        }
+        // Price
+        .iv-tag {
+          max-width: 150px;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          padding: 5px 20px 5px 30px;
+          position: relative;
+          color: @box;
+          font-family: 'Russo-fts';
+          text-align: center;
+          background: @rose;
+          border-top-left-radius: 50px;
+          border-bottom-left-radius: 50px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+          span {
+            &:first-child {
+              padding-bottom: 5px;
+              font-size: 1.2em;
+            }
+            &:last-child {
+              font-size: 2.5em;
+            }
+            sup {
+              font-family: 'Exo2-med-fts';
+            }
+          }
+
+          &::after {
+            content: '';
+            width: 5px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: -5px;
+            background: inherit;
+          }
+          &::before {
+            content: '';
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: -7px;
+            right: -7px;
+            border-style: solid;
+            border-color: transparent transparent transparent multiply(@rose, #999999);
+            border-width: 7px 0 0 7px;
+          }
+        }
+      } // end bt-tag
+      .iv-add {
+        width: 100%;
+        height: auto;
+        padding: 0 0 20px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        position: absolute;
+        bottom: 0;
+        background: @box;
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
+        transition: all 0.3s cubic-bezier(0.15, 0.87, 0.37, 0.94);
+        z-index: -1;
+        a {
+          width: 85px;
+          height: 85px;
+          margin: 5px;
+          position: relative;
+          border-radius: 50%;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0);
+          transition: all 0.3s ease-in-out;
+          &::after {
+            content: '';
+            width: 70px;
+            height: 70px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background: transparent;
+            border-radius: inherit;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            transform: translate(-50%, -50%);
+            transition: inherit;
+          }
+          &:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            &::after {
+              background: @rose;
+            }
+            svg {
+              fill: @box;
+            }
+          }
+          svg {
+            width: 45px;
+            height: 45px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            fill:  @rose;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+          }
+        }
+      }
+    } // end iv-content
+  } // end iv-box
+} //end iv-blk
+
+
+// JS classes
+.iv-bt {
+  background: @rose;
+}
+.pressed {
+  background: shade(@rose, 15%);
+  &::after {
+    display: none;
+  }
+}
+.animated {
+  opacity: 0;
+  a {
+    transform: scale(0.1);
+  }
+}
+.iv-soc-anim {
+  opacity: 1;
+  transform: translateY(110px);
+  a {
+    transform: scale(1);
+  }
+}
+
+// Hover classes
+// .hover {
+//   transition: all 0.3s cubic-bezier(0, 1.13, 0.57, 1.13);
+//   // transition: all 0.2s ease-in-out;
+//   &:hover {
+//     transform: scale(0.9);
+//     // background: @rose * 1.2 !important;
+//     // animation: btnAnim 0.5s ease forwards;
+//   }
+// }
+// @keyframes btnAnim {
+//   0% {transform: scale(0.7);}
+//   50% {transform: scale(1.2);}
+//   75% {transform: scale(0.9);}
+//   90% {transform: scale(1.1);}
+//   100% {transform: scale(1);}
+// }
+

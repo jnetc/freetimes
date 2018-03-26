@@ -1,0 +1,15 @@
+<svg id="star" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 141.6 36">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fe5b9a;
+      }
+    </style>
+  </defs>
+  <title>stars</title>
+  <g>
+    <polygon class="cls-1" points="18.9 0 23.4 13.7 37.8 13.7 26.1 22.2 30.6 36 18.9 27.5 7.2 36 11.7 22.2 0 13.7 14.4 13.7 18.9 0"/>
+    <polygon class="cls-1" points="70.8 0 75.3 13.7 89.7 13.7 78 22.2 82.5 36 70.8 27.5 59.1 36 63.6 22.2 51.9 13.7 66.3 13.7 70.8 0"/>
+    <polygon class="cls-1" points="122.7 0 127.2 13.7 141.6 13.7 129.9 22.2 134.4 36 122.7 27.5 111 36 115.5 22.2 103.8 13.7 118.2 13.7 122.7 0"/>
+  </g>
+</svg>
