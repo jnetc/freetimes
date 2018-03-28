@@ -1,21 +1,21 @@
-let ivAdd = document.querySelectorAll('.iv-add');
-let ivBtn = document.querySelectorAll('.iv-bt');
+let patyAdd = document.querySelectorAll('.paty-add');
+let patyBtn = document.querySelectorAll('.paty-bt');
 let numAdd = 1;
 let numBtn = 1;
 
 // Set attributes in animated block
-for (let attr of ivAdd) {
+for (let attr of patyAdd) {
   let attrAdd = attr.setAttribute("id", "tag"+numAdd);
   numAdd++;
 }
 // Set attributes buttons
-for (let attr of ivBtn) {
+for (let attr of patyBtn) {
   let attrBtn = attr.setAttribute("data-id", "tag"+numBtn);  
   numBtn++;
 }
   
 // Loop for buttons
-for (const btn of ivBtn) {    
+for (const btn of patyBtn) {    
   btn.onclick = () => {
     btn.classList.toggle('pressed');
     let btnId = btn.getAttribute('data-id');
@@ -23,14 +23,14 @@ for (const btn of ivBtn) {
     // loop for blocks
     let arrayAdd = []; // create empty array
     
-    for (let i = 0; i < ivAdd.length; i++) {    
-      let addId = ivAdd[i].getAttribute('id'); // getting attributes
+    for (let i = 0; i < patyAdd.length; i++) {    
+      let addId = patyAdd[i].getAttribute('id'); // getting attributes
       arrayAdd.push(addId); // puting in array
 
       // Check for validate
       if (btnId == arrayAdd[i]) {
         console.log('done');
-        ivAdd[i].classList.toggle('iv-soc-anim');  
+        patyAdd[i].classList.toggle('paty-soc-anim');  
       }
     }    
   }

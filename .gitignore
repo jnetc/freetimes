@@ -2,7 +2,7 @@ textolite/
 node_modules/
 resource/
 doc/
-old/
+**/old
 img/bgs/original/
 .ftpconfig
 .htaccess

@@ -1,0 +1,166 @@
+@bg:  rgb(37,42,49);
+@rose: rgb(254, 91, 154);
+@antrast: rgb(94, 246, 255);
+@bordo: rgb(114, 56, 104);
+@white: rgb(242, 242, 242);
+@black: rgb(0, 0, 0);
+
+	// Next events
+.next-blk {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+	// Box of event
+.next-box {
+	width: 370px;
+	height: 425px;
+	display: flex;
+	flex-direction: column;
+	margin: 15px;
+	position: relative;
+	overflow: hidden;
+	box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
+	@media (max-width: 480px) {
+		width: 96%;
+		margin: 15px;
+	}
+
+	&:hover figure::after {
+		background: fade(@bg, 85%);
+	}
+	&:hover .next-content {
+		transform: translate3d(0, 0px, 0);
+	}
+	&:hover h5 {
+		opacity: 0;
+	}
+	&:hover svg.next-str {
+		opacity: 0;
+	}
+	&:hover svg.next-arr {
+		opacity: 0;
+		animation: none;
+	}
+	&:hover p {
+		transform: translate3d(0, 0px, 0);
+	}
+}
+
+	// Poster of event
+figure {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	img {
+		width: inherit;
+		height: inherit;
+		background: no-repeat center;
+		background-size: cover;
+		object-fit: cover;
+	}
+	&::after {
+		content: '';
+		width: inherit;
+		height: inherit;
+		position: inherit;
+		top: inherit;
+		left: inherit;
+		background: fade(@bg, 50%);
+		transition: all 0.3s ease-in-out;
+	}
+}
+
+	// Date of event
+.next-date {
+	width: 270px;
+	height: 125px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	padding-bottom: 5px;
+	position: absolute;
+	top: -30px;
+	left: -100px;
+	background: @rose;
+	color: @bg;
+	font-family: 'Russo-fts';
+	font-size: 1em;
+	text-align: center;
+	line-height: 24px;
+	transform: rotateZ(-45deg);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
+	span {
+		padding-bottom: 5px;
+		font-size: 3.5em;
+	}
+}
+
+	// Next event content box for transform
+.next-content {
+	transition: all 0.5s cubic-bezier(0.96, 0.85, 0.18, 0.92);
+	transform: translate3d(0, 200px, 0);
+}
+
+	// Stars separator
+svg.next-str {
+  width: 70px;
+	display: flex;
+  margin: 10px auto;
+	fill: @white;
+	transition: all 0.3s ease-in-out;
+	order: 2;
+}
+
+	// Arrow element
+svg.next-arr {
+	width: 50px;
+	display: flex;
+	margin: 10px auto;
+	fill: @white;
+	transition: all 0.3s ease-in-out;
+	transform: translateY(30px);
+	order: 3;
+}
+
+// Caption events
+h5 {
+	display: flex;
+	padding: 0 60px 10px;
+	color: @white;
+	font-family: 'Russo-fts';
+	font-size: 2em;
+	text-align: center;
+	transition: all 0.3s ease-in-out;
+	order: 1;
+}
+p {
+	// width: auto;
+	height: 249px; //249
+	display: flex;
+	align-items: center;
+	padding: 0 40px 14px;
+	overflow: hidden;
+  color: @white;
+  font-size: 1.2em;
+  font-family: 'Exo2-lt-fts';
+  line-height: 25px;
+	text-overflow: ellipsis;
+	transition: all 0.3s ease-in-out; 
+	transform: translate3d(0, 60px, 0);
+	order: 4;
+  @media (max-width: 480px) {
+    padding: 0 20px;
+  }
+}
+@keyframes nextArrow {
+	25% {transform: translate3d(0, 10px, 0); opacity: 0;}
+	50% {transform: translate3d(0, -10px, 0); opacity: 0;}
+	75% {transform: translate3d(0, 0, 0); opacity: 1;}
+}
