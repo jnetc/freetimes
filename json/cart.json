@@ -5,13 +5,38 @@
 	"patyCap": "Дискотека Валентина",
 	"patyCont": [{
 			"graph1": "Расслабиться и получать удовольствие можно здесь.Окунуться в бурлящую ночную жизнь предлагает своим гостям ночной клуб «Дудка Валасянка».",
-			"graph2": "Ты полностью растворишьса в музыке и эмоциях в месте с виртуозным DJ Цветкоff. В этом заведении вы найдёте стильный интерьер,качественные свет и звук и богатый выбор проведения досуга, который поможет ...",
-			"graph3": "Расслабиться и получать удовольствие можно здесь.Окунуться в бурлящую ночную жизнь предлагает своим гостям ночной клуб «Дудка Валасянка». Ты полностью растворишьса в музыке и эмоциях в месте с виртуозным DJ Цветкоff. В этом заведении вы найдёте стильный интерьер,качественные свет и звук и богатый выбор проведения досуга, который поможет."
+			"graph2": "Ты полностью растворишьса в музыке и эмоциях в месте с виртуозным DJ Цветкоff."
 		}],
 	"patyPrice": "15",
 	"patyMap": "https://goo.gl/maps/Kmfpqg5reGF2",
 	"patyTel": "+358456578945",
-	"patySoc": "https://www.facebook.com/"
+	"patySoc": "https://www.facebook.com/",
+	"patyEvents": [{
+		"event1": [{
+			"eventPoster": "./img/events/event1.jpg",
+			"eventDate": "30",
+			"eventMonth": "сентября",
+			"eventCap": "Русская дискотека",
+			"eventBtn": "подробнее",
+			"eventCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere."
+		}],
+		"event2": [{
+			"eventPoster": "./img/events/event2.jpg",
+			"eventDate": "01",
+			"eventMonth": "октября",
+			"eventCap": "Туса на хеллоуин",
+			"eventBtn": "подробнее",
+			"eventCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni recusandae ullam dolorum."
+		}],
+		"event3": [{
+			"eventPoster": "./img/events/event3.jpg",
+			"eventDate": "31",
+			"eventMonth": "декабря",
+			"eventCap": "Новогодняя вечерина",
+			"eventBtn": "подробнее",
+			"eventCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni recusandae ullam dolorum, quibusdam voluptatibus atque at id nesciunt."
+		}]
+	}]
 },
 {
 	"patyImg": "./img/events/party1.jpg",
@@ -27,6 +52,31 @@
 	"patyPrice": "8",
 	"patyMap": "https://goo.gl/maps/Kmfpqg5reGF2",
 	"patyTel": "+335026578945",
-	"patySoc": "https://www.google.com/"
-}
-]
+	"patySoc": "https://www.google.com/",
+	"patyEvents": [{
+		"event1": [{
+			"eventPoster": "./img/events/event1.jpg",
+			"eventDate": "25",
+			"eventMonth": "сентября",
+			"eventCap": "Спектакль для малышей",
+			"eventBtn": "подробнее",
+			"eventCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere."
+		}],
+		"event2": [{
+			"eventPoster": "./img/events/event2.jpg",
+			"eventDate": "07",
+			"eventMonth": "октября",
+			"eventCap": "Выставка форума",
+			"eventBtn": "подробнее",
+			"eventCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni recusandae ullam dolorum."
+		}],
+		"event3": [{
+			"eventPoster": "./img/events/event3.jpg",
+			"eventDate": "14",
+			"eventMonth": "ноября",
+			"eventCap": "Модный показ 'Осенняя листва'",
+			"eventBtn": "подробнее",
+			"eventCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni recusandae ullam dolorum, quibusdam voluptatibus atque at id nesciunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni"
+		}]
+	}]
+}]

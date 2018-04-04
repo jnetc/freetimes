@@ -1,33 +1,27 @@
 @import "../less/_reset.less";
 
-//////// Color
+	//////// Color
 @bg:  rgb(37,42,49);
+@box: rgb(55,58,66);
 @rose: rgb(254, 91, 154);
 @antrast: rgb(94, 246, 255);
 @bordo: rgb(114, 56, 104);
 @white: rgb(242, 242, 242);
 @black: rgb(0, 0, 0);
 
-
-//////// Parametrs
-@w100: 100%;
-@pad10: 10px;
-@br: 50%;
-
-//////// Fonts
-
+	//////// Fonts
 @font-face {
 	font-family: 'Exo2-thin-fts';
 	src: url('../fonts/exo2-thin.woff') format('woff');
 	font-weight: 100;
 }
 @font-face {
-	font-family: 'Exo2-lt-fts';
+	font-family: 'Exo2-light-fts';
 	src: url('../fonts/exo2-light.woff') format('woff');
 	font-weight: 300;
 }
 @font-face {
-	font-family: 'Exo2-med-fts';
+	font-family: 'Exo2-medium-fts';
 	src: url('../fonts/exo2-medium.woff') format('woff');
 	font-weight: 500;
 }
@@ -36,17 +30,32 @@
 	src: url('../fonts/russoone.woff') format('woff');
 }
 
-//////////////////////////////////////////////////////
-//////// Навигация
+	//////// Parametrs
+
+@ti: all 0.3s ease-in-out;
+@tfX: translateX(-50%);
+@tfY: translateY(-50%);
+
+@russo: 'Russo-fts';
+@exo-l: 'Exo2-light-fts';
+@exo-t: 'Exo2-thin-fts';
+@exo-m: 'Exo2-medium-fts';
+
+p, li {
+	font-family: @exo-l;
+	display: block;
+}
+
+	//////// Навигация
 
 
 
 
-//////////////////////////////////////////////////////
-//////// Базовый блок
+
+	//////// Базовый блок
 
 body {
-	width: @w100;
+	width: 100%;
 	height: auto;
 	background: @bg;
 	header {
@@ -64,13 +73,14 @@ body {
 				left: 81%;
 				color: @white;
 				font-size: 1.6em;
-				font-family: 'Russo-fts';
+				font-family: @russo;
 				text-transform: uppercase;
 				transform: rotateZ(-45deg);
 			}
 		}
 	}
-	section.paty {
+		// all blocks
+	section {
 		overflow: hidden;
 		h2 {
 			width: 480px;
@@ -78,7 +88,7 @@ body {
 			padding: 145px 0 60px;
 			position: relative;
 			color: @white;
-			font-family: 'Russo-fts';
+			font-family: @russo;
 			font-size: 3.2em;
 			text-align: center;
 			text-transform: uppercase;
@@ -87,27 +97,27 @@ body {
 			@media (max-width: 480px) {
 				width: 100%;
 				font-size: 2.2em;
-
 			}
 		}
-
+	}
 		// event block
+	section.paty {	
 		@import "../less/_party-block.less";
 
-		// Ближайщие обытия
 		h4.next-evts {
 			margin: 50px auto;
 			color: @white;
 			font-size: 2.5em;
-			font-family: 'Exo2-thin-fts';
+			font-family: @exo-t;
 			font-weight: 100;
 			text-align: center;
 			text-transform: uppercase;
 		}
 
-		// event block
 		@import "../less/_next-events.less";
-		
+	}
+	section.courses {
+		@import "../less/_courses.less";
 	}
 } //end body
 

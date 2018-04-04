@@ -1,3 +1,4 @@
+//////// Color
 @bg:  rgb(37,42,49);
 @box: rgb(55,58,66);
 @rose: rgb(254, 91, 154);
@@ -6,7 +7,40 @@
 @white: rgb(242, 242, 242);
 @black: rgb(0, 0, 0);
 
-  // Events blocks and backgrounds images
+  //////// Fonts
+@font-face {
+  font-family: 'Exo2-thin-fts';
+  src: url('../fonts/exo2-thin.woff') format('woff');
+  font-weight: 100;
+}
+@font-face {
+  font-family: 'Exo2-light-fts';
+  src: url('../fonts/exo2-light.woff') format('woff');
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Exo2-medium-fts';
+  src: url('../fonts/exo2-medium.woff') format('woff');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Russo-fts';
+  src: url('../fonts/russoone.woff') format('woff');
+}
+
+  //////// Parametrs
+
+@ti: all 0.3s ease-in-out;
+@tfX: translateX(-50%);
+@tfY: translateY(-50%);
+
+@russo: 'Russo-fts';
+@exo-l: 'Exo2-light-fts';
+@exo-t: 'Exo2-thin-fts';
+@exo-m: 'Exo2-medium-fts';
+
+
+// Events blocks and backgrounds images
 .paty-blk {
   width: 1200px;
   margin: 0 auto 150px;
@@ -61,7 +95,7 @@
   height: auto;
   display: flex;
   flex-direction: column;
-  margin: 0 10px ;
+  margin: 0 10px 110px;
   position: relative;
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
   z-index: 15;
@@ -98,9 +132,9 @@
   left: 50%;
   color: @rose;
   font-size: 1.5em;
-  font-family: 'Russo-fts';
+  font-family: @russo;
   text-transform: uppercase;
-  transform: translateX(-50%);
+  transform: @tfX;
   @media (max-width: 480px) {
     top: -80px;
   }
@@ -125,7 +159,7 @@ h3 {
   position: relative;
   color: @black;
   font-size: 2em;
-  font-family: 'Exo2-med-fts';
+  font-family: @exo-m;
   text-transform: uppercase;
   background: @rose;
   @media (max-width: 480px) {
@@ -163,13 +197,15 @@ svg.stars {
 }
 
   // Content block
-li {
-  padding: 0 60px 14px;
+ul {
+  overflow: hidden;
   color: @white;
   font-size: 1.2em;
-  font-family: 'Exo2-lt-fts';
   line-height: 25px;
   text-overflow: ellipsis;
+}
+li {
+  padding: 0 60px 20px;
   @media (max-width: 480px) {
     padding: 0 30px;
   }
@@ -181,38 +217,59 @@ li {
   justify-content: space-between;
   align-content: center;
   margin: 20px 0;
-  // Button
-  .paty-bt {
+
+    // Buttons
+  .plus-bt, .more-bt {
     width: 55px;
     height: 55px;
-    margin: auto auto auto 60px;
     position: relative;
-    // background: @rose;
     border-radius: 50%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     cursor: pointer;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: @box;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: @box;
+    }
+  }
+  .plus-bt {
+    margin: auto auto auto 60px;
     @media (max-width: 480px) {
       margin-left: 30px;
     }
     &::before {
-      content: '';
-      width: 25px;
-      height: 5px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      background: @box;
-      transform: translate(-50%, -50%);
+      width: 22px;
+      height: 3px;
+      transform: @tfX @tfY;
     }
     &::after {
-      content: '';
-      width: 25px;
-      height: 5px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      background: @box;
-      transform: translate(-50%, -50%) rotateZ(90deg);
+      width: 22px;
+      height: 3px;
+      transform: @tfX @tfY rotateZ(90deg);
+      transition: @ti;
+    }
+  }
+  .more-bt {
+    margin: auto auto auto 0px;
+    transition: @ti;
+    &::before {
+      width: 18px;
+      height: 3px;
+      transform: translate(-20%, 0%) rotateZ(-45deg);
+    }
+    &::after {
+      width: 18px;
+      height: 3px;
+      transform: translate(-80%, 0%) rotateZ(45deg);
     }
   }
 
@@ -225,7 +282,7 @@ li {
     padding: 5px 20px 5px 30px;
     position: relative;
     color: @box;
-    font-family: 'Russo-fts';
+    font-family: @russo;
     text-align: center;
     background: @rose;
     border-top-left-radius: 50px;
@@ -240,7 +297,7 @@ li {
         font-size: 2.5em;
       }
       sup {
-        font-family: 'Exo2-med-fts';
+        font-family: @exo-m;
       }
     }
     &::after {
@@ -287,7 +344,7 @@ li {
     position: relative;
     border-radius: 50%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0);
-    transition: all 0.3s ease-in-out;
+    transition: @ti;
     &::after {
       content: '';
       width: 70px;
@@ -298,7 +355,7 @@ li {
       background: transparent;
       border-radius: inherit;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-      transform: translate(-50%, -50%);
+      transform: @tfX @tfY;
       transition: inherit;
     }
     &:hover {
@@ -306,43 +363,60 @@ li {
       &::after {
         background: @rose;
       }
-      svg {
+      .icon-svg {
         fill: @box;
       }
     }
-    svg {
-      width: 45px;
-      height: 45px;
+    .icon-svg {
+      width: 37px;
+      height: 37px;
       position: absolute;
       top: 50%;
       left: 50%;
       fill:  @rose;
-      transform: translate(-50%, -50%);
+      transform: @tfX @tfY;
       z-index: 2;
+      use #fbk {
+        height: 175px;
+      }
     }
   }
 }
 
   // JS classes
-.paty-bt {
+.plus-bt, .more-bt {
   background: @rose;
 }
-.pressed {
+
+.pressed-more, .pressed-plus {
   background: shade(@rose, 15%);
+}
+.pressed-plus {
   &::after {
-    display: none;
+    opacity: 0;
   }
 }
+.pressed-more {
+  transform: rotateZ(180deg);
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.5) !important;
+}
+
 .animated {
   opacity: 0;
   a {
     transform: scale(0.1);
   }
 }
-.paty-soc-anim {
+.action {
   opacity: 1;
   transform: translateY(110px);
   a {
     transform: scale(1);
   }
+}
+.show {
+  display: block;
+}
+.hide {
+  display:none;
 }
