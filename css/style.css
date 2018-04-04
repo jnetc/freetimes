@@ -947,7 +947,7 @@ body section.courses .crs-dat {
   flex: 0 1 200px;
   margin: 0px auto;
 }
-body section.courses .crs-day {
+body section.courses .crs-cls {
   padding: 4px 7px;
   position: absolute;
   top: -15px;
@@ -1191,9 +1191,6 @@ body section.courses .for-price .crs-tip {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -1253,6 +1250,11 @@ body section.courses .for-price .crs-price::before {
   border-style: solid;
   border-color: transparent transparent transparent #98375c;
   border-width: 7px 0 0 7px;
+}
+button {
+  position: relative;
+  display: block;
+  margin: 55px auto;
 }
 @-webkit-keyframes impuls-rose {
   0% {
