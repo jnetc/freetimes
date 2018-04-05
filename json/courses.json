@@ -11,7 +11,7 @@
 	"Period": "месячный абонимент",
 	"Price": "15",
 	"Btns": [{
-		"map": "https://goo.gl/maps/Kmfpqg5reGF2",
+		"geo": "https://goo.gl/maps/Kmfpqg5reGF2",
 		"mail": "google@mail.com"
 	}]
 },
@@ -29,7 +29,7 @@
 	"Period": "бесплатно",
 	"Price": "0",
 	"Btns": [{
-		"map": "https://goo.gl/maps/Kmfpqg5reGF2",
+		"geo": "https://goo.gl/maps/Kmfpqg5reGF2",
 		"tel": "+358456578945",
 		"mail": "google@mail.com"
 	}]
@@ -47,9 +47,9 @@
 	"Period": "стоимость курса",
 	"Price": "55",
 	"Btns": [{
-		"map": "https://goo.gl/maps/Kmfpqg5reGF2",
-		"tel": "+358456578945",
-		"mail": "google@mail.com",
+		"geo": "https://goo.gl/maps/Kmfpqg5reGF2",
+		"vk": "https://www.vk.com/",
+		"twitter": "https://www.twitter.com/",
 		"facebook": "https://www.facebook.com/"
 	}]
 },
@@ -66,7 +66,7 @@
 	"Period": "стоимость в месяц",
 	"Price": "35",
 	"Btns": [{
-		"map": "https://goo.gl/maps/Kmfpqg5reGF2",
+		"geo": "https://goo.gl/maps/Kmfpqg5reGF2",
 		"tel": "+358456578945",
 		"mail": "google@mail.com",
 		"facebook": "https://www.facebook.com/",
@@ -85,7 +85,7 @@
 	"Period": "стоимость курса",
 	"Price": "55",
 	"Btns": [{
-		"map": "https://goo.gl/maps/Kmfpqg5reGF2",
+		"geo": "https://goo.gl/maps/Kmfpqg5reGF2",
 		"tel": "+358456578945",
 		"mail": "google@mail.com",
 		"facebook": "https://www.facebook.com/"
@@ -104,7 +104,7 @@
 	"Period": "стоимость курса",
 	"Price": "55",
 	"Btns": [{
-		"map": "https://goo.gl/maps/Kmfpqg5reGF2",
+		"geo": "https://goo.gl/maps/Kmfpqg5reGF2",
 		"tel": "+358456578945",
 		"mail": "google@mail.com",
 		"facebook": "https://www.facebook.com/"
@@ -123,7 +123,7 @@
 	"Period": "стоимость курса",
 	"Price": "55",
 	"Btns": [{
-		"map": "https://goo.gl/maps/Kmfpqg5reGF2",
+		"geo": "https://goo.gl/maps/Kmfpqg5reGF2",
 		"tel": "+358456578945",
 		"mail": "google@mail.com",
 		"facebook": "https://www.facebook.com/"
@@ -141,7 +141,7 @@
 	"Period": "стоимость курса",
 	"Price": "55",
 	"Btns": [{
-		"map": "https://goo.gl/maps/Kmfpqg5reGF2",
+		"geo": "https://goo.gl/maps/Kmfpqg5reGF2",
 		"tel": "+358456578945",
 		"mail": "google@mail.com",
 		"facebook": "https://www.facebook.com/"
@@ -161,7 +161,7 @@
 	"Period": "стоимость курса",
 	"Price": "55",
 	"Btns": [{
-		"map": "https://goo.gl/maps/Kmfpqg5reGF2",
+		"geo": "https://goo.gl/maps/Kmfpqg5reGF2",
 		"tel": "+358456578945",
 		"mail": "google@mail.com",
 		"facebook": "https://www.facebook.com/"
@@ -180,7 +180,7 @@
 	"Period": "стоимость курса",
 	"Price": "55",
 	"Btns": [{
-		"map": "https://goo.gl/maps/Kmfpqg5reGF2",
+		"geo": "https://goo.gl/maps/Kmfpqg5reGF2",
 		"tel": "+358456578945",
 		"mail": "google@mail.com",
 		"facebook": "https://www.facebook.com/"
@@ -199,7 +199,7 @@
 	"Period": "стоимость курса",
 	"Price": "55",
 	"Btns": [{
-		"map": "https://goo.gl/maps/Kmfpqg5reGF2",
+		"geo": "https://goo.gl/maps/Kmfpqg5reGF2",
 		"tel": "+358456578945",
 		"mail": "google@mail.com",
 		"facebook": "https://www.facebook.com/"
