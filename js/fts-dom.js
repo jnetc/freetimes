@@ -80,8 +80,9 @@ coursesData.open("GET", "../json/courses.json", true);
 coursesData.onreadystatechange = function () {
   if (this.readyState == 4 && this.status == 200) {
   let crsParse = JSON.parse(coursesData.responseText);
-    renderCourses(crsParse);
-    // console.log(crsParse);
+    renderDom(crsParse);
+    renderLi(crsParse);
+    renderBtns(crsParse);
     // let btnJsonParse = document.querySelector('#btJsonParse');
     // btnJsonParse.addEventListener('click', function () {
     //   let crsBnt = renderCourses(crsParse);   
@@ -90,65 +91,54 @@ coursesData.onreadystatechange = function () {
 };
 coursesData.send();
 
+  //Create DOM courses boxes
+let renderDom = dom => {
+  dom.forEach(function (item, i, dom) {
+    let mainHtml = '';
+    coursesDom.innerHTML +=
+    `<div class="flex-crs">
+      <div class="crs-dat">
+        <span class="crs-cls">${item.Cls}</span> 
+        <img src="${item.Img}" alt="courses">
+      </div>
+      <div class="crs-cont">
+        <h4 class="crs-name">${item.Name}</h4>
+        <ul class="crs-graphs"></ul>
+      </div>
+      <div class="crs-opt">
+        <div class="crs-btns"></div>
+        <div class="for-price">
+          <span class="crs-tip">${item.Period}</span>
+          <span class="crs-price">${item.Price}<sup>€</sup></span>
+        </div>
+      </div>
+    </div>`;
+  });
+}
 
-let renderCourses = crs => {
-  keyArr = [];
-  for (let key in crs) {
-    // console.log(key);
-    keyArr.push(key);
-        // Create main DOM of courses
-      coursesDom.innerHTML += 
-      `<div class="flex-crs">
-        <div class="crs-dat">
-          <span class="crs-cls">${crs[key].Cls}</span> 
-          <img src="${crs[key].Img}" alt="courses">
-        </div>
-        <div class="crs-cont">
-          <h4 class="crs-name">${crs[key].Name}</h4>
-          <ul class="crs-graphs"></ul>
-        </div>
-        <div class="crs-opt">
-          <div class="crs-btns"></div>
-          <div class="for-price">
-            <span class="crs-tip">${crs[key].Period}</span>
-            <span class="crs-price">${crs[key].Price}<sup>€</sup></span>
-          </div>
-        </div>
-      </div>`;
-    
-      // Create course paragraphs
-    let coursesList = document.querySelectorAll('.crs-graphs');
-    let coursesTxt = crs[key].Txt[0]; // Get obj paragraphs from JSON
-    let listArr = []; // Array
-    for (let i = 0; i < coursesList.length; i++) {
-      listArr.push(i);
-      if (listArr[i] == keyArr[key]) {
-        for (let paragraph in coursesTxt) {
-          coursesList[i].innerHTML += `<li>${coursesTxt[paragraph]}</li>`;
-        }
-      }
+  // Create course paragraphs
+let renderLi = getList => {
+  let coursesList = document.querySelectorAll('.crs-graphs');
+  getList.forEach(function (parag, i, getList) {
+    for (let key in parag.Txt[0]) {
+      coursesList[i].innerHTML += `<li>${parag.Txt[0][key]}</li>`;
     }
-      // Create social icons
-    let coursesBtns = document.querySelectorAll('.crs-btns');
-    let coursesSocBtns = crs[key].Btns[0]; // Get obj btns from JSON
-    let btnArr = []; // Array
-    for (let i = 0; i < coursesBtns.length; i++) {
-      btnArr.push(i);
-      if (btnArr[i] == keyArr[key]) {
-        for (let contactBtn in coursesSocBtns) {
-          // console.log(contactBtn);
-          coursesBtns[i].innerHTML += 
-          `<a href="${coursesSocBtns[contactBtn]}">
-            <svg role="img" class="crs-svg">
-              <use xlink:href="./img/icons/icons.svg#${contactBtn}"></use>
-            </svg>
-          </a>`;
-        }
-      }
-    }  
-  }
-  // console.log(keyArr);
-  
+  });
+}
+
+  // Create course paragraphs
+let renderBtns = getButtons => {
+  let coursesButtons = document.querySelectorAll('.crs-btns');
+  getButtons.forEach(function (btns, i, getButtons) {
+    for (let btn in btns.Btns[0]) {
+      coursesButtons[i].innerHTML += 
+      `<a href="${btns.Btns[0][btn]}">
+          <svg role="img" class="crs-svg">
+            <use xlink:href="./img/icons/icons.svg#${btn}"></use>
+        </svg>
+      </a>`;
+    }
+  });
 }
 
 let x = 0;
@@ -156,8 +146,14 @@ let getNum = () => x += 10;
 let btnJsonParse = document.querySelector('#btJsonParse');
 btnJsonParse.addEventListener('click', function () {
   z =  getNum();
+  if (z < 22) {
+    console.log( z );
+  }
+  else {
+    console.log( 'done' );
+  }
 
-  console.log( z );
+  
 }); 
 
 
