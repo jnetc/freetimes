@@ -1,14 +1,13 @@
-let patyImgEl = document.querySelectorAll('.paty-box'), // Add poster image
+let patyBox = document.querySelectorAll('.paty-box'), // Add poster image
     patyDateEls = document.querySelectorAll('.paty-dat'), // Add data, time and caption
-    patyContEl = document.querySelectorAll('.paty-text'), // Add event text paragraph
+    patyContEl = document.querySelectorAll('.paty-content'),
+    patyParagEl = document.querySelectorAll('.paty-text'), // Add event text paragraph
     patyPriceEl = document.querySelectorAll('.paty-tag'), // Add event price
-    patyLinkMap = document.querySelectorAll('.link-map'), // Create event links
-    patyLinkTel = document.querySelectorAll('.link-tel'), // ---
-    patyLinkSoc = document.querySelectorAll('.link-soc'), // ---
+    patyAddBtn = document.querySelectorAll('.paty-add'), // Create event links
     nextBlocks = document.querySelectorAll('.next-blk'), // Dynamically generate next event boxes
     coursesDom = document.querySelector('.courses'); // Dynamically generate courses
 
-  // Create new object for events
+  // CREATE NEW OBJECT FOR EVENTS
 let eventsData = new XMLHttpRequest();
   //  open( type, url/file, asunc);
 eventsData.open("GET", "../json/cards.json", true);
@@ -16,65 +15,96 @@ eventsData.onreadystatechange = function () {
   if (this.readyState == 4 && this.status == 200) {
     let evenParse = JSON.parse(eventsData.responseText);
     renderEvents(evenParse);
+    renderParagraphs(evenParse);
+    renderComingEvents(evenParse);
+    renderContactBtn(evenParse);
+    addEventBtnVal(evenParse);
   }
 };
 // send request
 eventsData.send();
 
+  // Create main dynamic elements
 let renderEvents = data => {
-  
-  keyArr = []; // Create empty array
-  for (let key in data) {
-    // console.log(data[key].patyEvents[0]);
-    keyArr.push(key); // Putting value in array
-
-    let iArrKey = []; // Create empty array
-    for (let i = 0; i < patyImgEl.length; i++) { // Putting any selector in loop, because it's same length
-      iArrKey.push(i); // Putting value in array
-      
-      if (keyArr[key] == iArrKey[i]) {
-        // insertAdjacentHTML ('position',  'text')
-        patyImgEl[i].insertAdjacentHTML('afterbegin', `<img src="${data[key].patyImg}" alt="patyent">`)
-        patyDateEls[i].insertAdjacentHTML('afterbegin', `<span>${data[key].patyDate}</span>`)
-        patyDateEls[i].insertAdjacentHTML('beforeend', `<time>${data[key].patyTime}</time>`)
-        patyDateEls[i].insertAdjacentHTML('afterend', `<h3>${data[key].patyCap}</h3>`)
-        
-          // Loop for paragraphs array
-        let contentText = data[key].patyCont[0];
-        // console.log(contentText);
-        
-          for (let paragraph in contentText) {
-            patyContEl[i].setAttribute("style", "height: 345px");
-            patyContEl[i].innerHTML += `<li class="liTxt">${contentText[paragraph]}</li>`
-          }
-
-        patyPriceEl[i].insertAdjacentHTML('beforeend', `<span>${data[key].patyPrice}<sup>€</sup></span>`)
-        patyLinkMap[i].href = `${data[key].patyMap}` // Change just link in tag 'a' 
-        patyLinkTel[i].href = `tel:${data[key].patyTel}`
-        patyLinkSoc[i].href = `${data[key].patySoc}`
-        
-          // EVENT BOXES
-        let eventsEl = data[key].patyEvents[0];
-        for (let eventNum in eventsEl) {
-          nextBlocks[i].innerHTML += `
-          <div class="next-box">
-            <span class="next-date">
-              <span>${eventsEl[eventNum][0].eventDate}</span>${eventsEl[eventNum][0].eventMonth}
-            </span>
-            <figure>
-              <img src="${eventsEl[eventNum][0].eventPoster}" alt="next event">
-            </figure>
-            <h5>${eventsEl[eventNum][0].eventCap}</h5>
-            <span class="next-btn">${eventsEl[eventNum][0].eventBtn}</span>
-            <p>${eventsEl[eventNum][0].eventCont}</p> 
-          </div>`
-        }
-      } 
-    }
-  }
+  data.forEach((item, i, data) => {
+    patyBox[i].insertAdjacentHTML('afterbegin',
+      `<img src="${item.img}" alt="poster" title="poster">`)
+    patyDateEls[i].insertAdjacentHTML('afterbegin',
+      `<span>${item.date}</span>
+       <time>${item.time}</time>`)
+    patyContEl[i].insertAdjacentHTML('afterbegin',
+      `<h3>${item.capt}</h3>`)
+    patyPriceEl[i].insertAdjacentHTML('beforeend',
+      `<span>${item.price}<sup>€</sup></span>`)
+  })
 }
 
-  // Create new object for courses
+  // Create Paragraphs
+let renderParagraphs = getList => {
+  getList.forEach((item, i, getList) => {
+    for (let graph in item.text[0]) {
+      patyParagEl[i].setAttribute("style", "height: 200px");
+      patyParagEl[i].innerHTML += `<li class="liTxt">${item.text[0][graph]}</li>`
+    }
+  })
+}
+  // Create event contact buttons
+let renderContactBtn = getButtons => {
+  getButtons.forEach((item, i, getButtons) => {
+    let btnCreate = '';
+    for (let btn in item.btns[0]) {
+      btnCreate += 
+      `<a href="${item.btns[0][btn]}" title="${item.btns[0][btn]}">
+          <svg role="img" class="icon-svg">
+            <use xlink:href="./img/icons/icons.svg#${btn}"></use>
+        </svg>
+      </a>`;
+    }
+    patyAddBtn[i].innerHTML = btnCreate; 
+  })
+}
+
+  // Create event extra adds for contact buttons
+let addEventBtnVal = extAdds => {
+  extAdds.forEach((btns, i, extAdds) => {
+    let eventBtnAdd = patyAddBtn[i].querySelectorAll('a');
+    eventBtnAdd.forEach((add, j, eventBtnAdd) => {
+        // Take value form title
+      let titleVal = add.getAttribute('title');
+        // Add 'mailto' to mail links
+      if (titleVal.search("@") != -1) {
+        add.href = 'mailto:' + btns.btns[0].mail;
+      }
+      // Add 'tel' to phone links
+      if (titleVal.search("358") != -1) {
+        add.href = 'tel:' + btns.btns[0].tel;        
+      } 
+    })
+  })
+}
+
+  // Create coming events
+let renderComingEvents = data => {
+  data.forEach((item, i, data) => {
+    const eventsObj = data[i].events[0];
+    let eventsDom = '';
+    for ( let eventNum in eventsObj) {
+      eventsDom += `
+      <div class="next-box" style="background-image: url(${eventsObj[eventNum][0].eventPoster})">
+        <span class="next-date">
+          <span>${eventsObj[eventNum][0].eventDate}</span>${eventsObj[eventNum][0].eventMonth}
+        </span>
+        <h5>${eventsObj[eventNum][0].eventCap}</h5>
+        <span class="next-btn">${eventsObj[eventNum][0].eventBtn}</span>
+        <p>${eventsObj[eventNum][0].eventCont}</p> 
+      </div>`
+    }
+    nextBlocks[i].innerHTML = eventsDom;
+  })
+}
+
+
+  // CREATE NEW OBJECT FOR COURSES
 let coursesData = new XMLHttpRequest();
 coursesData.open("GET", "../json/courses.json", true);
 coursesData.onreadystatechange = function () {
@@ -83,23 +113,20 @@ coursesData.onreadystatechange = function () {
     renderDom(crsParse);
     renderLi(crsParse);
     renderBtns(crsParse);
-    // let btnJsonParse = document.querySelector('#btJsonParse');
-    // btnJsonParse.addEventListener('click', function () {
-    //   let crsBnt = renderCourses(crsParse);   
-    // });  
+    addExtraVal(crsParse);
   }
 };
 coursesData.send();
 
   //Create DOM courses boxes
-let renderDom = dom => {
-  dom.forEach(function (item, i, dom) {
-    let mainHtml = '';
-    coursesDom.innerHTML +=
+let renderDom = data => {
+  let mainBox = '';
+  data.forEach((item, i, data) => {
+    mainBox +=
     `<div class="flex-crs">
       <div class="crs-dat">
         <span class="crs-cls">${item.Cls}</span> 
-        <img src="${item.Img}" alt="courses">
+        <img src="${item.Img}" alt="courses" title="poster">
       </div>
       <div class="crs-cont">
         <h4 class="crs-name">${item.Name}</h4>
@@ -114,46 +141,52 @@ let renderDom = dom => {
       </div>
     </div>`;
   });
+  coursesDom.innerHTML += mainBox;
 }
 
   // Create course paragraphs
 let renderLi = getList => {
   let coursesList = document.querySelectorAll('.crs-graphs');
-  getList.forEach(function (parag, i, getList) {
-    for (let key in parag.Txt[0]) {
-      coursesList[i].innerHTML += `<li>${parag.Txt[0][key]}</li>`;
-    }
+  getList.forEach((parag, i, getList) => {
+      for (let key in parag.Txt[0]) {
+        coursesList[i].innerHTML += `<li>${parag.Txt[0][key]}</li>`;
+      }
   });
 }
 
   // Create course paragraphs
 let renderBtns = getButtons => {
   let coursesButtons = document.querySelectorAll('.crs-btns');
-  getButtons.forEach(function (btns, i, getButtons) {
-    for (let btn in btns.Btns[0]) {
-      coursesButtons[i].innerHTML += 
-      `<a href="${btns.Btns[0][btn]}">
-          <svg role="img" class="crs-svg">
-            <use xlink:href="./img/icons/icons.svg#${btn}"></use>
-        </svg>
-      </a>`;
-    }
-  });
+  getButtons.forEach((btns, i, getButtons) => {
+    let buttonsDom = '';
+      for (let btn in btns.Btns[0]) {
+        buttonsDom += 
+        `<a href="${btns.Btns[0][btn]}" title="${btns.Btns[0][btn]}">
+            <svg role="img" class="crs-svg">
+              <use xlink:href="./img/icons/icons.svg#${btn}"></use>
+          </svg>
+        </a>`;
+      }
+      coursesButtons[i].innerHTML = buttonsDom;     
+  });  
 }
 
-let x = 0;
-let getNum = () => x += 10;
-let btnJsonParse = document.querySelector('#btJsonParse');
-btnJsonParse.addEventListener('click', function () {
-  z =  getNum();
-  if (z < 22) {
-    console.log( z );
-  }
-  else {
-    console.log( 'done' );
-  }
-
-  
-}); 
-
-
+  // Create event extra adds for contact buttons
+let addExtraVal = extAdds => {
+  let coursesButtons = document.querySelectorAll('.crs-btns');
+  extAdds.forEach((btns, i, extAdds) => {
+    let specialAdd = coursesButtons[i].querySelectorAll('a');
+    specialAdd.forEach((add, j, specialAdd) => {
+        // Take value form title
+      let titleVal = add.getAttribute('title');
+        // Add 'mailto' to mail links
+      if (titleVal.search("@") != -1) {
+        add.href = 'mailto:' + btns.Btns[0].mail;
+      }
+      // Add 'tel' to phone links
+      if (titleVal.search("358") != -1) {
+        add.href = 'tel:' + btns.Btns[0].tel;        
+      } 
+    })
+  })
+}

@@ -21,7 +21,8 @@ window.onload = () => {
     
     // Loop for button "plus contact"
   for (const btn of plusBts) {    
-    btn.onclick = () => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
       btn.classList.toggle('pressed-plus');
       let btnId = btn.getAttribute('data-id');
       
@@ -38,26 +39,24 @@ window.onload = () => {
           patyAdd[i].classList.toggle('action');  
         }
       }    
-    }
+    })
   }
 
     // Loop for button "more info"
   for (let i = 0; i < contents.length; i++) {
      
     let contHeight  = contents[i].offsetHeight;  // Content height
-    let contChild   = contents[i].childNodes; // Content paragraph child
-
+    let contChild   = contents[i].children; // Content paragraph child
       // Divide height paragraphs
     paragArr = [];
     for (let j = 0; j < contChild.length; j++) {
-      let paragHeigths = contChild[j].offsetHeight;
+      let paragHeigths = contChild[j].offsetHeight;    
       paragArr.push(paragHeigths);
     }
       // Math height paragraps
     let paragSum = paragArr.reduce( (a, b) => {return a + b;})
 
     for (let k = 0; k < moreBts.length; k++) {
-
         // ToDo if paragraphs more than 435px or not
       if (contHeight < paragSum && i == k) {
         moreBts[k].onclick = () => {
@@ -80,15 +79,14 @@ window.onload = () => {
 
     // Show events info
   for (let q = 0; q < eventBox.length; q++) {
-    eventBox[q].onclick = () => {
-      eventBox[q].classList.toggle('show-info');
-    }
-    eventBox[q].onmouseleave = () => {
+    let eventBoxBnt = eventBox[q].querySelector('.next-btn');   
+    eventBoxBnt.addEventListener('click', e => {
+      e.preventDefault();    
+      eventBox[q].classList.add('show-info');
+    })
+    eventBox[q].addEventListener('mouseleave', e => {
+      e.preventDefault();
       eventBox[q].classList.remove('show-info');
-    }
-  }  
+    })
+  } 
 }
-
-
-
-

@@ -6,6 +6,7 @@ doc/
 img/bgs/original/
 .ftpconfig
 .htaccess
+.vscode/
 nginx.conf
 gulpfile.js
 package.json

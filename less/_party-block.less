@@ -43,7 +43,7 @@
 // Events blocks and backgrounds images
 .paty-blk {
   width: 1200px;
-  margin: 0 auto 150px;
+  margin: 0 auto 20px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -95,12 +95,12 @@
   height: auto;
   display: flex;
   flex-direction: column;
-  margin: 0 10px 110px;
+  margin: 110px 10px 110px;
   position: relative;
-  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   z-index: 15;
   @media ( max-width: 1075px) {
-    margin: 0 auto 110px;
+    margin: 110px auto 110px;
   }
   @media (max-width: 768px) {
     width: 96%;
@@ -117,33 +117,37 @@
 
   // All block's event elem's without poster 
 .paty-content {
-  padding-top: 100px;
+  // padding-top: 100px;
   position: relative;
   background: @box;
   @media (max-width: 480px) {
-    padding-top: 75px;
+    // padding-top: 75px;
   }
 }
 
   // Date and time of event
 .paty-dat {
+  padding: 10px 15px;
   position: absolute;
-  top: -105px;
+  top: 90px;
   left: 50%;
   color: @rose;
   font-size: 1.5em;
   font-family: @russo;
   text-transform: uppercase;
+  background: fade(@bg, 80%);
+  border-radius: 30px;
   transform: @tfX;
   @media (max-width: 480px) {
-    top: -80px;
+    // top: -80px;
   }
   span {
-    padding: 7px 20px;
-    background: @box;
+    display: flex;
+    position: relative;
+    top: 10px;
   }
   time {
-    font-size: 6.6em;
+    font-size: 128px;
     text-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
     @media (max-width: 480px) {
       font-size: 4.5em;
@@ -162,6 +166,7 @@ h3 {
   font-family: @exo-m;
   text-transform: uppercase;
   background: @rose;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   @media (max-width: 480px) {
     max-width: 300px;
     font-size: 1.8em;
@@ -224,7 +229,6 @@ li {
     height: 55px;
     position: relative;
     border-radius: 50%;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     cursor: pointer;
     &::before {
       content: '';
@@ -338,42 +342,23 @@ li {
   transition: all 0.3s cubic-bezier(0.15, 0.87, 0.37, 0.94);
   z-index: -1;
   a {
-    width: 85px;
-    height: 85px;
+    width: 60px;
+    height: 60px;
     margin: 5px;
     position: relative;
     border-radius: 50%;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0);
+    border: 2px solid fade(@rose, 50%);
     transition: @ti;
-    &::after {
-      content: '';
-      width: 70px;
-      height: 70px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      background: transparent;
-      border-radius: inherit;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-      transform: @tfX @tfY;
-      transition: inherit;
-    }
     &:hover {
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-      &::after {
-        background: @rose;
-      }
-      .icon-svg {
-        fill: @box;
-      }
+      border-color: @white;
     }
     .icon-svg {
-      width: 37px;
-      height: 37px;
+      width: 32px;
+      height: 32px;
       position: absolute;
       top: 50%;
       left: 50%;
-      fill:  @rose;
+      fill:  fade(@rose, 80%);
       transform: @tfX @tfY;
       z-index: 2;
       use #fbk {
@@ -398,7 +383,6 @@ li {
 }
 .pressed-more {
   transform: rotateZ(180deg);
-  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.5) !important;
 }
 
 .animated {
@@ -409,7 +393,7 @@ li {
 }
 .action {
   opacity: 1;
-  transform: translateY(110px);
+  transform: translateY(90px);
   a {
     transform: scale(1);
   }
