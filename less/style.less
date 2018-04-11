@@ -35,16 +35,62 @@
 @ti: all 0.3s ease-in-out;
 @tfX: translateX(-50%);
 @tfY: translateY(-50%);
+@gap: 15px;
 
 @russo: 'Russo-fts';
 @exo-l: 'Exo2-light-fts';
 @exo-t: 'Exo2-thin-fts';
 @exo-m: 'Exo2-medium-fts';
 
+	// Font size Fibonacci
+@fs-128: 128px; 
+@fs-79: 79px;
+@fs-50: 50px;
+@fs-40: 40px;
+@fs-30: 30px;
+@fs-18: 18px;
+@fs-15: 15px;
+
+h1, h2 {
+	font-family: @russo;
+	text-align: center;
+}
+h1, h2, h4, h5, h6, li, p {
+	color: @white;
+}
 p, li {
 	font-family: @exo-l;
 	display: block;
 }
+sup, h5, h6 {
+	font-family: @exo-m;
+}
+.absCenter {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: @tfX @tfY;
+}
+.absLeft {
+	position: absolute;
+	left: 50%;
+	transform: @tfX;
+}
+
+.show-btn {
+	position: absolute;
+	padding: 10px 17px 12px;
+	background: @rose;
+	color: @bg;
+	font-family: @exo-m;
+	font-size: @fs-18;
+	font-weight: bold;
+	border-radius: 5px;
+	transition: @ti;
+	cursor: pointer;
+}
+
+
 
 	//////// Навигация
 
@@ -87,15 +133,13 @@ body {
 			margin: auto;
 			padding: 145px 0 60px;
 			position: relative;
-			color: @white;
-			font-family: @russo;
-			font-size: 38px;
-			text-align: center;
+			font-size: @fs-50;
 			text-transform: uppercase;
 			text-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
 			z-index: 5;
 			@media (max-width: 480px) {
 				width: 100%;
+				font-size: @fs-40;
 			}
 		}
 	}
@@ -106,20 +150,25 @@ body {
 		h4.next-evts {
 			margin: 50px auto;
 			padding: 15px;
-			color: @white;
-			font-size: 2.5em;
+			font-size: @fs-50;
 			font-family: @exo-t;
 			font-weight: 100;
 			text-align: center;
 			text-transform: uppercase;
 			background: @bg;
 			z-index: 15;
+			@media (max-width: 480px) {
+				font-size: @fs-40;
+			}
 		}
 
 		@import "../less/_next-events.less";
 	}
 	section.courses {
 		@import "../less/_courses.less";
+	}
+	section.ourteam {
+		@import "../less/_team.less";
 	}
 } //end body
 button {

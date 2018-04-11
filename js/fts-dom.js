@@ -5,9 +5,10 @@ let patyBox = document.querySelectorAll('.paty-box'), // Add poster image
     patyPriceEl = document.querySelectorAll('.paty-tag'), // Add event price
     patyAddBtn = document.querySelectorAll('.paty-add'), // Create event links
     nextBlocks = document.querySelectorAll('.next-blk'), // Dynamically generate next event boxes
-    coursesDom = document.querySelector('.courses'); // Dynamically generate courses
+    coursesDom = document.querySelector('.courses'), // Dynamically generate courses
+    OurTeamDom = document.querySelector('.team-blk'); // Dynamically generate teammate  
 
-  // CREATE NEW OBJECT FOR EVENTS
+  // CREATE NEW AJAX FOR EVENTS
 let eventsData = new XMLHttpRequest();
   //  open( type, url/file, asunc);
 eventsData.open("GET", "../json/cards.json", true);
@@ -15,10 +16,12 @@ eventsData.onreadystatechange = function () {
   if (this.readyState == 4 && this.status == 200) {
     let evenParse = JSON.parse(eventsData.responseText);
     renderEvents(evenParse);
-    renderParagraphs(evenParse);
+    renderEventParagraphs(evenParse);
     renderComingEvents(evenParse);
-    renderContactBtn(evenParse);
+    renderEventBtns(evenParse);
     addEventBtnVal(evenParse);
+
+    // createSocBtns(evenParse);
   }
 };
 // send request
@@ -40,7 +43,7 @@ let renderEvents = data => {
 }
 
   // Create Paragraphs
-let renderParagraphs = getList => {
+let renderEventParagraphs = getList => {
   getList.forEach((item, i, getList) => {
     for (let graph in item.text[0]) {
       patyParagEl[i].setAttribute("style", "height: 200px");
@@ -49,35 +52,35 @@ let renderParagraphs = getList => {
   })
 }
   // Create event contact buttons
-let renderContactBtn = getButtons => {
+let renderEventBtns = getButtons => {
   getButtons.forEach((item, i, getButtons) => {
-    let btnCreate = '';
+    let createBtns = '';
     for (let btn in item.btns[0]) {
-      btnCreate += 
+      createBtns += 
       `<a href="${item.btns[0][btn]}" title="${item.btns[0][btn]}">
           <svg role="img" class="icon-svg">
-            <use xlink:href="./img/icons/icons.svg#${btn}"></use>
+            <use xlink:href="./img/svg/icons.svg#${btn}"></use>
         </svg>
-      </a>`;
+      </a>`
     }
-    patyAddBtn[i].innerHTML = btnCreate; 
+    patyAddBtn[i].innerHTML = createBtns; 
   })
 }
 
   // Create event extra adds for contact buttons
 let addEventBtnVal = extAdds => {
-  extAdds.forEach((btns, i, extAdds) => {
+  extAdds.forEach((item, i, extAdds) => {
     let eventBtnAdd = patyAddBtn[i].querySelectorAll('a');
     eventBtnAdd.forEach((add, j, eventBtnAdd) => {
         // Take value form title
       let titleVal = add.getAttribute('title');
         // Add 'mailto' to mail links
       if (titleVal.search("@") != -1) {
-        add.href = 'mailto:' + btns.btns[0].mail;
+        add.href = 'mailto:' + item.btns[0].mail;
       }
       // Add 'tel' to phone links
       if (titleVal.search("358") != -1) {
-        add.href = 'tel:' + btns.btns[0].tel;        
+        add.href = 'tel:' + item.btns[0].tel;        
       } 
     })
   })
@@ -87,105 +90,183 @@ let addEventBtnVal = extAdds => {
 let renderComingEvents = data => {
   data.forEach((item, i, data) => {
     const eventsObj = data[i].events[0];
-    let eventsDom = '';
+    let createComeEvents = '';
     for ( let eventNum in eventsObj) {
-      eventsDom += `
+      createComeEvents += `
       <div class="next-box" style="background-image: url(${eventsObj[eventNum][0].eventPoster})">
         <span class="next-date">
           <span>${eventsObj[eventNum][0].eventDate}</span>${eventsObj[eventNum][0].eventMonth}
         </span>
         <h5>${eventsObj[eventNum][0].eventCap}</h5>
-        <span class="next-btn">${eventsObj[eventNum][0].eventBtn}</span>
+        <span class="next-btn show-btn">${eventsObj[eventNum][0].eventBtn}</span>
         <p>${eventsObj[eventNum][0].eventCont}</p> 
       </div>`
     }
-    nextBlocks[i].innerHTML = eventsDom;
+    nextBlocks[i].innerHTML = createComeEvents;
   })
 }
 
 
-  // CREATE NEW OBJECT FOR COURSES
+  // CREATE NEW AJAX FOR COURSES
 let coursesData = new XMLHttpRequest();
 coursesData.open("GET", "../json/courses.json", true);
 coursesData.onreadystatechange = function () {
   if (this.readyState == 4 && this.status == 200) {
   let crsParse = JSON.parse(coursesData.responseText);
-    renderDom(crsParse);
-    renderLi(crsParse);
-    renderBtns(crsParse);
-    addExtraVal(crsParse);
+    renderCourses(crsParse);
+    renderCourseParagraphs(crsParse);
+    renderCourseBtns(crsParse);
+    addExtraCourseVal(crsParse);
+
+    // createSocBtns(crsParse);
   }
 };
 coursesData.send();
 
   //Create DOM courses boxes
-let renderDom = data => {
-  let mainBox = '';
+let renderCourses = data => {
+  let createCourses = '';
   data.forEach((item, i, data) => {
-    mainBox +=
+    createCourses +=
     `<div class="flex-crs">
       <div class="crs-dat">
-        <span class="crs-cls">${item.Cls}</span> 
-        <img src="${item.Img}" alt="courses" title="poster">
+        <span class="crs-cls">${item.cls}</span> 
+        <img src="${item.img}" alt="courses" title="poster">
       </div>
       <div class="crs-cont">
-        <h4 class="crs-name">${item.Name}</h4>
+        <h4>${item.name}</h4>
         <ul class="crs-graphs"></ul>
       </div>
       <div class="crs-opt">
         <div class="crs-btns"></div>
         <div class="for-price">
-          <span class="crs-tip">${item.Period}</span>
-          <span class="crs-price">${item.Price}<sup>€</sup></span>
+          <span class="crs-tip">${item.period}</span>
+          <span class="crs-price">${item.price}<sup>€</sup></span>
         </div>
       </div>
-    </div>`;
+    </div>`
   });
-  coursesDom.innerHTML += mainBox;
+  coursesDom.innerHTML += createCourses;
 }
 
   // Create course paragraphs
-let renderLi = getList => {
+let renderCourseParagraphs = getList => {
   let coursesList = document.querySelectorAll('.crs-graphs');
-  getList.forEach((parag, i, getList) => {
-      for (let key in parag.Txt[0]) {
-        coursesList[i].innerHTML += `<li>${parag.Txt[0][key]}</li>`;
+  getList.forEach((item, i, getList) => {
+      for (let key in item.txt[0]) {
+        coursesList[i].innerHTML += `<li>${item.txt[0][key]}</li>`;
       }
   });
 }
 
-  // Create course paragraphs
-let renderBtns = getButtons => {
+  // Create course buttons
+let renderCourseBtns = getButtons => {
   let coursesButtons = document.querySelectorAll('.crs-btns');
-  getButtons.forEach((btns, i, getButtons) => {
-    let buttonsDom = '';
-      for (let btn in btns.Btns[0]) {
-        buttonsDom += 
-        `<a href="${btns.Btns[0][btn]}" title="${btns.Btns[0][btn]}">
+  getButtons.forEach((item, i, getButtons) => {
+    let createBtns = '';
+      for (let btn in item.btns[0]) {
+        createBtns += 
+        `<a href="${item.btns[0][btn]}" title="${item.btns[0][btn]}">
             <svg role="img" class="crs-svg">
-              <use xlink:href="./img/icons/icons.svg#${btn}"></use>
+              <use xlink:href="./img/svg/icons.svg#${btn}"></use>
           </svg>
-        </a>`;
+        </a>`
       }
-      coursesButtons[i].innerHTML = buttonsDom;     
+      coursesButtons[i].innerHTML = createBtns;     
   });  
 }
 
   // Create event extra adds for contact buttons
-let addExtraVal = extAdds => {
+let addExtraCourseVal = extAdds => {
   let coursesButtons = document.querySelectorAll('.crs-btns');
-  extAdds.forEach((btns, i, extAdds) => {
+  extAdds.forEach((item, i, extAdds) => {
     let specialAdd = coursesButtons[i].querySelectorAll('a');
     specialAdd.forEach((add, j, specialAdd) => {
         // Take value form title
       let titleVal = add.getAttribute('title');
         // Add 'mailto' to mail links
       if (titleVal.search("@") != -1) {
-        add.href = 'mailto:' + btns.Btns[0].mail;
+        add.href = 'mailto:' + item.btns[0].mail;
       }
       // Add 'tel' to phone links
       if (titleVal.search("358") != -1) {
-        add.href = 'tel:' + btns.Btns[0].tel;        
+        add.href = 'tel:' + item.btns[0].tel;        
+      } 
+    })
+  })
+}
+
+  // CREATE NEW AJAX FOR TEAM
+let teamData = new XMLHttpRequest();
+teamData.open("GET", "../json/team.json", true);
+teamData.onreadystatechange = function () {
+  if (this.readyState == 4 && this.status == 200) {
+  let teamParse = JSON.parse(teamData.responseText);
+    renderTeam(teamParse);
+    renderTeamBtns(teamParse);
+    addExtraTeamVal(teamParse);
+  }
+};
+teamData.send();
+
+  //Create DOM courses boxes
+let renderTeam = data => {
+  let createTeam = '';
+  data.forEach((teammate, i, data) => {
+    createTeam += 
+    `<div class="teammate">
+      <figure>
+        <img src="${teammate.img}" alt="${teammate.name}" title="${teammate.name}">
+        <svg role="img">
+          <use xlink:href="./img/svg/fts-elem.svg#border-up"></use>
+        </svg>
+        <svg role="img">
+          <use xlink:href="./img/svg/fts-elem.svg#border-down"></use>
+        </svg>
+      </figure>
+      <h5>${teammate.name}</h5>
+      <h6>${teammate.post}</h6>
+      <svg role="img" class="stars">
+        <use xlink:href="./img/svg/fts-elem.svg#stars"></use>
+      </svg>
+      <div class="team-btns"></div>
+    </div>`
+  })
+  OurTeamDom.innerHTML = createTeam;
+}
+
+  // Create course buttons
+let renderTeamBtns = getButtons => {
+  getButtons.forEach((item, i, getButtons) => {
+    let buttons = document.querySelectorAll('.team-btns');
+    let createBtns = '';
+      for (let btn in item.btns[0]) {      
+        createBtns += 
+        `<a href="${item.btns[0][btn]}" title="${item.btns[0][btn]}">
+            <svg role="img" class="crs-svg">
+              <use xlink:href="./img/svg/icons.svg#${btn}"></use>
+          </svg>
+        </a>`
+      }
+      buttons[i].innerHTML = createBtns;     
+  });
+}
+  
+  // Create event extra adds for contact buttons
+let addExtraTeamVal = extAdds => {
+  let coursesButtons = document.querySelectorAll('.team-btns');
+  extAdds.forEach((item, i, extAdds) => {
+    let specialAdd = coursesButtons[i].querySelectorAll('a');
+    specialAdd.forEach((add, j, specialAdd) => {
+        // Take value form title
+      let titleVal = add.getAttribute('title');
+        // Add 'mailto' to mail links
+      if (titleVal.search("@") != -1) {
+        add.href = 'mailto:' + item.btns[0].mail;
+      }
+      // Add 'tel' to phone links
+      if (titleVal.search("358") != -1) {
+        add.href = 'tel:' + item.btns[0].tel;        
       } 
     })
   })

@@ -1,4 +1,4 @@
-//////// Color
+  //////// Color
 @bg:  rgb(37,42,49);
 @box: rgb(55,58,66);
 @rose: rgb(254, 91, 154);
@@ -7,38 +7,16 @@
 @white: rgb(242, 242, 242);
 @black: rgb(0, 0, 0);
 
-  //////// Fonts
-@font-face {
-  font-family: 'Exo2-thin-fts';
-  src: url('../fonts/exo2-thin.woff') format('woff');
-  font-weight: 100;
-}
-@font-face {
-  font-family: 'Exo2-light-fts';
-  src: url('../fonts/exo2-light.woff') format('woff');
-  font-weight: 300;
-}
-@font-face {
-  font-family: 'Exo2-medium-fts';
-  src: url('../fonts/exo2-medium.woff') format('woff');
-  font-weight: 500;
-}
-@font-face {
-  font-family: 'Russo-fts';
-  src: url('../fonts/russoone.woff') format('woff');
-}
-
   //////// Parametrs
-
 @ti: all 0.3s ease-in-out;
 @tfX: translateX(-50%);
 @tfY: translateY(-50%);
-
+  
+   // Font style
 @russo: 'Russo-fts';
 @exo-l: 'Exo2-light-fts';
 @exo-t: 'Exo2-thin-fts';
 @exo-m: 'Exo2-medium-fts';
-
 
 // Events blocks and backgrounds images
 .paty-blk {
@@ -109,15 +87,13 @@
   >img {
     width: 100%;
     height: 330px;
-    background: no-repeat center;
-    background-size: cover;
     object-fit: cover;
   }
 }
 
   // All block's event elem's without poster 
 .paty-content {
-  // padding-top: 100px;
+
   position: relative;
   background: @box;
   @media (max-width: 480px) {
@@ -128,29 +104,27 @@
   // Date and time of event
 .paty-dat {
   padding: 10px 15px;
-  position: absolute;
+  .absLeft();
   top: 90px;
-  left: 50%;
   color: @rose;
-  font-size: 1.5em;
+  font-size: @fs-18;
   font-family: @russo;
   text-transform: uppercase;
   background: fade(@bg, 80%);
   border-radius: 30px;
-  transform: @tfX;
   @media (max-width: 480px) {
     // top: -80px;
   }
   span {
     display: flex;
     position: relative;
-    top: 10px;
+    top: 5px;
   }
   time {
-    font-size: 128px;
+    font-size: @fs-128;
     text-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
     @media (max-width: 480px) {
-      font-size: 4.5em;
+      font-size: @fs-128 - 20px;
     }
   }
 }
@@ -162,14 +136,14 @@ h3 {
   padding: 8px 15px 8px 20px;
   position: relative;
   color: @black;
-  font-size: 2em;
+  font-size: @fs-30;
   font-family: @exo-m;
   text-transform: uppercase;
   background: @rose;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   @media (max-width: 480px) {
     max-width: 300px;
-    font-size: 1.8em;
+    // font-size: @fs-18;
   }
   &::after {
     content: '';
@@ -196,16 +170,16 @@ h3 {
   // Stars separator
 svg.stars {
   width: 70px;
+  height: 20px;
   display: flex;
-  margin: 40px auto 30px;
+  margin: 30px auto;
   fill: @rose;
 }
 
   // Content block
 ul {
   overflow: hidden;
-  color: @white;
-  font-size: 1.2em;
+  font-size: @fs-18;
   line-height: 25px;
   text-overflow: ellipsis;
 }
@@ -232,16 +206,12 @@ li {
     cursor: pointer;
     &::before {
       content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
+      .absCenter();
       background: @box;
     }
     &::after {
       content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
+      .absCenter();
       background: @box;
     }
   }
@@ -253,7 +223,6 @@ li {
     &::before {
       width: 22px;
       height: 3px;
-      transform: @tfX @tfY;
     }
     &::after {
       width: 22px;
@@ -295,13 +264,10 @@ li {
     span {
       &:first-child {
         padding-bottom: 5px;
-        font-size: 1.2em;
+        font-size: @fs-18;
       }
       &:last-child {
-        font-size: 2.5em;
-      }
-      sup {
-        font-family: @exo-m;
+        font-size: @fs-50;
       }
     }
     &::after {
@@ -355,11 +321,8 @@ li {
     .icon-svg {
       width: 32px;
       height: 32px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
+      .absCenter();
       fill:  fade(@rose, 80%);
-      transform: @tfX @tfY;
       z-index: 2;
       use #fbk {
         height: 175px;

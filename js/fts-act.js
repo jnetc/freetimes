@@ -5,8 +5,10 @@ window.onload = () => {
       moreBts    = document.querySelectorAll('.more-bt'),
       contents  = document.querySelectorAll('.paty-text'),
       eventBox  = document.querySelectorAll('.next-box'),
+      teammate  = document.querySelectorAll('.teammate'),
       numAdd    = 1,
       numBtn    = 1;
+      
 
     // Set attributes in animated block
   for (let attr of patyAdd) {
@@ -21,21 +23,16 @@ window.onload = () => {
     
     // Loop for button "plus contact"
   for (const btn of plusBts) {    
-    btn.addEventListener('click', e => {
-      e.preventDefault();
+    btn.addEventListener('click', () => {
       btn.classList.toggle('pressed-plus');
       let btnId = btn.getAttribute('data-id');
-      
       // loop for blocks
       let arrayAdd = []; // create empty array
-      
       for (let i = 0; i < patyAdd.length; i++) {    
         let addId = patyAdd[i].getAttribute('id'); // getting attributes
         arrayAdd.push(addId); // puting in array
-
         // Check for validate
         if (btnId == arrayAdd[i]) {
-          // console.log('done');
           patyAdd[i].classList.toggle('action');  
         }
       }    
@@ -43,12 +40,13 @@ window.onload = () => {
   }
 
     // Loop for button "more info"
+
   for (let i = 0; i < contents.length; i++) {
      
     let contHeight  = contents[i].offsetHeight;  // Content height
     let contChild   = contents[i].children; // Content paragraph child
       // Divide height paragraphs
-    paragArr = [];
+    let paragArr = [];
     for (let j = 0; j < contChild.length; j++) {
       let paragHeigths = contChild[j].offsetHeight;    
       paragArr.push(paragHeigths);
@@ -80,13 +78,13 @@ window.onload = () => {
     // Show events info
   for (let q = 0; q < eventBox.length; q++) {
     let eventBoxBnt = eventBox[q].querySelector('.next-btn');   
-    eventBoxBnt.addEventListener('click', e => {
-      e.preventDefault();    
+    eventBoxBnt.addEventListener('click', () => { 
+      console.log(111);
+      
       eventBox[q].classList.add('show-info');
     })
-    eventBox[q].addEventListener('mouseleave', e => {
-      e.preventDefault();
+    eventBox[q].addEventListener('mouseleave', () => {
       eventBox[q].classList.remove('show-info');
     })
-  } 
+  }
 }

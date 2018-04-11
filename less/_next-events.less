@@ -1,4 +1,4 @@
-//////// Color
+	//////// Color
 @bg:  rgb(37,42,49);
 @box: rgb(55,58,66);
 @rose: rgb(254, 91, 154);
@@ -7,44 +7,17 @@
 @white: rgb(242, 242, 242);
 @black: rgb(0, 0, 0);
 
-	//////// Fonts
-@font-face {
-	font-family: 'Exo2-thin-fts';
-	src: url('../fonts/exo2-thin.woff') format('woff');
-	font-weight: 100;
-}
-@font-face {
-	font-family: 'Exo2-light-fts';
-	src: url('../fonts/exo2-light.woff') format('woff');
-	font-weight: 300;
-}
-@font-face {
-	font-family: 'Exo2-medium-fts';
-	src: url('../fonts/exo2-medium.woff') format('woff');
-	font-weight: 500;
-}
-@font-face {
-	font-family: 'Russo-fts';
-	src: url('../fonts/russoone.woff') format('woff');
-}
-
-	//////// Parametrs
-
+  //////// Parametrs
 @ti: all 0.3s ease-in-out;
 @tfX: translateX(-50%);
 @tfY: translateY(-50%);
 
+ // Font style
 @russo: 'Russo-fts';
 @exo-l: 'Exo2-light-fts';
 @exo-t: 'Exo2-thin-fts';
 @exo-m: 'Exo2-medium-fts';
-
-.absoluteP {
-	position: absolute;
-	left: 50%;
-	transform: @tfX;
-}
-
+	
 	// Next events
 .next-blk {
   width: 100%;
@@ -62,7 +35,7 @@
 	flex-flow: column;
 	justify-content: center;
 	align-items: center;
-	margin: 15px;
+	margin: @gap;
 	position: relative;
 	background-size: cover;
 	object-fit: cover;
@@ -97,7 +70,7 @@
 	background: fade(@rose, 100%);
 	color: @bg;
 	font-family: @russo;
-	font-size: 1em;
+	font-size: @fs-18;
 	text-align: center;
 	line-height: 24px;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
@@ -117,7 +90,7 @@
 	}
 	span {
 		padding: 30px 0 5px;
-		font-size: 3.5em;
+		font-size: @fs-50;
 	}
 }
 
@@ -127,9 +100,7 @@ h5 {
 	padding: 0px 20px 10px;
 	position: relative;
 	top: 15px;
-	color: @white;
-	font-family: @russo;
-	font-size: 2em;
+	font-size: @fs-30;
 	text-align: center;
 	transition: @ti;
 	&::before {
@@ -137,24 +108,13 @@ h5 {
 		width: 70px;
 		height: 15px;
 		top: -25px;
-		.absoluteP();
+		.absLeft();
 		background: no-repeat center url(../img/els/stars.svg);
 	}
 }
 .next-btn {
-	padding: 12px 17px;
-	background: @rose;
-	.absoluteP();
 	top: 280px;
-	color: @bg;
-	font-family: @exo-m;
-	font-size: 0.9em;
-	font-weight: bold;
-	text-transform: uppercase;
-	border-radius: 5px;
-	// box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
-	transition: @ti;
-	cursor: pointer;
+
 }
 
 	// Text
@@ -163,8 +123,7 @@ p {
 	padding: 0 20px 14px;
 	position: absolute;
 	opacity: 0;
-  color: @white;
-	font-size: 1.2em;
+	font-size: @fs-18;
 	overflow: hidden;
 	white-space: normal;
 	text-overflow: ellipsis;
