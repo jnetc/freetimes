@@ -1,0 +1,90 @@
+	//////// Dark-Theme Color
+@dt-bg:  #252a31;
+@dt-box: #373a42;
+@dt-brilliant-rose: #fe5b9a;
+@dt-palatinate-purple: #723868;
+@dt-white-smoke: #f2f2f2; 
+  
+  //////// Light-Theme Color
+@wt-bg:  #eeeeee;
+@wt-box: #e9e9e9;
+@wt-bittersweet: #fc6959;
+@wt-light-sea: #24c1c7;
+@wt-eden: #286062;
+@wt-white: #f2f2f2;
+@wt-black: #373a42;
+
+.flex-crs {
+  background: @wt-box;
+  // border: 3px solid @wt-bg;
+  box-shadow: @wt-inset-shadow, @light-shadow;
+}
+
+.crs-cls {
+  background: @wt-bg + 5;
+  // border: 1px solid @dt-bg * 2;
+  color: @wt-black;
+}
+
+.crs-time {
+  color: @wt-black;
+}
+
+.sect {
+  background: @dt-white-smoke;
+  color: @wt-black;
+}
+
+ // Context block
+h4 {
+  &::after {
+    background: @wt-black;
+  }
+}
+
+
+  // Functional
+
+.crs-btns {
+  a {
+    border: 2px solid fade(@wt-bittersweet, 50%);
+    .crs-svg {
+
+      fill: fade(@wt-bittersweet, 80%);
+    }
+    &:hover {
+      border-color: @wt-black;
+    }
+  }
+}
+.crs-plus {
+  span {
+    background: @dt-white-smoke;
+    box-shadow: @shadow;
+    &::before {
+      background: @wt-black;
+    }
+    &::after {
+      background: @wt-black;
+    }
+  }
+}
+
+.for-price {
+  .crs-tip {
+    color: @dt-white-smoke;
+    background: @wt-black * 1.5;
+    box-shadow: @shadow;
+  }
+  .crs-price {
+    color: @wt-black;
+    background: @wt-box;
+    box-shadow: @wt-night-shadow;
+    &::after {
+      background: inherit;
+    }
+    &::before {
+      border-color: transparent transparent transparent multiply(@wt-bittersweet, #999999);
+    }
+  }
+}

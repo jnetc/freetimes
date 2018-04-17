@@ -1,1 +1,255 @@
-"use strict";var patyBox=document.querySelectorAll(".paty-box"),patyDateEls=document.querySelectorAll(".paty-dat"),patyContEl=document.querySelectorAll(".paty-content"),patyParagEl=document.querySelectorAll(".paty-text"),patyPriceEl=document.querySelectorAll(".paty-tag"),patyAddBtn=document.querySelectorAll(".paty-add"),nextBlocks=document.querySelectorAll(".next-blk"),coursesDom=document.querySelector(".courses"),OurTeamDom=document.querySelector(".team-blk"),eventsData=new XMLHttpRequest;eventsData.open("GET","../json/cards.json",!0),eventsData.onreadystatechange=function(){if(4==this.readyState&&200==this.status){var e=JSON.parse(eventsData.responseText);renderEvents(e),renderEventParagraphs(e),renderComingEvents(e),renderEventBtns(e),addEventBtnVal(e)}},eventsData.send();var renderEvents=function(e){e.forEach(function(e,t,n){patyBox[t].insertAdjacentHTML("afterbegin",'<img src="'+e.img+'" alt="poster" title="poster">'),patyDateEls[t].insertAdjacentHTML("afterbegin","<span>"+e.date+"</span>\n       <time>"+e.time+"</time>"),patyContEl[t].insertAdjacentHTML("afterbegin","<h3>"+e.capt+"</h3>"),patyPriceEl[t].insertAdjacentHTML("beforeend","<span>"+e.price+"<sup>€</sup></span>")})},renderEventParagraphs=function(e){e.forEach(function(e,t,n){for(var s in e.text[0])patyParagEl[t].setAttribute("style","height: 200px"),patyParagEl[t].innerHTML+='<li class="liTxt">'+e.text[0][s]+"</li>"})},renderEventBtns=function(e){e.forEach(function(e,t,n){var s="";for(var a in e.btns[0])s+='<a href="'+e.btns[0][a]+'" title="'+e.btns[0][a]+'">\n          <svg role="img" class="icon-svg">\n            <use xlink:href="./img/svg/icons.svg#'+a+'"></use>\n        </svg>\n      </a>';patyAddBtn[t].innerHTML=s})},addEventBtnVal=function(e){e.forEach(function(e,t,n){patyAddBtn[t].querySelectorAll("a").forEach(function(t,n,s){var a=t.getAttribute("title");-1!=a.search("@")&&(t.href="mailto:"+e.btns[0].mail),-1!=a.search("358")&&(t.href="tel:"+e.btns[0].tel)})})},renderComingEvents=function(e){e.forEach(function(e,t,n){var s=n[t].events[0],a="";for(var r in s)a+='\n      <div class="next-box" style="background-image: url('+s[r][0].eventPoster+')">\n        <span class="next-date">\n          <span>'+s[r][0].eventDate+"</span>"+s[r][0].eventMonth+"\n        </span>\n        <h5>"+s[r][0].eventCap+'</h5>\n        <span class="next-btn show-btn">'+s[r][0].eventBtn+"</span>\n        <p>"+s[r][0].eventCont+"</p> \n      </div>";nextBlocks[t].innerHTML=a})},coursesData=new XMLHttpRequest;coursesData.open("GET","../json/courses.json",!0),coursesData.onreadystatechange=function(){if(4==this.readyState&&200==this.status){var e=JSON.parse(coursesData.responseText);renderCourses(e),renderCourseParagraphs(e),renderCourseBtns(e),addExtraCourseVal(e)}},coursesData.send();var renderCourses=function(e){var t="";e.forEach(function(e,n,s){t+='<div class="flex-crs">\n      <div class="crs-dat">\n        <span class="crs-cls">'+e.cls+'</span> \n        <img src="'+e.img+'" alt="courses" title="poster">\n      </div>\n      <div class="crs-cont">\n        <h4>'+e.name+'</h4>\n        <ul class="crs-graphs"></ul>\n      </div>\n      <div class="crs-opt">\n        <div class="crs-btns"></div>\n        <div class="for-price">\n          <span class="crs-tip">'+e.period+'</span>\n          <span class="crs-price">'+e.price+"<sup>€</sup></span>\n        </div>\n      </div>\n    </div>"}),coursesDom.innerHTML+=t},renderCourseParagraphs=function(e){var t=document.querySelectorAll(".crs-graphs");e.forEach(function(e,n,s){for(var a in e.txt[0])t[n].innerHTML+="<li>"+e.txt[0][a]+"</li>"})},renderCourseBtns=function(e){var t=document.querySelectorAll(".crs-btns");e.forEach(function(e,n,s){var a="";for(var r in e.btns[0])a+='<a href="'+e.btns[0][r]+'" title="'+e.btns[0][r]+'">\n            <svg role="img" class="crs-svg">\n              <use xlink:href="./img/svg/icons.svg#'+r+'"></use>\n          </svg>\n        </a>';t[n].innerHTML=a})},addExtraCourseVal=function(e){var t=document.querySelectorAll(".crs-btns");e.forEach(function(e,n,s){t[n].querySelectorAll("a").forEach(function(t,n,s){var a=t.getAttribute("title");-1!=a.search("@")&&(t.href="mailto:"+e.btns[0].mail),-1!=a.search("358")&&(t.href="tel:"+e.btns[0].tel)})})},teamData=new XMLHttpRequest;teamData.open("GET","../json/team.json",!0),teamData.onreadystatechange=function(){if(4==this.readyState&&200==this.status){var e=JSON.parse(teamData.responseText);renderTeam(e),renderTeamBtns(e),addExtraTeamVal(e)}},teamData.send();var renderTeam=function(e){var t="";e.forEach(function(e,n,s){t+='<div class="teammate">\n      <figure>\n        <img src="'+e.img+'" alt="'+e.name+'" title="'+e.name+'">\n        <svg role="img">\n          <use xlink:href="./img/svg/fts-elem.svg#border-up"></use>\n        </svg>\n        <svg role="img">\n          <use xlink:href="./img/svg/fts-elem.svg#border-down"></use>\n        </svg>\n      </figure>\n      <h5>'+e.name+"</h5>\n      <h6>"+e.post+'</h6>\n      <svg role="img" class="stars">\n        <use xlink:href="./img/svg/fts-elem.svg#stars"></use>\n      </svg>\n      <div class="team-btns"></div>\n    </div>'}),OurTeamDom.innerHTML=t},renderTeamBtns=function(e){e.forEach(function(e,t,n){var s=document.querySelectorAll(".team-btns"),a="";for(var r in e.btns[0])a+='<a href="'+e.btns[0][r]+'" title="'+e.btns[0][r]+'">\n            <svg role="img" class="crs-svg">\n              <use xlink:href="./img/svg/icons.svg#'+r+'"></use>\n          </svg>\n        </a>';s[t].innerHTML=a})},addExtraTeamVal=function(e){var t=document.querySelectorAll(".team-btns");e.forEach(function(e,n,s){t[n].querySelectorAll("a").forEach(function(t,n,s){var a=t.getAttribute("title");-1!=a.search("@")&&(t.href="mailto:"+e.btns[0].mail),-1!=a.search("358")&&(t.href="tel:"+e.btns[0].tel)})})};
+'use strict';
+
+var patyBox = document.querySelectorAll('.paty-box'),
+    // Add poster image
+patyDateEls = document.querySelectorAll('.paty-dat'),
+    // Add data, time and caption
+patyTimeEls = document.querySelectorAll('.paty-time'),
+    // Add data, time and caption
+patyContEl = document.querySelectorAll('.paty-content'),
+    patyParagEl = document.querySelectorAll('.paty-text'),
+    // Add event text paragraph
+patyPriceEl = document.querySelectorAll('.paty-tag'),
+    // Add event price
+patyAddBtn = document.querySelectorAll('.paty-add'),
+    // Create event links
+nextBlocks = document.querySelectorAll('.next-blk'),
+    // Dynamically generate next event boxes
+coursesDom = document.querySelector('.courses'),
+    // Dynamically generate courses
+OurTeamDom = document.querySelector('.team-blk'); // Dynamically generate teammate  
+
+// CREATE NEW AJAX FOR EVENTS
+var eventsData = new XMLHttpRequest();
+//  open( type, url/file, asunc);
+eventsData.open("GET", "../json/cards.json", true);
+eventsData.onreadystatechange = function () {
+  if (this.readyState == 4 && this.status == 200) {
+    var evenParse = JSON.parse(eventsData.responseText);
+    renderEvents(evenParse);
+    renderEventParagraphs(evenParse);
+    renderComingEvents(evenParse);
+    renderEventBtns(evenParse);
+    addEventBtnVal(evenParse);
+
+    // createSocBtns(evenParse);
+  }
+};
+// send request
+eventsData.send();
+
+// Create main dynamic elements
+var renderEvents = function renderEvents(data) {
+  data.forEach(function (item, i, data) {
+    patyBox[i].insertAdjacentHTML('afterbegin', '<img src="' + item.img + '" alt="poster" title="poster">');
+    patyDateEls[i].innerText = item.date;
+    patyTimeEls[i].innerText = item.time;
+    patyContEl[i].insertAdjacentHTML('afterbegin', '<h3>' + item.capt + '</h3>');
+    patyPriceEl[i].insertAdjacentHTML('beforeend', '<span>' + item.price + '<sup>\u20AC</sup></span>');
+  });
+  // Add class for theme
+  patyContEl[0].querySelector('h3').className = 'night-capt';
+  patyContEl[1].querySelector('h3').className = 'day-capt';
+};
+
+// Create Paragraphs
+var renderEventParagraphs = function renderEventParagraphs(getList) {
+  getList.forEach(function (item, i, getList) {
+    for (var graph in item.text[0]) {
+      patyParagEl[i].setAttribute("style", "height: 200px");
+      patyParagEl[i].innerHTML += '<li class="liTxt">' + item.text[0][graph] + '</li>';
+    }
+  });
+};
+// Create event contact buttons
+var renderEventBtns = function renderEventBtns(getButtons) {
+  getButtons.forEach(function (item, i, getButtons) {
+    var createBtns = '';
+    for (var btn in item.btns[0]) {
+      createBtns += '<a href="' + item.btns[0][btn] + '" title="' + item.btns[0][btn] + '">\n          <svg role="img" class="icon-svg">\n            <use xlink:href="./img/svg/icons.svg#' + btn + '"></use>\n        </svg>\n      </a>';
+    }
+    patyAddBtn[i].innerHTML = createBtns;
+  });
+};
+
+// Create event extra adds for contact buttons
+var addEventBtnVal = function addEventBtnVal(extAdds) {
+  extAdds.forEach(function (item, i, extAdds) {
+    var eventBtnAdd = patyAddBtn[i].querySelectorAll('a');
+    eventBtnAdd.forEach(function (add, j, eventBtnAdd) {
+      // Take value form title
+      var titleVal = add.getAttribute('title');
+      // Add 'mailto' to mail links
+      if (titleVal.search("@") != -1) {
+        add.href = 'mailto:' + item.btns[0].mail;
+      }
+      // Add 'tel' to phone links
+      if (titleVal.search("358") != -1) {
+        add.href = 'tel:' + item.btns[0].tel;
+      }
+    });
+  });
+};
+
+// Create coming events
+var renderComingEvents = function renderComingEvents(data) {
+  data.forEach(function (item, i, data) {
+    var eventsObj = data[i].events[0];
+    var createComeEvents = '';
+    for (var eventNum in eventsObj) {
+      createComeEvents += '\n      <div class="next-box" style="background-image: url(' + eventsObj[eventNum][0].eventPoster + ')">\n        <span class="next-date">' + eventsObj[eventNum][0].eventDate + '</span>\n        <h5>' + eventsObj[eventNum][0].eventCap + '</h5>\n        <span class="next-btn">' + eventsObj[eventNum][0].eventBtn + '</span>\n        <p>' + eventsObj[eventNum][0].eventCont + '</p> \n      </div>';
+    }
+    nextBlocks[i].innerHTML = createComeEvents;
+  });
+  // Add class for element's
+  addClassNextDates();
+  addClassNextButtons();
+};
+
+// Add class for theme dates
+var addClassNextDates = function addClassNextDates() {
+  nextBlocks.forEach(function (item, i, nextBlocks) {
+    var elms = nextBlocks[i].querySelectorAll('.next-date');
+    for (var j = 0; j < elms.length; j++) {
+      if (i == 0) {
+        elms[j].className += ' night-next';
+      }if (i == 1) {
+        elms[j].className += ' day-next';
+      }
+    }
+  });
+};
+// Add class for theme dates
+var addClassNextButtons = function addClassNextButtons() {
+  nextBlocks.forEach(function (item, i, nextBlocks) {
+    var elms = nextBlocks[i].querySelectorAll('.next-btn');
+    for (var j = 0; j < elms.length; j++) {
+      if (i == 0) {
+        elms[j].className += ' show-night-btn';
+      }if (i == 1) {
+        elms[j].className += ' show-day-btn';
+      }
+    }
+  });
+};
+
+// CREATE NEW AJAX FOR COURSES
+var coursesData = new XMLHttpRequest();
+coursesData.open("GET", "../json/courses.json", true);
+coursesData.onreadystatechange = function () {
+  if (this.readyState == 4 && this.status == 200) {
+    var crsParse = JSON.parse(coursesData.responseText);
+    renderCourses(crsParse);
+    renderCourseParagraphs(crsParse);
+    renderCourseBtns(crsParse);
+    addExtraCourseVal(crsParse);
+
+    // createSocBtns(crsParse);
+  }
+};
+coursesData.send();
+
+//Create DOM courses boxes
+var renderCourses = function renderCourses(data) {
+  var createCourses = '';
+  data.forEach(function (item, i, data) {
+    createCourses += '<div class="flex-crs">\n      <div class="crs-dat">\n        <span class="crs-cls">' + item.cls + '</span> \n        <img src="' + item.img + '" alt="courses" title="poster">\n      </div>\n      <div class="crs-cont">\n        <h4>' + item.name + '</h4>\n        <ul class="crs-graphs"></ul>\n      </div>\n      <div class="crs-opt">\n        <div class="crs-btns"></div>\n        <div class="for-price">\n          <span class="crs-tip">' + item.period + '</span>\n          <span class="crs-price">' + item.price + '<sup>\u20AC</sup></span>\n        </div>\n      </div>\n    </div>';
+  });
+  coursesDom.innerHTML += createCourses;
+};
+
+// Create course paragraphs
+var renderCourseParagraphs = function renderCourseParagraphs(getList) {
+  var coursesList = document.querySelectorAll('.crs-graphs');
+  getList.forEach(function (item, i, getList) {
+    for (var key in item.txt[0]) {
+      coursesList[i].innerHTML += '<li>' + item.txt[0][key] + '</li>';
+    }
+  });
+};
+
+// Create course buttons
+var renderCourseBtns = function renderCourseBtns(getButtons) {
+  var coursesButtons = document.querySelectorAll('.crs-btns');
+  getButtons.forEach(function (item, i, getButtons) {
+    var createBtns = '';
+    for (var btn in item.btns[0]) {
+      createBtns += '<a href="' + item.btns[0][btn] + '" title="' + item.btns[0][btn] + '">\n            <svg role="img" class="crs-svg">\n              <use xlink:href="./img/svg/icons.svg#' + btn + '"></use>\n          </svg>\n        </a>';
+    }
+    coursesButtons[i].innerHTML = createBtns;
+  });
+};
+
+// Create event extra adds for contact buttons
+var addExtraCourseVal = function addExtraCourseVal(extAdds) {
+  var coursesButtons = document.querySelectorAll('.crs-btns');
+  extAdds.forEach(function (item, i, extAdds) {
+    var specialAdd = coursesButtons[i].querySelectorAll('a');
+    specialAdd.forEach(function (add, j, specialAdd) {
+      // Take value form title
+      var titleVal = add.getAttribute('title');
+      // Add 'mailto' to mail links
+      if (titleVal.search("@") != -1) {
+        add.href = 'mailto:' + item.btns[0].mail;
+      }
+      // Add 'tel' to phone links
+      if (titleVal.search("358") != -1) {
+        add.href = 'tel:' + item.btns[0].tel;
+      }
+    });
+  });
+};
+
+// CREATE NEW AJAX FOR TEAM
+var teamData = new XMLHttpRequest();
+teamData.open("GET", "../json/team.json", true);
+teamData.onreadystatechange = function () {
+  if (this.readyState == 4 && this.status == 200) {
+    var teamParse = JSON.parse(teamData.responseText);
+    renderTeam(teamParse);
+    renderTeamBtns(teamParse);
+    addExtraTeamVal(teamParse);
+  }
+};
+teamData.send();
+
+//Create DOM teammate boxes
+var renderTeam = function renderTeam(data) {
+  var createTeam = '';
+  data.forEach(function (teammate, i, data) {
+    createTeam += '<div class="teammate">\n      <div class="team-img">\n        <img src="' + teammate.img + '" alt="' + teammate.name + '" title="' + teammate.name + '">\n        <svg role="img" class="team-img-svg">\n          <use xlink:href="./img/svg/fts-elem.svg#border-up"></use>\n        </svg>\n        <svg role="img" class="team-img-svg">\n          <use xlink:href="./img/svg/fts-elem.svg#border-down"></use>\n        </svg>\n      </div>\n      <h5>' + teammate.name + '</h5>\n      <h6>' + teammate.post + '</h6>\n      <svg role="img" class="stars">\n        <use xlink:href="./img/svg/fts-elem.svg#stars"></use>\n      </svg>\n      <div class="team-btns"></div>\n    </div>';
+  });
+  OurTeamDom.innerHTML = createTeam;
+};
+
+// Create teammate buttons
+var renderTeamBtns = function renderTeamBtns(getButtons) {
+  getButtons.forEach(function (item, i, getButtons) {
+    var buttons = document.querySelectorAll('.team-btns');
+    var createBtns = '';
+    for (var btn in item.btns[0]) {
+      createBtns += '<a href="' + item.btns[0][btn] + '" title="' + item.btns[0][btn] + '">\n            <svg role="img" class="crs-svg">\n              <use xlink:href="./img/svg/icons.svg#' + btn + '"></use>\n          </svg>\n        </a>';
+    }
+    buttons[i].innerHTML = createBtns;
+  });
+};
+
+// Create team extra adds for contact buttons
+var addExtraTeamVal = function addExtraTeamVal(extAdds) {
+  var coursesButtons = document.querySelectorAll('.team-btns');
+  extAdds.forEach(function (item, i, extAdds) {
+    var specialAdd = coursesButtons[i].querySelectorAll('a');
+    specialAdd.forEach(function (add, j, specialAdd) {
+      // Take value form title
+      var titleVal = add.getAttribute('title');
+      // Add 'mailto' to mail links
+      if (titleVal.search("@") != -1) {
+        add.href = 'mailto:' + item.btns[0].mail;
+      }
+      // Add 'tel' to phone links
+      if (titleVal.search("358") != -1) {
+        add.href = 'tel:' + item.btns[0].tel;
+      }
+    });
+  });
+};

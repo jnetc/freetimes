@@ -7,17 +7,6 @@
 @white: rgb(242, 242, 242);
 @black: rgb(0, 0, 0);
 
-  //////// Parametrs
-@ti: all 0.3s ease-in-out;
-@tfX: translateX(-50%);
-@tfY: translateY(-50%);
-  
-  // Font style
-@russo: 'Russo-fts';
-@exo-l: 'Exo2-light-fts';
-@exo-t: 'Exo2-thin-fts';
-@exo-m: 'Exo2-medium-fts';
-
 .flex-crs {
   width: 1200px;
   height: auto;
@@ -25,9 +14,6 @@
   flex-wrap: wrap;
   margin: 0 auto 50px;
   position: relative;
-  background: @bg;
-  border: 1px solid @bg * 2;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   @media (max-width: 1199px) {
     width: 98%;
   }
@@ -47,20 +33,14 @@
 .crs-cls {
   padding: 10px 40px;
   position: absolute;
-  top: -24px;
-  // background: @bg * 1.5;
-  background: @rose;
-  border: 1px solid @bg * 2;
-  color: @bg;
+  top: -20px;
   font-family: @russo;
   font-size: @fs-18;
-  // box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 .crs-time {
   height: 60px;
   margin-top: 20px;
-  color: @white;
   font-family: @russo;
   font-size: @fs-30;
   z-index: 3;
@@ -78,8 +58,6 @@ img {
   padding: 5px 8px;
   .absLeft();
   bottom: 0;
-  background: @white;
-  color: @bg;
   font-family: @exo-m;
   font-weight: bold;
   font-size: @fs-18;
@@ -104,7 +82,6 @@ h4 {
   margin-top: 20px;
   padding-left: 20px;
   position: relative;
-  color: @white;
   font-family: @exo-m;
   font-size: @fs-30;
   font-weight: bold;
@@ -116,7 +93,6 @@ h4 {
     position: absolute;
     top: 20px;
     left: 0;
-    background: @white;
   }
 }
 
@@ -130,7 +106,7 @@ h4 {
     line-height: 22px;
   }
   li {
-    padding: 5px 0;
+    padding: 8px 0;
   }
 }
 
@@ -162,15 +138,10 @@ h4 {
     align-items: center;
     margin: 5px;
     border-radius: 50%;
-    border: 2px solid fade(@rose, 50%);
     transition: @ti;
     .crs-svg {
       width: 23px;
       height: 23px;
-      fill: fade(@rose, 80%);
-    }
-    &:hover {
-      border-color: @white;
     }
   }
 }
@@ -178,7 +149,7 @@ h4 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px 0 10px;
+  margin: 10px 0;
   @media (max-width: 768px) {
     flex: 1 0 100%;
     order: 1;
@@ -189,19 +160,13 @@ h4 {
     display: block;
     margin: auto;
     position: relative;
-    background: @white;
     border-radius: 50%;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     cursor: pointer;
     &::before {
       content: '';
       width: 22px;
       height: 3px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      background: @box;
-      transform: @tfX @tfY;
+      .absCenter();
     }
     &::after {
       content: '';
@@ -210,13 +175,11 @@ h4 {
       position: absolute;
       top: 50%;
       left: 50%;
-      background: @box;
-      transform: @tfX @tfY rotateZ(90deg);
+      transform: translate(-50%, -50%) rotateZ(90deg);
       transition: @ti;
     }
   }
 }
-  
 
 .for-price {
   display: flex;
@@ -233,13 +196,10 @@ h4 {
     padding-left: 30px;
     position: relative;
     left: 15px;
-    color: @white;
     font-size: @fs-15;
     font-family: @exo-l;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
-    background: @bg * 1.5;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   }
   .crs-price {
     width: 110px;
@@ -248,13 +208,10 @@ h4 {
     justify-content: center;
     align-items: center;
     position: relative;
-    color: @bg;
     font-size: @fs-40;
     font-family: @russo;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
-    background: @rose;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     &::after {
       content: '';
       width: 5px;
@@ -262,7 +219,6 @@ h4 {
       position: absolute;
       top: 0;
       right: -5px;
-      background: inherit;
     }
     &::before {
       content: '';
@@ -272,7 +228,6 @@ h4 {
       top: -7px;
       right: -7px;
       border-style: solid;
-      border-color: transparent transparent transparent multiply(@rose, #999999);
       border-width: 7px 0 0 7px;
     }
   }

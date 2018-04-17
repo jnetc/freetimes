@@ -1,5 +1,6 @@
 let patyBox = document.querySelectorAll('.paty-box'), // Add poster image
     patyDateEls = document.querySelectorAll('.paty-dat'), // Add data, time and caption
+    patyTimeEls = document.querySelectorAll('.paty-time'), // Add data, time and caption
     patyContEl = document.querySelectorAll('.paty-content'),
     patyParagEl = document.querySelectorAll('.paty-text'), // Add event text paragraph
     patyPriceEl = document.querySelectorAll('.paty-tag'), // Add event price
@@ -32,15 +33,20 @@ let renderEvents = data => {
   data.forEach((item, i, data) => {
     patyBox[i].insertAdjacentHTML('afterbegin',
       `<img src="${item.img}" alt="poster" title="poster">`)
-    patyDateEls[i].insertAdjacentHTML('afterbegin',
-      `<span>${item.date}</span>
-       <time>${item.time}</time>`)
+    patyDateEls[i].innerText = item.date;
+    patyTimeEls[i].innerText = item.time;
     patyContEl[i].insertAdjacentHTML('afterbegin',
       `<h3>${item.capt}</h3>`)
     patyPriceEl[i].insertAdjacentHTML('beforeend',
       `<span>${item.price}<sup>€</sup></span>`)
   })
+    // Add class for theme
+  patyContEl[0].querySelector('h3').className = 'night-capt';
+  patyContEl[1].querySelector('h3').className = 'day-capt';  
 }
+
+ 
+
 
   // Create Paragraphs
 let renderEventParagraphs = getList => {
@@ -94,18 +100,45 @@ let renderComingEvents = data => {
     for ( let eventNum in eventsObj) {
       createComeEvents += `
       <div class="next-box" style="background-image: url(${eventsObj[eventNum][0].eventPoster})">
-        <span class="next-date">
-          <span>${eventsObj[eventNum][0].eventDate}</span>${eventsObj[eventNum][0].eventMonth}
-        </span>
+        <span class="next-date">${eventsObj[eventNum][0].eventDate}</span>
         <h5>${eventsObj[eventNum][0].eventCap}</h5>
-        <span class="next-btn show-btn">${eventsObj[eventNum][0].eventBtn}</span>
+        <span class="next-btn">${eventsObj[eventNum][0].eventBtn}</span>
         <p>${eventsObj[eventNum][0].eventCont}</p> 
       </div>`
     }
     nextBlocks[i].innerHTML = createComeEvents;
   })
+    // Add class for element's
+    addClassNextDates();
+    addClassNextButtons();
 }
 
+  // Add class for theme dates
+let addClassNextDates = () => {
+  nextBlocks.forEach((item, i, nextBlocks) => {
+    let elms = nextBlocks[i].querySelectorAll('.next-date');
+    for (let j = 0; j < elms.length; j++) {
+      if (i == 0) {      
+        elms[j].className += ' night-next';
+      } if (i == 1) {
+        elms[j].className += ' day-next';
+      }
+    }
+  }) 
+}
+  // Add class for theme dates
+let addClassNextButtons = () => {
+  nextBlocks.forEach((item, i, nextBlocks) => {
+    let elms = nextBlocks[i].querySelectorAll('.next-btn');
+    for (let j = 0; j < elms.length; j++) {
+      if (i == 0) {      
+        elms[j].className += ' show-night-btn';
+      } if (i == 1) {
+        elms[j].className += ' show-day-btn';
+      }
+    }
+  }) 
+}  
 
   // CREATE NEW AJAX FOR COURSES
 let coursesData = new XMLHttpRequest();
@@ -146,7 +179,7 @@ let renderCourses = data => {
       </div>
     </div>`
   });
-  coursesDom.innerHTML += createCourses;
+  coursesDom.innerHTML += createCourses; 
 }
 
   // Create course paragraphs
@@ -209,21 +242,21 @@ teamData.onreadystatechange = function () {
 };
 teamData.send();
 
-  //Create DOM courses boxes
+  //Create DOM teammate boxes
 let renderTeam = data => {
   let createTeam = '';
   data.forEach((teammate, i, data) => {
     createTeam += 
     `<div class="teammate">
-      <figure>
+      <div class="team-img">
         <img src="${teammate.img}" alt="${teammate.name}" title="${teammate.name}">
-        <svg role="img">
+        <svg role="img" class="team-img-svg">
           <use xlink:href="./img/svg/fts-elem.svg#border-up"></use>
         </svg>
-        <svg role="img">
+        <svg role="img" class="team-img-svg">
           <use xlink:href="./img/svg/fts-elem.svg#border-down"></use>
         </svg>
-      </figure>
+      </div>
       <h5>${teammate.name}</h5>
       <h6>${teammate.post}</h6>
       <svg role="img" class="stars">
@@ -235,7 +268,7 @@ let renderTeam = data => {
   OurTeamDom.innerHTML = createTeam;
 }
 
-  // Create course buttons
+  // Create teammate buttons
 let renderTeamBtns = getButtons => {
   getButtons.forEach((item, i, getButtons) => {
     let buttons = document.querySelectorAll('.team-btns');
@@ -252,7 +285,7 @@ let renderTeamBtns = getButtons => {
   });
 }
   
-  // Create event extra adds for contact buttons
+  // Create team extra adds for contact buttons
 let addExtraTeamVal = extAdds => {
   let coursesButtons = document.querySelectorAll('.team-btns');
   extAdds.forEach((item, i, extAdds) => {

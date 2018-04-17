@@ -6,18 +6,7 @@
 @bordo: rgb(114, 56, 104);
 @white: rgb(242, 242, 242);
 @black: rgb(0, 0, 0);
-
-  //////// Parametrs
-@ti: all 0.3s ease-in-out;
-@tfX: translateX(-50%);
-@tfY: translateY(-50%);
   
-   // Font style
-@russo: 'Russo-fts';
-@exo-l: 'Exo2-light-fts';
-@exo-t: 'Exo2-thin-fts';
-@exo-m: 'Exo2-medium-fts';
-
 // Events blocks and backgrounds images
 .paty-blk {
   width: 1200px;
@@ -28,35 +17,16 @@
   @media (max-width: 1200px) {
     width: 100%;
   }
-  > svg {
-    width: 928px;
-    height: 1030px;
+  .night-paint,
+  .day-paint {
+    width: 1515px;
+    height: 1247px;
+    display: block;
     position: absolute;
-    &:nth-of-type(1) {
-      top: -185px;
-      left: -155px;
-      fill: @white;
-      transform: rotateZ(134deg);
-      z-index: 3;
-    }
-    &:nth-of-type(2) {
-      top: 80px;
-      left: -40px;
-      fill: @rose;
-      transform: rotateZ(-134deg);
-      z-index: 2;
-    }
-    &:nth-of-type(3) {
-      top: 0;
-      right: -180px;
-      fill: @bordo;
-      z-index: 1;
-      @media (max-width: 768px) {
-        display: none;
-      }
-    }
+    top: -70px;
+    left: -135px;
   }
-  > img {
+  .model {
     position: absolute;
     top: -70px;
     right: 0;
@@ -73,12 +43,11 @@
   height: auto;
   display: flex;
   flex-direction: column;
-  margin: 110px 10px 110px;
+  margin: 110px 10px;
   position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   z-index: 15;
   @media ( max-width: 1075px) {
-    margin: 110px auto 110px;
+    margin: 110px auto;
   }
   @media (max-width: 768px) {
     width: 96%;
@@ -93,39 +62,46 @@
 
   // All block's event elem's without poster 
 .paty-content {
-
   position: relative;
-  background: @box;
-  @media (max-width: 480px) {
-    // padding-top: 75px;
-  }
 }
 
   // Date and time of event
 .paty-dat {
+  width: 110px;
+  height: 105px;
+  position: absolute;
+  top: -8px;
+  left: 20px;
+  font-family: @russo;
+  padding: 12px 20px 7px;
+  text-align: center;
+  font-size: @fs-50;
+  word-break: break-all;
+  line-height: 40px;
+  transition: all 0.5s cubic-bezier(0, 0.86, 0.58, 1);
+  z-index: 10;
+  pointer-events: none;
+  &::after {
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: -8px;
+    border-style: solid;
+    border-width: 0 0 8px 8px;
+  }
+}
+.paty-time {
   padding: 10px 15px;
-  .absLeft();
-  top: 90px;
-  color: @rose;
-  font-size: @fs-18;
+  position: absolute;
+  top: 200px;
+  left: @gap;
   font-family: @russo;
   text-transform: uppercase;
-  background: fade(@bg, 80%);
-  border-radius: 30px;
+  font-size: @fs-128;
   @media (max-width: 480px) {
-    // top: -80px;
-  }
-  span {
-    display: flex;
-    position: relative;
-    top: 5px;
-  }
-  time {
-    font-size: @fs-128;
-    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
-    @media (max-width: 480px) {
-      font-size: @fs-128 - 20px;
-    }
+    font-size: @fs-128 - 20px;
   }
 }
 
@@ -135,16 +111,9 @@ h3 {
   display: table;
   padding: 8px 15px 8px 20px;
   position: relative;
-  color: @black;
   font-size: @fs-30;
   font-family: @exo-m;
   text-transform: uppercase;
-  background: @rose;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  @media (max-width: 480px) {
-    max-width: 300px;
-    // font-size: @fs-18;
-  }
   &::after {
     content: '';
     width: 5px;
@@ -162,7 +131,6 @@ h3 {
     top: -7px;
     left: -7px;
     border-style: solid;
-    border-color: transparent transparent multiply(@rose, #999999) transparent;
     border-width: 0 0 7px 7px;
   }
 }
@@ -173,7 +141,6 @@ svg.stars {
   height: 20px;
   display: flex;
   margin: 30px auto;
-  fill: @rose;
 }
 
   // Content block
@@ -207,12 +174,10 @@ li {
     &::before {
       content: '';
       .absCenter();
-      background: @box;
     }
     &::after {
       content: '';
       .absCenter();
-      background: @box;
     }
   }
   .plus-bt {
@@ -227,7 +192,7 @@ li {
     &::after {
       width: 22px;
       height: 3px;
-      transform: @tfX @tfY rotateZ(90deg);
+      transform: translate(-50%, -50%) rotateZ(90deg);
       transition: @ti;
     }
   }
@@ -254,20 +219,17 @@ li {
     flex-direction: column;
     padding: 5px 20px 5px 30px;
     position: relative;
-    color: @box;
     font-family: @russo;
     text-align: center;
-    background: @rose;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     span {
       &:first-child {
         padding-bottom: 5px;
         font-size: @fs-18;
       }
       &:last-child {
-        font-size: @fs-50;
+        font-size: @fs-40;
       }
     }
     &::after {
@@ -287,7 +249,6 @@ li {
       top: -7px;
       right: -7px;
       border-style: solid;
-      border-color: transparent transparent transparent multiply(@rose, #999999);
       border-width: 7px 0 0 7px;
     }
   }
@@ -297,32 +258,27 @@ li {
 .paty-add {
   width: 100%;
   height: auto;
-  padding: 0 0 20px;
+  padding: 0 0;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   position: absolute;
   bottom: 0;
-  background: @box;
-  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
   transition: all 0.3s cubic-bezier(0.15, 0.87, 0.37, 0.94);
   z-index: -1;
   a {
     width: 60px;
     height: 60px;
-    margin: 5px;
+    margin: 10px 5px;
     position: relative;
     border-radius: 50%;
-    border: 2px solid fade(@rose, 50%);
+    border: 2px solid;
     transition: @ti;
-    &:hover {
-      border-color: @white;
-    }
     .icon-svg {
       width: 32px;
       height: 32px;
       .absCenter();
-      fill:  fade(@rose, 80%);
       z-index: 2;
       use #fbk {
         height: 175px;
@@ -332,20 +288,18 @@ li {
 }
 
   // JS classes
-.plus-bt, .more-bt {
-  background: @rose;
-}
-
-.pressed-more, .pressed-plus {
-  background: shade(@rose, 15%);
-}
 .pressed-plus {
   &::after {
     opacity: 0;
   }
 }
 .pressed-more {
-  transform: rotateZ(180deg);
+  &::before {
+    transform: translate(-50%, 0%) rotateZ(-45deg) !important;
+  }
+  &::after {
+    transform: translate(-50%, 0%) rotateZ(45deg) !important;
+  }
 }
 
 .animated {
@@ -356,7 +310,7 @@ li {
 }
 .action {
   opacity: 1;
-  transform: translateY(90px);
+  transform: translateY(80px);
   a {
     transform: scale(1);
   }

@@ -1,1 +1,68 @@
-"use strict";window.onload=function(){var e=document.querySelectorAll(".iv-box"),t=document.querySelectorAll(".iv-dat"),n=document.querySelectorAll(".iv-text"),r=document.querySelectorAll(".iv-tag"),i=document.querySelectorAll(".link-map"),o=document.querySelectorAll(".link-tel"),a=document.querySelectorAll(".link-soc"),l=new XMLHttpRequest;l.open("GET","../json/cart.json",!0),l.onreadystatechange=function(){if(4==this.readyState&&200==this.status){var e=JSON.parse(l.responseText);c(e)}},l.send();var c=function(l){var c=[];for(var s in l){c.push(s);for(var u=[],v=0;v<e.length;v++)if(u.push(v),c[s]==u[v]){e[v].insertAdjacentHTML("afterbegin",'<img src="'+l[s].ivImg+'" alt="ivent">'),t[v].insertAdjacentHTML("afterbegin","<span>"+l[s].ivDate+"</span>"),t[v].insertAdjacentHTML("beforeend","<time>"+l[s].ivTime+"</time>"),t[v].insertAdjacentHTML("afterend","<h3>"+l[s].ivCap+"</h3>");var d=l[s].ivCont[0];for(var f in d)console.log(d[f]),n[v].innerHTML+="<li>"+d[f]+"</li>";r[v].insertAdjacentHTML("beforeend","<span>"+l[s].ivPrice+"<sup>€</sup></span>"),i[v].href=""+l[s].ivMap,o[v].href="tel:"+l[s].ivTel,a[v].href=""+l[s].ivSoc}}}};
+'use strict';
+
+window.onload = function () {
+
+  // Add poster image
+  var ivImgEl = document.querySelectorAll('.iv-box');
+  // Add data, time and caption
+  var ivDateEls = document.querySelectorAll('.iv-dat');
+  // Add ivent text paragraph
+  // let ivContEl = document.querySelectorAll('.iv-content > svg');
+  var ivContEl = document.querySelectorAll('.iv-text');
+  // Add ivent price
+  var ivPriceEl = document.querySelectorAll('.iv-tag');
+  // Create ivent links 
+  var ivLinkMap = document.querySelectorAll('.link-map');
+  var ivLinkTel = document.querySelectorAll('.link-tel');
+  var ivLinkSoc = document.querySelectorAll('.link-soc');
+  // console.log(ivLinkMap);
+
+  // Create new object
+  var dataJson = new XMLHttpRequest();
+  //  open( type, url/file, asunc);
+  dataJson.open("GET", "../json/cart.json", true);
+  dataJson.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      var ourData = JSON.parse(dataJson.responseText);
+      renderHtml(ourData);
+    }
+  };
+  // send request
+  dataJson.send();
+
+  //Цикл текущих мероприятий
+  var renderHtml = function renderHtml(data) {
+
+    var keyArr = []; // Create empty array
+    for (var key in data) {
+      // console.log(data[key].ivCont[0]);
+      keyArr.push(key); // Putting value in array
+
+      var iArrKey = []; // Create empty array
+      for (var i = 0; i < ivImgEl.length; i++) {
+        // Putting any selector in loop, because it's same length
+        iArrKey.push(i); // Putting value in array
+
+        if (keyArr[key] == iArrKey[i]) {
+          // insertAdjacentHTML ('position',  'text')
+          ivImgEl[i].insertAdjacentHTML('afterbegin', '<img src="' + data[key].ivImg + '" alt="ivent">');
+          ivDateEls[i].insertAdjacentHTML('afterbegin', '<span>' + data[key].ivDate + '</span>');
+          ivDateEls[i].insertAdjacentHTML('beforeend', '<time>' + data[key].ivTime + '</time>');
+          ivDateEls[i].insertAdjacentHTML('afterend', '<h3>' + data[key].ivCap + '</h3>');
+
+          // Loop for paragraphs array
+          var contentText = data[key].ivCont[0];
+          for (var paragraph in contentText) {
+            console.log(contentText[paragraph]);
+            ivContEl[i].innerHTML += '<li>' + contentText[paragraph] + '</li>';
+          }
+
+          ivPriceEl[i].insertAdjacentHTML('beforeend', '<span>' + data[key].ivPrice + '<sup>\u20AC</sup></span>');
+          ivLinkMap[i].href = '' + data[key].ivMap; // Change just link in tag 'a' 
+          ivLinkTel[i].href = 'tel:' + data[key].ivTel;
+          ivLinkSoc[i].href = '' + data[key].ivSoc;
+        }
+      }
+    }
+  };
+};

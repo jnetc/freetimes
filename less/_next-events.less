@@ -7,17 +7,6 @@
 @white: rgb(242, 242, 242);
 @black: rgb(0, 0, 0);
 
-  //////// Parametrs
-@ti: all 0.3s ease-in-out;
-@tfX: translateX(-50%);
-@tfY: translateY(-50%);
-
- // Font style
-@russo: 'Russo-fts';
-@exo-l: 'Exo2-light-fts';
-@exo-t: 'Exo2-thin-fts';
-@exo-m: 'Exo2-medium-fts';
-	
 	// Next events
 .next-blk {
   width: 100%;
@@ -25,6 +14,7 @@
   display: flex;
   flex-wrap: wrap;
 	justify-content: center;
+	margin-top: 80px;
 }
 
 	// Box of event
@@ -39,7 +29,6 @@
 	position: relative;
 	background-size: cover;
 	object-fit: cover;
-	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 	transition: @ti;
 	z-index: 1;
 	@media (max-width: 480px) {
@@ -52,7 +41,6 @@
 		position: absolute;
 		top: 0px;
 		left: 0px;
-		background: fade(@bg, 70%);
 		z-index: -1;
 	}
 }
@@ -61,19 +49,15 @@
 .next-date {
 	width: 110px;
 	height: 105px;
-	display: flex;
-	flex-direction: column;
-	padding: 5px 0;
 	position: absolute;
 	top: -8px;
 	left: 20px;
-	background: fade(@rose, 100%);
-	color: @bg;
 	font-family: @russo;
-	font-size: @fs-18;
+	padding: 12px 20px 7px;
 	text-align: center;
-	line-height: 24px;
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
+	font-size: @fs-50;
+	word-break: break-all;
+	line-height: 40px;
 	transition: all 0.5s cubic-bezier(0, 0.86, 0.58, 1);
 	z-index: 10;
 	pointer-events: none;
@@ -86,11 +70,6 @@
 		left: -8px;
 		border-style: solid;
 		border-width: 0 0 8px 8px;
-		border-color: transparent transparent multiply(@rose, #999999) transparent
-	}
-	span {
-		padding: 30px 0 5px;
-		font-size: @fs-50;
 	}
 }
 
@@ -101,7 +80,6 @@ h5 {
 	position: relative;
 	top: 15px;
 	font-size: @fs-30;
-	text-align: center;
 	transition: @ti;
 	&::before {
 		content: '';
@@ -114,7 +92,6 @@ h5 {
 }
 .next-btn {
 	top: 280px;
-
 }
 
 	// Text
@@ -124,6 +101,7 @@ p {
 	position: absolute;
 	opacity: 0;
 	font-size: @fs-18;
+	font-weight: bold;
 	overflow: hidden;
 	white-space: normal;
 	text-overflow: ellipsis;

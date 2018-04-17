@@ -1,0 +1,154 @@
+	//////// Dark-Theme Color
+@dt-bg:  #252a31;
+@dt-box: #373a42;
+@dt-brilliant-rose: #fe5b9a; //rose
+@dt-palatinate-purple: #723868; // bordo
+@dt-white-smoke: #f2f2f2; // white
+
+  
+// Events blocks and backgrounds images
+.paty-blk {
+  .night-paint {
+    background: no-repeat center url(../img/bgs/bt-night-paint.png);
+  }
+  .day-paint {
+    background: no-repeat center url(../img/bgs/bt-day-paint.png);
+  }
+}
+
+.paty-box {
+  box-shadow: @shadow;
+}
+
+  // All block's event elem's without poster 
+.paty-content {
+  background: @dt-box;
+}
+
+  // Date and time of event
+.paty-dat {
+  background: fade(@dt-bg, 80%);
+  &.night-dat {
+    color: @dt-brilliant-rose;
+  }
+  &.day-dat {
+    color: @dt-white-smoke;
+  }
+}
+
+  // Caption event
+h3 {
+  color: @dt-box;
+  // box-shadow: @shadow;
+  //  Blocks background color's
+  &.night-capt {
+    background: @dt-brilliant-rose;
+    &::before {
+      border-color: transparent transparent multiply(@dt-brilliant-rose, #999999) transparent;
+    }
+  }
+  &.day-capt {
+    background: @dt-white-smoke;
+    &::before {
+      border-color: transparent transparent multiply(@dt-white-smoke, #999999) transparent;
+    }
+  }
+  &::after {
+    background: inherit;
+  }
+
+}
+
+  // Stars separator
+svg.stars {
+  &.night-str {
+    fill: @dt-brilliant-rose;
+  }
+  &.day-str {
+    fill: @dt-white-smoke;
+  }
+}
+
+  // Line of button "add", "more", "price" 
+.bt-tag {
+    // Buttons bg in JS class below
+  .plus-bt, .more-bt {
+    &::before {
+      background: @dt-box;
+    }
+    &::after {
+      background: @dt-box;
+    }
+  }
+  // Price
+  .paty-tag {
+    color: @dt-box;
+    box-shadow: @shadow;
+      // Color
+    &.night-price {
+      background: @dt-brilliant-rose;
+      &::before {
+        border-color: transparent transparent transparent multiply(@dt-brilliant-rose, #999999);
+      }
+    }
+    &.day-price {
+      background: @dt-white-smoke;
+      &::before {
+        border-color: transparent transparent transparent multiply(@dt-white-smoke, #999999);
+      }
+    }
+    &::after {
+      background: inherit;
+    }
+
+  }
+}
+
+  // Hided Social Buttons
+.paty-add {
+  background: @dt-box;
+  box-shadow: @shadow;
+    // Color
+  &.night-add {
+    a {
+      border-color: fade(@dt-brilliant-rose, 50%);
+      .icon-svg {
+        fill:  fade(@dt-brilliant-rose, 80%);
+      }
+      &:hover {
+        border-color: @dt-white-smoke;
+      }
+    }
+  }
+  &.day-add {
+    a {
+      border-color: fade(@dt-white-smoke, 50%);
+      .icon-svg {
+        fill:  fade(@dt-white-smoke, 80%);
+      }
+      &:hover {
+        border-color: @dt-brilliant-rose;
+      }
+    }
+  }
+}
+
+  // JS classes
+.plus-bt,
+.more-bt {
+  &.night-bt {
+    background: @dt-brilliant-rose;
+  }
+  &.day-bt {
+    background: @dt-white-smoke;
+  }
+}
+.pressed-more,
+.pressed-plus {
+  &.night-bt {
+    background: shade(@dt-brilliant-rose, 15%);
+  }
+  &.day-bt {
+    background: shade(@dt-white-smoke, 15%);
+  }
+}

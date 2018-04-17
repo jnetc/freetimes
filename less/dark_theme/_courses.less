@@ -1,0 +1,81 @@
+	//////// Dark-Theme Color
+@dt-bg:  #252a31;
+@dt-box: #373a42;
+@dt-brilliant-rose: #fe5b9a;
+@dt-palatinate-purple: #723868;
+@dt-white-smoke: #f2f2f2;
+
+.flex-crs {
+  background: @dt-box;
+  // border: 3px solid @dt-bg * 2;
+  box-shadow: inset 0 0 0 3px @dt-bg * 2, @shadow;
+}
+
+.crs-cls {
+  background: @dt-brilliant-rose;
+  // border: 1px solid @dt-bg * 2;
+  color: @dt-bg;
+}
+
+.crs-time {
+  color: @dt-white-smoke;
+}
+
+.sect {
+  background: @dt-white-smoke;
+  color: @dt-bg;
+}
+
+ // Context block
+h4 {
+  &::after {
+    background: @dt-white-smoke;
+  }
+}
+
+
+  // Functional
+
+.crs-btns {
+  a {
+    border: 2px solid fade(@dt-brilliant-rose, 50%);
+    .crs-svg {
+
+      fill: fade(@dt-brilliant-rose, 80%);
+    }
+    &:hover {
+      border-color: @dt-white-smoke;
+    }
+  }
+}
+.crs-plus {
+  span {
+    background: @dt-white-smoke;
+    box-shadow: @shadow;
+    &::before {
+      background: @dt-box;
+    }
+    &::after {
+      background: @dt-box;
+    }
+  }
+}
+
+.for-price {
+  .crs-tip {
+    color: @dt-white-smoke;
+    background: @dt-bg * 1.5;
+    box-shadow: @shadow;
+  }
+  .crs-price {
+    color: @dt-bg;
+    background: @dt-brilliant-rose;
+    box-shadow: @shadow;
+    &::after {
+      background: inherit;
+    }
+    &::before {
+      border-color: transparent transparent transparent multiply(@dt-brilliant-rose, #999999);
+    }
+  }
+}

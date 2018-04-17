@@ -1,0 +1,34 @@
+	//////// Dark-Theme Color
+@dt-bg:  #252a31;
+@dt-box: #373a42;
+@dt-brilliant-rose: #fe5b9a; //rose
+@dt-palatinate-purple: #723868; // bordo
+@dt-white-smoke: #f2f2f2; // white
+
+	// Box of event
+.next-box {
+	box-shadow: @shadow;
+	&::after {
+		background: fade(@dt-bg, 60%);
+	}
+}
+
+	// Date of event
+.next-date {
+	box-shadow: @shadow;
+		// Color
+	&.night-next {
+		background: @dt-brilliant-rose;
+		color: @dt-bg;
+		&::after {
+			border-color: transparent transparent multiply(@dt-brilliant-rose, #999999) transparent
+		}
+	}
+	&.day-next {
+		background: @dt-white-smoke;
+		color: @dt-bg;
+		&::after {
+			border-color: transparent transparent multiply(@dt-white-smoke, #999999) transparent
+		}
+	}
+}

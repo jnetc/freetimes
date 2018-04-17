@@ -1,40 +1,29 @@
 @import "../less/_reset.less";
+@import "../less/_fonts.less";
 
-	//////// Color
-@bg:  rgb(37,42,49);
-@box: rgb(55,58,66);
-@rose: rgb(254, 91, 154);
-@antrast: rgb(94, 246, 255);
-@bordo: rgb(114, 56, 104);
-@white: rgb(242, 242, 242);
-@black: rgb(0, 0, 0);
-
-	//////// Fonts
-@font-face {
-	font-family: 'Exo2-thin-fts';
-	src: url('../fonts/exo2-thin.woff') format('woff');
-	font-weight: 100;
-}
-@font-face {
-	font-family: 'Exo2-light-fts';
-	src: url('../fonts/exo2-light.woff') format('woff');
-	font-weight: 300;
-}
-@font-face {
-	font-family: 'Exo2-medium-fts';
-	src: url('../fonts/exo2-medium.woff') format('woff');
-	font-weight: 500;
-}
-@font-face {
-	font-family: 'Russo-fts';
-	src: url('../fonts/russoone.woff') format('woff');
-}
+	//////// Dark-Theme Color
+@dt-bg:  #252a31;
+@dt-box: #373a42;
+@dt-brilliant-rose: #fe5b9a;
+@dt-palatinate-purple: #723868;
+@dt-white-smoke: #f2f2f2; 
+	
+	//////// Light-Theme Color
+@wt-bg:  #eeeeee;
+@wt-box: #e9e9e9;
+@wt-bittersweet: #fc6959;
+@wt-light-sea: #24c1c7;
+@wt-eden: #286062;
+@wt-white: #f2f2f2;
+@wt-black: #373a42;
 
 	//////// Parametrs
-
 @ti: all 0.3s ease-in-out;
-@tfX: translateX(-50%);
-@tfY: translateY(-50%);
+@shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+@light-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+@wt-night-shadow: 0 3px 5px fade(@wt-bittersweet, 60%);
+@wt-day-shadow: 0 3px 5px fade(@wt-light-sea, 60%);
+@wt-inset-shadow: inset 0 0 0 3px @wt-bg;
 @gap: 15px;
 
 @russo: 'Russo-fts';
@@ -42,7 +31,7 @@
 @exo-t: 'Exo2-thin-fts';
 @exo-m: 'Exo2-medium-fts';
 
-	// Font size Fibonacci
+	// Font size
 @fs-128: 128px; 
 @fs-79: 79px;
 @fs-50: 50px;
@@ -51,59 +40,54 @@
 @fs-18: 18px;
 @fs-15: 15px;
 
-h1, h2 {
+h1, h2, h5 {
 	font-family: @russo;
 	text-align: center;
-}
-h1, h2, h4, h5, h6, li, p {
-	color: @white;
 }
 p, li {
 	font-family: @exo-l;
 	display: block;
 }
-sup, h5, h6 {
+sup, h6 {
 	font-family: @exo-m;
+	text-align: center;
 }
+
+	// Absolute center
 .absCenter {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: @tfX @tfY;
+	transform: translate(-50%, -50%);
 }
+
+	// Absolute left center
 .absLeft {
 	position: absolute;
 	left: 50%;
-	transform: @tfX;
+	transform: translateX(-50%);
 }
 
-.show-btn {
-	position: absolute;
-	padding: 10px 17px 12px;
-	background: @rose;
-	color: @bg;
-	font-family: @exo-m;
-	font-size: @fs-18;
-	font-weight: bold;
-	border-radius: 5px;
-	transition: @ti;
-	cursor: pointer;
-}
-
-
-
-	//////// Навигация
-
-
-
-
-
-	//////// Базовый блок
+	// "MAIN-THEME" class for BODY //
+		////////////////////////////
 
 body {
 	width: 100%;
 	height: auto;
-	background: @bg;
+	span.theme-btn {
+		width: 55px;
+		height: 55px;
+		display: flex;
+		position: fixed;
+		bottom: @gap;
+		right: @gap;
+		background: @dt-white-smoke;
+		border-radius: 50%;
+		box-shadow: @light-shadow;
+		z-index: 100;
+		cursor: pointer;
+	}
+		// Hedaer
 	header {
 		height: 100%;
 		display: flex;
@@ -112,30 +96,24 @@ body {
 		.logo {
 			padding: 20px;
 			position: relative;
-			figcaption {
-				padding: 10px;
-				position: absolute;
-				top: 50%;
-				left: 81%;
-				color: @white;
-				font-size: 1.6em;
-				font-family: @russo;
-				text-transform: uppercase;
-				transform: rotateZ(-45deg);
-			}
 		}
 	}
-		// all blocks
+
+		// All blocks
 	section {
 		overflow: hidden;
+		padding: 100px 0;
+		&:nth-of-type(4) {
+			padding-bottom: 0px;
+		}
 		h2 {
 			width: 480px;
 			margin: auto;
-			padding: 145px 0 60px;
+			padding: 0 0 60px;
 			position: relative;
 			font-size: @fs-50;
 			text-transform: uppercase;
-			text-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
+			// text-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
 			z-index: 5;
 			@media (max-width: 480px) {
 				width: 100%;
@@ -143,137 +121,179 @@ body {
 			}
 		}
 	}
-		// event block
-	section.paty {	
-		@import "../less/_party-block.less";
 
-		h4.next-evts {
+		// Event blocks
+	section.paty {
+		@import "../less/_party-block.less";
+		.next-evts-night,
+		.next-evts-day {
 			margin: 50px auto;
 			padding: 15px;
-			font-size: @fs-50;
+			font-size: @fs-40;
 			font-family: @exo-t;
 			font-weight: 100;
 			text-align: center;
 			text-transform: uppercase;
-			background: @bg;
 			z-index: 15;
-			@media (max-width: 480px) {
-				font-size: @fs-40;
-			}
 		}
 
 		@import "../less/_next-events.less";
 	}
+
+		// Courses
 	section.courses {
 		@import "../less/_courses.less";
 	}
+
+		// Teammate
 	section.ourteam {
 		@import "../less/_team.less";
 	}
-} //end body
-button {
-	position: relative;
-	display: block;
-	margin: 55px auto;
+
+		// Our partners
+	section.partner {
+		.link-block {
+			height: auto;
+			display: flex;
+			flex-wrap: wrap;
+		}
+	}
+
+		// Footer
+	footer {
+		display: flex;
+		justify-content: center;
+		margin: 5px;
+		span {
+			color: @dt-white-smoke;
+			font-family: @exo-t;
+		}
+	}
+		// Button more
+	.show-night-btn,
+	.show-day-btn {
+		position: absolute;
+		padding: 10px 17px 12px;
+		font-family: @exo-m;
+		font-size: @fs-18;
+		font-weight: bold;
+		border-radius: 5px;
+		transition: @ti;
+		cursor: pointer;
+	}
+} //The end
+
+
+	// "DARK-THEME" class for BODY //
+		////////////////////////////
+
+body.dark-theme {
+
+	h1, h2, h4, h5, h6, li, p {
+		color: @dt-white-smoke;
+	}
+
+	background: @dt-bg;
+		// Event blocks
+	section.paty {
+		@import "../less/dark_theme/_party-block.less";
+		h4.next-evts-night {
+			background: @dt-bg;
+		}
+		h4.next-evts-day {
+			background: @dt-palatinate-purple;
+		}
+
+		@import "../less/dark_theme/_next-events.less";
+		&.day {
+			background: @dt-palatinate-purple;
+			// background: linear-gradient(to top left, @dt-palatinate-purple 0%, multiply(@dt-palatinate-purple, #ccc)100%);
+		}
+	}
+
+		// Courses
+	section.courses {
+		@import "../less/dark_theme/_courses.less";
+	}
+
+		// Teammate
+	section.ourteam {
+		@import "../less/dark_theme/_team.less";
+		background: @dt-palatinate-purple;
+		// background: linear-gradient(to top left, @dt-palatinate-purple 0%, multiply(@dt-palatinate-purple, #ccc)100%);
+	}
+
+		// Footer
+	footer {
+		span {
+			color: @dt-white-smoke;
+		}
+	}
+		// Button more
+	.show-night-btn {
+		background: @dt-brilliant-rose;
+		color: @dt-bg;
+	}
+	.show-day-btn {
+		background: @dt-white-smoke;
+		color: @dt-bg;
+	}
 }
 
-//////////////////////////////////////////////////////
-//////// ДИСКО ДЛЯ ПОДРОСКОВ
+	// "LIGHT-THEME" class for BODY //
+		////////////////////////////
 
+body.light-theme {
 
+	h1, h2, h4, h5, h6, li, p {
+		color: @wt-black;
+	}
 
-//////////////////////////////////////////////////////
-//////// Третий блок - Расписание
+	background: @wt-bg;
+		// Event blocks
+	section.paty {
+		@import "../less/light_theme/_party-block.less";
+		h4.next-evts-night {
+			background: @wt-bg;
+		}
+		h4.next-evts-day {
+			background: @wt-bg;
+		}
 
+		@import "../less/light_theme/_next-events.less";
+		&.day {
+			background: none;
+		}
+	}
 
-//////////////////////////////////////////////////////
-//////// Четвертый блок - Робот
+		// Courses
+	section.courses {
+		@import "../less/light_theme/_courses.less";
+	}
 
+		// Teammate
+	section.ourteam {
+		@import "../less/light_theme/_team.less";
+		background: none;
+	}
 
-
-//////////////////////////////////////////////////////
-//////// Шестой блок - Галерея
-
-
-//////////////////////////////////////////////////////
-//////// Седьмой блок - Контакты
-
-
-
-////////////////////////////////
-///////  АНИМАЦИЯ
-// ТРАНСФОРМАЦИЯ
-////////////////////////////////
-
-
-///// Transition 0.3s
-// .mouse-hover {
-//   transition: 0.3s ease-in-out;
-
-// }
-// ///// Transition 0.5s
-// .mouse-hover2 {
-//   transition: 0.5s ease-in-out;
-// }
-
-// @keyframes yarlik {
-//   20% {transform: rotateZ(3.5deg)}
-// 	25% {transform: rotateZ(4deg)}
-//   70% {transform: rotateZ(-3.5deg)}
-// 	75% {transform: rotateZ(-4deg)}
-// }
-@keyframes impuls-rose {
-  0% {box-shadow: 0 0 0px 1px fade(@rose, 70%);}
-  50% {box-shadow: 0 0 20px 30px fade(@rose, 0%);}
+		// Footer
+	footer {
+		span {
+			color: @wt-black;
+		}
+	}
+		// Button more
+	.show-night-btn {
+		background: @wt-bittersweet;
+		color: @wt-black;
+	}
+	.show-day-btn {
+		background: @wt-light-sea;
+		color: @wt-black;
+	}
 }
-@keyframes impuls-bordo {
-  0% {box-shadow: 0 0 0px 1px fade(@bordo, 70%);}
-  50% {box-shadow: 0 0 20px 30px fade(@bordo, 0%);}
-}
 
-////////////////////////////////
-///////  АДАПТИВНОСТЬ
-// МАШТАБИРОВАНИЕ
-////////////////////////////////
-
-
-//////////////////////////////////////////////////////
-@media (max-width: 1200px) {
-
-////////////////////////////////////////
-//////// Базовый блок
-main {
-	width: 100%;
-	overflow: hidden;
-}
-}
-//////////////////////////////////////////////////////
-@media (max-width: 1199px) {
-
-
-
-}
-//////////////////////////////////////////////////////
-@media (max-width: 1199px) and (min-width: 780px){
-
-
-}
-//////////////////////////////////////////////////////
-@media (max-width: 779px) and (min-width: 480px){
-
-
-
-}
-///////// @media /////////////////////////////////////////////
-@media (max-width: 779px) {
-
-
-}
-//////////////////////////////////////////////////////
-@media (max-width: 479px) and (min-width: 320px){
-
-
-}
 //////////////////////////////////////////////////////
 @media screen and (orientation:landscape) {
 

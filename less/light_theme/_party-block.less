@@ -1,0 +1,192 @@
+  //////// Dark-Theme Color
+@dt-bg:  #252a31;
+@dt-box: #373a42;
+@dt-brilliant-rose: #fe5b9a;
+@dt-palatinate-purple: #723868;
+@dt-white-smoke: #f2f2f2;
+  
+  //////// Light-Theme Color
+@wt-bg:  #eeeeee;
+@wt-box: #e9e9e9;
+@wt-bittersweet: #fc6959;
+@wt-light-sea: #24c1c7;
+@wt-eden: #286062;
+@wt-white: #f2f2f2;
+@wt-black: #373a42;
+
+
+  
+// Events blocks and backgrounds images
+.paty-blk {
+  .night-paint {
+    background: no-repeat center url(../img/bgs/wt-night-paint.png);
+  }
+  .day-paint {
+    background: no-repeat center url(../img/bgs/wt-day-paint.png);
+  }
+}
+
+.paty-box {
+  box-shadow: @shadow;
+}
+
+  // All block's event elem's without poster 
+.paty-content {
+  background: @wt-box;
+}
+
+  // Date and time of event
+.paty-dat {
+  background: fade(@wt-box, 80%);
+  &.night-dat {
+    color: @wt-bittersweet;
+  }
+  &.day-dat {
+    color: @wt-light-sea;
+  }
+}
+.paty-time {
+  &.night-time {
+    color: @wt-bittersweet;
+  }
+  &.day-time {
+    color: @wt-light-sea;
+  }
+}
+
+	// Date of event
+.paty-dat {
+  box-shadow: @shadow;
+    // Color
+  &.night-dat {
+    background: @wt-bittersweet;
+    color: @wt-black;
+    &::after {
+      border-color: transparent transparent multiply(@wt-bittersweet, #999999) transparent
+    }
+  }
+  &.day-dat {
+    background: @wt-light-sea;
+    color: @wt-black;
+    &::after {
+      border-color: transparent transparent multiply(@wt-light-sea, #999999) transparent
+    }
+  }
+}
+  // Caption event
+h3 {
+  color: @dt-box;
+  // box-shadow: @shadow;
+  //  Blocks background color's
+  &.night-capt {
+    background: @wt-bittersweet;
+    &::before {
+      border-color: transparent transparent multiply(@wt-bittersweet, #999999) transparent;
+    }
+  }
+  &.day-capt {
+    background: @wt-light-sea;
+    &::before {
+      border-color: transparent transparent multiply(@wt-light-sea, #999999) transparent;
+    }
+  }
+  &::after {
+    background: inherit;
+  }
+}
+
+  // Stars separator
+svg.stars {
+  &.night-str {
+    fill: @wt-bittersweet;
+  }
+  &.day-str {
+    fill: @wt-light-sea;
+  }
+}
+
+  // Line of button "add", "more", "price" 
+.bt-tag {
+    // Buttons bg in JS class below
+  .plus-bt, .more-bt {
+    &::before {
+      background: @wt-black;
+    }
+    &::after {
+      background: @wt-black;
+    }
+  }
+  // Price
+  .paty-tag {
+    color: @wt-black;
+    background: @wt-box;
+      // Color
+    &.night-price {
+      box-shadow: @wt-night-shadow;
+      &::before {
+        border-color: transparent transparent transparent multiply(@wt-box, #999999);
+      }
+    }
+    &.day-price {
+      box-shadow: @wt-day-shadow;
+      &::before {
+        border-color: transparent transparent transparent multiply(@wt-light-sea, #999999);
+      }
+    }
+    &::after {
+      background: inherit;
+    }
+
+  }
+}
+
+  // Hided Social Buttons
+.paty-add {
+  background: @wt-box;
+  box-shadow: @shadow;
+    // Color
+  &.night-add {
+    a {
+      border-color: fade(@wt-bittersweet, 50%);
+      .icon-svg {
+        fill:  fade(@wt-bittersweet, 80%);
+      }
+      &:hover {
+        border-color: @wt-eden;
+      }
+    }
+  }
+  &.day-add {
+    a {
+      border-color: fade(@wt-light-sea, 50%);
+      .icon-svg {
+        fill:  fade(@wt-light-sea, 80%);
+      }
+      &:hover {
+        border-color: @wt-eden;
+      }
+    }
+  }
+}
+
+  // JS classes
+.plus-bt,
+.more-bt {
+  &.night-bt {
+    // background: @wt-bittersweet;
+    box-shadow: @wt-night-shadow;
+  }
+  &.day-bt {
+    // background: @dt-white-smoke;
+    box-shadow: @wt-day-shadow;
+  }
+}
+.pressed-more,
+.pressed-plus {
+  &.night-bt {
+    background: shade(@wt-bittersweet, 5%);
+  }
+  &.day-bt {
+    background: shade(@dt-white-smoke, 5%);
+  }
+}

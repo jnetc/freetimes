@@ -1,14 +1,41 @@
 window.onload = () => {
 
-  let patyAdd   = document.querySelectorAll('.paty-add'),
+  let themeBtn  = document.querySelector('.theme-btn'),
+      bodyEl    = document.querySelector('body'),
+      patyAdd   = document.querySelectorAll('.paty-add'),
       plusBts   = document.querySelectorAll('.plus-bt'),
-      moreBts    = document.querySelectorAll('.more-bt'),
+      moreBts   = document.querySelectorAll('.more-bt'),
       contents  = document.querySelectorAll('.paty-text'),
       eventBox  = document.querySelectorAll('.next-box'),
       teammate  = document.querySelectorAll('.teammate'),
       numAdd    = 1,
       numBtn    = 1;
       
+    // Cheking LocalStorage for key 
+  let light = localStorage.getItem('light');
+  let dark  = localStorage.getItem('dark');
+
+  if (light == 'light-theme') {
+    bodyEl.classList.add('' + light + ''); 
+  } else if (dark == 'dark-theme') {
+    bodyEl.classList.add('' + dark + '');
+  }
+    // Theme change button
+  themeBtn.addEventListener('click', changeTheme);
+  function changeTheme () {
+    if (bodyEl.classList.contains('dark-theme')) {
+      bodyEl.classList.add('light-theme');
+      bodyEl.classList.remove('dark-theme');
+      localStorage.setItem('light', 'light-theme');
+      localStorage.removeItem('dark');
+    }
+    else if (bodyEl.classList.contains('light-theme')) {
+      bodyEl.classList.add('dark-theme');
+      bodyEl.classList.remove('light-theme');
+      localStorage.setItem('dark', 'dark-theme');
+      localStorage.removeItem('light');
+    }
+  }
 
     // Set attributes in animated block
   for (let attr of patyAdd) {
@@ -79,12 +106,22 @@ window.onload = () => {
   for (let q = 0; q < eventBox.length; q++) {
     let eventBoxBnt = eventBox[q].querySelector('.next-btn');   
     eventBoxBnt.addEventListener('click', () => { 
-      console.log(111);
-      
-      eventBox[q].classList.add('show-info');
+      eventBox[q].classList.toggle('show-info');
     })
     eventBox[q].addEventListener('mouseleave', () => {
       eventBox[q].classList.remove('show-info');
     })
   }
+    // footer getYear
+  let footerYear = document.querySelector('footer span');
+  let year = new Date().getFullYear();
+  footerYear.innerText += ' ' + year;
+
+
+  let dateF = new Date();
+  let monthF = dateF.getMonth();
+  let numF = dateF.getDate();
+
+  console.log(numF+ '.0' +monthF);
+  
 }

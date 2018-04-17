@@ -1,6 +1,6 @@
 [{
 	"img": "./img/events/party.jpg",
-	"date": "14 февряля",
+	"date": "1402",
 	"time": "23:10",
 	"capt": "Дискотека Валентина",
 	"text": [{
@@ -16,7 +16,7 @@
 	"events": [{
 		"event1": [{
 			"eventPoster": "./img/events/event1.jpg",
-			"eventDate": "30",
+			"eventDate": "3009",
 			"eventMonth": "сентября",
 			"eventCap": "Русская дискотека",
 			"eventBtn": "подробнее",
@@ -24,7 +24,7 @@
 		}],
 		"event2": [{
 			"eventPoster": "./img/events/event2.jpg",
-			"eventDate": "01",
+			"eventDate": "0110",
 			"eventMonth": "октября",
 			"eventCap": "Туса на хеллоуин",
 			"eventBtn": "подробнее",
@@ -32,7 +32,7 @@
 		}],
 		"event3": [{
 			"eventPoster": "./img/events/event3.jpg",
-			"eventDate": "31",
+			"eventDate": "3112",
 			"eventMonth": "декабря",
 			"eventCap": "Новогодняя вечерина",
 			"eventBtn": "подробнее",
@@ -42,7 +42,7 @@
 },
 {
 	"img": "./img/events/party1.jpg",
-	"date": "23 февряля",
+	"date": "2302",
 	"time": "19:30",
 	"capt": "Дискач -Жесткач",
 	"text": [{
@@ -59,7 +59,7 @@
 	"events": [{
 		"event1": [{
 			"eventPoster": "./img/events/event1.jpg",
-			"eventDate": "25",
+			"eventDate": "2509",
 			"eventMonth": "сентября",
 			"eventCap": "Спектакль для малышей",
 			"eventBtn": "подробнее",
@@ -67,7 +67,7 @@
 		}],
 		"event2": [{
 			"eventPoster": "./img/events/event2.jpg",
-			"eventDate": "07",
+			"eventDate": "0710",
 			"eventMonth": "октября",
 			"eventCap": "Выставка форума",
 			"eventBtn": "подробнее",
@@ -75,7 +75,7 @@
 		}],
 		"event3": [{
 			"eventPoster": "./img/events/event3.jpg",
-			"eventDate": "14",
+			"eventDate": "1411",
 			"eventMonth": "ноября",
 			"eventCap": "Модный показ 'Осенняя листва'",
 			"eventBtn": "подробнее",
