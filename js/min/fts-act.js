@@ -3,6 +3,8 @@
 window.onload = function () {
 
   var themeBtn = document.querySelector('.theme-btn'),
+      menuBtn = document.querySelector('.menu-btn'),
+      menuList = document.querySelector('ul.menu-list'),
       bodyEl = document.querySelector('body'),
       patyAdd = document.querySelectorAll('.paty-add'),
       plusBts = document.querySelectorAll('.plus-bt'),
@@ -13,14 +15,18 @@ window.onload = function () {
       numAdd = 1,
       numBtn = 1;
 
-  // Cheking LocalStorage for key 
-  var light = localStorage.getItem('light');
-  var dark = localStorage.getItem('dark');
-
-  if (light == 'light-theme') {
-    bodyEl.classList.add('' + light + '');
-  } else if (dark == 'dark-theme') {
-    bodyEl.classList.add('' + dark + '');
+  // LOCAL STORAGE
+  var theme = localStorage.getItem('theme');
+  // First open site insert key theme
+  if (localStorage.getItem('theme', 'dark-theme') == null) {
+    localStorage.setItem('theme', 'dark-theme');
+    bodyEl.classList.add('dark-theme');
+  }
+  // Cheking LocalStorage for key
+  if (theme == 'light-theme') {
+    bodyEl.classList.add('' + theme + '');
+  } else if (theme == 'dark-theme') {
+    bodyEl.classList.add('' + theme + '');
   }
   // Theme change button
   themeBtn.addEventListener('click', changeTheme);
@@ -28,14 +34,23 @@ window.onload = function () {
     if (bodyEl.classList.contains('dark-theme')) {
       bodyEl.classList.add('light-theme');
       bodyEl.classList.remove('dark-theme');
-      localStorage.setItem('light', 'light-theme');
-      localStorage.removeItem('dark');
+      localStorage.setItem('theme', 'light-theme');
     } else if (bodyEl.classList.contains('light-theme')) {
       bodyEl.classList.add('dark-theme');
       bodyEl.classList.remove('light-theme');
-      localStorage.setItem('dark', 'dark-theme');
-      localStorage.removeItem('light');
+      localStorage.setItem('theme', 'dark-theme');
     }
+  }
+
+  menuBtn.addEventListener('click', menuShow);
+  function menuShow() {
+    menuList.classList.toggle('show-mlist');
+    menuBtn.classList.toggle('hide-mlist');
+  }
+  menuList.addEventListener('mouseleave', menuHide);
+  function menuHide() {
+    menuList.classList.remove('show-mlist');
+    menuBtn.classList.remove('hide-mlist');
   }
 
   // Set attributes in animated block
@@ -95,7 +110,8 @@ window.onload = function () {
   }
 
   var _loop = function _loop(btn) {
-    btn.addEventListener('click', function () {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
       btn.classList.toggle('pressed-plus');
       var btnId = btn.getAttribute('data-id');
       // loop for blocks
@@ -199,11 +215,18 @@ window.onload = function () {
   // footer getYear
   var footerYear = document.querySelector('footer span');
   var year = new Date().getFullYear();
-  footerYear.innerText += ' ' + year;
+  footerYear.innerText += ' ' + year + ' All rights reserved';
 
-  var dateF = new Date();
-  var monthF = dateF.getMonth();
-  var numF = dateF.getDate();
-
-  console.log(numF + '.0' + monthF);
+  // Preloader Page
+  // let preloader = document.querySelector('#preloader');
+  // let imgPreload = document.querySelectorAll('img[alt="preload"]');
+  // setTimeout(() => {
+  //   if (!preloader.classList.contains('.done')) {
+  //     preloader.classList.add('done');
+  //     bodyEl.classList.remove('hidden');
+  //     for (let i = 0; i < imgPreload.length; i++) {
+  //       imgPreload[i].remove();
+  //     }
+  //   }
+  // }, 1000,);
 };

@@ -34,6 +34,8 @@ let renderEvents = data => {
     patyBox[i].insertAdjacentHTML('afterbegin',
       `<img src="${item.img}" alt="poster" title="poster">`)
     patyDateEls[i].innerText = item.date;
+    patyDateEls[i].insertAdjacentHTML('beforeend',
+  `<span>${item.month}</span>`)
     patyTimeEls[i].innerText = item.time;
     patyContEl[i].insertAdjacentHTML('afterbegin',
       `<h3>${item.capt}</h3>`)
@@ -99,11 +101,15 @@ let renderComingEvents = data => {
     let createComeEvents = '';
     for ( let eventNum in eventsObj) {
       createComeEvents += `
-      <div class="next-box" style="background-image: url(${eventsObj[eventNum][0].eventPoster})">
-        <span class="next-date">${eventsObj[eventNum][0].eventDate}</span>
-        <h5>${eventsObj[eventNum][0].eventCap}</h5>
-        <span class="next-btn">${eventsObj[eventNum][0].eventBtn}</span>
-        <p>${eventsObj[eventNum][0].eventCont}</p> 
+      <div class="next-box" style="background-image: url(${eventsObj[eventNum][0].ePoster})">
+        <span class="next-date">${eventsObj[eventNum][0].eDate}
+          <span>${eventsObj[eventNum][0].eMonth}</span>
+        </span>
+        <div>
+          <h5>${eventsObj[eventNum][0].eCap}</h5>
+          <span class="next-btn">${eventsObj[eventNum][0].eBtn}</span>
+          <p>${eventsObj[eventNum][0].eCont}</p>
+        </div>
       </div>`
     }
     nextBlocks[i].innerHTML = createComeEvents;
@@ -126,7 +132,7 @@ let addClassNextDates = () => {
     }
   }) 
 }
-  // Add class for theme dates
+  // Add class for theme buttons
 let addClassNextButtons = () => {
   nextBlocks.forEach((item, i, nextBlocks) => {
     let elms = nextBlocks[i].querySelectorAll('.next-btn');
@@ -163,6 +169,13 @@ let renderCourses = data => {
     createCourses +=
     `<div class="flex-crs">
       <div class="crs-dat">
+        <span class="crs-day">${item.days}</span>
+        <span class="crs-time">${item.time}</span>
+        <svg role="img" class="crs-svg">
+          <use xlink:href="./img/svg/icons.svg#clock"></use>
+        </svg>
+      </div>
+      <div class="crs-img">
         <span class="crs-cls">${item.cls}</span> 
         <img src="${item.img}" alt="courses" title="poster">
       </div>
@@ -257,6 +270,7 @@ let renderTeam = data => {
           <use xlink:href="./img/svg/fts-elem.svg#border-down"></use>
         </svg>
       </div>
+      <span class="about-me">${teammate.about}</span>
       <h5>${teammate.name}</h5>
       <h6>${teammate.post}</h6>
       <svg role="img" class="stars">

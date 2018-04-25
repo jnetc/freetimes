@@ -1,10 +1,3 @@
-  //////// Dark-Theme Color
-@dt-bg:  #252a31;
-@dt-box: #373a42;
-@dt-brilliant-rose: #fe5b9a;
-@dt-palatinate-purple: #723868;
-@dt-white-smoke: #f2f2f2;
-  
   //////// Light-Theme Color
 @wt-bg:  #eeeeee;
 @wt-box: #e9e9e9;
@@ -19,15 +12,11 @@
 // Events blocks and backgrounds images
 .paty-blk {
   .night-paint {
-    background: no-repeat center url(../img/bgs/wt-night-paint.png);
+    background: no-repeat center url(../img/bgs/wt-night-paint-min.png);
   }
   .day-paint {
-    background: no-repeat center url(../img/bgs/wt-day-paint.png);
+    background: no-repeat center url(../img/bgs/wt-day-paint-min.png);
   }
-}
-
-.paty-box {
-  box-shadow: @shadow;
 }
 
   // All block's event elem's without poster 
@@ -37,27 +26,6 @@
 
   // Date and time of event
 .paty-dat {
-  background: fade(@wt-box, 80%);
-  &.night-dat {
-    color: @wt-bittersweet;
-  }
-  &.day-dat {
-    color: @wt-light-sea;
-  }
-}
-.paty-time {
-  &.night-time {
-    color: @wt-bittersweet;
-  }
-  &.day-time {
-    color: @wt-light-sea;
-  }
-}
-
-	// Date of event
-.paty-dat {
-  box-shadow: @shadow;
-    // Color
   &.night-dat {
     background: @wt-bittersweet;
     color: @wt-black;
@@ -73,9 +41,18 @@
     }
   }
 }
+.paty-time {
+  &.night-time {
+    color: @wt-bittersweet;
+  }
+  &.day-time {
+    color: @wt-light-sea;
+  }
+}
+
   // Caption event
 h3 {
-  color: @dt-box;
+  color: @wt-black;
   // box-shadow: @shadow;
   //  Blocks background color's
   &.night-capt {
@@ -109,13 +86,32 @@ svg.stars {
 .bt-tag {
     // Buttons bg in JS class below
   .plus-bt, .more-bt {
-    &::before {
-      background: @wt-black;
+  &::before {
+    background: @wt-black;
+  }
+  &::after {
+    background: @wt-black;
+  }
+  &.night-bt {
+    // background: @wt-bittersweet;
+    box-shadow: @wt-night-shadow;
+  }
+  &.day-bt {
+    // background: @dt-white-smoke;
+    box-shadow: @wt-day-shadow;
+  }
+    // JS classes
+  &.pressed-more,
+  &.pressed-plus {
+    &.night-bt {
+      background: shade(@wt-bittersweet, 5%);
     }
-    &::after {
-      background: @wt-black;
+    &.day-bt {
+      background: shade(@wt-light-sea, 5%);
     }
   }
+}
+
   // Price
   .paty-tag {
     color: @wt-black;
@@ -166,27 +162,5 @@ svg.stars {
         border-color: @wt-eden;
       }
     }
-  }
-}
-
-  // JS classes
-.plus-bt,
-.more-bt {
-  &.night-bt {
-    // background: @wt-bittersweet;
-    box-shadow: @wt-night-shadow;
-  }
-  &.day-bt {
-    // background: @dt-white-smoke;
-    box-shadow: @wt-day-shadow;
-  }
-}
-.pressed-more,
-.pressed-plus {
-  &.night-bt {
-    background: shade(@wt-bittersweet, 5%);
-  }
-  &.day-bt {
-    background: shade(@dt-white-smoke, 5%);
   }
 }

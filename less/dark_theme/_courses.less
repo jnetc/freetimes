@@ -6,18 +6,21 @@
 @dt-white-smoke: #f2f2f2;
 
 .flex-crs {
-  background: @dt-box;
+  background: @dt-bg;
   // border: 3px solid @dt-bg * 2;
-  box-shadow: inset 0 0 0 3px @dt-bg * 2, @shadow;
+  box-shadow: inset 0 0 0 2px @dt-bg - 10, @shadow;
+}
+
+.crs-dat {
+  color: @dt-white-smoke;
+  svg {
+    fill: @dt-white-smoke;
+  }
 }
 
 .crs-cls {
-  background: @dt-brilliant-rose;
+  background: @dt-palatinate-purple;
   // border: 1px solid @dt-bg * 2;
-  color: @dt-bg;
-}
-
-.crs-time {
   color: @dt-white-smoke;
 }
 
@@ -33,9 +36,7 @@ h4 {
   }
 }
 
-
   // Functional
-
 .crs-btns {
   a {
     border: 2px solid fade(@dt-brilliant-rose, 50%);

@@ -18,9 +18,42 @@
     width: 98%;
   }
 }
-
-  // Date, Time, Img
+  // Date, Time
 .crs-dat {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 30px;
+  right: 35px;
+  font-family: @russo;
+  @media (max-width: 875px) {
+    top: 20px;
+    right: 25px;
+  }
+  @media (max-width: 715px) {
+    top: 165px;
+  }
+  .crs-day {
+    font-size: @fs-15 - 2;
+    text-transform: uppercase;
+  }
+  .crs-time {
+    font-size: @fs-30 - 5;
+  }
+  svg {
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    top: 15px;
+    left: -26px;
+  }
+}
+
+
+
+  // Img, categories
+.crs-img {
   height: 200px;
   display: flex;
   flex-flow: column;
@@ -38,20 +71,15 @@
   font-size: @fs-18;
 }
 
-.crs-time {
-  height: 60px;
-  margin-top: 20px;
-  font-family: @russo;
-  font-size: @fs-30;
-  z-index: 3;
-}
-
 img {
   width: 160px;
   .absLeft();
   bottom: 0;
   border-radius: 50%;
   z-index: 1;
+  @media (max-width: 480px) {
+    transform: translateX(-90%);
+  }
 }
 
 .sect {

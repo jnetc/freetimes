@@ -1,48 +1,50 @@
 [{
 	"img": "./img/events/party.jpg",
-	"date": "1402",
+	"date": "11",
+	"month": "сентября",
 	"time": "23:10",
 	"capt": "Дискотека Валентина",
 	"text": [{
 			"graph1": "Расслабиться и получать удовольствие можно здесь.Окунуться в бурлящую ночную жизнь предлагает своим гостям ночной клуб «Дудка Валасянка».",
-			"graph2": "Ты полностью растворишьса в музыке и эмоциях в месте с виртуозным DJ Цветкоff, Расслабиться и получать удовольствие можно здесь.Окунуться в бурлящую ночную жизнь предлагает своим гостям ночной клуб «Дудка Валасянка»."
+			"graph2": "Ты полностью растворишьса в музыке и эмоциях в месте с виртуозным DJ, Расслабиться и получать удовольствие можно здесь.Окунуться в бурлящую ночную жизнь."
 		}],
 	"price": "15",
 	"btns": [{
 		"geo": "https://goo.gl/maps/Kmfpqg5reGF2",
 		"tel": "+358456578945",
-		"facebook": "https://www.facebook.com/"
+		"mail": "https://www.facebook.com/"
 	}],
 	"events": [{
-		"event1": [{
-			"eventPoster": "./img/events/event1.jpg",
-			"eventDate": "3009",
-			"eventMonth": "сентября",
-			"eventCap": "Русская дискотека",
-			"eventBtn": "подробнее",
-			"eventCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere."
+		"ev1": [{
+			"ePoster": "./img/events/event1.jpg",
+			"eDate": "30",
+			"eMonth": "сентября",
+			"eCap": "Русская дискотека",
+			"eBtn": "подробнее",
+			"eCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere."
 		}],
-		"event2": [{
-			"eventPoster": "./img/events/event2.jpg",
-			"eventDate": "0110",
-			"eventMonth": "октября",
-			"eventCap": "Туса на хеллоуин",
-			"eventBtn": "подробнее",
-			"eventCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni recusandae ullam dolorum."
+		"ev2": [{
+			"ePoster": "./img/events/event2.jpg",
+			"eDate": "11",
+			"eMonth": "октября",
+			"eCap": "Туса на хеллоуин",
+			"eBtn": "подробнее",
+			"eCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni recusandae ullam dolorum."
 		}],
-		"event3": [{
-			"eventPoster": "./img/events/event3.jpg",
-			"eventDate": "3112",
-			"eventMonth": "декабря",
-			"eventCap": "Новогодняя вечерина",
-			"eventBtn": "подробнее",
-			"eventCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni recusandae ullam dolorum, quibusdam voluptatibus atque at id nesciunt."
+		"ev3": [{
+			"ePoster": "./img/events/event3.jpg",
+			"eDate": "31",
+			"eMonth": "декабря",
+			"eCap": "Новогодняя вечерина",
+			"eBtn": "подробнее",
+			"eCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni recusandae ullam dolorum, quibusdam voluptatibus atque at id nesciunt."
 		}]
 	}]
 },
 {
 	"img": "./img/events/party1.jpg",
-	"date": "2302",
+	"date": "23",
+	"month": "сентября",
 	"time": "19:30",
 	"capt": "Дискач -Жесткач",
 	"text": [{
@@ -57,29 +59,29 @@
 		"twitter": "https://www.twitter.com/"
 	}],
 	"events": [{
-		"event1": [{
-			"eventPoster": "./img/events/event1.jpg",
-			"eventDate": "2509",
-			"eventMonth": "сентября",
-			"eventCap": "Спектакль для малышей",
-			"eventBtn": "подробнее",
-			"eventCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere."
+		"ev1": [{
+			"ePoster": "./img/events/event1.jpg",
+			"eDate": "25",
+			"eMonth": "сентября",
+			"eCap": "Спектакль для малышей",
+			"eBtn": "подробнее",
+			"eCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere."
 		}],
-		"event2": [{
-			"eventPoster": "./img/events/event2.jpg",
-			"eventDate": "0710",
-			"eventMonth": "октября",
-			"eventCap": "Выставка форума",
-			"eventBtn": "подробнее",
-			"eventCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni recusandae ullam dolorum."
+		"ev2": [{
+			"ePoster": "./img/events/event2.jpg",
+			"eDate": "07",
+			"eMonth": "октября",
+			"eCap": "Выставка форума",
+			"eBtn": "подробнее",
+			"eCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni recusandae ullam dolorum."
 		}],
-		"event3": [{
-			"eventPoster": "./img/events/event3.jpg",
-			"eventDate": "1411",
-			"eventMonth": "ноября",
-			"eventCap": "Модный показ 'Осенняя листва'",
-			"eventBtn": "подробнее",
-			"eventCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni recusandae ullam dolorum, quibusdam voluptatibus atque at id nesciunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni"
+		"ev3": [{
+			"ePoster": "./img/events/event3.jpg",
+			"eDate": "14",
+			"eMonth": "ноября",
+			"eCap": "Модный показ 'Осенняя листва'",
+			"eBtn": "подробнее",
+			"eCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni recusandae ullam dolorum, quibusdam voluptatibus atque at id nesciunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni"
 		}]
 	}]
 }]

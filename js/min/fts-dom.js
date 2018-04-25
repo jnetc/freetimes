@@ -43,6 +43,7 @@ var renderEvents = function renderEvents(data) {
   data.forEach(function (item, i, data) {
     patyBox[i].insertAdjacentHTML('afterbegin', '<img src="' + item.img + '" alt="poster" title="poster">');
     patyDateEls[i].innerText = item.date;
+    patyDateEls[i].insertAdjacentHTML('beforeend', '<span>' + item.month + '</span>');
     patyTimeEls[i].innerText = item.time;
     patyContEl[i].insertAdjacentHTML('afterbegin', '<h3>' + item.capt + '</h3>');
     patyPriceEl[i].insertAdjacentHTML('beforeend', '<span>' + item.price + '<sup>\u20AC</sup></span>');
@@ -97,7 +98,7 @@ var renderComingEvents = function renderComingEvents(data) {
     var eventsObj = data[i].events[0];
     var createComeEvents = '';
     for (var eventNum in eventsObj) {
-      createComeEvents += '\n      <div class="next-box" style="background-image: url(' + eventsObj[eventNum][0].eventPoster + ')">\n        <span class="next-date">' + eventsObj[eventNum][0].eventDate + '</span>\n        <h5>' + eventsObj[eventNum][0].eventCap + '</h5>\n        <span class="next-btn">' + eventsObj[eventNum][0].eventBtn + '</span>\n        <p>' + eventsObj[eventNum][0].eventCont + '</p> \n      </div>';
+      createComeEvents += '\n      <div class="next-box" style="background-image: url(' + eventsObj[eventNum][0].ePoster + ')">\n        <span class="next-date">' + eventsObj[eventNum][0].eDate + '\n          <span>' + eventsObj[eventNum][0].eMonth + '</span>\n        </span>\n        <div>\n          <h5>' + eventsObj[eventNum][0].eCap + '</h5>\n          <span class="next-btn">' + eventsObj[eventNum][0].eBtn + '</span>\n          <p>' + eventsObj[eventNum][0].eCont + '</p>\n        </div>\n      </div>';
     }
     nextBlocks[i].innerHTML = createComeEvents;
   });
@@ -119,7 +120,7 @@ var addClassNextDates = function addClassNextDates() {
     }
   });
 };
-// Add class for theme dates
+// Add class for theme buttons
 var addClassNextButtons = function addClassNextButtons() {
   nextBlocks.forEach(function (item, i, nextBlocks) {
     var elms = nextBlocks[i].querySelectorAll('.next-btn');
@@ -153,7 +154,7 @@ coursesData.send();
 var renderCourses = function renderCourses(data) {
   var createCourses = '';
   data.forEach(function (item, i, data) {
-    createCourses += '<div class="flex-crs">\n      <div class="crs-dat">\n        <span class="crs-cls">' + item.cls + '</span> \n        <img src="' + item.img + '" alt="courses" title="poster">\n      </div>\n      <div class="crs-cont">\n        <h4>' + item.name + '</h4>\n        <ul class="crs-graphs"></ul>\n      </div>\n      <div class="crs-opt">\n        <div class="crs-btns"></div>\n        <div class="for-price">\n          <span class="crs-tip">' + item.period + '</span>\n          <span class="crs-price">' + item.price + '<sup>\u20AC</sup></span>\n        </div>\n      </div>\n    </div>';
+    createCourses += '<div class="flex-crs">\n      <div class="crs-dat">\n        <span class="crs-day">' + item.days + '</span>\n        <span class="crs-time">' + item.time + '</span>\n        <svg role="img" class="crs-svg">\n          <use xlink:href="./img/svg/icons.svg#clock"></use>\n        </svg>\n      </div>\n      <div class="crs-img">\n        <span class="crs-cls">' + item.cls + '</span> \n        <img src="' + item.img + '" alt="courses" title="poster">\n      </div>\n      <div class="crs-cont">\n        <h4>' + item.name + '</h4>\n        <ul class="crs-graphs"></ul>\n      </div>\n      <div class="crs-opt">\n        <div class="crs-btns"></div>\n        <div class="for-price">\n          <span class="crs-tip">' + item.period + '</span>\n          <span class="crs-price">' + item.price + '<sup>\u20AC</sup></span>\n        </div>\n      </div>\n    </div>';
   });
   coursesDom.innerHTML += createCourses;
 };
@@ -217,7 +218,7 @@ teamData.send();
 var renderTeam = function renderTeam(data) {
   var createTeam = '';
   data.forEach(function (teammate, i, data) {
-    createTeam += '<div class="teammate">\n      <div class="team-img">\n        <img src="' + teammate.img + '" alt="' + teammate.name + '" title="' + teammate.name + '">\n        <svg role="img" class="team-img-svg">\n          <use xlink:href="./img/svg/fts-elem.svg#border-up"></use>\n        </svg>\n        <svg role="img" class="team-img-svg">\n          <use xlink:href="./img/svg/fts-elem.svg#border-down"></use>\n        </svg>\n      </div>\n      <h5>' + teammate.name + '</h5>\n      <h6>' + teammate.post + '</h6>\n      <svg role="img" class="stars">\n        <use xlink:href="./img/svg/fts-elem.svg#stars"></use>\n      </svg>\n      <div class="team-btns"></div>\n    </div>';
+    createTeam += '<div class="teammate">\n      <div class="team-img">\n        <img src="' + teammate.img + '" alt="' + teammate.name + '" title="' + teammate.name + '">\n        <svg role="img" class="team-img-svg">\n          <use xlink:href="./img/svg/fts-elem.svg#border-up"></use>\n        </svg>\n        <svg role="img" class="team-img-svg">\n          <use xlink:href="./img/svg/fts-elem.svg#border-down"></use>\n        </svg>\n      </div>\n      <span class="about-me">' + teammate.about + '</span>\n      <h5>' + teammate.name + '</h5>\n      <h6>' + teammate.post + '</h6>\n      <svg role="img" class="stars">\n        <use xlink:href="./img/svg/fts-elem.svg#stars"></use>\n      </svg>\n      <div class="team-btns"></div>\n    </div>';
   });
   OurTeamDom.innerHTML = createTeam;
 };

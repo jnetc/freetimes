@@ -1,6 +1,8 @@
 window.onload = () => {
 
   let themeBtn  = document.querySelector('.theme-btn'),
+      menuBtn   = document.querySelector('.menu-btn'),
+      menuList  = document.querySelector('ul.menu-list'),
       bodyEl    = document.querySelector('body'),
       patyAdd   = document.querySelectorAll('.paty-add'),
       plusBts   = document.querySelectorAll('.plus-bt'),
@@ -11,14 +13,18 @@ window.onload = () => {
       numAdd    = 1,
       numBtn    = 1;
       
-    // Cheking LocalStorage for key 
-  let light = localStorage.getItem('light');
-  let dark  = localStorage.getItem('dark');
-
-  if (light == 'light-theme') {
-    bodyEl.classList.add('' + light + ''); 
-  } else if (dark == 'dark-theme') {
-    bodyEl.classList.add('' + dark + '');
+    // LOCAL STORAGE
+  let theme = localStorage.getItem('theme');
+    // First open site insert key theme
+  if (localStorage.getItem('theme', 'dark-theme') == null) {
+    localStorage.setItem('theme', 'dark-theme');
+    bodyEl.classList.add('dark-theme');
+  }
+    // Cheking LocalStorage for key
+  if (theme == 'light-theme') {
+    bodyEl.classList.add('' + theme + ''); 
+  } else if (theme == 'dark-theme') {
+    bodyEl.classList.add('' + theme + '');
   }
     // Theme change button
   themeBtn.addEventListener('click', changeTheme);
@@ -26,16 +32,27 @@ window.onload = () => {
     if (bodyEl.classList.contains('dark-theme')) {
       bodyEl.classList.add('light-theme');
       bodyEl.classList.remove('dark-theme');
-      localStorage.setItem('light', 'light-theme');
-      localStorage.removeItem('dark');
+      localStorage.setItem('theme', 'light-theme');
     }
     else if (bodyEl.classList.contains('light-theme')) {
       bodyEl.classList.add('dark-theme');
       bodyEl.classList.remove('light-theme');
-      localStorage.setItem('dark', 'dark-theme');
-      localStorage.removeItem('light');
+      localStorage.setItem('theme', 'dark-theme');
     }
   }
+
+  
+  menuBtn.addEventListener('click', menuShow);
+  function menuShow () {
+    menuList.classList.toggle('show-mlist');
+    menuBtn.classList.toggle('hide-mlist');
+  }
+  menuList.addEventListener('mouseleave', menuHide);
+  function menuHide () {
+    menuList.classList.remove('show-mlist');
+    menuBtn.classList.remove('hide-mlist');
+  }
+
 
     // Set attributes in animated block
   for (let attr of patyAdd) {
@@ -50,7 +67,8 @@ window.onload = () => {
     
     // Loop for button "plus contact"
   for (const btn of plusBts) {    
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
       btn.classList.toggle('pressed-plus');
       let btnId = btn.getAttribute('data-id');
       // loop for blocks
@@ -66,7 +84,7 @@ window.onload = () => {
     })
   }
 
-    // Loop for button "more info"
+  // Loop for button "more info"
 
   for (let i = 0; i < contents.length; i++) {
      
@@ -115,13 +133,20 @@ window.onload = () => {
     // footer getYear
   let footerYear = document.querySelector('footer span');
   let year = new Date().getFullYear();
-  footerYear.innerText += ' ' + year;
+  footerYear.innerText += ' ' + year + ' All rights reserved';
 
 
-  let dateF = new Date();
-  let monthF = dateF.getMonth();
-  let numF = dateF.getDate();
 
-  console.log(numF+ '.0' +monthF);
-  
+    // Preloader Page
+  // let preloader = document.querySelector('#preloader');
+  // let imgPreload = document.querySelectorAll('img[alt="preload"]');
+  // setTimeout(() => {
+  //   if (!preloader.classList.contains('.done')) {
+  //     preloader.classList.add('done');
+  //     bodyEl.classList.remove('hidden');
+  //     for (let i = 0; i < imgPreload.length; i++) {
+  //       imgPreload[i].remove();
+  //     }
+  //   }
+  // }, 1000,);
 }

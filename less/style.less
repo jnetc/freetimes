@@ -74,28 +74,189 @@ sup, h6 {
 body {
 	width: 100%;
 	height: auto;
-	span.theme-btn {
-		width: 55px;
-		height: 55px;
-		display: flex;
+	
+	.nav-bar {
+		width: 1200px;
+		height: 30px;
 		position: fixed;
-		bottom: @gap;
-		right: @gap;
-		background: @dt-white-smoke;
-		border-radius: 50%;
-		box-shadow: @light-shadow;
+		left: 50%;
+		transform: translateX(-50%);
+		// background: @dt-bg + 25;
 		z-index: 100;
-		cursor: pointer;
+		@media (max-width:1199px) {
+			width: 100%;
+		}
+		.nav-btns {
+			display: flex;
+		}
 	}
+			// NAV BUTTONS
+		div.menu-btn,
+		div.theme-btn {
+		width: 50px;
+		height: 50px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		margin: 5px;
+		position: relative;
+		border-radius: 50%;
+		box-shadow: @shadow;
+		cursor: pointer;
+		}
+	div.menu-btn {
+		span {
+			width: 20px;
+			height: 3px;
+			display: block;
+			position: relative;
+			background: @dt-white-smoke;
+			transform-origin: center;
+			transition: @ti;
+			&:nth-of-type(1) {
+				top: 1px;
+				&::after {
+					content: '';
+					width: inherit;
+					height: inherit;
+					display: block;
+					position: absolute;
+					top: -6px;
+					left: 0;
+					background: @dt-white-smoke;
+					transition: @ti;
+				}
+			}
+			&:nth-of-type(2) {
+				top: 4px;
+			}
+
+		}
+			// JS class (крестик)
+		&.hide-mlist {
+			span {
+				&:nth-of-type(1) {
+					transform: rotateZ(45deg);
+					&::after {
+						opacity: 0;
+					}
+				}
+				&:nth-of-type(2) {
+					transform: rotateZ(-45deg) translate(4px, -4px);
+				}
+			}
+		}
+	}
+	div.theme-btn {
+		svg {
+			width: 20px;
+			height: 20px;
+		}
+	}
+	ul.menu-list {
+		max-width: 150px;
+		height: auto;
+		position: absolute;
+		top: 62px;
+		left: 5px;
+		opacity: 0;
+		border-radius: 5px;
+		box-shadow: @light-shadow;
+		transform-origin: 24px 0px;
+		transform: rotate3d(1, 1, 1, 60deg);
+		transition: @ti;
+		pointer-events: none;
+			// JS class
+		&.show-mlist {
+			opacity: 1;
+			transform: rotate3d(1, 1, 1, 0deg);
+			pointer-events: initial;
+		}
+		li {
+			position: relative;
+			padding: 5px 30px 5px 20px;
+			font-size: @fs-18 + 3;
+			font-family: @exo-l;
+			transition: @ti;
+			cursor: pointer;
+			&::before {
+				content: '';
+				width: 0;
+				height: 0;
+				position: absolute;
+				top: 10px;
+				left: 0px;
+				border-style: solid;
+				border-width: 7px 0px 7px 7px;
+				border-color: transparent transparent transparent transparent;
+				transition: @ti;
+			}
+			a {
+				color: @dt-white-smoke;
+				transition: @ti;
+			}
+		}
+		&:first-of-type {
+			padding-top: 5px;
+		}
+		&:last-of-type {
+			padding-bottom: 5px;
+		}
+		&::before {
+			content: '';
+			width: 0;
+			height: 0;
+			position: absolute;
+			top: -7px;
+			left: 18px;
+			border-style: solid;
+			border-width: 0 7px 7px 7px;
+		}
+	}
+
+	// ПРИГОДИТСЯ ЕщЁ
+	// div.theme-btn {
+	// 	width: 50px;
+	// 	height: 50px;
+	// 	display: flex;
+	// 	justify-content: center;
+	// 	align-items: center;
+	// 	margin-left: 50%;
+	// 	position: fixed;
+	// 	bottom: @gap;
+	// 	border-radius: 50%;
+	// 	box-shadow: @shadow;
+	// 	transform: translateX(610px);
+	// 	z-index: 100;
+	// 	cursor: pointer;
+	// 	@media (max-width: 1390px) {
+	// 		margin-left: auto;
+	// 		right: @gap;
+	// 		transform: none;
+	// 	}
+	// 	svg {
+	// 		width: 20px;
+	// 		height: 20px;
+	// 	}
+	// }
+
 		// Hedaer
 	header {
-		height: 100%;
+		width: 100%;
+		height: 100vh;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		.logo {
-			padding: 20px;
-			position: relative;
+			width: 100%;
+			height: 100%; 
+			display: block;
+			background: no-repeat center;
+			background-size: 1056px 946px;
+			@media (max-width: 1000px) {
+				background-size: 100% auto;
+			}
 		}
 	}
 
@@ -169,18 +330,6 @@ body {
 			font-family: @exo-t;
 		}
 	}
-		// Button more
-	.show-night-btn,
-	.show-day-btn {
-		position: absolute;
-		padding: 10px 17px 12px;
-		font-family: @exo-m;
-		font-size: @fs-18;
-		font-weight: bold;
-		border-radius: 5px;
-		transition: @ti;
-		cursor: pointer;
-	}
 } //The end
 
 
@@ -191,6 +340,53 @@ body.dark-theme {
 
 	h1, h2, h4, h5, h6, li, p {
 		color: @dt-white-smoke;
+	}
+	div.menu-btn,
+	div.theme-btn {
+		background: @dt-white-smoke;
+	}
+	div.theme-btn {
+		svg {
+			fill: @dt-box;
+		}
+	}
+	div.menu-btn {
+		span {
+			background: @wt-black;
+			&::after {
+				background: @wt-black;
+			}
+			&::before {
+				background: @wt-black;
+			}
+		}
+	}
+	ul.menu-list {
+		background: @dt-brilliant-rose;
+		li {
+			&:hover  {
+				.mlist-focus();
+			}
+			// JS class hover
+			.mlist-focus {
+				a {
+					color: @dt-bg;
+				}
+				&::before {
+					border-left-color: @dt-bg;
+				}
+			}
+		}
+		&::before {
+			border-color: transparent transparent @dt-brilliant-rose transparent;
+		}
+	}
+
+		// Hedaer
+	header {
+		.logo {
+			background-image: url(../img/bgs/header-night-min.png);
+		}
 	}
 
 	background: @dt-bg;
@@ -229,15 +425,6 @@ body.dark-theme {
 			color: @dt-white-smoke;
 		}
 	}
-		// Button more
-	.show-night-btn {
-		background: @dt-brilliant-rose;
-		color: @dt-bg;
-	}
-	.show-day-btn {
-		background: @dt-white-smoke;
-		color: @dt-bg;
-	}
 }
 
 	// "LIGHT-THEME" class for BODY //
@@ -247,6 +434,54 @@ body.light-theme {
 
 	h1, h2, h4, h5, h6, li, p {
 		color: @wt-black;
+	}
+
+	div.menu-btn,
+	div.theme-btn {
+		background: @wt-black;
+	}
+	div.theme-btn {
+		svg {
+			fill: @wt-bg;
+		}
+	}
+	div.menu-btn {
+		span {
+			background: @dt-white-smoke;
+			&::after {
+				background: @dt-white-smoke;
+			}
+			&::before {
+				background: @dt-white-smoke;
+			}
+		}
+	}
+	ul.menu-list {
+		background: @wt-bittersweet;
+		li {
+			&:hover  {
+				.mlist-focus();
+			}
+			// JS class hover
+			.mlist-focus {
+				a {
+					color: @dt-bg;
+				}
+				&::before {
+					border-left-color: @wt-bg;
+				}
+			}
+		}
+		&::before {
+			border-color: transparent transparent @wt-bittersweet transparent;
+		}
+	}
+
+		// Hedaer
+	header {
+		.logo {
+			background-image: url(../img/bgs/header-day-min.png);
+		}
 	}
 
 	background: @wt-bg;
@@ -282,15 +517,6 @@ body.light-theme {
 		span {
 			color: @wt-black;
 		}
-	}
-		// Button more
-	.show-night-btn {
-		background: @wt-bittersweet;
-		color: @wt-black;
-	}
-	.show-day-btn {
-		background: @wt-light-sea;
-		color: @wt-black;
 	}
 }
 

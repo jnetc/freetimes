@@ -1,10 +1,3 @@
-	//////// Dark-Theme Color
-@dt-bg:  #252a31;
-@dt-box: #373a42;
-@dt-brilliant-rose: #fe5b9a;
-@dt-palatinate-purple: #723868;
-@dt-white-smoke: #f2f2f2; 
-  
   //////// Light-Theme Color
 @wt-bg:  #eeeeee;
 @wt-box: #e9e9e9;
@@ -16,17 +9,18 @@
 
 .flex-crs {
   background: @wt-box;
-  // border: 3px solid @wt-bg;
   box-shadow: @wt-inset-shadow, @light-shadow;
+}
+
+.crs-dat {
+  color: @wt-black;
+  svg {
+    fill: @wt-black;
+  }
 }
 
 .crs-cls {
   background: @wt-bg + 5;
-  // border: 1px solid @dt-bg * 2;
-  color: @wt-black;
-}
-
-.crs-time {
   color: @wt-black;
 }
 
@@ -42,9 +36,7 @@ h4 {
   }
 }
 
-
   // Functional
-
 .crs-btns {
   a {
     border: 2px solid fade(@wt-bittersweet, 50%);

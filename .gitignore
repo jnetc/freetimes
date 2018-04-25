@@ -3,7 +3,7 @@ node_modules/
 resource/
 doc/
 **/old
-img/bgs/original/
+**/original
 .ftpconfig
 .htaccess
 .vscode/

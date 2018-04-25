@@ -1,22 +1,19 @@
 @dt-bg:  #252a31;
 @dt-box: #373a42;
-@dt-brilliant-rose: #fe5b9a; //rose
-@dt-palatinate-purple: #723868; // bordo
-@dt-white-smoke: #f2f2f2; // white
+@dt-brilliant-rose: #fe5b9a;
+@dt-palatinate-purple: #723868;
+@dt-white-smoke: #f2f2f2;
 
 .teammate {
-  border: 3px solid transparent;
-  background: @dt-box;
   box-shadow: @light-shadow;
+  background: @dt-box;
   &:hover {
-    border-color: fade(@dt-brilliant-rose, 40%);
     .team-img-svg {
       &:nth-of-type(1) {
         fill: @dt-brilliant-rose;
       }
       &:nth-of-type(2) {
         fill: fade(@dt-brilliant-rose, 60%);
-        // fill: @dt-box;
       }
     }
   }
@@ -30,6 +27,14 @@
     &:nth-of-type(2) {
       fill: fade(@dt-white-smoke, 60%);
     }
+  }
+}
+.about-me {
+  color: @dt-white-smoke;
+  border: 1px solid fade(@dt-brilliant-rose, 40%);
+  background: @dt-box;
+  &::after {
+    border-color: transparent transparent  @dt-brilliant-rose transparent; 
   }
 }
 .stars {

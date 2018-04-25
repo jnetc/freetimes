@@ -1,23 +1,19 @@
 	//////// Dark-Theme Color
 @dt-bg:  #252a31;
 @dt-box: #373a42;
-@dt-brilliant-rose: #fe5b9a; //rose
-@dt-palatinate-purple: #723868; // bordo
-@dt-white-smoke: #f2f2f2; // white
+@dt-brilliant-rose: #fe5b9a;
+@dt-palatinate-purple: #723868;
+@dt-white-smoke: #f2f2f2;
 
   
 // Events blocks and backgrounds images
 .paty-blk {
   .night-paint {
-    background: no-repeat center url(../img/bgs/bt-night-paint.png);
+    background: no-repeat center url(../img/bgs/bt-night-paint-min.png);
   }
   .day-paint {
-    background: no-repeat center url(../img/bgs/bt-day-paint.png);
+    background: no-repeat center url(../img/bgs/bt-day-paint-min.png);
   }
-}
-
-.paty-box {
-  box-shadow: @shadow;
 }
 
   // All block's event elem's without poster 
@@ -27,11 +23,26 @@
 
   // Date and time of event
 .paty-dat {
-  background: fade(@dt-bg, 80%);
   &.night-dat {
-    color: @dt-brilliant-rose;
+    background: @dt-brilliant-rose;
+    color: @wt-black;
+    &::after {
+      border-color: transparent transparent multiply(@dt-brilliant-rose, #999999) transparent
+    }
   }
   &.day-dat {
+    background: @dt-white-smoke;
+    color: @wt-black;
+    &::after {
+      border-color: transparent transparent multiply(@dt-white-smoke, #999999) transparent
+    }
+  }
+}
+.paty-time {
+  &.night-time {
+    color: @dt-brilliant-rose;
+  }
+  &.day-time {
     color: @dt-white-smoke;
   }
 }
@@ -73,13 +84,30 @@ svg.stars {
 .bt-tag {
     // Buttons bg in JS class below
   .plus-bt, .more-bt {
-    &::before {
-      background: @dt-box;
+  &::before {
+    background: @dt-box;
+  }
+  &::after {
+    background: @dt-box;
+  }
+  &.night-bt {
+    background: @dt-brilliant-rose;
+  }
+  &.day-bt {
+    background: @dt-white-smoke;
+  }
+    // JS classes
+  &.pressed-more,
+  &.pressed-plus {
+    &.night-bt {
+      background: shade(@dt-brilliant-rose, 15%);
     }
-    &::after {
-      background: @dt-box;
+    &.day-bt {
+      background: shade(@dt-white-smoke, 15%);
     }
   }
+}
+
   // Price
   .paty-tag {
     color: @dt-box;
@@ -130,25 +158,5 @@ svg.stars {
         border-color: @dt-brilliant-rose;
       }
     }
-  }
-}
-
-  // JS classes
-.plus-bt,
-.more-bt {
-  &.night-bt {
-    background: @dt-brilliant-rose;
-  }
-  &.day-bt {
-    background: @dt-white-smoke;
-  }
-}
-.pressed-more,
-.pressed-plus {
-  &.night-bt {
-    background: shade(@dt-brilliant-rose, 15%);
-  }
-  &.day-bt {
-    background: shade(@dt-white-smoke, 15%);
   }
 }

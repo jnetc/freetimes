@@ -1,12 +1,4 @@
-  //////// Color
-@bg:  rgb(37,42,49);
-@box: rgb(55,58,66);
-@rose: rgb(254, 91, 154);
-@antrast: rgb(94, 246, 255);
-@bordo: rgb(114, 56, 104);
-@white: rgb(242, 242, 242);
-@black: rgb(0, 0, 0);
-  
+ 
 // Events blocks and backgrounds images
 .paty-blk {
   width: 1200px;
@@ -45,6 +37,7 @@
   flex-direction: column;
   margin: 110px 10px;
   position: relative;
+  box-shadow: @shadow;
   z-index: 15;
   @media ( max-width: 1075px) {
     margin: 110px auto;
@@ -68,16 +61,14 @@
   // Date and time of event
 .paty-dat {
   width: 110px;
-  height: 105px;
   position: absolute;
   top: -8px;
   left: 20px;
   font-family: @russo;
-  padding: 12px 20px 7px;
+  padding: 40px 20px;
   text-align: center;
   font-size: @fs-50;
-  word-break: break-all;
-  line-height: 40px;
+  box-shadow: @shadow;
   transition: all 0.5s cubic-bezier(0, 0.86, 0.58, 1);
   z-index: 10;
   pointer-events: none;
@@ -90,6 +81,11 @@
     left: -8px;
     border-style: solid;
     border-width: 0 0 8px 8px;
+  }
+  > span {
+    display: flex;
+		justify-content: center;
+		font-size: @fs-18;
   }
 }
 .paty-time {
@@ -195,6 +191,12 @@ li {
       transform: translate(-50%, -50%) rotateZ(90deg);
       transition: @ti;
     }
+     // JS class
+    &.pressed-plus {
+      &::after {
+        opacity: 0;
+      }
+    }
   }
   .more-bt {
     margin: auto auto auto 0px;
@@ -208,6 +210,15 @@ li {
       width: 18px;
       height: 3px;
       transform: translate(-80%, 0%) rotateZ(45deg);
+    }
+      // JS class
+    &.pressed-more {
+      &::before {
+        transform: translate(-50%, 0%) rotateZ(-45deg) !important;
+      }
+      &::after {
+        transform: translate(-50%, 0%) rotateZ(45deg) !important;
+      }
     }
   }
 
@@ -265,6 +276,7 @@ li {
   flex-wrap: wrap;
   position: absolute;
   bottom: 0;
+  opacity: 0;
   transition: all 0.3s cubic-bezier(0.15, 0.87, 0.37, 0.94);
   z-index: -1;
   a {
@@ -275,6 +287,7 @@ li {
     border-radius: 50%;
     border: 2px solid;
     transition: @ti;
+    transform: scale(0.1);
     .icon-svg {
       width: 32px;
       height: 32px;
@@ -285,39 +298,12 @@ li {
       }
     }
   }
-}
-
-  // JS classes
-.pressed-plus {
-  &::after {
-    opacity: 0;
+    //JS class
+  &.action {
+    opacity: 1;
+    transform: translateY(80px);
+    a {
+      transform: scale(1);
+    }
   }
-}
-.pressed-more {
-  &::before {
-    transform: translate(-50%, 0%) rotateZ(-45deg) !important;
-  }
-  &::after {
-    transform: translate(-50%, 0%) rotateZ(45deg) !important;
-  }
-}
-
-.animated {
-  opacity: 0;
-  a {
-    transform: scale(0.1);
-  }
-}
-.action {
-  opacity: 1;
-  transform: translateY(80px);
-  a {
-    transform: scale(1);
-  }
-}
-.show {
-  display: block;
-}
-.hide {
-  display:none;
 }

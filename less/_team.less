@@ -1,11 +1,10 @@
   //////// Color
-@bg:  rgb(37,42,49);
-@box: rgb(55,58,66);
-@rose: rgb(254, 91, 154);
-@antrast: rgb(94, 246, 255);
-@bordo: rgb(114, 56, 104);
-@white: rgb(242, 242, 242);
-@black: rgb(0, 0, 0);
+@bg:  #252a31;
+@box: #373a42;
+@rose: #fe5b9a;
+@bordo: #723868;
+@white: #f2f2f2;
+@black: #000000;
 
   //////// Parametrs
 @ti: all 0.3s ease-in-out;
@@ -57,6 +56,10 @@
     transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, -50deg);
     }
   }
+  &:hover .about-me {
+    opacity: 1;
+    transform: translate3d(-50%, 10px, 0);
+  }
 }
 .team-img {
   width: 200px;
@@ -94,6 +97,33 @@
     }
   }
 }
+.about-me {
+  width: 90%;
+  display: block;
+  padding: 9px;
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  opacity: 0;
+  font-family: @exo-l;
+  font-size: @fs-15;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: @light-shadow;
+  transform-origin: top center;
+  transform: translate3d(-50%, 0, 0);
+  transition: @ti;
+  z-index: 15;
+  &::after {
+    content: '';
+    width: 0;
+    height: 0;
+    .absLeft();
+    top: -10px;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+  }
+}
 h5 {
   margin-top: 100px;
   font-size: @fs-18;
@@ -109,10 +139,7 @@ h6 {
   display: flex;
   margin: 10px auto;
 }
-p {
-  font-size: @fs-15;
-  text-align: center;
-}
+
 .team-btns {
   display: flex;
   flex-wrap: wrap;
@@ -135,14 +162,3 @@ p {
     }
   }
 }
-
- // JS class
-
-// .show-bt {
-//   opacity: 1;
-//   pointer-events: initial;
-// }
-// .hide-bt {
-//   opacity: 0;
-//   pointer-events: none;
-// }
