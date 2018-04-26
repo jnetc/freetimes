@@ -48,6 +48,7 @@ window.onload = () => {
     menuBtn.classList.toggle('hide-mlist');
   }
   menuList.addEventListener('mouseleave', menuHide);
+  menuList.addEventListener('click', menuHide);
   function menuHide () {
     menuList.classList.remove('show-mlist');
     menuBtn.classList.remove('hide-mlist');
@@ -149,4 +150,8 @@ window.onload = () => {
   //     }
   //   }
   // }, 1000,);
+
+
+
+  
 }
