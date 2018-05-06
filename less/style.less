@@ -53,6 +53,20 @@ sup, h6 {
 	text-align: center;
 }
 
+	// Flex - extend
+.flex-wrap {
+	display: flex;
+	flex-wrap: wrap;
+}
+.flex-column {
+	display: flex;
+	flex-direction: column;
+}
+.flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 	// Absolute center
 .absCenter {
 	position: absolute;
@@ -76,36 +90,35 @@ body {
 	height: 100%;
 	
 	.nav-bar {
-		width: 1200px;
-		height: 30px;
+		width: 100%;
+		height: 100%;
+		&:extend(.flex-center);
 		position: fixed;
-		left: 50%;
-		transform: translateX(-50%);
-		// background: @dt-bg + 25;
+		background: fade(@dt-bg - 25, 90%);
 		z-index: 100;
 		@media (max-width:1199px) {
 			width: 100%;
 		}
 		.nav-btns {
-			display: flex;
+			// display: flex;
 		}
 	}
-			// NAV BUTTONS
-		div.menu-btn,
-		div.theme-btn {
+			// MENU BUTTON
+		div.menu-btn {
 		width: 50px;
 		height: 50px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
+		&:extend(.flex-column, .flex-center);
 		margin: 5px;
-		position: relative;
+		position: fixed;
 		border-radius: 50%;
 		box-shadow: @shadow;
 		cursor: pointer;
 		}
 	div.menu-btn {
+		margin-left: 50%;
+		// top: 5px;
+		left: -650px;
+		z-index: 999;
 		span {
 			width: 20px;
 			height: 3px;
@@ -134,7 +147,7 @@ body {
 
 		}
 			// JS class (крестик)
-		&.hide-mlist {hide-mlist
+		&.hide-mlist {
 			span {
 				&:nth-of-type(1) {
 					transform: rotateZ(45deg);
@@ -148,30 +161,47 @@ body {
 			}
 		}
 	}
-	div.theme-btn {
-		svg {
-			width: 20px;
-			height: 20px;
+
+		// MENU LAYERS
+	.menu-items {
+		@menu-size: 500px;
+		width: @menu-size;
+		height: @menu-size;
+		&:extend(.flex-column, .flex-center);
+		margin: auto;
+		position: relative;
+		.menu-img-svg {
+			display: block;
+			.absCenter;
+			z-index: -1;
+			transition: all 0.5s cubic-bezier(0, 0, 0.01, 1.23);
+			&:nth-of-type(1) {
+				width: @menu-size;
+				height: @menu-size;
+				transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, 0deg);
+				fill: @dt-brilliant-rose;
+				z-index: -1;
+			}
+			&:nth-of-type(2) {
+				width: calc(@menu-size + 100px);
+				height: calc(@menu-size + 100px);
+				transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, -60deg);
+				fill: fade(@dt-brilliant-rose, 50%);
+				z-index: -2;
+			}
 		}
 	}
 	ul.menu-list {
-		max-width: 150px;
+		max-width: 280px;
 		height: auto;
-		position: absolute;
-		top: 62px;
-		left: 5px;
-		opacity: 0;
-		border-radius: 5px;
-		box-shadow: @light-shadow;
-		transform-origin: 24px 0px;
-		transform: rotate3d(1, 1, 1, 60deg);
+		// border: 1px solid red;
+		// box-shadow: @light-shadow;
 		transition: @ti;
-		pointer-events: none;
 			// JS class
 		&.show-mlist {
-			opacity: 1;
-			transform: rotate3d(1, 1, 1, 0deg);
-			pointer-events: initial;
+			// opacity: 1;
+			// transform: rotate3d(1, 1, 1, 0deg);
+			// pointer-events: initial;
 		}
 		li {
 			position: relative;
@@ -240,21 +270,28 @@ body {
 	// 		height: 20px;
 	// 	}
 	// }
+	div.theme-btn {
+		// display: none;
+		svg {
+			width: 20px;
+			height: 20px;
+		}
+	}
+
+
 
 		// Для плавной прокрутки !
-	.container {
-		width: 100%;
-		max-height: 100vh;
-		scroll-behavior: smooth;
-		overflow-y: scroll;
-	}
+	// .container {
+	// 	width: 100%;
+	// 	max-height: 100vh;
+	// 	scroll-behavior: smooth;
+	// 	overflow-y: scroll;
+	// }
 		// Hedaer
 	header {
 		width: 100%;
 		height: 100vh;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		&:extend(.flex-center);
 		.logo {
 			width: 100%;
 			height: 100%; 
@@ -370,7 +407,7 @@ body.dark-theme {
 		}
 	}
 	ul.menu-list {
-		background: @dt-brilliant-rose;
+		// background: @dt-brilliant-rose;
 		li {
 			&:hover  {
 				.mlist-focus();

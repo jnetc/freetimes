@@ -42,6 +42,7 @@ window.onload = function () {
     }
   }
 
+  // Menu buttons & scroll Animation
   menuBtn.addEventListener('click', menuShow);
   function menuShow() {
     menuList.classList.toggle('show-mlist');
@@ -53,6 +54,59 @@ window.onload = function () {
     menuList.classList.remove('show-mlist');
     menuBtn.classList.remove('hide-mlist');
   }
+  // Get elem's arrays
+  var menuBtns = document.querySelectorAll('.menu-list li'),
+      boxEl = document.querySelectorAll('.box-scroll');
+  // Loop for buttons & get "value" attr.
+
+  var _loop = function _loop(j) {
+    menuBtns[j].addEventListener('click', function () {
+      var btnVal = menuBtns[j].getAttribute('value');
+      // Loop & push  elem's to array
+      var boxArr = [];
+      for (var i = 0; i < boxEl.length; i++) {
+        boxArr.push(boxEl[i]);
+      }
+      // Get attr for elem's
+      var boxElId = boxArr[j].getAttribute('id');
+      // Check & get offset elem's (add animate)
+      if (btnVal + (j + 1) == boxElId) {
+        var currentHeight = boxArr[j].offsetTop;
+        scrollTo(currentHeight, 1000);
+      }
+    });
+  };
+
+  for (var j = 0; j < menuBtns.length; j++) {
+    _loop(j);
+  }
+  // Animate js get from internet & little changes
+  var scrollTo = function scrollTo(to, duration) {
+    var element = document.scrollingElement || document.documentElement,
+        start = element.scrollTop,
+        change = to - start,
+        startNum = performance.now(),
+
+    // t = current time     // b = start value
+    // c = change in value  // d = duration
+    easeInOutQuad = function easeInOutQuad(t, b, c, d) {
+      t /= d / 2;
+      if (t < 1) return c / 2 * t * t + b;
+      t--;
+      return -c / 2 * (t * (t - 2) - 1) + b;
+    },
+        animateScroll = function animateScroll() {
+      var scrollNum = performance.now();
+      var currentNum = scrollNum - startNum;
+      element.scrollTop = parseInt(easeInOutQuad(currentNum, start, change, duration));
+      if (currentNum < duration) {
+        requestAnimationFrame(animateScroll);
+      } else {
+        element.scrollTop = to;
+      }
+    };
+    animateScroll();
+  };
 
   // Set attributes in animated block
   var _iteratorNormalCompletion = true;
@@ -110,7 +164,7 @@ window.onload = function () {
     }
   }
 
-  var _loop = function _loop(btn) {
+  var _loop2 = function _loop2(btn) {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
       btn.classList.toggle('pressed-plus');
@@ -136,7 +190,7 @@ window.onload = function () {
     for (var _iterator3 = plusBts[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
       var btn = _step3.value;
 
-      _loop(btn);
+      _loop2(btn);
     }
 
     // Loop for button "more info"
@@ -155,7 +209,7 @@ window.onload = function () {
     }
   }
 
-  var _loop2 = function _loop2(i) {
+  var _loop3 = function _loop3(i) {
 
     var contHeight = contents[i].offsetHeight; // Content height
     var contChild = contents[i].children; // Content paragraph child
@@ -170,7 +224,7 @@ window.onload = function () {
       return a + b;
     });
 
-    var _loop4 = function _loop4(k) {
+    var _loop5 = function _loop5(k) {
       // ToDo if paragraphs more than 435px or not
       if (contHeight < paragSum && i == k) {
         moreBts[k].onclick = function () {
@@ -190,17 +244,17 @@ window.onload = function () {
     };
 
     for (var k = 0; k < moreBts.length; k++) {
-      _loop4(k);
+      _loop5(k);
     }
   };
 
   for (var i = 0; i < contents.length; i++) {
-    _loop2(i);
+    _loop3(i);
   }
 
   // Show events info
 
-  var _loop3 = function _loop3(q) {
+  var _loop4 = function _loop4(q) {
     var eventBoxBnt = eventBox[q].querySelector('.next-btn');
     eventBoxBnt.addEventListener('click', function () {
       eventBox[q].classList.toggle('show-info');
@@ -211,7 +265,7 @@ window.onload = function () {
   };
 
   for (var q = 0; q < eventBox.length; q++) {
-    _loop3(q);
+    _loop4(q);
   }
   // footer getYear
   var footerYear = document.querySelector('footer span');

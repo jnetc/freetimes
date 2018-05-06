@@ -8,11 +8,9 @@
 @black: rgb(0, 0, 0);
 
 	// Next events
-.next-blk {
+.next-blk:extend(.flex-wrap) {
   width: 100%;
   height: auto;
-  display: flex;
-  flex-wrap: wrap;
 	justify-content: center;
 	margin-top: 80px;
 }
@@ -39,12 +37,9 @@
 		left: 0px;
 		z-index: -1;
 	}
-	div {
+	div:extend(.flex-center) {
 		// width: inherit;
 		height: 425px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
 		position: absolute;
 		overflow: hidden;
 	}
@@ -103,7 +98,7 @@ h5 {
 	// Button more
 .show-night-btn,
 .show-day-btn {
-	.absLeft();
+	&:extend(.absLeft);
 	padding: 10px 17px 12px;
 	font-family: @exo-m;
 	font-size: @fs-18;

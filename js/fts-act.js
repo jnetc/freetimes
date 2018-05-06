@@ -41,7 +41,7 @@ window.onload = () => {
     }
   }
 
-  
+    // Menu buttons & scroll Animation
   menuBtn.addEventListener('click', menuShow);
   function menuShow () {
     menuList.classList.toggle('show-mlist');
@@ -53,7 +53,54 @@ window.onload = () => {
     menuList.classList.remove('show-mlist');
     menuBtn.classList.remove('hide-mlist');
   }
-
+    // Get elem's arrays
+  let menuBtns = document.querySelectorAll('.menu-list li'),
+  boxEl = document.querySelectorAll('.box-scroll');
+  // Loop for buttons & get "value" attr.
+    for (let j = 0; j < menuBtns.length; j++) {
+      menuBtns[j].addEventListener('click', () => { 
+      let btnVal = menuBtns[j].getAttribute('value');
+        // Loop & push  elem's to array
+      let boxArr = [];
+      for (let i = 0; i < boxEl.length; i++) {
+        boxArr.push( boxEl[i] );
+      }
+        // Get attr for elem's
+      let boxElId = boxArr[j].getAttribute('id');
+        // Check & get offset elem's (add animate)
+      if ((btnVal + (j+1)) ==  boxElId){
+        let currentHeight = boxArr[j].offsetTop;
+        scrollTo(currentHeight, 1000);
+      }
+    })
+  }
+  // Animate js get from internet & little changes
+  let scrollTo  = function(to, duration) {
+    let element = document.scrollingElement || document.documentElement,
+        start = element.scrollTop,
+        change = to - start,
+        startNum = performance.now(),
+      // t = current time     // b = start value
+      // c = change in value  // d = duration
+        easeInOutQuad = (t, b, c, d) => {
+          t /= d/2;
+          if (t < 1) return c/2*t*t + b;
+          t--;
+          return -c/2 * (t*(t-2) - 1) + b;
+        },
+        animateScroll = () => {
+          let scrollNum = performance.now();
+          let currentNum = scrollNum - startNum;
+          element.scrollTop = parseInt(easeInOutQuad(currentNum, start, change, duration));
+          if(currentNum < duration) {
+              requestAnimationFrame(animateScroll);
+          }
+          else {
+              element.scrollTop = to;
+          }
+        };
+    animateScroll();
+  };
 
     // Set attributes in animated block
   for (let attr of patyAdd) {
@@ -86,7 +133,6 @@ window.onload = () => {
   }
 
   // Loop for button "more info"
-
   for (let i = 0; i < contents.length; i++) {
      
     let contHeight  = contents[i].offsetHeight;  // Content height
