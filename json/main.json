@@ -17,14 +17,14 @@
 		"capt3": "О нас"
 	},
 	"in": "Вход",
-	// "partner": [{
-	// 	"link0": [{
-	// 		"img": "./img/partner/fin-min.png",
-	// 		"href": "www.intofinland.ru"
-	// 	}],
-	// 	"link1": [{
-	// 		"img": "./img/partner/timamih-min.png",
-	// 		"href": "www.timamih.com"
-	// 	}]
-	// }]
+	"partner": [{
+		"link0": [{
+			"img": "./img/partner/fin-min.png",
+			"href": "www.intofinland.ru"
+		}],
+		"link1": [{
+			"img": "./img/partner/timamih-min.png",
+			"href": "www.timamih.com"
+		}]
+	}]
 }
