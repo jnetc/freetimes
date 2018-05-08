@@ -2,10 +2,11 @@
 
 window.onload = function () {
 
-  var themeBtn = document.querySelector('.theme-btn'),
+  var bodyEl = document.querySelector('body'),
+      themeBtn = document.querySelector('.theme-btn'),
       menuBtn = document.querySelector('.menu-btn'),
-      menuList = document.querySelector('ul.menu-list'),
-      bodyEl = document.querySelector('body'),
+      menuBox = document.querySelector('.menu-box'),
+      menuList = document.querySelector('.menu-list'),
       patyAdd = document.querySelectorAll('.paty-add'),
       plusBts = document.querySelectorAll('.plus-bt'),
       moreBts = document.querySelectorAll('.more-bt'),
@@ -45,14 +46,17 @@ window.onload = function () {
   // Menu buttons & scroll Animation
   menuBtn.addEventListener('click', menuShow);
   function menuShow() {
-    menuList.classList.toggle('show-mlist');
-    menuBtn.classList.toggle('hide-mlist');
+    menuBox.classList.toggle('focused');
+    menuBtn.classList.toggle('mbt-focus');
+    themeBtn.classList.toggle('tbt-anim');
+    bodyEl.style.overflow = bodyEl.style.overflow === 'hidden' ? '' : 'hidden';
   }
-  menuList.addEventListener('mouseleave', menuHide);
   menuList.addEventListener('click', menuHide);
   function menuHide() {
-    menuList.classList.remove('show-mlist');
-    menuBtn.classList.remove('hide-mlist');
+    menuBox.classList.remove('focused');
+    menuBtn.classList.remove('mbt-focus');
+    themeBtn.classList.remove('tbt-anim');
+    bodyEl.style.overflow = bodyEl.style.overflow === 'hidden' ? '' : 'hidden';
   }
   // Get elem's arrays
   var menuBtns = document.querySelectorAll('.menu-list li'),

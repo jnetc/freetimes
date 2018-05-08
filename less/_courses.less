@@ -137,7 +137,7 @@ h4 {
   &:extend(.flex-wrap);
   flex: 1 1 100%;
 }
-.crs-btns:extend(.flex-wrap) {
+.crs-btns :extend(.flex-wrap) {
   flex: 1 1 300px;
   justify-content: flex-start;
   align-content: center;
@@ -149,32 +149,23 @@ h4 {
     justify-content: center;
     margin-left: auto;
   }
-  a:extend(.flex-center) {
-    width: 50px;
-    height: 50px;
+  a :extend(.flex-center, .btn-base) {
     margin: 5px;
-    border-radius: 50%;
-    transition: @ti;
     .crs-svg {
       width: 23px;
       height: 23px;
     }
   }
 }
-.crs-plus:extend(.flex-center) {
+.crs-plus :extend(.flex-center) {
   margin: 10px 0;
   @media (max-width: 768px) {
     flex: 1 0 100%;
     order: 1;
   }
-  span {
-    width: 55px;
-    height: 55px;
+  span :extend(.btn-base) {
     display: block;
     margin: auto;
-    position: relative;
-    border-radius: 50%;
-    cursor: pointer;
     &::before {
       content: '';
       width: 22px;

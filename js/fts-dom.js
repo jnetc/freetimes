@@ -7,7 +7,8 @@ let patyBox = document.querySelectorAll('.paty-box'), // Add poster image
     patyAddBtn = document.querySelectorAll('.paty-add'), // Create event links
     nextBlocks = document.querySelectorAll('.next-blk'), // Dynamically generate next event boxes
     coursesDom = document.querySelector('.courses'), // Dynamically generate courses
-    OurTeamDom = document.querySelector('.team-blk'); // Dynamically generate teammate  
+    ourTeamDom = document.querySelector('.team-blk'), // Dynamically generate teammate
+    partnerLinks = document.querySelector('.link-blk'); // Dynamically generate partners link 
 
   // CREATE NEW AJAX FOR EVENTS
 let eventsData = new XMLHttpRequest();
@@ -279,7 +280,7 @@ let renderTeam = data => {
       <div class="team-btns"></div>
     </div>`
   })
-  OurTeamDom.innerHTML = createTeam;
+  ourTeamDom.innerHTML = createTeam;
 }
 
   // Create teammate buttons
@@ -317,4 +318,30 @@ let addExtraTeamVal = extAdds => {
       } 
     })
   })
+}
+
+  // CREATE NEW AJAX FOR LINKS
+let linksData = new XMLHttpRequest();
+linksData.open("GET", "../json/main.json", true);
+linksData.onreadystatechange = function () {
+  if (this.readyState == 4 && this.status == 200) {
+  let linksParse = JSON.parse(linksData.responseText);
+    renderLinks(linksParse);
+  }
+};
+linksData.send();
+
+  //Create DOM partner links
+let renderLinks = data => {
+  let createLinks = '';
+  let partner = data.partner[0];
+  //  console.log(partner);
+  for (let i in partner) {
+    const links = partner[i][0];
+    createLinks += 
+    `<a href="${links.href}">
+        <img src="${links.img}" alt="${links.href}">
+     </a>`
+  }
+  partnerLinks.innerHTML = createLinks;
 }

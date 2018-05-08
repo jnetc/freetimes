@@ -3,8 +3,7 @@
 .paty-blk {
   width: 1200px;
   margin: 0 auto 20px;
-  display: flex;
-  flex-direction: column;
+  &:extend(.flex-column);
   position: relative;
   @media (max-width: 1200px) {
     width: 100%;
@@ -33,8 +32,7 @@
 .paty-box {
   width: 645px;
   height: auto;
-  display: flex;
-  flex-direction: column;
+  &:extend(.flex-column);
   margin: 110px 10px;
   position: relative;
   box-shadow: @shadow;
@@ -145,6 +143,7 @@ ul {
   font-size: @fs-18;
   line-height: 25px;
   text-overflow: ellipsis;
+  transition: @ti;
 }
 li {
   padding: 0 60px 20px;
@@ -162,18 +161,14 @@ li {
 
     // Buttons
   .plus-bt, .more-bt {
-    width: 55px;
-    height: 55px;
-    position: relative;
-    border-radius: 50%;
-    cursor: pointer;
+    &:extend(.btn-base);
     &::before {
       content: '';
-      .absCenter();
+      &:extend(.absCenter);
     }
     &::after {
       content: '';
-      .absCenter();
+      &:extend(.absCenter);
     }
   }
   .plus-bt {
@@ -200,24 +195,25 @@ li {
   }
   .more-bt {
     margin: auto auto auto 0px;
-    transition: @ti;
     &::before {
-      width: 18px;
+      width: 15px;
       height: 3px;
       transform: translate(-20%, 0%) rotateZ(-45deg);
     }
     &::after {
-      width: 18px;
+      width: 15px;
       height: 3px;
       transform: translate(-80%, 0%) rotateZ(45deg);
     }
       // JS class
     &.pressed-more {
       &::before {
-        transform: translate(-50%, 0%) rotateZ(-45deg) !important;
+        width: 20px;
+        transform: translate(-50%, -1px) rotateZ(-45deg);
       }
       &::after {
-        transform: translate(-50%, 0%) rotateZ(45deg) !important;
+        width: 20px;
+        transform: translate(-50%, -1px) rotateZ(45deg);
       }
     }
   }
@@ -280,17 +276,13 @@ li {
   transition: all 0.3s cubic-bezier(0.15, 0.87, 0.37, 0.94);
   z-index: -1;
   a {
-    width: 60px;
-    height: 60px;
+    &:extend(.btn-base);
     margin: 10px 5px;
-    position: relative;
-    border-radius: 50%;
     border: 2px solid;
-    transition: @ti;
     transform: scale(0.1);
     .icon-svg {
-      width: 32px;
-      height: 32px;
+      width: 23px;
+      height: 23px;
       .absCenter();
       z-index: 2;
       use #fbk {
@@ -301,7 +293,7 @@ li {
     //JS class
   &.action {
     opacity: 1;
-    transform: translateY(80px);
+    transform: translateY(70px);
     a {
       transform: scale(1);
     }

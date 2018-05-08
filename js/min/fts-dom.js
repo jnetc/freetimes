@@ -17,7 +17,9 @@ nextBlocks = document.querySelectorAll('.next-blk'),
     // Dynamically generate next event boxes
 coursesDom = document.querySelector('.courses'),
     // Dynamically generate courses
-OurTeamDom = document.querySelector('.team-blk'); // Dynamically generate teammate  
+ourTeamDom = document.querySelector('.team-blk'),
+    // Dynamically generate teammate
+partnerLinks = document.querySelector('.link-blk'); // Dynamically generate partners link 
 
 // CREATE NEW AJAX FOR EVENTS
 var eventsData = new XMLHttpRequest();
@@ -220,7 +222,7 @@ var renderTeam = function renderTeam(data) {
   data.forEach(function (teammate, i, data) {
     createTeam += '<div class="teammate">\n      <div class="team-img">\n        <img src="' + teammate.img + '" alt="' + teammate.name + '" title="' + teammate.name + '">\n        <svg role="img" class="team-img-svg">\n          <use xlink:href="./img/svg/fts-elem.svg#border-up"></use>\n        </svg>\n        <svg role="img" class="team-img-svg">\n          <use xlink:href="./img/svg/fts-elem.svg#border-down"></use>\n        </svg>\n      </div>\n      <span class="about-me">' + teammate.about + '</span>\n      <h5>' + teammate.name + '</h5>\n      <h6>' + teammate.post + '</h6>\n      <svg role="img" class="stars">\n        <use xlink:href="./img/svg/fts-elem.svg#stars"></use>\n      </svg>\n      <div class="team-btns"></div>\n    </div>';
   });
-  OurTeamDom.innerHTML = createTeam;
+  ourTeamDom.innerHTML = createTeam;
 };
 
 // Create teammate buttons
@@ -253,4 +255,27 @@ var addExtraTeamVal = function addExtraTeamVal(extAdds) {
       }
     });
   });
+};
+
+// CREATE NEW AJAX FOR LINKS
+var linksData = new XMLHttpRequest();
+linksData.open("GET", "../json/main.json", true);
+linksData.onreadystatechange = function () {
+  if (this.readyState == 4 && this.status == 200) {
+    var linksParse = JSON.parse(linksData.responseText);
+    renderLinks(linksParse);
+  }
+};
+linksData.send();
+
+//Create DOM partner links
+var renderLinks = function renderLinks(data) {
+  var createLinks = '';
+  var partner = data.partner[0];
+  //  console.log(partner);
+  for (var i in partner) {
+    var links = partner[i][0];
+    createLinks += '<a href="' + links.href + '">\n        <img src="' + links.img + '" alt="' + links.href + '">\n     </a>';
+  }
+  partnerLinks.innerHTML = createLinks;
 };

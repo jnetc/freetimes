@@ -37,8 +37,7 @@
 		left: 0px;
 		z-index: -1;
 	}
-	div:extend(.flex-center) {
-		// width: inherit;
+	div :extend(.flex-center) {
 		height: 425px;
 		position: absolute;
 		overflow: hidden;
@@ -79,7 +78,6 @@
 h5 {
 	width: 100%;
 	display: block;
-	// margin-top: 220px;
 	padding: 0px 20px 10px;
 	position: absolute;
 	top: 205px;
@@ -90,7 +88,7 @@ h5 {
 		width: 70px;
 		height: 15px;
 		top: -25px;
-		.absLeft();
+		&:extend(.absLeft);
 		background: no-repeat center url(../img/els/stars.svg);
 	}
 }

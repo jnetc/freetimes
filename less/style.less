@@ -25,6 +25,7 @@
 @wt-day-shadow: 0 3px 5px fade(@wt-light-sea, 60%);
 @wt-inset-shadow: inset 0 0 0 3px @wt-bg;
 @gap: 15px;
+@menu-size: 500px;
 
 @russo: 'Russo-fts';
 @exo-l: 'Exo2-light-fts';
@@ -67,6 +68,7 @@ sup, h6 {
 	justify-content: center;
 	align-items: center;
 }
+
 	// Absolute center
 .absCenter {
 	position: absolute;
@@ -82,49 +84,48 @@ sup, h6 {
 	transform: translateX(-50%);
 }
 
+	// Buttons base
+	.btn-base {
+		width: 55px;
+    height: 55px;
+		position: relative;
+		border-radius: 50%;
+		transition: @ti;
+		cursor: pointer;
+	}
+
 	// "MAIN-THEME" class for BODY //
 		////////////////////////////
 
 body {
-	width: 100%;
+	max-width: 100%;
 	height: 100%;
-	
-	.nav-bar {
-		width: 100%;
-		height: 100%;
-		&:extend(.flex-center);
+
+		// MENU BUTTONs
+	div.btns-box {
+		width: 1200px;
+		&:extend(.flex-wrap);
 		position: fixed;
-		background: fade(@dt-bg - 25, 90%);
-		z-index: 100;
-		@media (max-width:1199px) {
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 999;
+		@media (max-width: 1199px) {
 			width: 100%;
 		}
-		.nav-btns {
-			// display: flex;
-		}
 	}
-			// MENU BUTTON
-		div.menu-btn {
-		width: 50px;
-		height: 50px;
-		&:extend(.flex-column, .flex-center);
+	div.menu-btn,
+	div.theme-btn {
+		&:extend(.flex-column, .flex-center, .btn-base);
 		margin: 5px;
-		position: fixed;
-		border-radius: 50%;
 		box-shadow: @shadow;
-		cursor: pointer;
-		}
+	}
 	div.menu-btn {
-		margin-left: 50%;
-		// top: 5px;
-		left: -650px;
-		z-index: 999;
+		z-index: 5;
 		span {
 			width: 20px;
 			height: 3px;
 			display: block;
 			position: relative;
-			background: @dt-white-smoke;
 			transform-origin: center;
 			transition: @ti;
 			&:nth-of-type(1) {
@@ -137,17 +138,15 @@ body {
 					position: absolute;
 					top: -6px;
 					left: 0;
-					background: @dt-white-smoke;
 					transition: @ti;
 				}
 			}
 			&:nth-of-type(2) {
 				top: 4px;
 			}
-
 		}
 			// JS class (крестик)
-		&.hide-mlist {
+		&.mbt-focus {
 			span {
 				&:nth-of-type(1) {
 					transform: rotateZ(45deg);
@@ -161,48 +160,68 @@ body {
 			}
 		}
 	}
+	div.theme-btn {
+		opacity: 0;
+		transform: translateX(-65px);
+		transition: @ti;
+		svg {
+			width: 20px;
+			height: 20px;
+		}
+			// JS class
+		&.tbt-anim {
+			opacity: 1;
+			transform: translateX(0px);
+		}
+	}
 
 		// MENU LAYERS
-	.menu-items {
-		@menu-size: 500px;
-		width: @menu-size;
-		height: @menu-size;
-		&:extend(.flex-column, .flex-center);
-		margin: auto;
-		position: relative;
+	.menu-box {
+		width: 100%;
+		height: 100%;
+		// display: none;
+		&:extend(.flex-center);
+		opacity: 0;
+		position: fixed;
+		transition: @ti;
+		z-index: 100;
+		pointer-events: none;
 		.menu-img-svg {
 			display: block;
 			.absCenter;
 			z-index: -1;
 			transition: all 0.5s cubic-bezier(0, 0, 0.01, 1.23);
+			
 			&:nth-of-type(1) {
 				width: @menu-size;
 				height: @menu-size;
-				transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, 0deg);
-				fill: @dt-brilliant-rose;
+				transition-delay: 0.1s;
+				transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, 90deg) scale(0.2);
 				z-index: -1;
 			}
 			&:nth-of-type(2) {
 				width: calc(@menu-size + 100px);
 				height: calc(@menu-size + 100px);
-				transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, -60deg);
-				fill: fade(@dt-brilliant-rose, 50%);
+				transition-delay: 0.2s;
+				transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, -150deg) scale(0.2);
 				z-index: -2;
 			}
 		}
-	}
-	ul.menu-list {
-		max-width: 280px;
-		height: auto;
-		// border: 1px solid red;
-		// box-shadow: @light-shadow;
-		transition: @ti;
-			// JS class
-		&.show-mlist {
-			// opacity: 1;
-			// transform: rotate3d(1, 1, 1, 0deg);
-			// pointer-events: initial;
+		&.focused {
+			opacity: 1;
+			pointer-events: initial;
+			.menu-img-svg {
+				&:nth-of-type(1) {
+					transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, 0deg) scale(1);
+				}
+				&:nth-of-type(2) {
+					transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, -60deg) scale(1);
+				}
+			}
 		}
+	}
+
+	ul.menu-list {
 		li {
 			position: relative;
 			padding: 5px 30px 5px 20px;
@@ -220,10 +239,6 @@ body {
 				border-style: solid;
 				border-width: 7px 0px 7px 7px;
 				border-color: transparent transparent transparent transparent;
-				transition: @ti;
-			}
-			a {
-				color: @dt-white-smoke;
 				transition: @ti;
 			}
 		}
@@ -244,6 +259,8 @@ body {
 			border-width: 0 7px 7px 7px;
 		}
 	}
+
+
 
 	// ПРИГОДИТСЯ ЕщЁ
 	// div.theme-btn {
@@ -270,23 +287,8 @@ body {
 	// 		height: 20px;
 	// 	}
 	// }
-	div.theme-btn {
-		// display: none;
-		svg {
-			width: 20px;
-			height: 20px;
-		}
-	}
 
 
-
-		// Для плавной прокрутки !
-	// .container {
-	// 	width: 100%;
-	// 	max-height: 100vh;
-	// 	scroll-behavior: smooth;
-	// 	overflow-y: scroll;
-	// }
 		// Hedaer
 	header {
 		width: 100%;
@@ -358,10 +360,18 @@ body {
 
 		// Our partners
 	section.partner {
-		.link-block {
+		padding: 50px 0;
+		.link-blk {
+			width: 1200px;
 			height: auto;
-			display: flex;
-			flex-wrap: wrap;
+			&:extend(.flex-wrap, .flex-center);
+			margin: 0 auto;
+			img {
+				width: 140px;
+				height: auto;
+				margin: 5px;
+				display: block;
+			}
 		}
 	}
 
@@ -390,11 +400,6 @@ body.dark-theme {
 	div.theme-btn {
 		background: @dt-white-smoke;
 	}
-	div.theme-btn {
-		svg {
-			fill: @dt-box;
-		}
-	}
 	div.menu-btn {
 		span {
 			background: @wt-black;
@@ -406,6 +411,22 @@ body.dark-theme {
 			}
 		}
 	}
+	div.theme-btn {
+		svg {
+			fill: @wt-black;
+		}
+	}
+	.menu-box {
+		background: fade(@dt-bg - 25, 90%);
+		.menu-img-svg {
+			&:nth-of-type(1) {
+				fill: @dt-brilliant-rose;
+			}
+			&:nth-of-type(2) {
+				fill: fade(@dt-brilliant-rose, 50%);
+			}
+		}
+	}
 	ul.menu-list {
 		// background: @dt-brilliant-rose;
 		li {
@@ -414,9 +435,6 @@ body.dark-theme {
 			}
 			// JS class hover
 			.mlist-focus {
-				a {
-					color: @dt-bg;
-				}
 				&::before {
 					border-left-color: @dt-bg;
 				}
@@ -485,33 +503,41 @@ body.light-theme {
 	div.theme-btn {
 		background: @wt-black;
 	}
-	div.theme-btn {
-		svg {
-			fill: @wt-bg;
-		}
-	}
 	div.menu-btn {
 		span {
-			background: @dt-white-smoke;
+			background: @wt-white;
 			&::after {
-				background: @dt-white-smoke;
+				background: @wt-white;
 			}
 			&::before {
-				background: @dt-white-smoke;
+				background: @wt-white;
+			}
+		}
+	}
+	div.theme-btn {
+		svg {
+			fill: @wt-white;
+		}
+	}
+	.menu-box {
+		background: fade(@wt-white, 90%);
+		.menu-img-svg {
+			&:nth-of-type(1) {
+				fill: @wt-black;
+			}
+			&:nth-of-type(2) {
+				fill: fade(@wt-black, 50%);
 			}
 		}
 	}
 	ul.menu-list {
-		background: @wt-bittersweet;
 		li {
+			color: @wt-white;
 			&:hover  {
 				.mlist-focus();
 			}
 			// JS class hover
 			.mlist-focus {
-				a {
-					color: @dt-bg;
-				}
 				&::before {
 					border-left-color: @wt-bg;
 				}
