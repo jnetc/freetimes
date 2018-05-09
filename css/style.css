@@ -813,7 +813,7 @@ body section.paty h5::before {
   width: 70px;
   height: 15px;
   top: -25px;
-  background: no-repeat center url(../img/els/stars.svg);
+  background: no-repeat center url(../img/svg/stars.svg);
 }
 body section.paty .show-night-btn,
 body section.paty .show-day-btn {

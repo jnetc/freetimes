@@ -6,11 +6,19 @@ let patyBox = document.querySelectorAll('.paty-box'), // Add poster image
     patyPriceEl = document.querySelectorAll('.paty-tag'), // Add event price
     patyAddBtn = document.querySelectorAll('.paty-add'), // Create event links
     nextBlocks = document.querySelectorAll('.next-blk'), // Dynamically generate next event boxes
-    coursesDom = document.querySelector('.courses'), // Dynamically generate courses
+    coursesDom = document.querySelector('.course-blk'), // Dynamically generate courses
     ourTeamDom = document.querySelector('.team-blk'), // Dynamically generate teammate
-    partnerLinks = document.querySelector('.link-blk'); // Dynamically generate partners link 
+    mainTitle = document.querySelector('title'), // main.json
+    mainTitleOg = document.querySelector('meta[property="og:title"]'), // main.json
+    mainSiteNameOg = document.querySelector('meta[property="og:site_name"]'), // main.json
+    mainDescriptOg = document.querySelector('meta[property="og:description"]'), // main.json
+    mainDescript = document.querySelector('meta[name="description"]'), // main.json
+    mainLinks = document.querySelectorAll('.menu-list li'), // main.json
+    mainH2 = document.querySelectorAll('h2'), // main.json
+    mainIn = document.querySelectorAll('.paty-tag span:nth-of-type(1)'), // main.json
+    partnerLinks = document.querySelector('.link-blk'); // Dynamically generate partners link
 
-  // CREATE NEW AJAX FOR EVENTS
+  // CREATE NEW AJAX FOR EVENTS - events.json
 let eventsData = new XMLHttpRequest();
   //  open( type, url/file, asunc);
 eventsData.open("GET", "../json/cards.json", true);
@@ -47,9 +55,6 @@ let renderEvents = data => {
   patyContEl[0].querySelector('h3').className = 'night-capt';
   patyContEl[1].querySelector('h3').className = 'day-capt';  
 }
-
- 
-
 
   // Create Paragraphs
 let renderEventParagraphs = getList => {
@@ -147,7 +152,7 @@ let addClassNextButtons = () => {
   }) 
 }  
 
-  // CREATE NEW AJAX FOR COURSES
+  // CREATE NEW AJAX FOR COURSES - course.json
 let coursesData = new XMLHttpRequest();
 coursesData.open("GET", "../json/courses.json", true);
 coursesData.onreadystatechange = function () {
@@ -243,7 +248,7 @@ let addExtraCourseVal = extAdds => {
   })
 }
 
-  // CREATE NEW AJAX FOR TEAM
+  // CREATE NEW AJAX FOR TEAM - team.json
 let teamData = new XMLHttpRequest();
 teamData.open("GET", "../json/team.json", true);
 teamData.onreadystatechange = function () {
@@ -320,7 +325,7 @@ let addExtraTeamVal = extAdds => {
   })
 }
 
-  // CREATE NEW AJAX FOR LINKS
+  // CREATE NEW AJAX FOR LINKS - main.json
 let linksData = new XMLHttpRequest();
 linksData.open("GET", "../json/main.json", true);
 linksData.onreadystatechange = function () {
@@ -331,13 +336,41 @@ linksData.onreadystatechange = function () {
 };
 linksData.send();
 
-  //Create DOM partner links
+  // Create text main-json
 let renderLinks = data => {
+  partnerLinks.innerHTML = createLinks;
+  mainTitle.innerText = data.title;
+  mainTitleOg.innerText = data.title;
+  mainSiteNameOg.innerText = data.site_name;
+  mainDescriptOg.innerText = data.description;
+  mainDescript.innerText = data.description;
+  for (let i = 0; i < mainLinks.length; i++) {
+    let getLinks = data.menu;
+    for (let j in getLinks) {
+      if (i.toString() == j.substring(4)) {
+        mainLinks[i].innerText = getLinks[j];
+      }
+    }
+  }
+  for (let i = 0; i < mainH2.length; i++) {
+    let getH2 = data.h2;
+    for (let j in getH2) {    
+      if (i.toString() == j.substring(4)) {
+        mainH2[i].innerText = getH2[j];
+      }
+    }
+  }
+  for (let i = 0; i < mainIn.length; i++) {
+    mainIn[i].innerText = data.in;
+  }
+   // Create DOM partner links
   let createLinks = '';
   let partner = data.partner[0];
   //  console.log(partner);
   for (let i in partner) {
     const links = partner[i][0];
+    console.log(links.img);
+    
     createLinks += 
     `<a href="${links.href}">
         <img src="${links.img}" alt="${links.href}">

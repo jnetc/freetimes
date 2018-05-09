@@ -15,13 +15,29 @@ patyAddBtn = document.querySelectorAll('.paty-add'),
     // Create event links
 nextBlocks = document.querySelectorAll('.next-blk'),
     // Dynamically generate next event boxes
-coursesDom = document.querySelector('.courses'),
+coursesDom = document.querySelector('.course-blk'),
     // Dynamically generate courses
 ourTeamDom = document.querySelector('.team-blk'),
     // Dynamically generate teammate
-partnerLinks = document.querySelector('.link-blk'); // Dynamically generate partners link 
+mainTitle = document.querySelector('title'),
+    // main.json
+mainTitleOg = document.querySelector('meta[property="og:title"]'),
+    // main.json
+mainSiteNameOg = document.querySelector('meta[property="og:site_name"]'),
+    // main.json
+mainDescriptOg = document.querySelector('meta[property="og:description"]'),
+    // main.json
+mainDescript = document.querySelector('meta[name="description"]'),
+    // main.json
+mainLinks = document.querySelectorAll('.menu-list li'),
+    // main.json
+mainH2 = document.querySelectorAll('h2'),
+    // main.json
+mainIn = document.querySelectorAll('.paty-tag span:nth-of-type(1)'),
+    // main.json
+partnerLinks = document.querySelector('.link-blk'); // Dynamically generate partners link
 
-// CREATE NEW AJAX FOR EVENTS
+// CREATE NEW AJAX FOR EVENTS - events.json
 var eventsData = new XMLHttpRequest();
 //  open( type, url/file, asunc);
 eventsData.open("GET", "../json/cards.json", true);
@@ -136,7 +152,7 @@ var addClassNextButtons = function addClassNextButtons() {
   });
 };
 
-// CREATE NEW AJAX FOR COURSES
+// CREATE NEW AJAX FOR COURSES - course.json
 var coursesData = new XMLHttpRequest();
 coursesData.open("GET", "../json/courses.json", true);
 coursesData.onreadystatechange = function () {
@@ -203,7 +219,7 @@ var addExtraCourseVal = function addExtraCourseVal(extAdds) {
   });
 };
 
-// CREATE NEW AJAX FOR TEAM
+// CREATE NEW AJAX FOR TEAM - team.json
 var teamData = new XMLHttpRequest();
 teamData.open("GET", "../json/team.json", true);
 teamData.onreadystatechange = function () {
@@ -257,7 +273,7 @@ var addExtraTeamVal = function addExtraTeamVal(extAdds) {
   });
 };
 
-// CREATE NEW AJAX FOR LINKS
+// CREATE NEW AJAX FOR LINKS - main.json
 var linksData = new XMLHttpRequest();
 linksData.open("GET", "../json/main.json", true);
 linksData.onreadystatechange = function () {
@@ -268,13 +284,41 @@ linksData.onreadystatechange = function () {
 };
 linksData.send();
 
-//Create DOM partner links
+// Create text main-json
 var renderLinks = function renderLinks(data) {
+  partnerLinks.innerHTML = createLinks;
+  mainTitle.innerText = data.title;
+  mainTitleOg.innerText = data.title;
+  mainSiteNameOg.innerText = data.site_name;
+  mainDescriptOg.innerText = data.description;
+  mainDescript.innerText = data.description;
+  for (var i = 0; i < mainLinks.length; i++) {
+    var getLinks = data.menu;
+    for (var j in getLinks) {
+      if (i.toString() == j.substring(4)) {
+        mainLinks[i].innerText = getLinks[j];
+      }
+    }
+  }
+  for (var _i = 0; _i < mainH2.length; _i++) {
+    var getH2 = data.h2;
+    for (var _j in getH2) {
+      if (_i.toString() == _j.substring(4)) {
+        mainH2[_i].innerText = getH2[_j];
+      }
+    }
+  }
+  for (var _i2 = 0; _i2 < mainIn.length; _i2++) {
+    mainIn[_i2].innerText = data.in;
+  }
+  // Create DOM partner links
   var createLinks = '';
   var partner = data.partner[0];
   //  console.log(partner);
-  for (var i in partner) {
-    var links = partner[i][0];
+  for (var _i3 in partner) {
+    var links = partner[_i3][0];
+    console.log(links.img);
+
     createLinks += '<a href="' + links.href + '">\n        <img src="' + links.img + '" alt="' + links.href + '">\n     </a>';
   }
   partnerLinks.innerHTML = createLinks;
