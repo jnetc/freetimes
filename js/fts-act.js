@@ -229,17 +229,17 @@ window.onload = () => {
 
 
     // Preloader Page
-  // let preloader = document.querySelector('#preloader');
-  // let imgPreload = document.querySelectorAll('img[alt="preload"]');
-  // setTimeout(() => {
-  //   if (!preloader.classList.contains('.done')) {
-  //     preloader.classList.add('done');
-  //     bodyEl.classList.remove('hidden');
-  //     for (let i = 0; i < imgPreload.length; i++) {
-  //       imgPreload[i].remove();
-  //     }
-  //   }
-  // }, 1000,);
+  let preloader = document.querySelector('#preloader');
+  let imgPreload = document.querySelectorAll('img[alt="preload"]');
+  setTimeout(() => {
+    if (!preloader.classList.contains('.done')) {
+      preloader.classList.add('done');
+      bodyEl.classList.remove('hidden');
+      for (let i = 0; i < imgPreload.length; i++) {
+        imgPreload[i].remove();
+      }
+    }
+  }, 1000,);
 
 
 
