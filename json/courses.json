@@ -1,6 +1,6 @@
 [{
 	"cls": "секция",
-	"img": "./img/courses/001.jpg",
+	"img": "./img/courses/001-min.jpg",
 	"name": "Фигурное катание",
 	"days": "понедельник",
 	"time": "11:00",
@@ -17,9 +17,9 @@
 	}]
 },
 {
-	"cls": "кружок",
-	"img": "./img/courses/001.jpg",
-	"name": "рукоделия",
+	"cls": "курс",
+	"img": "./img/courses/002-min.jpg",
+	"name": "фотографа",
 	"days": "23 сентября",
 	"time": "13:00",
 	"txt": [{
@@ -37,8 +37,8 @@
 },
 {
 	"cls": "курсы",
-	"img": "./img/courses/001.jpg",
-	"name": "театрального исскуства",
+	"img": "./img/courses/003-min.jpg",
+	"name": "латино-американские танцы",
 	"days": "пн. ср. пт.",
 	"time": "11:00",
 	"txt": [{
@@ -56,7 +56,7 @@
 },
 {
 	"cls": "секция",
-	"img": "./img/courses/001.jpg",
+	"img": "./img/courses/004-min.jpg",
 	"name": "легкая атлетика",
 	"days": "понедельник",
 	"time": "15:00",

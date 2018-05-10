@@ -1,5 +1,5 @@
 [{
-	"img": "./img/events/party.jpg",
+	"img": "./img/events/party-min.jpg",
 	"date": "11",
 	"month": "сентября",
 	"time": "20:10",
@@ -16,7 +16,7 @@
 	}],
 	"events": [{
 		"ev1": [{
-			"ePoster": "./img/events/event1.jpg",
+			"ePoster": "./img/events/event1-min.jpg",
 			"eDate": "30",
 			"eMonth": "сентября",
 			"eCap": "Русская дискотека",
@@ -24,7 +24,7 @@
 			"eCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere."
 		}],
 		"ev2": [{
-			"ePoster": "./img/events/event2.jpg",
+			"ePoster": "./img/events/event2-min.jpg",
 			"eDate": "11",
 			"eMonth": "октября",
 			"eCap": "Туса на хеллоуин",
@@ -32,7 +32,7 @@
 			"eCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni recusandae ullam dolorum."
 		}],
 		"ev3": [{
-			"ePoster": "./img/events/event3.jpg",
+			"ePoster": "./img/events/event3-min.jpg",
 			"eDate": "31",
 			"eMonth": "декабря",
 			"eCap": "Новогодняя вечерина",
@@ -42,7 +42,7 @@
 	}]
 },
 {
-	"img": "./img/events/party1.jpg",
+	"img": "./img/events/party1-min.jpg",
 	"date": "23",
 	"month": "сентября",
 	"time": "19:30",
@@ -60,7 +60,7 @@
 	}],
 	"events": [{
 		"ev1": [{
-			"ePoster": "./img/events/event1.jpg",
+			"ePoster": "./img/events/event1-min.jpg",
 			"eDate": "25",
 			"eMonth": "сентября",
 			"eCap": "Спектакль для малышей",
@@ -68,7 +68,7 @@
 			"eCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere."
 		}],
 		"ev2": [{
-			"ePoster": "./img/events/event2.jpg",
+			"ePoster": "./img/events/event2-min.jpg",
 			"eDate": "07",
 			"eMonth": "октября",
 			"eCap": "Выставка форума",
@@ -76,7 +76,7 @@
 			"eCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni recusandae ullam dolorum."
 		}],
 		"ev3": [{
-			"ePoster": "./img/events/event3.jpg",
+			"ePoster": "./img/events/event3-min.jpg",
 			"eDate": "14",
 			"eMonth": "ноября",
 			"eCap": "Модный показ 'Осенняя листва'",
