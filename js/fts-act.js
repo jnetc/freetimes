@@ -237,7 +237,7 @@ window.onload = () => {
       bodyEl.classList.remove('hidden');
       for (let i = 0; i < imgPreload.length; i++) {
         imgPreload[i].remove();
-        removePreload();
+        // removePreload();
       }
     }
   }, 1000);
