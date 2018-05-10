@@ -8,8 +8,10 @@ window.onload = () => {
       patyAdd   = document.querySelectorAll('.paty-add'),
       plusBts   = document.querySelectorAll('.plus-bt'),
       moreBts   = document.querySelectorAll('.more-bt'),
-      contents  = document.querySelectorAll('.paty-text'),
+      patyCont  = document.querySelectorAll('.paty-text'),
       eventBox  = document.querySelectorAll('.next-box'),
+      crsMore   = document.querySelectorAll('.crs-more span'),
+      crsCont   = document.querySelectorAll('.crs-graphs'),
       teammate  = document.querySelectorAll('.teammate'),
       numAdd    = 1,
       numBtn    = 1;
@@ -138,10 +140,10 @@ window.onload = () => {
   }
 
   // Loop for button "more info"
-  for (let i = 0; i < contents.length; i++) {
+  for (let i = 0; i < patyCont.length; i++) {
      
-    let contHeight  = contents[i].offsetHeight;  // Content height
-    let contChild   = contents[i].children; // Content paragraph child
+    let contHeight  = patyCont[i].offsetHeight;  // Content height
+    let contChild   = patyCont[i].children; // Content paragraph child
       // Divide height paragraphs
     let paragArr = [];
     for (let j = 0; j < contChild.length; j++) {
@@ -157,17 +159,51 @@ window.onload = () => {
         moreBts[k].onclick = () => {
 
           moreBts[k].classList.toggle('pressed-more');
-          let contAtr = getComputedStyle(contents[i]).height; // Check height from style
+          let contAtr = getComputedStyle(patyCont[i]).height; // Check height from style
            
           if ((contHeight+'px') == contAtr) {
-            let log = contents[i].style.height = paragSum+"px";
+            let log = patyCont[i].style.height = paragSum+"px";
             
           } else if ((contHeight+'px') < contAtr) {
-            let log2 = contents[i].style.height = contHeight+"px";
+            let log2 = patyCont[i].style.height = contHeight+"px";
           }
         }
       } else if (paragSum <= contHeight && i == k){
         moreBts[k].style.display = "none";
+      }
+    }
+  }
+
+  for (let i = 0; i < crsCont.length; i++) {
+     
+    let contHeight  = crsCont[i].offsetHeight;  // Content height
+    let contChild   = crsCont[i].children; // Content paragraph child 
+
+      // Divide height paragraphs
+    let paragArr = [];
+    for (let j = 0; j < contChild.length; j++) {
+      let paragHeigths = contChild[j].offsetHeight;    
+      paragArr.push(paragHeigths);
+    }
+      // Math height paragraps
+    let paragSum = paragArr.reduce( (a, b) => {return a + b;})
+
+    for (let k = 0; k < crsMore.length; k++) {
+        // ToDo if paragraphs more than 435px or not
+      if (contHeight < paragSum && i == k) {
+        crsMore[k].onclick = () => {        
+          crsMore[k].classList.toggle('pressed-more');
+          let contAtr = getComputedStyle(crsCont[i]).height; // Check height from style
+           
+          if ((contHeight+'px') == contAtr) {
+            let log = crsCont[i].style.maxHeight = paragSum+"px";
+            
+          } else if ((contHeight+'px') < contAtr) {
+            let log2 = crsCont[i].style.maxHeight = contHeight+"px";
+          }
+        }
+      } else if (paragSum <= contHeight && i == k){
+        crsMore[k].style.display = "none";
       }
     }
   }
@@ -182,6 +218,9 @@ window.onload = () => {
       eventBox[q].classList.remove('show-info');
     })
   }
+
+
+
     // footer getYear
   let footerYear = document.querySelector('footer span');
   let year = new Date().getFullYear();

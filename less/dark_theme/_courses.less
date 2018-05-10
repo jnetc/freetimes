@@ -47,15 +47,22 @@ h4 {
     }
   }
 }
-.crs-plus {
+.crs-more {
   span {
-    background: @dt-white-smoke;
-    box-shadow: @shadow;
     &::before {
       background: @dt-box;
     }
     &::after {
       background: @dt-box;
+    }
+    &.night-bt {
+      background: @dt-brilliant-rose;
+    }
+      // JS classes
+    &.pressed-more {
+      &.night-bt {
+        background: shade(@dt-brilliant-rose, 15%);
+      }
     }
   }
 }

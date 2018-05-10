@@ -172,7 +172,7 @@ coursesData.send();
 var renderCourses = function renderCourses(data) {
   var createCourses = '';
   data.forEach(function (item, i, data) {
-    createCourses += '<div class="flex-crs">\n      <div class="crs-dat">\n        <span class="crs-day">' + item.days + '</span>\n        <span class="crs-time">' + item.time + '</span>\n        <svg role="img" class="crs-svg">\n          <use xlink:href="./img/svg/icons.svg#clock"></use>\n        </svg>\n      </div>\n      <div class="crs-img">\n        <span class="crs-cls">' + item.cls + '</span> \n        <img src="' + item.img + '" alt="courses" title="poster">\n      </div>\n      <div class="crs-cont">\n        <h4>' + item.name + '</h4>\n        <ul class="crs-graphs"></ul>\n      </div>\n      <div class="crs-opt">\n        <div class="crs-btns"></div>\n        <div class="for-price">\n          <span class="crs-tip">' + item.period + '</span>\n          <span class="crs-price">' + item.price + '<sup>\u20AC</sup></span>\n        </div>\n      </div>\n    </div>';
+    createCourses += '<div class="flex-crs">\n      <div class="crs-dat">\n        <span class="crs-day">' + item.days + '</span>\n        <span class="crs-time">' + item.time + '</span>\n        <svg role="img" class="crs-svg">\n          <use xlink:href="./img/svg/icons.svg#clock"></use>\n        </svg>\n      </div>\n      <div class="crs-img">\n        <span class="crs-cls">' + item.cls + '</span> \n        <img src="' + item.img + '" alt="courses" title="poster">\n      </div>\n      <div class="crs-cont">\n        <h4>' + item.name + '</h4>\n        <ul class="crs-graphs" style="max-height: 115px"></ul>\n      </div>\n      <div class="crs-opt">\n        <div class="crs-btns"></div>\n        <div class="crs-more">\n          <span class="night-bt"></span>\n        </div>\n        <div class="for-price">\n          <span class="crs-tip">' + item.period + '</span>\n          <span class="crs-price">' + item.price + '<sup>\u20AC</sup></span>\n        </div>\n      </div>\n    </div>';
   });
   coursesDom.innerHTML += createCourses;
 };
@@ -314,11 +314,8 @@ var renderLinks = function renderLinks(data) {
   // Create DOM partner links
   var createLinks = '';
   var partner = data.partner[0];
-  //  console.log(partner);
   for (var _i3 in partner) {
     var links = partner[_i3][0];
-    console.log(links.img);
-
     createLinks += '<a href="' + links.href + '">\n        <img src="' + links.img + '" alt="' + links.href + '">\n     </a>';
   }
   partnerLinks.innerHTML = createLinks;

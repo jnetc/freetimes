@@ -187,10 +187,13 @@ let renderCourses = data => {
       </div>
       <div class="crs-cont">
         <h4>${item.name}</h4>
-        <ul class="crs-graphs"></ul>
+        <ul class="crs-graphs" style="max-height: 115px"></ul>
       </div>
       <div class="crs-opt">
         <div class="crs-btns"></div>
+        <div class="crs-more">
+          <span class="night-bt"></span>
+        </div>
         <div class="for-price">
           <span class="crs-tip">${item.period}</span>
           <span class="crs-price">${item.price}<sup>€</sup></span>
@@ -366,11 +369,8 @@ let renderLinks = data => {
    // Create DOM partner links
   let createLinks = '';
   let partner = data.partner[0];
-  //  console.log(partner);
   for (let i in partner) {
-    const links = partner[i][0];
-    console.log(links.img);
-    
+    const links = partner[i][0];  
     createLinks += 
     `<a href="${links.href}">
         <img src="${links.img}" alt="${links.href}">

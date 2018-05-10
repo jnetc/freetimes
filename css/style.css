@@ -210,7 +210,7 @@ body .menu-box,
 body header,
 body section.paty .next-box div,
 body section.courses .crs-btns a,
-body section.courses .crs-plus,
+body section.courses .crs-more,
 body section.courses .for-price .crs-price,
 body section.ourteam .team-btns,
 body section.ourteam .team-btns a,
@@ -224,6 +224,8 @@ body section.paty .bt-tag .plus-bt::before,
 body section.paty .bt-tag .more-bt::before,
 body section.paty .bt-tag .plus-bt::after,
 body section.paty .bt-tag .more-bt::after,
+body section.courses .crs-more span::before,
+body section.courses .crs-more span::after,
 body section.ourteam .team-img .team-img-svg {
   position: absolute;
   top: 50%;
@@ -248,7 +250,7 @@ body section.paty .bt-tag .plus-bt,
 body section.paty .bt-tag .more-bt,
 body section.paty .paty-add a,
 body section.courses .crs-btns a,
-body section.courses .crs-plus span,
+body section.courses .crs-more span,
 body section.ourteam .team-btns a {
   width: 55px;
   height: 55px;
@@ -963,19 +965,17 @@ body section.courses h4::after {
   left: 0;
 }
 body section.courses .crs-graphs {
-  max-height: 115px;
+  display: block;
+  position: relative;
   overflow: hidden;
   font-size: 18px;
-  line-height: 18px;
-  text-overflow: ellipsis;
+  line-height: 19px;
+  transition: all 0.3s ease-in-out;
 }
 @media (max-width: 480px) {
   body section.courses .crs-graphs {
     line-height: 22px;
   }
-}
-body section.courses .crs-graphs li {
-  padding: 8px 0;
 }
 body section.courses .crs-opt {
   flex: 1 1 100%;
@@ -1004,37 +1004,38 @@ body section.courses .crs-btns a .crs-svg {
   width: 23px;
   height: 23px;
 }
-body section.courses .crs-plus {
+body section.courses .crs-more {
   margin: 10px 0;
 }
 @media (max-width: 768px) {
-  body section.courses .crs-plus {
+  body section.courses .crs-more {
     flex: 1 0 100%;
     order: 1;
   }
 }
-body section.courses .crs-plus span {
+body section.courses .crs-more span {
   display: block;
   margin: auto;
 }
-body section.courses .crs-plus span::before {
+body section.courses .crs-more span::before {
   content: '';
-  width: 22px;
+  width: 15px;
   height: 3px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-20%, 0%) rotateZ(-45deg);
 }
-body section.courses .crs-plus span::after {
+body section.courses .crs-more span::after {
   content: '';
-  width: 22px;
+  width: 15px;
   height: 3px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotateZ(90deg);
-  transition: all 0.3s ease-in-out;
+  transform: translate(-80%, 0%) rotateZ(45deg);
+}
+body section.courses .crs-more span.pressed-more::before {
+  width: 20px;
+  transform: translate(-50%, -1px) rotateZ(-45deg);
+}
+body section.courses .crs-more span.pressed-more::after {
+  width: 20px;
+  transform: translate(-50%, -1px) rotateZ(45deg);
 }
 body section.courses .for-price {
   display: flex;
@@ -1465,15 +1466,17 @@ body.dark-theme section.courses .crs-btns a .crs-svg {
 body.dark-theme section.courses .crs-btns a:hover {
   border-color: #f2f2f2;
 }
-body.dark-theme section.courses .crs-plus span {
-  background: #f2f2f2;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-}
-body.dark-theme section.courses .crs-plus span::before {
+body.dark-theme section.courses .crs-more span::before {
   background: #373a42;
 }
-body.dark-theme section.courses .crs-plus span::after {
+body.dark-theme section.courses .crs-more span::after {
   background: #373a42;
+}
+body.dark-theme section.courses .crs-more span.night-bt {
+  background: #fe5b9a;
+}
+body.dark-theme section.courses .crs-more span.pressed-more.night-bt {
+  background: #d84d83;
 }
 body.dark-theme section.courses .for-price .crs-tip {
   color: #f2f2f2;
@@ -1781,15 +1784,17 @@ body.light-theme section.courses .crs-btns a .crs-svg {
 body.light-theme section.courses .crs-btns a:hover {
   border-color: #373a42;
 }
-body.light-theme section.courses .crs-plus span {
-  background: #f2f2f2;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-}
-body.light-theme section.courses .crs-plus span::before {
+body.light-theme section.courses .crs-more span::before {
   background: #373a42;
 }
-body.light-theme section.courses .crs-plus span::after {
+body.light-theme section.courses .crs-more span::after {
   background: #373a42;
+}
+body.light-theme section.courses .crs-more span.night-bt {
+  box-shadow: 0 3px 5px rgba(252, 105, 89, 0.6);
+}
+body.light-theme section.courses .crs-more span.pressed-more.night-bt {
+  background: #ef6455;
 }
 body.light-theme section.courses .for-price .crs-tip {
   color: #f2f2f2;

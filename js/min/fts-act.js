@@ -10,8 +10,10 @@ window.onload = function () {
       patyAdd = document.querySelectorAll('.paty-add'),
       plusBts = document.querySelectorAll('.plus-bt'),
       moreBts = document.querySelectorAll('.more-bt'),
-      contents = document.querySelectorAll('.paty-text'),
+      patyCont = document.querySelectorAll('.paty-text'),
       eventBox = document.querySelectorAll('.next-box'),
+      crsMore = document.querySelectorAll('.crs-more span'),
+      crsCont = document.querySelectorAll('.crs-graphs'),
       teammate = document.querySelectorAll('.teammate'),
       numAdd = 1,
       numBtn = 1;
@@ -215,8 +217,8 @@ window.onload = function () {
 
   var _loop3 = function _loop3(i) {
 
-    var contHeight = contents[i].offsetHeight; // Content height
-    var contChild = contents[i].children; // Content paragraph child
+    var contHeight = patyCont[i].offsetHeight; // Content height
+    var contChild = patyCont[i].children; // Content paragraph child
     // Divide height paragraphs
     var paragArr = [];
     for (var j = 0; j < contChild.length; j++) {
@@ -228,18 +230,18 @@ window.onload = function () {
       return a + b;
     });
 
-    var _loop5 = function _loop5(k) {
+    var _loop6 = function _loop6(k) {
       // ToDo if paragraphs more than 435px or not
       if (contHeight < paragSum && i == k) {
         moreBts[k].onclick = function () {
 
           moreBts[k].classList.toggle('pressed-more');
-          var contAtr = getComputedStyle(contents[i]).height; // Check height from style
+          var contAtr = getComputedStyle(patyCont[i]).height; // Check height from style
 
           if (contHeight + 'px' == contAtr) {
-            var log = contents[i].style.height = paragSum + "px";
+            var log = patyCont[i].style.height = paragSum + "px";
           } else if (contHeight + 'px' < contAtr) {
-            var log2 = contents[i].style.height = contHeight + "px";
+            var log2 = patyCont[i].style.height = contHeight + "px";
           }
         };
       } else if (paragSum <= contHeight && i == k) {
@@ -248,17 +250,60 @@ window.onload = function () {
     };
 
     for (var k = 0; k < moreBts.length; k++) {
-      _loop5(k);
+      _loop6(k);
     }
   };
 
-  for (var i = 0; i < contents.length; i++) {
+  for (var i = 0; i < patyCont.length; i++) {
     _loop3(i);
+  }
+
+  var _loop4 = function _loop4(i) {
+
+    var contHeight = crsCont[i].offsetHeight; // Content height
+    var contChild = crsCont[i].children; // Content paragraph child 
+
+    // Divide height paragraphs
+    var paragArr = [];
+    for (var j = 0; j < contChild.length; j++) {
+      var paragHeigths = contChild[j].offsetHeight;
+      paragArr.push(paragHeigths);
+    }
+    // Math height paragraps
+    var paragSum = paragArr.reduce(function (a, b) {
+      return a + b;
+    });
+
+    var _loop7 = function _loop7(k) {
+      // ToDo if paragraphs more than 435px or not
+      if (contHeight < paragSum && i == k) {
+        crsMore[k].onclick = function () {
+          crsMore[k].classList.toggle('pressed-more');
+          var contAtr = getComputedStyle(crsCont[i]).height; // Check height from style
+
+          if (contHeight + 'px' == contAtr) {
+            var log = crsCont[i].style.maxHeight = paragSum + "px";
+          } else if (contHeight + 'px' < contAtr) {
+            var log2 = crsCont[i].style.maxHeight = contHeight + "px";
+          }
+        };
+      } else if (paragSum <= contHeight && i == k) {
+        crsMore[k].style.display = "none";
+      }
+    };
+
+    for (var k = 0; k < crsMore.length; k++) {
+      _loop7(k);
+    }
+  };
+
+  for (var i = 0; i < crsCont.length; i++) {
+    _loop4(i);
   }
 
   // Show events info
 
-  var _loop4 = function _loop4(q) {
+  var _loop5 = function _loop5(q) {
     var eventBoxBnt = eventBox[q].querySelector('.next-btn');
     eventBoxBnt.addEventListener('click', function () {
       eventBox[q].classList.toggle('show-info');
@@ -269,8 +314,9 @@ window.onload = function () {
   };
 
   for (var q = 0; q < eventBox.length; q++) {
-    _loop4(q);
+    _loop5(q);
   }
+
   // footer getYear
   var footerYear = document.querySelector('footer span');
   var year = new Date().getFullYear();
