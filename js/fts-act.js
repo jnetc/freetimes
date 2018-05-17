@@ -261,23 +261,23 @@ window.onload = () => {
   footerYear.innerText += ' ' + year + ' All rights reserved';
 
     // Preloader Page
-  // let preloader = document.querySelector('#preloader');
-  // let imgPreload = document.querySelectorAll('img[alt="preload"]');
-  // setTimeout(() => {
-  //   if (!preloader.classList.contains('.done')) {
-  //     preloader.classList.add('done');
-  //     bodyEl.classList.remove('hidden');
-  //     for (let i = 0; i < imgPreload.length; i++) {
-  //       imgPreload[i].remove();
-  //       removePreload();
-  //     }
-  //   }
-  // }, 1000);
-  // let removePreload = () => {
-  //   setTimeout(() => {
-  //     preloader.remove();
-  //   }, 1000);
-  // }
+  let preloader = document.querySelector('#preloader');
+  let imgPreload = document.querySelectorAll('img[alt="preload"]');
+  setTimeout(() => {
+    if (!preloader.classList.contains('.done')) {
+      preloader.classList.add('done');
+      bodyEl.classList.remove('hidden');
+      for (let i = 0; i < imgPreload.length; i++) {
+        imgPreload[i].remove();
+        removePreload();
+      }
+    }
+  }, 1000);
+  let removePreload = () => {
+    setTimeout(() => {
+      preloader.remove();
+    }, 1000);
+  }
 
   
 
