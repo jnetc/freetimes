@@ -80,7 +80,7 @@ img :extend(.absLeft) {
 .sect :extend(.absLeft) {
   padding: 5px 8px;
   bottom: 0;
-  font-family: @exo-m;
+  font-family: @exo-l;
   font-weight: bold;
   font-size: @fs-18;
   text-transform: uppercase;
@@ -104,8 +104,8 @@ h4 {
   margin-top: 20px;
   padding-left: 20px;
   position: relative;
-  font-family: @exo-m;
-  font-size: @fs-30;
+  font-family: @exo-l;
+  font-size: @fs-30 - 5;
   font-weight: bold;
   text-transform: uppercase;
   &::after {
@@ -125,9 +125,13 @@ h4 {
   overflow: hidden;
   font-size: @fs-18;
   line-height: @fs-18 + 1;
+  white-space: pre-wrap;
   transition: @ti;
   @media (max-width: 480px) {
     line-height: 22px;
+  }
+  pre {
+    white-space: pre-wrap;
   }
   // &::before {
   //   content: '';
@@ -137,9 +141,9 @@ h4 {
   //   bottom: 0;
   //   background: @wt-box;
   // }
-  li {
-    // padding: 6px 0 0;
-  }
+  // li {
+  //   padding: 6px 0 0;
+  // }
 }
 
   // Functional

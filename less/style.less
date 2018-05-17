@@ -29,8 +29,6 @@
 
 @russo: 'Russo-fts';
 @exo-l: 'Exo2-light-fts';
-@exo-t: 'Exo2-thin-fts';
-@exo-m: 'Exo2-medium-fts';
 
 	// Font size
 @fs-128: 128px; 
@@ -45,12 +43,12 @@ h1, h2, h5 {
 	font-family: @russo;
 	text-align: center;
 }
-p, li {
+p, li, pre {
 	font-family: @exo-l;
 	display: block;
 }
 sup, h6 {
-	font-family: @exo-m;
+	font-family: @exo-l;
 	text-align: center;
 }
 
@@ -190,8 +188,7 @@ body {
 			display: block;
 			.absCenter;
 			z-index: -1;
-			transition: all 0.5s cubic-bezier(0, 0, 0.01, 1.23);
-			
+			transition: all 0.3s cubic-bezier(0, 0, 0.01, 1.23);
 			&:nth-of-type(1) {
 				width: @menu-size;
 				height: @menu-size;
@@ -260,46 +257,20 @@ body {
 		}
 	}
 
-
-
-	// ПРИГОДИТСЯ ЕщЁ
-	// div.theme-btn {
-	// 	width: 50px;
-	// 	height: 50px;
-	// 	display: flex;
-	// 	justify-content: center;
-	// 	align-items: center;
-	// 	margin-left: 50%;
-	// 	position: fixed;
-	// 	bottom: @gap;
-	// 	border-radius: 50%;
-	// 	box-shadow: @shadow;
-	// 	transform: translateX(610px);
-	// 	z-index: 100;
-	// 	cursor: pointer;
-	// 	@media (max-width: 1390px) {
-	// 		margin-left: auto;
-	// 		right: @gap;
-	// 		transform: none;
-	// 	}
-	// 	svg {
-	// 		width: 20px;
-	// 		height: 20px;
-	// 	}
-	// }
-
-
-		// Hedaer
+	// Hedaer
 	header {
 		width: 100%;
-		height: 100vh;
+		height: 717px;
 		&:extend(.flex-center);
+		@media (max-width: 480px) {
+			height: 100vh;
+		}
 		.logo {
 			width: 100%;
 			height: 100%; 
 			display: block;
 			background: no-repeat center;
-			background-size: 1056px 946px;
+			background-size: 800px 717px;
 			@media (max-width: 1000px) {
 				background-size: 100% auto;
 			}
@@ -310,7 +281,7 @@ body {
 	section {
 		height: 100%;
 		overflow: hidden;
-		padding: 100px 0;
+		padding: 50px 0;
 		&:nth-of-type(4) {
 			padding-bottom: 0px;
 		}
@@ -333,18 +304,6 @@ body {
 		// Event blocks
 	section.paty {
 		@import "../less/_party-block.less";
-		.next-evts-night,
-		.next-evts-day {
-			margin: 50px auto;
-			padding: 15px;
-			font-size: @fs-40;
-			font-family: @exo-t;
-			font-weight: 100;
-			text-align: center;
-			text-transform: uppercase;
-			z-index: 15;
-		}
-
 		@import "../less/_next-events.less";
 	}
 
@@ -382,10 +341,10 @@ body {
 	footer {
 		display: flex;
 		justify-content: center;
-		margin: 5px;
+		padding: 5px;
 		span {
 			color: @dt-white-smoke;
-			font-family: @exo-t;
+			font-family: @exo-l;
 		}
 	}
 } //The end
@@ -396,7 +355,7 @@ body {
 
 body.dark-theme {
 
-	h1, h2, h4, h5, h6, li, p {
+	h1, h2, h4, h5, h6, li, p, pre {
 		color: @dt-white-smoke;
 	}
 	div.menu-btn,
@@ -459,17 +418,9 @@ body.dark-theme {
 		// Event blocks
 	section.paty {
 		@import "../less/dark_theme/_party-block.less";
-		h4.next-evts-night {
-			background: @dt-bg;
-		}
-		h4.next-evts-day {
-			background: @dt-palatinate-purple;
-		}
-
 		@import "../less/dark_theme/_next-events.less";
 		&.day {
 			background: @dt-palatinate-purple;
-			// background: linear-gradient(to top left, @dt-palatinate-purple 0%, multiply(@dt-palatinate-purple, #ccc)100%);
 		}
 	}
 
@@ -482,7 +433,6 @@ body.dark-theme {
 	section.ourteam {
 		@import "../less/dark_theme/_team.less";
 		background: @dt-palatinate-purple;
-		// background: linear-gradient(to top left, @dt-palatinate-purple 0%, multiply(@dt-palatinate-purple, #ccc)100%);
 	}
 
 		// Footer
@@ -498,7 +448,7 @@ body.dark-theme {
 
 body.light-theme {
 
-	h1, h2, h4, h5, h6, li, p {
+	h1, h2, h4, h5, h6, li, p, pre {
 		color: @wt-black;
 	}
 
@@ -557,18 +507,11 @@ body.light-theme {
 			background-image: url(../img/bgs/header-day-min.png);
 		}
 	}
-
 	background: @wt-bg;
+	
 		// Event blocks
 	section.paty {
 		@import "../less/light_theme/_party-block.less";
-		h4.next-evts-night {
-			background: @wt-bg;
-		}
-		h4.next-evts-day {
-			background: @wt-bg;
-		}
-
 		@import "../less/light_theme/_next-events.less";
 		&.day {
 			background: none;
@@ -585,11 +528,15 @@ body.light-theme {
 		@import "../less/light_theme/_team.less";
 		background: none;
 	}
-
+		// Partner
+	section.partner {
+		background: @dt-bg;
+	}
 		// Footer
 	footer {
+		background: @dt-bg;
 		span {
-			color: @wt-black;
+			color: @dt-white-smoke;
 		}
 	}
 }

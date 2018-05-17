@@ -106,7 +106,7 @@ h3 {
   padding: 8px 15px 8px 20px;
   position: relative;
   font-size: @fs-30;
-  font-family: @exo-m;
+  font-family: @exo-l;
   text-transform: uppercase;
   &::after {
     content: '';
@@ -145,8 +145,9 @@ ul {
   text-overflow: ellipsis;
   transition: @ti;
 }
-li {
-  padding: 0 60px 20px;
+li, pre {
+  white-space: pre-wrap;
+  padding: 0 60px;
   @media (max-width: 480px) {
     padding: 0 30px;
   }

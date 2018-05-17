@@ -20,11 +20,11 @@
 	"partner": [{
 		"link0": [{
 			"img": "./img/partner/fin-min.png",
-			"href": "www.intofinland.ru"
+			"href": "http://intofinland.ru"
 		}],
 		"link1": [{
 			"img": "./img/partner/timamih-min.png",
-			"href": "www.timamih.com"
+			"href": "https://timamih.com"
 		}]
 	}]
 }
