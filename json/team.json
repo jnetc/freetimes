@@ -64,19 +64,4 @@
 		"telegram": "https://t.me/teleblog",
 		"instagram": "https://t.me/teleblog"
 	}]
-},
-{
-	"img": "./img/courses/001.jpg",
-	"name": "Тима Мих",
-	"img": "./img/team/tima_mih.jpg",
-	"name": "Тимафей Михайлов",
-	"post": "Информационный координатор",
-	"about": "Ты полностью растворишьса в музыке и эмоциях в месте с виртуозным DJ Цветкоff. В этом заведении вы найдёте стильный интерьер,качественные свет и звук и богатый выбор проведения досуга, который поможет",
-	"btnName": "связаться со мной",
-	"btns": [{
-		"tel": "https://goo.gl/maps/Kmfpqg5reGF2",
-		"facebook": "microsoft@hotmail.com",
-		"telegram": "https://t.me/teleblog",
-		"instagram": "https://t.me/teleblog"
-	}]
 }]
