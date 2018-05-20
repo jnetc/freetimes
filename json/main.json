@@ -1,0 +1,30 @@
+{
+	"title": "freetimes",
+	"site_name": "freetimes",
+	"description": "Организация по дискотекам",
+	"menu": {
+		"link0": "В начало",
+		"link1": "Ночные развлечения",
+		"link2": "Дневные развлечения",
+		"link3": "Другие мероприятия",
+		"link4": "Контакты"
+	},
+	"h1": "Главная цитата, слоган, призыв сайта",
+	"h2": {
+		"capt0": "Ночные развлечения для взрослых",
+		"capt1": "Культурные мероприятия",
+		"capt2": "Другие мероприятия",
+		"capt3": "О нас"
+	},
+	"in": "Вход",
+	"partner": [{
+		"link0": [{
+			"img": "./img/partner/fin-min.png",
+			"href": "http://intofinland.ru"
+		}],
+		"link1": [{
+			"img": "./img/partner/timamih-min.png",
+			"href": "https://timamih.com"
+		}]
+	}]
+}

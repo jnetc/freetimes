@@ -1,15 +1,4 @@
-let patyBox = document.querySelectorAll('.paty-box'), // Add poster image
-    patyDateEls = document.querySelectorAll('.paty-dat'), // Add data, time and caption
-    patyTimeEls = document.querySelectorAll('.paty-time'), // Add data, time and caption
-    patyContEl = document.querySelectorAll('.paty-content'),
-    patyParagEl = document.querySelectorAll('.paty-text'), // Add event text paragraph
-    patyPriceEl = document.querySelectorAll('.paty-tag'), // Add event price
-    patyAddBtn = document.querySelectorAll('.paty-add'), // Create event links
-    nextBlocks = document.querySelectorAll('.next-blk'), // Dynamically generate next event boxes
-    coursesDom = document.querySelector('.courses'), // Dynamically generate courses
-    OurTeamDom = document.querySelector('.team-blk'); // Dynamically generate teammate  
-
-  // CREATE NEW AJAX FOR EVENTS
+  // CREATE NEW AJAX FOR EVENTS - events.json
 let eventsData = new XMLHttpRequest();
   //  open( type, url/file, asunc);
 eventsData.open("GET", "../json/cards.json", true);
@@ -21,14 +10,21 @@ eventsData.onreadystatechange = function () {
     renderComingEvents(evenParse);
     renderEventBtns(evenParse);
     addEventBtnVal(evenParse);
-
-    // createSocBtns(evenParse);
   }
 };
 // send request
 eventsData.send();
 
-  // Create main dynamic elements
+  // ELEMENTS EVENTS
+  const patyBox     = document.querySelectorAll('.paty-box'), // poster image
+        patyDateEls = document.querySelectorAll('.paty-dat'), // data, time and caption
+        patyTimeEls = document.querySelectorAll('.paty-time'), // data, time and caption
+        patyContEl  = document.querySelectorAll('.paty-content'),
+        patyParagEl = document.querySelectorAll('.paty-text'), // event text paragraph
+        patyPriceEl = document.querySelectorAll('.paty-tag'), // event price
+        moreBts     = document.querySelectorAll('.more-bt'); // button "more"
+
+  // Create event dynamic elements
 let renderEvents = data => {
   data.forEach((item, i, data) => {
     patyBox[i].insertAdjacentHTML('afterbegin',
@@ -47,25 +43,47 @@ let renderEvents = data => {
   patyContEl[1].querySelector('h3').className = 'day-capt';  
 }
 
- 
-
-
-  // Create Paragraphs
+  // Create event Paragraphs, dynamic text height
 let renderEventParagraphs = getList => {
-  getList.forEach((item, i, getList) => {
-    for (let graph in item.text[0]) {
-      patyParagEl[i].setAttribute("style", "height: 200px");
-      patyParagEl[i].innerHTML += `<li class="liTxt">${item.text[0][graph]}</li>`
+  for (let i = 0; i < getList.length; i++) {
+    const content = getList[i];
+    patyParagEl[i].setAttribute("style", "max-height: 200px");
+    patyParagEl[i].innerHTML += `<pre>${content.text}</pre>`
+  } 
+  for (let j = 0; j < patyParagEl.length; j++) {
+    const getPatyStyle  = getComputedStyle(patyParagEl[j]).getPropertyValue('max-height').substring(0,3);
+    const getPatyHeight = patyParagEl[j].scrollHeight;
+      // Check if content more or not, and hide if low
+    for (let i = 0; i < moreBts.length; i++) {    
+      if (i == j && getPatyStyle < getPatyHeight) {
+        moreBts[i].addEventListener('click', eventClickPaty);
+      } 
+      else if (i == j && getPatyStyle > getPatyHeight) {
+        moreBts[i].style.display = "none";
+      }
+        // Click event & dynamicly get height content
+      function eventClickPaty () {
+        moreBts[i].classList.toggle('pressed-more');
+        let getNewStyle = getComputedStyle(patyParagEl[j]).getPropertyValue('max-height').substring(0,3);
+        if (getNewStyle < getPatyHeight) {
+          patyParagEl[j].style.maxHeight = getPatyHeight.toString() + 'px';
+        }
+        else if (getNewStyle == getPatyHeight) {   
+          patyParagEl[j].style.maxHeight = getPatyStyle + 'px';
+        }
+      }
     }
-  })
+  }
 }
+
   // Create event contact buttons
+const patyAddBtn = document.querySelectorAll('.paty-add'); // Create event links
 let renderEventBtns = getButtons => {
   getButtons.forEach((item, i, getButtons) => {
     let createBtns = '';
     for (let btn in item.btns[0]) {
       createBtns += 
-      `<a href="${item.btns[0][btn]}" title="${item.btns[0][btn]}">
+      `<a href="${item.btns[0][btn]}" title="${item.btns[0][btn]}" target="_blank">
           <svg role="img" class="icon-svg">
             <use xlink:href="./img/svg/icons.svg#${btn}"></use>
         </svg>
@@ -94,7 +112,8 @@ let addEventBtnVal = extAdds => {
   })
 }
 
-  // Create coming events
+  // Dynamically generate coming events
+const nextBlocks = document.querySelectorAll('.next-blk'); 
 let renderComingEvents = data => {
   data.forEach((item, i, data) => {
     const eventsObj = data[i].events[0];
@@ -117,6 +136,18 @@ let renderComingEvents = data => {
     // Add class for element's
     addClassNextDates();
     addClassNextButtons();
+
+    // Buttons show content
+    let eventBox = document.querySelectorAll('.next-box');
+    for (let i = 0; i < eventBox.length; i++) {
+      let eventBoxBnt = eventBox[i].querySelector('.next-btn');   
+      eventBoxBnt.onclick = () => { 
+        eventBox[i].classList.toggle('show-info');
+      }
+      eventBox[i].onmouseleave = () => {
+        eventBox[i].classList.remove('show-info');
+      }
+    }
 }
 
   // Add class for theme dates
@@ -146,7 +177,7 @@ let addClassNextButtons = () => {
   }) 
 }  
 
-  // CREATE NEW AJAX FOR COURSES
+  // CREATE NEW AJAX FOR COURSES - course.json
 let coursesData = new XMLHttpRequest();
 coursesData.open("GET", "../json/courses.json", true);
 coursesData.onreadystatechange = function () {
@@ -156,13 +187,12 @@ coursesData.onreadystatechange = function () {
     renderCourseParagraphs(crsParse);
     renderCourseBtns(crsParse);
     addExtraCourseVal(crsParse);
-
-    // createSocBtns(crsParse);
   }
 };
 coursesData.send();
 
-  //Create DOM courses boxes
+  // Dynamically generate courses
+const coursesDom  = document.querySelector('.course-blk');
 let renderCourses = data => {
   let createCourses = '';
   data.forEach((item, i, data) => {
@@ -181,10 +211,13 @@ let renderCourses = data => {
       </div>
       <div class="crs-cont">
         <h4>${item.name}</h4>
-        <ul class="crs-graphs"></ul>
+        <ul class="crs-graphs" style="max-height: 115px"></ul>
       </div>
       <div class="crs-opt">
         <div class="crs-btns"></div>
+        <div class="crs-more">
+          <span class="night-bt"></span>
+        </div>
         <div class="for-price">
           <span class="crs-tip">${item.period}</span>
           <span class="crs-price">${item.price}<sup>€</sup></span>
@@ -197,12 +230,36 @@ let renderCourses = data => {
 
   // Create course paragraphs
 let renderCourseParagraphs = getList => {
-  let coursesList = document.querySelectorAll('.crs-graphs');
-  getList.forEach((item, i, getList) => {
-      for (let key in item.txt[0]) {
-        coursesList[i].innerHTML += `<li>${item.txt[0][key]}</li>`;
+  const crsMore = document.querySelectorAll('.crs-more span');
+  const crsCont = document.querySelectorAll('.crs-graphs');
+  for (let i = 0; i < getList.length; i++) {
+    const content = getList[i];
+    crsCont[i].innerHTML += `<pre>${content.txt}</pre>`
+  } 
+  for (let j = 0; j < crsCont.length; j++) {
+    const getCrsStyle  = getComputedStyle(crsCont[j]).getPropertyValue('max-height').substring(0,3);
+    const getCrsHeight = crsCont[j].scrollHeight;
+      // Check if content more or not, and hide if low
+    for (let i = 0; i < crsMore.length; i++) {   
+      if (i == j && getCrsStyle < getCrsHeight) {      
+        crsMore[i].addEventListener('click', eventClickCrs);
+      } 
+      else if (i == j && getCrsStyle > getCrsHeight) {
+        crsMore[i].parentElement.style.display = "none";
       }
-  });
+        // Click course & dynamicly get height content
+      function eventClickCrs () {
+        this.classList.toggle('pressed-more');
+        let getNewStyle = getComputedStyle(crsCont[j]).getPropertyValue('max-height').substring(0,3);
+        if (getNewStyle < getCrsHeight) {
+          crsCont[j].style.maxHeight = getCrsHeight.toString() + 'px';
+        }
+        else if (getNewStyle == getCrsHeight) {
+          crsCont[j].style.maxHeight = getCrsStyle + 'px';
+        }
+      }
+    }
+  }
 }
 
   // Create course buttons
@@ -212,7 +269,7 @@ let renderCourseBtns = getButtons => {
     let createBtns = '';
       for (let btn in item.btns[0]) {
         createBtns += 
-        `<a href="${item.btns[0][btn]}" title="${item.btns[0][btn]}">
+        `<a href="${item.btns[0][btn]}" title="${item.btns[0][btn]}" target="_blank">
             <svg role="img" class="crs-svg">
               <use xlink:href="./img/svg/icons.svg#${btn}"></use>
           </svg>
@@ -242,7 +299,7 @@ let addExtraCourseVal = extAdds => {
   })
 }
 
-  // CREATE NEW AJAX FOR TEAM
+  // CREATE NEW AJAX FOR TEAM - team.json
 let teamData = new XMLHttpRequest();
 teamData.open("GET", "../json/team.json", true);
 teamData.onreadystatechange = function () {
@@ -255,7 +312,8 @@ teamData.onreadystatechange = function () {
 };
 teamData.send();
 
-  //Create DOM teammate boxes
+  // Dynamically generate teammate
+const ourTeamDom = document.querySelector('.team-blk');
 let renderTeam = data => {
   let createTeam = '';
   data.forEach((teammate, i, data) => {
@@ -279,7 +337,7 @@ let renderTeam = data => {
       <div class="team-btns"></div>
     </div>`
   })
-  OurTeamDom.innerHTML = createTeam;
+  ourTeamDom.innerHTML = createTeam;
 }
 
   // Create teammate buttons
@@ -289,7 +347,7 @@ let renderTeamBtns = getButtons => {
     let createBtns = '';
       for (let btn in item.btns[0]) {      
         createBtns += 
-        `<a href="${item.btns[0][btn]}" title="${item.btns[0][btn]}">
+        `<a href="${item.btns[0][btn]}" title="${item.btns[0][btn]}" target="_blank">
             <svg role="img" class="crs-svg">
               <use xlink:href="./img/svg/icons.svg#${btn}"></use>
           </svg>
@@ -317,4 +375,63 @@ let addExtraTeamVal = extAdds => {
       } 
     })
   })
+}
+
+  // CREATE NEW AJAX FOR LINKS - main.json
+let linksData = new XMLHttpRequest();
+linksData.open("GET", "../json/main.json", true);
+linksData.onreadystatechange = function () {
+  if (this.readyState == 4 && this.status == 200) {
+  let linksParse = JSON.parse(linksData.responseText);
+    renderLinks(linksParse);
+  }
+};
+linksData.send();
+
+  // Create text main-json
+const mainTitle       = document.querySelector('title'), // main.json
+      mainTitleOg     = document.querySelector('meta[property="og:title"]'), // main.json
+      mainSiteNameOg  = document.querySelector('meta[property="og:site_name"]'), // main.json
+      mainDescriptOg  = document.querySelector('meta[property="og:description"]'), // main.json
+      mainDescript    = document.querySelector('meta[name="description"]'), // main.json
+      mainLinks       = document.querySelectorAll('.menu-list li'), // main.json
+      mainH2          = document.querySelectorAll('h2'), // main.json
+      mainIn          = document.querySelectorAll('.paty-tag span:nth-of-type(1)'), // main.json
+      partnerLinks    = document.querySelector('.link-blk'); // Dynamically generate partners link
+let renderLinks = data => {
+  mainTitle.textContent = data.title;
+  mainTitleOg.textContent = data.title;
+  mainSiteNameOg.textContent = data.site_name;
+  mainDescriptOg.textContent = data.description;
+  mainDescript.textContent = data.description;
+  for (let i = 0; i < mainLinks.length; i++) {
+    let getLinks = data.menu;
+    for (let j in getLinks) {
+      if (i.toString() == j.substring(4)) {
+        mainLinks[i].textContent = getLinks[j];
+      }
+    }
+  }
+  for (let i = 0; i < mainH2.length; i++) {
+    let getH2 = data.h2;
+    for (let j in getH2) {    
+      if (i.toString() == j.substring(4)) {
+        mainH2[i].textContent = getH2[j];
+      }
+    }
+  }
+  for (let i = 0; i < mainIn.length; i++) {
+    mainIn[i].textContent = data.in;
+  }
+   // Create DOM partner links
+  let createLinks = '';
+  let partner = data.partner[0];
+  for (let i in partner) {
+    const links = partner[i][0];  
+    createLinks += 
+    `<a href="${links.href}" target="_blank">
+        <img src="${links.img}" alt="${links.href}">
+     </a>`
+  }
+  partnerLinks.innerHTML = createLinks;
 }

@@ -25,11 +25,10 @@
 @wt-day-shadow: 0 3px 5px fade(@wt-light-sea, 60%);
 @wt-inset-shadow: inset 0 0 0 3px @wt-bg;
 @gap: 15px;
+@menu-size: 500px;
 
 @russo: 'Russo-fts';
 @exo-l: 'Exo2-light-fts';
-@exo-t: 'Exo2-thin-fts';
-@exo-m: 'Exo2-medium-fts';
 
 	// Font size
 @fs-128: 128px; 
@@ -44,13 +43,28 @@ h1, h2, h5 {
 	font-family: @russo;
 	text-align: center;
 }
-p, li {
+p, li, pre {
 	font-family: @exo-l;
 	display: block;
 }
 sup, h6 {
-	font-family: @exo-m;
+	font-family: @exo-l;
 	text-align: center;
+}
+
+	// Flex - extend
+.flex-wrap {
+	display: flex;
+	flex-wrap: wrap;
+}
+.flex-column {
+	display: flex;
+	flex-direction: column;
+}
+.flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 	// Absolute center
@@ -68,50 +82,48 @@ sup, h6 {
 	transform: translateX(-50%);
 }
 
+	// Buttons base
+	.btn-base {
+		width: 55px;
+    height: 55px;
+		position: relative;
+		border-radius: 50%;
+		transition: @ti;
+		cursor: pointer;
+	}
+
 	// "MAIN-THEME" class for BODY //
 		////////////////////////////
 
 body {
-	width: 100%;
+	max-width: 100%;
 	height: 100%;
-	
-	.nav-bar {
+
+		// MENU BUTTONs
+	div.btns-box {
 		width: 1200px;
-		height: 30px;
+		&:extend(.flex-wrap);
 		position: fixed;
 		left: 50%;
 		transform: translateX(-50%);
-		// background: @dt-bg + 25;
-		z-index: 100;
-		@media (max-width:1199px) {
+		z-index: 999;
+		@media (max-width: 1199px) {
 			width: 100%;
 		}
-		.nav-btns {
-			display: flex;
-		}
 	}
-			// NAV BUTTONS
-		div.menu-btn,
-		div.theme-btn {
-		width: 50px;
-		height: 50px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
+	div.menu-btn,
+	div.theme-btn {
+		&:extend(.flex-column, .flex-center, .btn-base);
 		margin: 5px;
-		position: relative;
-		border-radius: 50%;
 		box-shadow: @shadow;
-		cursor: pointer;
-		}
+	}
 	div.menu-btn {
+		z-index: 5;
 		span {
 			width: 20px;
 			height: 3px;
 			display: block;
 			position: relative;
-			background: @dt-white-smoke;
 			transform-origin: center;
 			transition: @ti;
 			&:nth-of-type(1) {
@@ -124,17 +136,15 @@ body {
 					position: absolute;
 					top: -6px;
 					left: 0;
-					background: @dt-white-smoke;
 					transition: @ti;
 				}
 			}
 			&:nth-of-type(2) {
 				top: 4px;
 			}
-
 		}
 			// JS class (крестик)
-		&.hide-mlist {hide-mlist
+		&.mbt-focus {
 			span {
 				&:nth-of-type(1) {
 					transform: rotateZ(45deg);
@@ -149,34 +159,70 @@ body {
 		}
 	}
 	div.theme-btn {
+		opacity: 0;
+		transform: translateX(-65px);
+		transition: @ti;
 		svg {
 			width: 20px;
 			height: 20px;
 		}
-	}
-	ul.menu-list {
-		max-width: 150px;
-		height: auto;
-		position: absolute;
-		top: 62px;
-		left: 5px;
-		opacity: 0;
-		border-radius: 5px;
-		box-shadow: @light-shadow;
-		transform-origin: 24px 0px;
-		transform: rotate3d(1, 1, 1, 60deg);
-		transition: @ti;
-		pointer-events: none;
 			// JS class
-		&.show-mlist {
+		&.tbt-anim {
 			opacity: 1;
-			transform: rotate3d(1, 1, 1, 0deg);
-			pointer-events: initial;
+			transform: translateX(0px);
 		}
+	}
+
+		// MENU LAYERS
+	.menu-box {
+		width: 100%;
+		height: 100%;
+		// display: none;
+		&:extend(.flex-center);
+		opacity: 0;
+		position: fixed;
+		transition: @ti;
+		z-index: 100;
+		pointer-events: none;
+		.menu-img-svg {
+			display: block;
+			.absCenter;
+			z-index: -1;
+			transition: all 0.3s cubic-bezier(0, 0, 0.01, 1.23);
+			&:nth-of-type(1) {
+				width: @menu-size;
+				height: @menu-size;
+				transition-delay: 0.1s;
+				transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, 90deg) scale(0.2);
+				z-index: -1;
+			}
+			&:nth-of-type(2) {
+				width: calc(@menu-size + 100px);
+				height: calc(@menu-size + 100px);
+				transition-delay: 0.2s;
+				transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, -150deg) scale(0.2);
+				z-index: -2;
+			}
+		}
+		&.focused {
+			opacity: 1;
+			pointer-events: initial;
+			.menu-img-svg {
+				&:nth-of-type(1) {
+					transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, 0deg) scale(1);
+				}
+				&:nth-of-type(2) {
+					transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, -60deg) scale(1);
+				}
+			}
+		}
+	}
+
+	ul.menu-list {
 		li {
 			position: relative;
 			padding: 5px 30px 5px 20px;
-			font-size: @fs-18 + 3;
+			font-size: @fs-18 + 6;
 			font-family: @exo-l;
 			transition: @ti;
 			cursor: pointer;
@@ -190,10 +236,6 @@ body {
 				border-style: solid;
 				border-width: 7px 0px 7px 7px;
 				border-color: transparent transparent transparent transparent;
-				transition: @ti;
-			}
-			a {
-				color: @dt-white-smoke;
 				transition: @ti;
 			}
 		}
@@ -215,52 +257,20 @@ body {
 		}
 	}
 
-	// ПРИГОДИТСЯ ЕщЁ
-	// div.theme-btn {
-	// 	width: 50px;
-	// 	height: 50px;
-	// 	display: flex;
-	// 	justify-content: center;
-	// 	align-items: center;
-	// 	margin-left: 50%;
-	// 	position: fixed;
-	// 	bottom: @gap;
-	// 	border-radius: 50%;
-	// 	box-shadow: @shadow;
-	// 	transform: translateX(610px);
-	// 	z-index: 100;
-	// 	cursor: pointer;
-	// 	@media (max-width: 1390px) {
-	// 		margin-left: auto;
-	// 		right: @gap;
-	// 		transform: none;
-	// 	}
-	// 	svg {
-	// 		width: 20px;
-	// 		height: 20px;
-	// 	}
-	// }
-
-		// Для плавной прокрутки !
-	.container {
-		width: 100%;
-		max-height: 100vh;
-		scroll-behavior: smooth;
-		overflow-y: scroll;
-	}
-		// Hedaer
+	// Hedaer
 	header {
 		width: 100%;
-		height: 100vh;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		height: 717px;
+		&:extend(.flex-center);
+		@media (max-width: 480px) {
+			height: 100vh;
+		}
 		.logo {
 			width: 100%;
 			height: 100%; 
 			display: block;
 			background: no-repeat center;
-			background-size: 1056px 946px;
+			background-size: 800px 717px;
 			@media (max-width: 1000px) {
 				background-size: 100% auto;
 			}
@@ -271,7 +281,7 @@ body {
 	section {
 		height: 100%;
 		overflow: hidden;
-		padding: 100px 0;
+		padding: 50px 0;
 		&:nth-of-type(4) {
 			padding-bottom: 0px;
 		}
@@ -294,18 +304,6 @@ body {
 		// Event blocks
 	section.paty {
 		@import "../less/_party-block.less";
-		.next-evts-night,
-		.next-evts-day {
-			margin: 50px auto;
-			padding: 15px;
-			font-size: @fs-40;
-			font-family: @exo-t;
-			font-weight: 100;
-			text-align: center;
-			text-transform: uppercase;
-			z-index: 15;
-		}
-
 		@import "../less/_next-events.less";
 	}
 
@@ -321,10 +319,21 @@ body {
 
 		// Our partners
 	section.partner {
-		.link-block {
+		padding: 50px 0;
+		.link-blk {
+			width: 1200px;
 			height: auto;
-			display: flex;
-			flex-wrap: wrap;
+			&:extend(.flex-wrap, .flex-center);
+			margin: 0 auto;
+			@media (max-width: 1199px) {
+				width: 100%;
+			}
+			img {
+				width: 140px;
+				height: auto;
+				margin: 5px;
+				display: block;
+			}
 		}
 	}
 
@@ -332,10 +341,10 @@ body {
 	footer {
 		display: flex;
 		justify-content: center;
-		margin: 5px;
+		padding: 5px;
 		span {
 			color: @dt-white-smoke;
-			font-family: @exo-t;
+			font-family: @exo-l;
 		}
 	}
 } //The end
@@ -346,17 +355,12 @@ body {
 
 body.dark-theme {
 
-	h1, h2, h4, h5, h6, li, p {
+	h1, h2, h4, h5, h6, li, p, pre {
 		color: @dt-white-smoke;
 	}
 	div.menu-btn,
 	div.theme-btn {
 		background: @dt-white-smoke;
-	}
-	div.theme-btn {
-		svg {
-			fill: @dt-box;
-		}
 	}
 	div.menu-btn {
 		span {
@@ -369,17 +373,30 @@ body.dark-theme {
 			}
 		}
 	}
+	div.theme-btn {
+		svg {
+			fill: @wt-black;
+		}
+	}
+	.menu-box {
+		background: fade(@dt-bg - 25, 90%);
+		.menu-img-svg {
+			&:nth-of-type(1) {
+				fill: @dt-brilliant-rose;
+			}
+			&:nth-of-type(2) {
+				fill: fade(@dt-brilliant-rose, 50%);
+			}
+		}
+	}
 	ul.menu-list {
-		background: @dt-brilliant-rose;
+		// background: @dt-brilliant-rose;
 		li {
 			&:hover  {
 				.mlist-focus();
 			}
 			// JS class hover
 			.mlist-focus {
-				a {
-					color: @dt-bg;
-				}
 				&::before {
 					border-left-color: @dt-bg;
 				}
@@ -401,17 +418,9 @@ body.dark-theme {
 		// Event blocks
 	section.paty {
 		@import "../less/dark_theme/_party-block.less";
-		h4.next-evts-night {
-			background: @dt-bg;
-		}
-		h4.next-evts-day {
-			background: @dt-palatinate-purple;
-		}
-
 		@import "../less/dark_theme/_next-events.less";
 		&.day {
 			background: @dt-palatinate-purple;
-			// background: linear-gradient(to top left, @dt-palatinate-purple 0%, multiply(@dt-palatinate-purple, #ccc)100%);
 		}
 	}
 
@@ -424,7 +433,6 @@ body.dark-theme {
 	section.ourteam {
 		@import "../less/dark_theme/_team.less";
 		background: @dt-palatinate-purple;
-		// background: linear-gradient(to top left, @dt-palatinate-purple 0%, multiply(@dt-palatinate-purple, #ccc)100%);
 	}
 
 		// Footer
@@ -440,7 +448,7 @@ body.dark-theme {
 
 body.light-theme {
 
-	h1, h2, h4, h5, h6, li, p {
+	h1, h2, h4, h5, h6, li, p, pre {
 		color: @wt-black;
 	}
 
@@ -448,33 +456,41 @@ body.light-theme {
 	div.theme-btn {
 		background: @wt-black;
 	}
-	div.theme-btn {
-		svg {
-			fill: @wt-bg;
-		}
-	}
 	div.menu-btn {
 		span {
-			background: @dt-white-smoke;
+			background: @wt-white;
 			&::after {
-				background: @dt-white-smoke;
+				background: @wt-white;
 			}
 			&::before {
-				background: @dt-white-smoke;
+				background: @wt-white;
+			}
+		}
+	}
+	div.theme-btn {
+		svg {
+			fill: @wt-white;
+		}
+	}
+	.menu-box {
+		background: fade(@wt-white, 90%);
+		.menu-img-svg {
+			&:nth-of-type(1) {
+				fill: @wt-black;
+			}
+			&:nth-of-type(2) {
+				fill: fade(@wt-black, 50%);
 			}
 		}
 	}
 	ul.menu-list {
-		background: @wt-bittersweet;
 		li {
+			color: @wt-white;
 			&:hover  {
 				.mlist-focus();
 			}
 			// JS class hover
 			.mlist-focus {
-				a {
-					color: @dt-bg;
-				}
 				&::before {
 					border-left-color: @wt-bg;
 				}
@@ -491,18 +507,11 @@ body.light-theme {
 			background-image: url(../img/bgs/header-day-min.png);
 		}
 	}
-
 	background: @wt-bg;
+	
 		// Event blocks
 	section.paty {
 		@import "../less/light_theme/_party-block.less";
-		h4.next-evts-night {
-			background: @wt-bg;
-		}
-		h4.next-evts-day {
-			background: @wt-bg;
-		}
-
 		@import "../less/light_theme/_next-events.less";
 		&.day {
 			background: none;
@@ -519,11 +528,15 @@ body.light-theme {
 		@import "../less/light_theme/_team.less";
 		background: none;
 	}
-
+		// Partner
+	section.partner {
+		background: @dt-bg;
+	}
 		// Footer
 	footer {
+		background: @dt-bg;
 		span {
-			color: @wt-black;
+			color: @dt-white-smoke;
 		}
 	}
 }

@@ -1,13 +1,10 @@
 [{
-	"img": "./img/events/party.jpg",
+	"img": "./img/events/party-min.jpg",
 	"date": "11",
 	"month": "сентября",
 	"time": "20:10",
 	"capt": "Дискотека Валентина",
-	"text": [{
-			"graph1": "Расслабиться и получать удовольствие можно здесь.Окунуться в бурлящую ночную жизнь предлагает своим гостям ночной клуб «Дудка Валасянка».",
-			"graph2": "Ты полностью растворишьса в музыке и эмоциях в месте с виртуозным DJ, Расслабиться и получать удовольствие можно здесь.Окунуться в бурлящую ночную жизнь."
-		}],
+	"text": "Расслабиться и получать удовольствие можно здесь.Окунуться в бурлящую ночную жизнь предлагает своим гостям ночной клуб «Дудка Валасянка». Ты полностью растворишьса в музыке и эмоциях в месте с виртуозным DJ, Расслабиться и получать удовольствие можно здесь. \n\r Окунуться в бурлящую ночную жизнь.",
 	"price": "15",
 	"btns": [{
 		"geo": "https://goo.gl/maps/Kmfpqg5reGF2",
@@ -16,7 +13,7 @@
 	}],
 	"events": [{
 		"ev1": [{
-			"ePoster": "./img/events/event1.jpg",
+			"ePoster": "./img/events/event1-min.jpg",
 			"eDate": "30",
 			"eMonth": "сентября",
 			"eCap": "Русская дискотека",
@@ -24,7 +21,7 @@
 			"eCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere."
 		}],
 		"ev2": [{
-			"ePoster": "./img/events/event2.jpg",
+			"ePoster": "./img/events/event2-min.jpg",
 			"eDate": "11",
 			"eMonth": "октября",
 			"eCap": "Туса на хеллоуин",
@@ -32,7 +29,7 @@
 			"eCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni recusandae ullam dolorum."
 		}],
 		"ev3": [{
-			"ePoster": "./img/events/event3.jpg",
+			"ePoster": "./img/events/event3-min.jpg",
 			"eDate": "31",
 			"eMonth": "декабря",
 			"eCap": "Новогодняя вечерина",
@@ -42,16 +39,12 @@
 	}]
 },
 {
-	"img": "./img/events/party1.jpg",
+	"img": "./img/events/party1-min.jpg",
 	"date": "23",
 	"month": "сентября",
 	"time": "19:30",
-	"capt": "Дискач -Жесткач",
-	"text": [{
-			"graph1": "Ты полностью растворишьса в музыке и эмоциях в месте с виртуозным DJ Цветкоff. В этом заведении вы найдёте стильный интерьер,качественные свет и звук и богатый выбор проведения досуга, который поможет ...",
-			"graph2": "Американцы думали что разожгут огонь огромной войны, если бросят в топку первыми Англию... это была провокация и она не сработала, а сейчас они не знают что делать, просто продолжают это шапито. (позже они обвинили бы в Брексите Россию 100% ) Типа мы мировое зло.",
-			"graph3": "Расслабиться и получать удовольствие можно здесь.Окунуться в бурлящую ночную жизнь предлагает своим гостям ночной клуб «Дудка Валасянка». Ты полностью растворишьса в музыке и эмоциях в месте с виртуозным DJ Цветкоff. В этом заведении вы найдёте стильный интерьер,качественные свет и звук и богатый выбор проведения досуга, который поможет."
-		}],
+	"capt": "Дискач - Жесткач",
+	"text": "Ты полностью растворишьса в музыке и эмоциях в месте с виртуозным DJ Цветкоff. В этом заведении вы найдёте стильный интерьер,качественные свет и звук и богатый выбор проведения досуга, который поможет ... \n\r Американцы думали что разожгут огонь огромной войны, если бросят в топку первыми Англию... это была провокация и она не сработала, а сейчас они не знают что делать, просто продолжают это шапито. (позже они обвинили бы в Брексите Россию 100% ) Типа мы мировое зло. \n\r Расслабиться и получать удовольствие можно здесь.Окунуться в бурлящую ночную жизнь предлагает своим гостям ночной клуб «Дудка Валасянка». Ты полностью растворишьса в музыке и эмоциях в месте с виртуозным DJ Цветкоff. В этом заведении вы найдёте стильный интерьер,качественные свет и звук и богатый выбор проведения досуга, который поможет.",
 	"price": "8",
 	"btns": [{
 		"geo": "https://goo.gl/maps/Kmfpqg5reGF2",
@@ -60,7 +53,7 @@
 	}],
 	"events": [{
 		"ev1": [{
-			"ePoster": "./img/events/event1.jpg",
+			"ePoster": "./img/events/event1-min.jpg",
 			"eDate": "25",
 			"eMonth": "сентября",
 			"eCap": "Спектакль для малышей",
@@ -68,7 +61,7 @@
 			"eCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere."
 		}],
 		"ev2": [{
-			"ePoster": "./img/events/event2.jpg",
+			"ePoster": "./img/events/event2-min.jpg",
 			"eDate": "07",
 			"eMonth": "октября",
 			"eCap": "Выставка форума",
@@ -76,7 +69,7 @@
 			"eCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni recusandae ullam dolorum."
 		}],
 		"ev3": [{
-			"ePoster": "./img/events/event3.jpg",
+			"ePoster": "./img/events/event3-min.jpg",
 			"eDate": "14",
 			"eMonth": "ноября",
 			"eCap": "Модный показ 'Осенняя листва'",

@@ -20,7 +20,7 @@
 }
 
 .crs-cls {
-  background: @wt-bg + 5;
+  background: @wt-bg + 10;
   color: @wt-black;
 }
 
@@ -49,15 +49,22 @@ h4 {
     }
   }
 }
-.crs-plus {
+.crs-more {
   span {
-    background: @dt-white-smoke;
-    box-shadow: @shadow;
     &::before {
       background: @wt-black;
     }
     &::after {
       background: @wt-black;
+    }
+    &.night-bt {
+      box-shadow: @wt-night-shadow;
+    }
+      // JS classes
+    &.pressed-more {
+      &.night-bt {
+        background: shade(@wt-bittersweet, 5%);
+      }
     }
   }
 }

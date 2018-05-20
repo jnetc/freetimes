@@ -7,7 +7,6 @@
 
 .flex-crs {
   background: @dt-bg;
-  // border: 3px solid @dt-bg * 2;
   box-shadow: inset 0 0 0 2px @dt-bg - 10, @shadow;
 }
 
@@ -19,8 +18,7 @@
 }
 
 .crs-cls {
-  background: @dt-palatinate-purple;
-  // border: 1px solid @dt-bg * 2;
+  background: @dt-bg + 15;
   color: @dt-white-smoke;
 }
 
@@ -49,15 +47,22 @@ h4 {
     }
   }
 }
-.crs-plus {
+.crs-more {
   span {
-    background: @dt-white-smoke;
-    box-shadow: @shadow;
     &::before {
       background: @dt-box;
     }
     &::after {
       background: @dt-box;
+    }
+    &.night-bt {
+      background: @dt-brilliant-rose;
+    }
+      // JS classes
+    &.pressed-more {
+      &.night-bt {
+        background: shade(@dt-brilliant-rose, 15%);
+      }
     }
   }
 }

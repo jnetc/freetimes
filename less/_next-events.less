@@ -8,11 +8,9 @@
 @black: rgb(0, 0, 0);
 
 	// Next events
-.next-blk {
+.next-blk:extend(.flex-wrap) {
   width: 100%;
   height: auto;
-  display: flex;
-  flex-wrap: wrap;
 	justify-content: center;
 	margin-top: 80px;
 }
@@ -39,12 +37,8 @@
 		left: 0px;
 		z-index: -1;
 	}
-	div {
-		// width: inherit;
+	div :extend(.flex-center) {
 		height: 425px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
 		position: absolute;
 		overflow: hidden;
 	}
@@ -84,7 +78,6 @@
 h5 {
 	width: 100%;
 	display: block;
-	// margin-top: 220px;
 	padding: 0px 20px 10px;
 	position: absolute;
 	top: 205px;
@@ -95,17 +88,17 @@ h5 {
 		width: 70px;
 		height: 15px;
 		top: -25px;
-		.absLeft();
-		background: no-repeat center url(../img/els/stars.svg);
+		&:extend(.absLeft);
+		background: no-repeat center url(../img/svg/stars.svg);
 	}
 }
 
 	// Button more
 .show-night-btn,
 .show-day-btn {
-	.absLeft();
+	&:extend(.absLeft);
 	padding: 10px 17px 12px;
-	font-family: @exo-m;
+	font-family: @exo-l;
 	font-size: @fs-18;
 	font-weight: bold;
 	border-radius: 5px;

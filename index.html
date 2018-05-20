@@ -18,99 +18,7 @@
 <link rel="icon" type="images/png" href="/icon/favicon-32x32.png" sizes="32x32">
 <link rel="icon" type="images/png" href="/icon/favicon-48x48.png" sizes="48x48">
 <link rel="icon" type="images/png" href="/icon/favicon-64x64.png" sizes="64x64"> -->
-
-
-<!-- <style type="text/css">
-
-.hidden {
-	overflow: hidden;
-}
-#preloader {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: fixed;
-	top: 0;
-	left: 0;
-	opacity: 1;
-	visibility: visible;
-	background: #1A1A1A;
-	transition: all 0.5s ease-in-out;
-	z-index: 10000;
-}
-#preloader .pre-conteiner {
-	width: 60px;
-	height: 60px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-	animation: rotate-kub 2s linear infinite;
-}
-.circle,
-.circle,
-.circle,
-.circle {
-	width: 25px;
-	height: 25px;
-	position: absolute;
-	border-radius: 50%;
-	
-}
-.load-1 {
-	background: #fc6959;
-	animation: top-left 3s ease-in-out infinite;
-}
-.load-2 {
-	background: #fe5b9a;
-	animation-delay: 0.8s;
-	animation: top-right 3s ease-in-out infinite;
-}
-.load-3 {
-	background: #24c1c7;
-	animation: bottom-right 3s ease-in-out infinite;
-}
-.load-4 {
-	background: #723868;
-	animation: bottom-left 3s ease-in-out infinite;
-}
-
-@keyframes top-left {
-	0% {top: 50%; left: 50%; transform: translate3d(-50%, -50%, 0)}
-	15% {top: 0%; left: 0%; transform: translate3d(0%, 0%, 0)}
-	85% {top: 0%; left: 0%; transform: translate3d(0%, 0%, 0)}
-	100% {top: 50%; left: 50%; transform: translate3d(-50%, -50%, 0)}
-}
-@keyframes top-right {
-	0% {top: 50%; right: 50%; transform: translate3d(50%, -50%, 0)}
-	15% {top: 0%; right: 0%; transform: translate3d(0%, 0%, 0)}
-	85% {top: 0%; right: 0%; transform: translate3d(0%, 0%, 0)}
-	100% {top: 50%; right: 50%; transform: translate3d(50%, -50%, 0)}
-}
-@keyframes bottom-right {
-	0% {bottom: 50%; right: 50%; transform: translate3d(50%, 50%, 0)}
-	15% {bottom: 0%; right: 0%; transform: translate3d(0%, 0%, 0)}
-	85% {bottom: 0%; right: 0%; transform: translate3d(0%, 0%, 0)}
-	100% {bottom: 50%; right: 50%; transform: translate3d(50%, 50%, 0)}
-}
-@keyframes bottom-left {
-	0% {bottom: 50%; left: 50%; transform: translate3d(-50%, 50%, 0)}
-	15% {bottom: 0%; left: 0%; transform: translate3d(0%, 0%, 0)}
-	85% {bottom: 0%; left: 0%; transform: translate3d(0%, 0%, 0)}
-	100% {bottom: 50%; left: 50%; transform: translate3d(-50%, 50%, 0)}
-}
-
-@keyframes rotate-kub {
-	100% {transform: rotate3d(0, 0, 1, 360deg)}
-}
-
-#preloader.done {
-	opacity: 0;
-	visibility: hidden;
-}
-</style> -->
+<link rel="stylesheet" href="./css/preloader.css">
 </head>
 <body class="hidden">
   <div id="preloader">
@@ -121,102 +29,105 @@
       <div class="circle load-4"></div>
     </div>
   </div>
-  <div class="nav-bar">
-    <div class="nav-btns">
-      <div class="menu-btn" title="Menu">
-        <span></span>
-        <span></span>
-      </div>
-      <div class="theme-btn" title="Color theme">
-        <svg role="img">
-          <use xlink:href="./img/svg/icons.svg#theme"></use>
-        </svg>
+  <div class="btns-box">
+    <div class="menu-btn" title="Menu">
+      <span></span>
+      <span></span>
+    </div>
+    <div class="theme-btn" title="Color theme">
+      <svg role="img">
+        <use xlink:href="./img/svg/icons.svg#theme"></use>
+      </svg>
+    </div>
+  </div>
+    <div class="menu-box">
+      <svg role="img" class="menu-img-svg">
+        <use xlink:href="./img/svg/fts-elem.svg#border-up"></use>
+      </svg>
+      <svg role="img" class="menu-img-svg">
+        <use xlink:href="./img/svg/fts-elem.svg#border-down"></use>
+      </svg>
+      <div class="menu-items">
+        <ul class="menu-list">
+          <li value="box"></li>
+          <li value="box"></li>
+          <li value="box"></li>
+          <li value="box"></li>
+          <li value="box"></li>
+        </ul>
       </div>
     </div>
-    <ul class="menu-list">
-      <li><a href="#bl0">Главная</a></li>
-      <li><a href="#bl1">Ночные</a></li>
-      <li><a href="#bl2">Дневные</a></li>
-      <li><a href="#bl3">Курсы</a></li>
-      <li><a href="#bl4">Команда</a></li>
-      </ul>
-  </div>
-  <div class="container">
-    <header id="bl0">
-      <div class="logo"></div>
-    </header>
-    <section class="paty night" id="bl1">
-      <h2>Ночные развлечения для взрослых</h2>
-      <div class="paty-blk paty-adt">
-        <div class="night-paint"></div>
-        <img class="model" src="./img/bgs/model-night-min.png" alt="model" title="model">
-        <div class="paty-box">
-          <div class="paty-dat night-dat"></div>
-          <div class="paty-time night-time"></div>
-          <div class="paty-content">
-            <svg class="stars night-str" role="img">
-              <use xlink:href="./img/svg/fts-elem.svg#stars"></use>
-            </svg>
-            <ul class="paty-text"></ul>
-            <div class="bt-tag">
-              <span class="plus-bt night-bt"></span>
-              <span class="more-bt night-bt"></span>
-              <div class="paty-tag night-price">
-                <span>Вход</span>
-              </div>
+  <header class="box-scroll" id="box1">
+    <div class="logo"></div>
+  </header>
+  <section class="paty night box-scroll" id="box2">
+    <h2></h2>
+    <div class="paty-blk paty-adt">
+      <div class="night-paint"></div>
+      <img class="model" src="./img/bgs/model-night-min.png" alt="Kristina Kusaeva" title="Kristina Kusaeva">
+      <div class="paty-box">
+        <div class="paty-dat night-dat"></div>
+        <div class="paty-time night-time"></div>
+        <div class="paty-content">
+          <svg class="stars night-str" role="img">
+            <use xlink:href="./img/svg/fts-elem.svg#stars"></use>
+          </svg>
+          <ul class="paty-text"></ul>
+          <div class="bt-tag">
+            <span class="plus-bt night-bt"></span>
+            <span class="more-bt night-bt"></span>
+            <div class="paty-tag night-price">
+              <span></span>
             </div>
-            <div class="paty-add night-add animated"></div> 
           </div>
+          <div class="paty-add night-add animated"></div> 
         </div>
-      <!-- <h4 class="next-evts-night">ближайшие события</h4> -->
-      <div class="next-blk"></div>
-    </section>
-    <section class="paty day" id="bl2">
-      <h2>Культурные мероприятия</h2>
-      <div class="paty-blk paty-teen">
-        <div class="day-paint"></div>
-        <img class="model" src="./img/bgs/model-day-min.png" alt="model" title="model">
-        <div class="paty-box">
-          <div class="paty-dat day-dat"></div>
-          <div class="paty-time day-time"></div>
-          <div class="paty-content">
-            <svg class="stars day-str" role="img">
-              <use xlink:href="./img/svg/fts-elem.svg#stars"></use>
-            </svg>
-            <ul class="paty-text"></ul>
-            <div class="bt-tag">
-              <span class="plus-bt day-bt"></span>
-              <span class="more-bt day-bt"></span>
-              <div class="paty-tag day-price">
-                <span>Вход</span>
-              </div>
-            </div>
-            <div class="paty-add day-add animated"></div> 
-          </div>
-        </div>
-      <!-- <h4 class="next-evts-day">ближайшие события</h4> -->
-      <div class="next-blk"></div>
-    </section>
-    <section class="courses" id="bl3">
-      <h2>Кружки, секции и курсы</h2>
-    </section>
-    <section class="ourteam" id="bl4">
-      <h2>Наша команда</h2>
-      <div class="team-blk">
-    </section>
-    <section class="partner">
-      <div class="link-block">
-
       </div>
-    </section>
-    <footer>
-      <span>freetimestars ©</span>
-    </footer>
-</div>
+    <div class="next-blk"></div>
+  </section>
+  <section class="paty day box-scroll" id="box3">
+    <h2></h2>
+    <div class="paty-blk paty-teen">
+      <div class="day-paint"></div>
+      <img class="model" src="./img/bgs/model-day-min.png" alt="Kristina Kusaeva" title="Kristina Kusaeva">
+      <div class="paty-box">
+        <div class="paty-dat day-dat"></div>
+        <div class="paty-time day-time"></div>
+        <div class="paty-content">
+          <svg class="stars day-str" role="img">
+            <use xlink:href="./img/svg/fts-elem.svg#stars"></use>
+          </svg>
+          <ul class="paty-text"></ul>
+          <div class="bt-tag">
+            <span class="plus-bt day-bt"></span>
+            <span class="more-bt day-bt"></span>
+            <div class="paty-tag day-price">
+              <span></span>
+            </div>
+          </div>
+          <div class="paty-add day-add animated"></div> 
+        </div>
+      </div>
+    <div class="next-blk"></div>
+  </section>
+  <section class="courses box-scroll" id="box4">
+    <h2></h2>
+    <div class="course-blk"></div>
+  </section>
+  <section class="ourteam box-scroll" id="box5">
+    <h2></h2>
+    <div class="team-blk">
+  </section>
+  <section class="partner">
+    <div class="link-blk"></div>
+  </section>
+  <footer>
+    <span>freetimes ©</span>
+  </footer>
 </body>
 <link href="./css/style.css" type="text/css" rel="stylesheet">
-<script src="./js/min/fts-dom.js" type="text/javascript"></script>
-<script src="./js/min/fts-act.js" type="text/javascript"></script>
+<script src="./js/fts-dom.js" type="text/javascript"></script>
+<script src="./js/fts-act.js" type="text/javascript"></script>
 <img src="./img/bgs/bt-day-paint-min.png" alt="preload" style="display: none">
 <img src="./img/bgs/bt-night-paint-min.png" alt="preload" style="display: none">
 <img src="./img/bgs/wt-day-paint-min.png" alt="preload" style="display: none">

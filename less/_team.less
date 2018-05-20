@@ -30,9 +30,8 @@
 
 .team-blk {
   width: 1200px;
-  display: flex;
+  &:extend(.flex-wrap);
   justify-content: center;
-  flex-wrap: wrap;
   margin: 100px auto 20px;
   @media (max-width: 1200px) {
     width: 100%;
@@ -41,8 +40,7 @@
 .teammate {
   width: 360px;
   height: auto;
-  display: flex;
-  flex-direction: column;
+  &:extend(.flex-column);
   align-items: center;
   margin: @gap @gap 120px;
   padding: @gap;
@@ -65,7 +63,7 @@
   width: 200px;
   height: 200px;
   display: block;
-  .absLeft();
+  &:extend(.absLeft);
   top: -100px;
   img {
     width: 125px;
@@ -80,7 +78,7 @@
   }
   .team-img-svg {
     display: block;
-    .absCenter();
+    &:extend(.absCenter);
     z-index: -1;
     transition: all 0.5s cubic-bezier(0, 0, 0.01, 1.23);
     &:nth-of-type(1) {
@@ -141,21 +139,11 @@ h6 {
 }
 
 .team-btns {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
-  // margin: 10px 0;
+  &:extend(.flex-wrap, .flex-center);
   transition: @ti;
   a {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    &:extend(.flex-center, .btn-base);
     margin: 5px;
-    border-radius: 50%;
-    transition: @ti;
     .crs-svg {
       width: 23px;
       height: 23px;
