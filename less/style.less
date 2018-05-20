@@ -111,13 +111,14 @@ body {
 			width: 100%;
 		}
 	}
-	div.menu-btn,
-	div.theme-btn {
+	div.main-bt {
 		&:extend(.flex-column, .flex-center, .btn-base);
 		margin: 5px;
+		font-family: @russo;
+		font-size: @fs-18;
 		box-shadow: @shadow;
 	}
-	div.menu-btn {
+	div.menu-bt {
 		z-index: 5;
 		span {
 			width: 20px;
@@ -158,19 +159,26 @@ body {
 			}
 		}
 	}
-	div.theme-btn {
+	div.theme-bt,
+	div.lang-bt {
 		opacity: 0;
-		transform: translateX(-65px);
 		transition: @ti;
 		svg {
 			width: 20px;
 			height: 20px;
 		}
 			// JS class
-		&.tbt-anim {
+		&.tbt-anim,
+		&.lbt-anim  {	
 			opacity: 1;
-			transform: translateX(0px);
+			transform: translateX(0px) rotateZ(0deg);
 		}
+	}
+	div.theme-bt {
+		transform: translateX(-65px) rotateZ(-360deg);
+	}
+	div.lang-bt {
+		transform: translateX(-130px) rotateZ(-360deg);
 	}
 
 		// MENU LAYERS
@@ -358,11 +366,10 @@ body.dark-theme {
 	h1, h2, h4, h5, h6, li, p, pre {
 		color: @dt-white-smoke;
 	}
-	div.menu-btn,
-	div.theme-btn {
+	div.main-bt {
 		background: @dt-white-smoke;
 	}
-	div.menu-btn {
+	div.menu-bt {
 		span {
 			background: @wt-black;
 			&::after {
@@ -373,7 +380,9 @@ body.dark-theme {
 			}
 		}
 	}
-	div.theme-btn {
+	div.theme-bt,
+	div.lang-bt {
+		color: @wt-black;
 		svg {
 			fill: @wt-black;
 		}
@@ -452,11 +461,10 @@ body.light-theme {
 		color: @wt-black;
 	}
 
-	div.menu-btn,
-	div.theme-btn {
+	div.main-bt {
 		background: @wt-black;
 	}
-	div.menu-btn {
+	div.menu-bt {
 		span {
 			background: @wt-white;
 			&::after {
@@ -467,7 +475,9 @@ body.light-theme {
 			}
 		}
 	}
-	div.theme-btn {
+	div.theme-bt,
+	div.lang-bt {
+		color:  @wt-white;
 		svg {
 			fill: @wt-white;
 		}

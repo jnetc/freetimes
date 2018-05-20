@@ -173,20 +173,27 @@ li, pre {
     }
   }
   .plus-bt {
+    &:extend(.btn-base);
     margin: auto auto auto 60px;
     @media (max-width: 480px) {
       margin-left: 30px;
     }
-    &::before {
-      width: 22px;
-      height: 3px;
+    svg {
+      width: 23px;
+      height: 23px;
+      .absCenter();
+      z-index: 2;
     }
-    &::after {
-      width: 22px;
-      height: 3px;
-      transform: translate(-50%, -50%) rotateZ(90deg);
-      transition: @ti;
-    }
+    // &::before {
+    //   width: 22px;
+    //   height: 3px;
+    // }
+    // &::after {
+    //   width: 22px;
+    //   height: 3px;
+    //   transform: translate(-50%, -50%) rotateZ(90deg);
+    //   transition: @ti;
+    // }
      // JS class
     &.pressed-plus {
       &::after {

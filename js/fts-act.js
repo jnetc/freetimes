@@ -1,8 +1,9 @@
 window.onload = () => {
 
   let bodyEl    = document.querySelector('body'),
-      themeBtn  = document.querySelector('.theme-btn'),
-      menuBtn   = document.querySelector('.menu-btn'),
+      themeBtn  = document.querySelector('.theme-bt'),
+      langBtn   = document.querySelector('.lang-bt'),
+      menuBtn   = document.querySelector('.menu-bt'),
       menuBox   = document.querySelector('.menu-box'),
       menuList  = document.querySelector('.menu-list'),
       patyAdd   = document.querySelectorAll('.paty-add'),
@@ -50,6 +51,7 @@ window.onload = () => {
     menuBox.classList.toggle('focused');
     menuBtn.classList.toggle('mbt-focus');
     themeBtn.classList.toggle('tbt-anim');
+    langBtn.classList.toggle('lbt-anim');
     bodyEl.style.overflow = bodyEl.style.overflow === 'hidden' ? '' : 'hidden';
 
   }
@@ -58,6 +60,7 @@ window.onload = () => {
     menuBox.classList.remove('focused');
     menuBtn.classList.remove('mbt-focus');
     themeBtn.classList.remove('tbt-anim');
+    langBtn.classList.toggle('lbt-anim');
     bodyEl.style.overflow = bodyEl.style.overflow === 'hidden' ? '' : 'hidden';
   }
     // Get elem's arrays
@@ -261,23 +264,23 @@ window.onload = () => {
   footerYear.innerText += ' ' + year + ' All rights reserved';
 
     // Preloader Page
-  let preloader = document.querySelector('#preloader');
-  let imgPreload = document.querySelectorAll('img[alt="preload"]');
-  setTimeout(() => {
-    if (!preloader.classList.contains('.done')) {
-      preloader.classList.add('done');
-      bodyEl.classList.remove('hidden');
-      for (let i = 0; i < imgPreload.length; i++) {
-        imgPreload[i].remove();
-        removePreload();
-      }
-    }
-  }, 1000);
-  let removePreload = () => {
-    setTimeout(() => {
-      preloader.remove();
-    }, 1000);
-  }
+  // let preloader = document.querySelector('#preloader');
+  // let imgPreload = document.querySelectorAll('img[alt="preload"]');
+  // setTimeout(() => {
+  //   if (!preloader.classList.contains('.done')) {
+  //     preloader.classList.add('done');
+  //     bodyEl.classList.remove('hidden');
+  //     for (let i = 0; i < imgPreload.length; i++) {
+  //       imgPreload[i].remove();
+  //       removePreload();
+  //     }
+  //   }
+  // }, 1000);
+  // let removePreload = () => {
+  //   setTimeout(() => {
+  //     preloader.remove();
+  //   }, 1000);
+  // }
 
   
 
