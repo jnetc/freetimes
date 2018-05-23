@@ -250,7 +250,7 @@ let renderCourseParagraphs = getList => {
       if (i == j && getCrsStyle < getCrsHeight) {      
         crsMore[i].addEventListener('click', eventClickCrs);
       } 
-      else if (i == j && getCrsStyle > getCrsHeight) {
+      else if (i == j && getCrsStyle >= getCrsHeight) {
         crsMore[i].parentElement.style.display = "none";
       }
         // Click course & dynamicly get height content
@@ -373,11 +373,11 @@ let addExtraTeamVal = extAdds => {
       let titleVal = add.getAttribute('title');
         // Add 'mailto' to mail links
       if (titleVal.search("@") != -1) {
-        add.href = 'mailto:' + item.btns[0].mail;
+        add.href = 'mailto:' + item.btns.mail;
       }
       // Add 'tel' to phone links
       if (titleVal.search("358") != -1) {
-        add.href = 'tel:' + item.btns[0].tel;        
+        add.href = 'tel:' + item.btns.tel;        
       } 
     })
   })
