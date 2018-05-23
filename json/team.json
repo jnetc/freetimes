@@ -4,11 +4,11 @@
 	"post": "Специалист по спортивным мероприятиям",
 	"about": "Могу проконсультировать по любым вопросам",
 	"btnName": "связаться со мной",
-	"btns": [{
+	"btns": {
 		"tel": "+358451466533",
 		"facebook": "https://www.facebook.com/Rasul.Khataev",
-		"instagram": "https://instagram.com/tima_mih",
-	}]
+		"instagram": "https://instagram.com/tima_mih"
+	}
 },
 {
 	"img": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/972086_10201228925780423_1401627227_n.jpg?_nc_cat=0&oh=dababf5ea37fce50ec188231fd10c2ec&oe=5B6AC89D",
@@ -16,12 +16,12 @@
 	"post": "Директор компании",
 	"about": "Ты полностью растворишьса в музыке и эмоциях в месте с виртуозным DJ Цветкоff. В этом заведении вы найдёте стильный интерьер,качественные свет и звук и богатый выбор проведения досуга, который поможет",
 	"btnName": "связаться со мной",
-	"btns": [{
+	"btns": {
 		"tel": "+358453491091",
 		"facebook": "facebook.com",
 		"telegram": "https://t.me/teleblog",
 		"mail": "stan@gmail.com"
-	}]
+	}
 },
 {
 	"img": "./img/team/stan_marinets.jpg",
@@ -29,12 +29,12 @@
 	"post": "Специалист по НКО, переводчик",
 	"about": "Специалист по работе общественных организаций, предоставляю консультации. Авторизованный переводчик.",
 	"btnName": "связаться со мной",
-	"btns": [{
+	"btns": {
 		"tel": "+358405444956",
 		"facebook": "https://www.facebook.com/stan.marinets",
 		"twitter": "https://twitter.com/FARO_SVYLry",
 		"instagram": "https://www.instagram.com/stan_marin"
-	}]
+	}
 },
 {
 	"img": "./img/team/anastassia_klement.jpg",
@@ -42,24 +42,22 @@
 	"post": "Специаааалист по внешним связям",
 	"about": "Профессиональный подход в сфере фотосъемки и фотошопа, преподаю мастер класс для начинающих экспертов фото индустрии. Также занимаюсь фото рекламой различных товаров.",
 	"btnName": "связаться со мной",
-	"btns": [{
+	"btns": {
 		"mail": "anastassia.klement@gmail.com",
 		"facebook": "https://www.facebook.com/fotoelu",
 		"site": "http://fotoelu.ee/"
-	}]
+	}
 },
 {
 	"img": "./img/courses/001.jpg",
 	"name": "Тима Мих",
-	"img": "./img/team/tima_mih.jpg",
-	"name": "Тима Мих",
 	"post": "Информационный кординатор",
 	"about": "Могу проконсультировать по любым вопросам также являюсь модератором данного проекта. Предоставляю видео и фото услуги в Хельсинки, Постоянно замешен в громких скандалах",
 	"btnName": "связаться со мной",
-	"btns": [{
+	"btns": {
 		"tel": "+358453491091",
 		"facebook": "https://www.facebook.com/TimaMihVideotuotanto/",
 		"telegram": "https://web.telegram.org/#/im?p=u424749253_8959964166105810792",
 		"instagram": "https://www.instagram.com/tima_mih/" 
-	}]
+	}
 }]

@@ -351,9 +351,9 @@ let renderTeamBtns = getButtons => {
   getButtons.forEach((item, i, getButtons) => {
     let buttons = document.querySelectorAll('.team-btns');
     let createBtns = '';
-      for (let btn in item.btns[0]) {      
+      for (let btn in item.btns) {      
         createBtns += 
-        `<a href="${item.btns[0][btn]}" title="${item.btns[0][btn]}" target="_blank">
+        `<a href="${item.btns[btn]}" title="${item.btns[btn]}" target="_blank">
             <svg role="img" class="crs-svg">
               <use xlink:href="./img/svg/icons.svg#${btn}"></use>
           </svg>
