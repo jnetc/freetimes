@@ -23,7 +23,7 @@
 	position: relative;
 	box-shadow: inset 0 0 1px @black;
 	z-index: 1;
-	cursor: pointer;
+	// cursor: pointer;
 	@media (max-width: 480px) {
 		width: 96%;
 	}
@@ -89,7 +89,6 @@
 	transition: all 0.3s cubic-bezier(0, 1.01, 0.74, 0.95);
 	transform: translate3d(0, 100px, 0);
 	z-index: 8;
-	pointer-events: none;
 }
 
 // Caption events
@@ -102,7 +101,6 @@ h5 {
 	transition: all 0.3s cubic-bezier(0, 1.01, 0.74, 0.95);
 	transform: translate3d(0, 100px, 0);
 	z-index: 7;
-	pointer-events: none;
 }
 
 .next-poster {
@@ -124,14 +122,14 @@ h5 {
 	}
 }
 	// Button more
-	.next-btn {
+.next-btn {
 	&:extend(.absLeft);
-	top: 50%;
-	padding: 13px 20px 15px;
+	top: 55%;
+	padding: 11px 20px 15px;
 	font-family: @exo-l;
 	font-size: @fs-18;
 	font-weight: bold;
-	border-radius: 5px;
+	border-radius: 50px;
 	z-index: 3;
 	cursor: pointer;
 }
