@@ -78,12 +78,13 @@ let renderEventParagraphs = getList => {
 
   // Create event contact buttons
 const patyAddBtn = document.querySelectorAll('.paty-add'); // Create event links
-let renderEventBtns = getButtons => {
+let renderEventBtns = getButtons => { 
   getButtons.forEach((item, i, getButtons) => {
+
     let createBtns = '';
-    for (let btn in item.btns[0]) {
+    for (let btn in item.btns) {
       createBtns += 
-      `<a href="${item.btns[0][btn]}" title="${item.btns[0][btn]}" target="_blank">
+      `<a href="${item.btns[btn]}" title="${item.btns[btn]}" target="_blank">
           <svg role="img" class="icon-svg">
             <use xlink:href="./img/svg/icons.svg#${btn}"></use>
         </svg>
@@ -102,11 +103,11 @@ let addEventBtnVal = extAdds => {
       let titleVal = add.getAttribute('title');
         // Add 'mailto' to mail links
       if (titleVal.search("@") != -1) {
-        add.href = 'mailto:' + item.btns[0].mail;
+        add.href = 'mailto:' + item.btns.mail;
       }
       // Add 'tel' to phone links
       if (titleVal.search("358") != -1) {
-        add.href = 'tel:' + item.btns[0].tel;        
+        add.href = 'tel:' + item.btns.tel;        
       } 
     })
   })
@@ -116,23 +117,23 @@ let addEventBtnVal = extAdds => {
 const nextBlocks = document.querySelectorAll('.next-blk'); 
 let renderComingEvents = data => {
   data.forEach((item, i, data) => {
-    const eventsObj = data[i].events[0];
+    const eventsObj = data[i].events;
     let createComeEvents = '';
     for ( let eventNum in eventsObj) {
       createComeEvents += `
       <div class="next-box">
-        <span class="next-date">${eventsObj[eventNum][0].eDate}
-          <span>${eventsObj[eventNum][0].eMonth}</span>
+        <span class="next-date">${eventsObj[eventNum].eDate}
+          <span>${eventsObj[eventNum].eMonth}</span>
         </span>
         <div>
-          <div class="next-poster" style="background-image: url(${eventsObj[eventNum][0].ePoster})">
-            <span class="next-btn">${eventsObj[eventNum][0].eBtn}</span>
+          <div class="next-poster" style="background-image: url(${eventsObj[eventNum].ePoster})">
+            <span class="next-btn">${eventsObj[eventNum].eBtn}</span>
           </div>
           <svg role="img" class="next-stars">
             <use xlink:href="./img/svg/fts-elem.svg#stars"></use>
           </svg>
-          <h5>${eventsObj[eventNum][0].eCap}</h5>
-          <p>${eventsObj[eventNum][0].eCont}</p>
+          <h5>${eventsObj[eventNum].eCap}</h5>
+          <p>${eventsObj[eventNum].eCont}</p>
         </div>
       </div>`
     }
@@ -272,9 +273,9 @@ let renderCourseBtns = getButtons => {
   let coursesButtons = document.querySelectorAll('.crs-btns');
   getButtons.forEach((item, i, getButtons) => {
     let createBtns = '';
-      for (let btn in item.btns[0]) {
+      for (let btn in item.btns) {
         createBtns += 
-        `<a href="${item.btns[0][btn]}" title="${item.btns[0][btn]}" target="_blank">
+        `<a href="${item.btns[btn]}" title="${item.btns[btn]}" target="_blank">
             <svg role="img" class="crs-svg">
               <use xlink:href="./img/svg/icons.svg#${btn}"></use>
           </svg>
@@ -294,11 +295,11 @@ let addExtraCourseVal = extAdds => {
       let titleVal = add.getAttribute('title');
         // Add 'mailto' to mail links
       if (titleVal.search("@") != -1) {
-        add.href = 'mailto:' + item.btns[0].mail;
+        add.href = 'mailto:' + item.btns.mail;
       }
       // Add 'tel' to phone links
       if (titleVal.search("358") != -1) {
-        add.href = 'tel:' + item.btns[0].tel;        
+        add.href = 'tel:' + item.btns.tel;        
       } 
     })
   })

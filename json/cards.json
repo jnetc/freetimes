@@ -6,37 +6,45 @@
 	"capt": "Дискотека Валентина",
 	"text": "Расслабиться и получать удовольствие можно здесь.Окунуться в бурлящую ночную жизнь предлагает своим гостям ночной клуб «Дудка Валасянка». Ты полностью растворишьса в музыке и эмоциях в месте с виртуозным DJ, Расслабиться и получать удовольствие можно здесь. \n\r Окунуться в бурлящую ночную жизнь.",
 	"price": "15",
-	"btns": [{
+	"btns": {
 		"geo": "https://goo.gl/maps/Kmfpqg5reGF2",
 		"tel": "+358456578945",
 		"mail": "https://www.facebook.com/"
-	}],
-	"events": [{
-		"ev1": [{
+	},
+	"events": {
+		"ev1": {
 			"ePoster": "./img/events/event1-min.jpg",
 			"eDate": "30",
 			"eMonth": "сентября",
 			"eCap": "Русская дискотека",
 			"eBtn": "подробнее",
 			"eCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere."
-		}],
-		"ev2": [{
+		},
+		"ev2": {
 			"ePoster": "./img/events/event2-min.jpg",
 			"eDate": "11",
 			"eMonth": "октября",
 			"eCap": "Туса на хеллоуин",
 			"eBtn": "подробнее",
 			"eCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni recusandae ullam dolorum."
-		}],
-		"ev3": [{
+		},
+		"ev3": {
 			"ePoster": "./img/events/event3-min.jpg",
 			"eDate": "31",
 			"eMonth": "декабря",
 			"eCap": "Новогодняя вечерина",
 			"eBtn": "подробнее",
 			"eCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni recusandae ullam dolorum, quibusdam voluptatibus atque at id nesciunt."
-		}]
-	}]
+		},
+		"ev4": {
+			"ePoster": "./img/events/event3-min.jpg",
+			"eDate": "31",
+			"eMonth": "декабря",
+			"eCap": "Новогодняя вечерина",
+			"eBtn": "подробнее",
+			"eCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni recusandae ullam dolorum, quibusdam voluptatibus atque at id nesciunt."
+		}
+	}
 },
 {
 	"img": "./img/events/party1-min.jpg",
@@ -46,35 +54,35 @@
 	"capt": "Дискач - Жесткач",
 	"text": "Ты полностью растворишьса в музыке и эмоциях в месте с виртуозным DJ Цветкоff. В этом заведении вы найдёте стильный интерьер,качественные свет и звук и богатый выбор проведения досуга, который поможет ... \n\r Американцы думали что разожгут огонь огромной войны, если бросят в топку первыми Англию... это была провокация и она не сработала, а сейчас они не знают что делать, просто продолжают это шапито. (позже они обвинили бы в Брексите Россию 100% ) Типа мы мировое зло. \n\r Расслабиться и получать удовольствие можно здесь.Окунуться в бурлящую ночную жизнь предлагает своим гостям ночной клуб «Дудка Валасянка». Ты полностью растворишьса в музыке и эмоциях в месте с виртуозным DJ Цветкоff. В этом заведении вы найдёте стильный интерьер,качественные свет и звук и богатый выбор проведения досуга, который поможет.",
 	"price": "8",
-	"btns": [{
+	"btns": {
 		"geo": "https://goo.gl/maps/Kmfpqg5reGF2",
 		"telegram": "https://t.me/teleblog",
 		"twitter": "https://www.twitter.com/"
-	}],
-	"events": [{
-		"ev1": [{
+	},
+	"events": {
+		"ev1": {
 			"ePoster": "./img/events/event1-min.jpg",
 			"eDate": "25",
 			"eMonth": "сентября",
 			"eCap": "Спектакль для малышей",
 			"eBtn": "подробнее",
 			"eCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere."
-		}],
-		"ev2": [{
+		},
+		"ev2": {
 			"ePoster": "./img/events/event2-min.jpg",
 			"eDate": "07",
 			"eMonth": "октября",
 			"eCap": "Выставка форума",
 			"eBtn": "подробнее",
 			"eCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni recusandae ullam dolorum."
-		}],
-		"ev3": [{
+		},
+		"ev3": {
 			"ePoster": "./img/events/event3-min.jpg",
 			"eDate": "14",
 			"eMonth": "ноября",
 			"eCap": "Модный показ 'Осенняя листва'",
 			"eBtn": "подробнее",
 			"eCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni recusandae ullam dolorum, quibusdam voluptatibus atque at id nesciunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni"
-		}]
-	}]
+		}
+	}
 }]
