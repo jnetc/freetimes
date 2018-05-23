@@ -141,19 +141,6 @@ let renderComingEvents = data => {
   })
     // Add class for element's
     addClass();
-
-
-    // Buttons show content
-    // let eventBox = document.querySelectorAll('.next-box');
-    // for (let i = 0; i < eventBox.length; i++) {
-    //   let eventBoxBnt = eventBox[i].querySelector('.next-btn');   
-    //   eventBoxBnt.onclick = () => { 
-    //     eventBox[i].classList.toggle('show-info');
-    //   }
-    //   eventBox[i].onmouseleave = () => {
-    //     eventBox[i].classList.remove('show-info');
-    //   }
-    // }
 }
 
   // Add class for theme dates
@@ -169,19 +156,6 @@ let addClass = () => {
     }
   }) 
 }
-  // Add class for theme buttons
-// let addClassNextButtons = () => {
-//   nextBlocks.forEach((item, i, nextBlocks) => {
-//     let elms = nextBlocks[i].querySelectorAll('.next-btn');
-//     for (let j = 0; j < elms.length; j++) {
-//       if (i == 0) {      
-//         elms[j].className += ' show-night-btn';
-//       } if (i == 1) {
-//         elms[j].className += ' show-day-btn';
-//       }
-//     }
-//   }) 
-// }  
 
   // CREATE NEW AJAX FOR COURSES - course.json
 let coursesData = new XMLHttpRequest();
@@ -326,7 +300,7 @@ let renderTeam = data => {
     createTeam += 
     `<div class="teammate">
       <div class="team-img">
-        <img src="${teammate.img}" alt="${teammate.name}" title="${teammate.name}">
+      <div style="background-image: url(${teammate.img})"></div>
         <svg role="img" class="team-img-svg">
           <use xlink:href="./img/svg/fts-elem.svg#border-up"></use>
         </svg>
@@ -431,9 +405,9 @@ let renderLinks = data => {
   }
    // Create DOM partner links
   let createLinks = '';
-  let partner = data.partner[0];
+  let partner = data.partner;
   for (let i in partner) {
-    const links = partner[i][0];  
+    const links = partner[i];  
     createLinks += 
     `<a href="${links.href}" target="_blank">
         <img src="${links.img}" alt="${links.href}">

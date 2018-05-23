@@ -65,7 +65,7 @@
   display: block;
   &:extend(.absLeft);
   top: -100px;
-  img {
+  > div {
     width: 125px;
     height: 125px;
     display: block;
@@ -73,6 +73,8 @@
     top: 50%;
     left: inherit;
     border-radius: 50%;
+    background-position: center;
+    background-size: cover;
     transform: translate(-50%, -50%);
     z-index: 2;
   }

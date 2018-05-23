@@ -17,14 +17,14 @@
 		"capt3": "О нас"
 	},
 	"in": "Вход",
-	"partner": [{
-		"link0": [{
+	"partner": {
+		"link0": {
 			"img": "./img/partner/fin-min.png",
 			"href": "http://intofinland.ru"
-		}],
-		"link1": [{
+		},
+		"link1": {
 			"img": "./img/partner/timamih-min.png",
 			"href": "https://timamih.com"
-		}]
-	}]
+		}
+	}
 }
