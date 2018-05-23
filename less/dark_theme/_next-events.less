@@ -6,39 +6,100 @@
 @dt-white-smoke: #f2f2f2;
 
 	// Box of event
-.next-box {
-	box-shadow: @shadow;
-	&::after {
-		background: fade(@dt-bg, 60%);
-	}
-}
+	.next-box {
 
-	// Date of event
-.next-date {
-	box-shadow: @shadow;
-		// Color
-	&.night-next {
-		background: @dt-brilliant-rose;
-		color: @dt-bg;
-		&::after {
-			border-color: transparent transparent multiply(@dt-brilliant-rose, #999999) transparent
+		border: 1px solid black;
+		box-shadow:@shadow;
+		h5, p {
+			color: @dt-white-smoke;
+		}
+		.next-date {
+			box-shadow: @shadow;
+		}
+		&.night-next {
+			background: @dt-bg;
+			.next-date {
+				background:@dt-brilliant-rose;;
+				color: @dt-bg;
+				&::after {
+					border-color: transparent transparent multiply(@dt-brilliant-rose, #999999) transparent
+				}
+			}
+			.next-stars {
+				fill: @dt-brilliant-rose;;
+			}
+			.next-btn {
+				background: @dt-brilliant-rose;;
+				color: @dt-bg;
+			}
+		}
+		&.day-next {
+			background: @dt-palatinate-purple;
+			.next-date {
+				background: @dt-white-smoke;
+				color: @dt-bg;
+				&::after {
+					border-color: transparent transparent multiply(@dt-white-smoke, #999999) transparent
+				}
+			}
+			.next-stars {
+				fill: @dt-white-smoke;
+			}
+			.next-btn {
+				background: @dt-white-smoke;
+				color: @dt-bg;
+			}
 		}
 	}
-	&.day-next {
-		background: @dt-white-smoke;
-		color: @dt-bg;
+	.next-poster {
 		&::after {
-			border-color: transparent transparent multiply(@dt-white-smoke, #999999) transparent
+			background: fade(@dt-bg, 60%);
 		}
 	}
-}
 
-	// Button more
-.show-night-btn {
-	background: @dt-brilliant-rose;
-	color: @dt-bg;
-}
-.show-day-btn {
-	background: @dt-white-smoke;
-	color: @dt-bg;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 	// Date of event
+// .next-date {
+// 	box-shadow: @shadow;
+// 		// Color
+// 	&.night-next {
+// 		background: @dt-brilliant-rose;
+// 		color: @dt-bg;
+// 		&::after {
+// 			border-color: transparent transparent multiply(@dt-brilliant-rose, #999999) transparent
+// 		}
+// 	}
+// 	&.day-next {
+// 		background: @dt-white-smoke;
+// 		color: @dt-bg;
+// 		&::after {
+// 			border-color: transparent transparent multiply(@dt-white-smoke, #999999) transparent
+// 		}
+// 	}
+// }
+
+// 	// Button more
+// .show-night-btn {
+// 	background: @dt-brilliant-rose;
+// 	color: @dt-bg;
+// }
+// .show-day-btn {
+// 	background: @dt-white-smoke;
+// 	color: @dt-bg;
+// }

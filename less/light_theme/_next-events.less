@@ -9,40 +9,86 @@
 
 	// Box of event
 .next-box {
+	background: @wt-white;
 	box-shadow:@shadow;
-	&::after {
-		background: fade(@wt-black, 60%);
-	}
 	h5, p {
-		color: @wt-white;
-	}
-}
-
-	// Date of event
-.next-date {
-	box-shadow: @shadow;
-		// Color
-	&.night-next {
-		background: @wt-bittersweet;
 		color: @wt-black;
-		&::after {
-			border-color: transparent transparent multiply(@wt-bittersweet, #999999) transparent
+	}
+	.next-date {
+		box-shadow: @shadow;
+	}
+	&.night-next {
+		.next-date {
+			background: @wt-bittersweet;
+			color: @wt-black;
+			&::after {
+				border-color: transparent transparent multiply(@wt-bittersweet, #999999) transparent
+			}
+		}
+		.next-stars {
+			fill: @wt-bittersweet;
+		}
+		.next-btn {
+			background: @wt-bittersweet;
+			color: @wt-black;
 		}
 	}
 	&.day-next {
-		background: @wt-light-sea;
-		color: @wt-black;
-		&::after {
-			border-color: transparent transparent multiply(@wt-light-sea, #999999) transparent
+		.next-date {
+			background: @wt-light-sea;
+			color: @wt-black;
+			&::after {
+				border-color: transparent transparent multiply(@wt-light-sea, #999999) transparent
+			}
+		}
+		.next-stars {
+			fill: @wt-light-sea;
+		}
+		.next-btn {
+			background: @wt-light-sea;
+			color: @wt-black;
 		}
 	}
 }
-	// Button more
-.show-night-btn {
-	background: @wt-bittersweet;
-	color: @wt-black;
+.next-poster {
+	&::after {
+		background: @wt-white;
+	}
 }
-.show-day-btn {
-	background: @wt-light-sea;
-	color: @wt-black;
-}
+	// Date of event
+// .next-date {
+// 	box-shadow: @shadow;
+// 		// Color
+// 	&.night-next {
+// 		background: @wt-bittersweet;
+// 		color: @wt-black;
+// 		&::after {
+// 			border-color: transparent transparent multiply(@wt-bittersweet, #999999) transparent
+// 		}
+// 		.next-btn {
+// 			background: @wt-bittersweet;
+// 			color: @wt-black;
+// 		}
+// 	}
+// 	&.day-next {
+// 		background: @wt-light-sea;
+// 		color: @wt-black;
+// 		&::after {
+// 			border-color: transparent transparent multiply(@wt-light-sea, #999999) transparent
+// 		}
+// 	}
+// 	.next-btn {
+// 		background: @wt-light-sea;
+// 		color: @wt-black;
+// 	}
+// }
+
+// 	// Button more
+// .show-night-btn {
+// 	background: @wt-bittersweet;
+// 	color: @wt-black;
+// }
+// .show-day-btn {
+// 	background: @wt-light-sea;
+// 	color: @wt-black;
+// }

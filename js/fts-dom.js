@@ -120,13 +120,18 @@ let renderComingEvents = data => {
     let createComeEvents = '';
     for ( let eventNum in eventsObj) {
       createComeEvents += `
-      <div class="next-box" style="background-image: url(${eventsObj[eventNum][0].ePoster})">
+      <div class="next-box">
         <span class="next-date">${eventsObj[eventNum][0].eDate}
           <span>${eventsObj[eventNum][0].eMonth}</span>
         </span>
         <div>
+          <div class="next-poster" style="background-image: url(${eventsObj[eventNum][0].ePoster})">
+            <span class="next-btn">${eventsObj[eventNum][0].eBtn}</span>
+          </div>
+          <svg role="img" class="next-stars">
+            <use xlink:href="./img/svg/fts-elem.svg#stars"></use>
+          </svg>
           <h5>${eventsObj[eventNum][0].eCap}</h5>
-          <span class="next-btn">${eventsObj[eventNum][0].eBtn}</span>
           <p>${eventsObj[eventNum][0].eCont}</p>
         </div>
       </div>`
@@ -134,26 +139,26 @@ let renderComingEvents = data => {
     nextBlocks[i].innerHTML = createComeEvents;
   })
     // Add class for element's
-    addClassNextDates();
-    addClassNextButtons();
+    addClass();
+
 
     // Buttons show content
-    let eventBox = document.querySelectorAll('.next-box');
-    for (let i = 0; i < eventBox.length; i++) {
-      let eventBoxBnt = eventBox[i].querySelector('.next-btn');   
-      eventBoxBnt.onclick = () => { 
-        eventBox[i].classList.toggle('show-info');
-      }
-      eventBox[i].onmouseleave = () => {
-        eventBox[i].classList.remove('show-info');
-      }
-    }
+    // let eventBox = document.querySelectorAll('.next-box');
+    // for (let i = 0; i < eventBox.length; i++) {
+    //   let eventBoxBnt = eventBox[i].querySelector('.next-btn');   
+    //   eventBoxBnt.onclick = () => { 
+    //     eventBox[i].classList.toggle('show-info');
+    //   }
+    //   eventBox[i].onmouseleave = () => {
+    //     eventBox[i].classList.remove('show-info');
+    //   }
+    // }
 }
 
   // Add class for theme dates
-let addClassNextDates = () => {
+let addClass = () => {
   nextBlocks.forEach((item, i, nextBlocks) => {
-    let elms = nextBlocks[i].querySelectorAll('.next-date');
+    let elms = nextBlocks[i].querySelectorAll('.next-box');
     for (let j = 0; j < elms.length; j++) {
       if (i == 0) {      
         elms[j].className += ' night-next';
@@ -164,18 +169,18 @@ let addClassNextDates = () => {
   }) 
 }
   // Add class for theme buttons
-let addClassNextButtons = () => {
-  nextBlocks.forEach((item, i, nextBlocks) => {
-    let elms = nextBlocks[i].querySelectorAll('.next-btn');
-    for (let j = 0; j < elms.length; j++) {
-      if (i == 0) {      
-        elms[j].className += ' show-night-btn';
-      } if (i == 1) {
-        elms[j].className += ' show-day-btn';
-      }
-    }
-  }) 
-}  
+// let addClassNextButtons = () => {
+//   nextBlocks.forEach((item, i, nextBlocks) => {
+//     let elms = nextBlocks[i].querySelectorAll('.next-btn');
+//     for (let j = 0; j < elms.length; j++) {
+//       if (i == 0) {      
+//         elms[j].className += ' show-night-btn';
+//       } if (i == 1) {
+//         elms[j].className += ' show-day-btn';
+//       }
+//     }
+//   }) 
+// }  
 
   // CREATE NEW AJAX FOR COURSES - course.json
 let coursesData = new XMLHttpRequest();
