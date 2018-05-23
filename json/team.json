@@ -1,15 +1,13 @@
 [{
-	"img": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/20155941_1630629090344470_5093888779136022852_n.jpg?_nc_cat=0&_nc_eui2=AeEy0Ur8nSekDp5JOBI9wtYrlIgFF7zcFr1zH9da7pfwtd3GBxToQ5w-EXZrQioW38rukEYfxnqWJlh1s1OY8Z9oaV4Z9DMlw7kY081hDQpPMw&oh=6c24c94f768dcc5894ea3f71d3da363d&oe=5B7A7417",
+	"img": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/20953477_1671635586243820_115772479862212685_n.jpg?_nc_cat=0&_nc_eui2=AeEZIz1hBkQBXC1ykPcJkOqwi4rArOuHPoOvy1oLs25BBMGrGrJ8GXuWm8yZbn9d8aEFMO9uRSTzm3EYdIH8-2kxlI7SnO8FRnSUM177qg40cw&oh=8ee0d33df61f1273be0d3f2990e04e07&oe=5B93F850",
 	"name": "Расул Катаев",
-	"post": "Информационный кординатор",
-	"about": "Специалист по спортивным мероприятиям",
+	"post": "Специалист по спортивным мероприятиям",
+	"about": "Могу проконсультировать по любым вопросам",
 	"btnName": "связаться со мной",
 	"btns": [{
-		"tel": "+358453491091",
+		"tel": "+358451466533",
 		"facebook": "https://www.facebook.com/Rasul.Khataev",
-		"telegram": "https://t.me/teleblog",
 		"instagram": "https://instagram.com/tima_mih",
-		"vk": "https://vk.com/tima_mih"
 	}]
 },
 {
@@ -41,7 +39,7 @@
 {
 	"img": "./img/team/anastassia_klement.jpg",
 	"name": "Анастасия Клемент",
-	"post": "Профессиональный фотограф",
+	"post": "Специаааалист по внешним связям",
 	"about": "Профессиональный подход в сфере фотосъемки и фотошопа, преподаю мастер класс для начинающих экспертов фото индустрии. Также занимаюсь фото рекламой различных товаров.",
 	"btnName": "связаться со мной",
 	"btns": [{
