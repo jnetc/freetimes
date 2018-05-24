@@ -17,12 +17,53 @@
 		"capt3": "О нас"
 	},
 	"in": "Вход",
+	"partbtn": "Наши партнеры",
 	"partner": {
 		"link0": {
 			"img": "./img/partner/fin-min.png",
 			"href": "http://intofinland.ru"
 		},
 		"link1": {
+			"img": "./img/partner/timamih-min.png",
+			"href": "https://timamih.com"
+		},
+		"link2": {
+			"img": "./img/partner/timamih-min.png",
+			"href": "https://timamih.com"
+		},
+		"link3": {
+			"img": "./img/partner/timamih-min.png",
+			"href": "https://timamih.com"
+		},
+		"link4": {
+			"img": "./img/partner/timamih-min.png",
+			"href": "https://timamih.com"
+		},
+		"link5": {
+			"img": "./img/partner/timamih-min.png",
+			"href": "https://timamih.com"
+		},
+		"link6": {
+			"img": "./img/partner/timamih-min.png",
+			"href": "https://timamih.com"
+		},
+		"link7": {
+			"img": "./img/partner/timamih-min.png",
+			"href": "https://timamih.com"
+		},
+		"link8": {
+			"img": "./img/partner/timamih-min.png",
+			"href": "https://timamih.com"
+		},
+		"link9": {
+			"img": "./img/partner/timamih-min.png",
+			"href": "https://timamih.com"
+		},
+		"link10": {
+			"img": "./img/partner/timamih-min.png",
+			"href": "https://timamih.com"
+		},
+		"link11": {
 			"img": "./img/partner/timamih-min.png",
 			"href": "https://timamih.com"
 		}

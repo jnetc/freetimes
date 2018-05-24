@@ -323,27 +323,100 @@ body {
 		// Teammate
 	section.ourteam {
 		@import "../less/_team.less";
+		.partner-btn {
+			display: table;
+			margin: 0 auto 50px;
+			padding: 15px 30px;
+			font-size: @fs-18;
+			font-family: @exo-l;
+			text-transform: uppercase;
+			border-radius: 50px;
+			box-shadow: @shadow;
+			transition: all 0.3s cubic-bezier(0, 0.82, 0.35, 1.53);
+			cursor: pointer;
+			&:hover {
+				padding: 15px 45px;
+			}
+		}
 	}
 
 		// Our partners
 	section.partner {
-		padding: 50px 0;
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		overflow-y: auto; 
+		background: @dt-bg;
+		animation: hideP 0.5s ease-in-out forwards;
+		z-index: 1000;
 		.link-blk {
 			width: 1200px;
-			height: auto;
+			max-height: 100%;
 			&:extend(.flex-wrap, .flex-center);
-			margin: 0 auto;
+			margin: auto;
 			@media (max-width: 1199px) {
 				width: 100%;
 			}
-			img {
-				width: 140px;
-				height: auto;
-				margin: 5px;
-				display: block;
+			a {
+				width: 145px;
+				height: 145px;
+				margin: 10px;
+				padding: 3px;
+				position: relative;
+				background-position: center;
+				background-size: contain;
+				border-radius: 50%;
+				&::after {
+					content: '';
+					width: 158px;
+					height: 158px;
+					&:extend(.absCenter);
+					border: 2px solid @dt-white-smoke;
+					border-radius: 50%;
+					transition: @ti;
+				}
+			}
+			span {
+				&:extend(.btn-base);
+				position: absolute;
+				top: 15px;
+				right: 15px;
+				background: @dt-white-smoke;
+				&::before,
+				&::after {
+					content: '';
+					width: 20px;
+					height: 3px;
+					position: absolute;
+					top: 47%;
+					left: 32%;
+					background: @dt-bg;
+				}
+				&::after {
+					transform: rotate(45deg);
+				}
+				&::before {
+					transform: rotate(-45deg);
+				}
 			}
 		}
+		&.showPartner {
+			animation: showP 0.5s ease-in-out forwards;
+		}
 	}
+	@keyframes showP {
+		0% {opacity: 0; }
+		100% {opacity: 1;}
+	}
+	@keyframes hideP {
+		0% {opacity: 1;}
+		100% {opacity: 0;}
+	}
+
+
+
 
 		// Footer
 	footer {
@@ -356,6 +429,8 @@ body {
 		}
 	}
 } //The end
+
+
 
 
 	// "DARK-THEME" class for BODY //
@@ -442,6 +517,28 @@ body.dark-theme {
 	section.ourteam {
 		@import "../less/dark_theme/_team.less";
 		background: @dt-palatinate-purple;
+		.partner-btn {
+			color: @dt-bg;
+			background: @dt-white-smoke;
+			&:hover {
+				color:  @dt-white-smoke;
+				background: @dt-brilliant-rose;
+			}
+		}
+	}
+
+		// Our partners
+	section.partner {
+		a {
+			&:hover::after {
+				border-color: @dt-brilliant-rose;
+			}
+		}
+		span {
+			&:hover {
+				background: @dt-brilliant-rose;
+			}
+		}
 	}
 
 		// Footer
@@ -537,11 +634,31 @@ body.light-theme {
 	section.ourteam {
 		@import "../less/light_theme/_team.less";
 		background: none;
+		.partner-btn {
+			color: @dt-white-smoke;
+			background: @wt-black;
+			&:hover {
+				color: @wt-black;
+				background: @wt-bittersweet;
+			}
+		}
 	}
-		// Partner
+
+		// Our partners
 	section.partner {
 		background: @dt-bg;
+		a {
+			&:hover::after {
+				border-color: @wt-bittersweet;
+			}
+		}
+		span {
+			&:hover {
+				background: @wt-bittersweet;
+			}
+		}
 	}
+
 		// Footer
 	footer {
 		background: @dt-bg;

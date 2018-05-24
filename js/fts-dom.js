@@ -377,6 +377,7 @@ const mainTitle       = document.querySelector('title'), // main.json
       mainLinks       = document.querySelectorAll('.menu-list li'), // main.json
       mainH2          = document.querySelectorAll('h2'), // main.json
       mainIn          = document.querySelectorAll('.paty-tag span:nth-of-type(1)'), // main.json
+      partnerBtnText  = document.querySelector('.partner-btn'),
       partnerLinks    = document.querySelector('.link-blk'); // Dynamically generate partners link
 let renderLinks = data => {
   mainTitle.textContent = data.title;
@@ -384,6 +385,7 @@ let renderLinks = data => {
   mainSiteNameOg.textContent = data.site_name;
   mainDescriptOg.textContent = data.description;
   mainDescript.textContent = data.description;
+  partnerBtnText.textContent = data.partbtn;
   for (let i = 0; i < mainLinks.length; i++) {
     let getLinks = data.menu;
     for (let j in getLinks) {
@@ -409,9 +411,8 @@ let renderLinks = data => {
   for (let i in partner) {
     const links = partner[i];  
     createLinks += 
-    `<a href="${links.href}" target="_blank">
-        <img src="${links.img}" alt="${links.href}">
-     </a>`
+    `<a href="${links.href}" target="_blank" style="background-image: url(${links.img})"></a>`
   }
   partnerLinks.innerHTML = createLinks;
+  partnerLinks.insertAdjacentHTML('afterbegin', '<span id="close-partner"></span>');
 }

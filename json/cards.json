@@ -43,6 +43,38 @@
 			"eCap": "Новогодняя вечерина",
 			"eBtn": "подробнее",
 			"eCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni recusandae ullam dolorum, quibusdam voluptatibus atque at id nesciunt."
+		},
+		"ev5": {
+			"ePoster": "./img/events/event1-min.jpg",
+			"eDate": "30",
+			"eMonth": "сентября",
+			"eCap": "Русская дискотека",
+			"eBtn": "подробнее",
+			"eCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere."
+		},
+		"ev6": {
+			"ePoster": "./img/events/event2-min.jpg",
+			"eDate": "11",
+			"eMonth": "октября",
+			"eCap": "Туса на хеллоуин",
+			"eBtn": "подробнее",
+			"eCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni recusandae ullam dolorum."
+		},
+		"ev7": {
+			"ePoster": "./img/events/event3-min.jpg",
+			"eDate": "31",
+			"eMonth": "декабря",
+			"eCap": "Новогодняя вечерина",
+			"eBtn": "подробнее",
+			"eCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni recusandae ullam dolorum, quibusdam voluptatibus atque at id nesciunt."
+		},
+		"ev8": {
+			"ePoster": "./img/events/event3-min.jpg",
+			"eDate": "31",
+			"eMonth": "декабря",
+			"eCap": "Новогодняя вечерина",
+			"eBtn": "подробнее",
+			"eCont": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, eos exercitationem eligendi perferendis nostrum sequi velit facere, sed ratione deleniti magni recusandae ullam dolorum, quibusdam voluptatibus atque at id nesciunt."
 		}
 	}
 },

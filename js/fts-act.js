@@ -9,9 +9,13 @@ window.onload = () => {
       patyAdd   = document.querySelectorAll('.paty-add'),
       plusBts   = document.querySelectorAll('.plus-bt'),
       teammate  = document.querySelectorAll('.teammate'),
+      partnerBt = document.querySelector('.partner-btn'),
+      partnerSc = document.querySelector('.partner'),
+      partnerCl = document.querySelector('#close-partner'),
       numAdd    = 1,
       numBtn    = 1;
-      
+    
+  
     // LOCAL STORAGE
   let theme = localStorage.getItem('theme');
     // First open site insert key theme
@@ -136,6 +140,21 @@ window.onload = () => {
       }    
     })
   }
+
+    // Partner button
+  partnerBt.addEventListener('click', () => {
+    partnerSc.style.display = "flex";
+    bodyEl.style.overflow = bodyEl.style.overflow === 'hidden' ? '' : 'hidden';
+    partnerSc.classList.add('showPartner');
+  });
+  partnerCl.addEventListener('click', () =>{
+    partnerSc.classList.remove('showPartner');
+    bodyEl.style.overflow = bodyEl.style.overflow === 'hidden' ? '' : 'hidden';
+    setTimeout( () => {
+      partnerSc.style.display = "none";
+    }, 500);
+  });
+
 
     // footer getYear
   let footerYear = document.querySelector('footer span');
