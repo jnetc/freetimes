@@ -5,11 +5,12 @@ window.onload = () => {
       langBtn   = document.querySelector('.lang-bt'),
       menuBtn   = document.querySelector('.menu-bt'),
       menuBox   = document.querySelector('.menu-box'),
+      menuBg    = document.querySelector('.menu-bg'),
       menuList  = document.querySelector('.menu-list'),
       patyAdd   = document.querySelectorAll('.paty-add'),
       plusBts   = document.querySelectorAll('.plus-bt'),
       teammate  = document.querySelectorAll('.teammate'),
-      partnerBt = document.querySelector('.partner-btn'),
+      partnerBt = document.querySelector('#partner-btn'),
       partnerSc = document.querySelector('.partner'),
       partnerCl = document.querySelector('#close-partner'),
       numAdd    = 1,
@@ -45,16 +46,37 @@ window.onload = () => {
   }
 
     // Menu buttons & scroll Animation
-  menuBtn.addEventListener('click', menuShow);
-  function menuShow () {
+  menuBtn.addEventListener('click', () => {
+    // if (!menuBox.classList.contains('show-menu-active')) {
+    //   menuBox.style.display = "flex";
+    //   menuBox.classList.add('show-menu');
+
+    //   let handler = () => {
+    //     menuBox.classList.add('show-menu-active');
+    //     menuBox.classList.remove('show-menu');
+    //     menuBox.removeEventListener('transitionend', handler);
+    //   }
+    //   menuBox.addEventListener('transitionend', handler);
+    // } 
+    
+    // else {
+    //   menuBox.classList.remove('show-menu-active');
+    //   let handler = () => {
+    //     // menuBox.classList.remove('focused');
+    //     menuBox.style.display = "none";
+    //     menuBox.removeEventListener('transitionend', handler);
+    //   }
+    //   menuBox.addEventListener('transitionend', handler);
+    // }
     menuBox.classList.toggle('focused');
     menuBtn.classList.toggle('mbt-focus');
     themeBtn.classList.toggle('tbt-anim');
     langBtn.classList.toggle('lbt-anim');
     bodyEl.style.overflow = bodyEl.style.overflow === 'hidden' ? '' : 'hidden';
 
-  }
+  });
   menuList.addEventListener('click', menuHide);
+  menuBg.addEventListener('mousedown', menuHide);
   function menuHide () {
     menuBox.classList.remove('focused');
     menuBtn.classList.remove('mbt-focus');
@@ -62,6 +84,7 @@ window.onload = () => {
     langBtn.classList.toggle('lbt-anim');
     bodyEl.style.overflow = bodyEl.style.overflow === 'hidden' ? '' : 'hidden';
   }
+  
     // Get elem's arrays
   let menuBtns = document.querySelectorAll('.menu-list li'),
   boxEl = document.querySelectorAll('.box-scroll');
@@ -124,8 +147,7 @@ window.onload = () => {
     
     // Loop for button "plus contact"
   for (const btn of plusBts) {    
-    btn.addEventListener('click', e => {
-      e.preventDefault();
+    btn.addEventListener('click', () => {
       btn.classList.toggle('pressed-plus');
       let btnId = btn.getAttribute('data-id');
       // loop for blocks
@@ -141,22 +163,52 @@ window.onload = () => {
     })
   }
 
-    // Partner button
+    // PARTNER button
   partnerBt.addEventListener('click', () => {
+
     partnerSc.style.display = "flex";
-    bodyEl.style.overflow = bodyEl.style.overflow === 'hidden' ? '' : 'hidden';
-    partnerSc.classList.add('showPartner');
+    partnerSc.classList.add('show-part');
+
+    let handler = () => {
+      partnerSc.style.display = "flex";
+      partnerSc.classList.remove('show-part');
+      bodyEl.style.overflow = bodyEl.style.overflow === 'hidden' ? '' : 'hidden';
+      partnerSc.removeEventListener('animationend', handler);
+    }
+
+    // waitAnim(() => {
+    //   partnerSc.classList.add('show-part-active');
+    //   partnerSc.classList.remove('show-part');
+    //   bodyEl.style.overflow = bodyEl.style.overflow === 'hidden' ? '' : 'hidden';
+    // });
+    partnerSc.addEventListener('animationend', handler);
   });
-  partnerCl.addEventListener('click', () =>{
-    partnerSc.classList.remove('showPartner');
-    bodyEl.style.overflow = bodyEl.style.overflow === 'hidden' ? '' : 'hidden';
-    setTimeout( () => {
+
+  partnerCl.addEventListener('click', () => {
+    let handler = () => {
       partnerSc.style.display = "none";
-    }, 500);
+      partnerSc.classList.remove('hide-part');
+      
+      partnerSc.removeEventListener('animationend', handler);
+    }
+    partnerSc.classList.add('hide-part');
+    bodyEl.style.overflow = bodyEl.style.overflow === 'hidden' ? '' : 'hidden';
+    // waitAnim(() => {
+    //   partnerSc.classList.remove('hide-part');
+    //   partnerSc.classList.add('hide-part-active');
+    // });
+    partnerSc.addEventListener('animationend', handler);
   });
+    // Ждем когда отработает предыдущее действеи в браузере
+  function waitAnim(fx) {
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        fx();
+      });
+    });
+  }
 
-
-    // footer getYear
+    // FOOTER getYear
   let footerYear = document.querySelector('footer span');
   let year = new Date().getFullYear();
   footerYear.innerText += ' ' + year + ' All rights reserved';

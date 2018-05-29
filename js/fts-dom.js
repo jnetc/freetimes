@@ -377,7 +377,7 @@ const mainTitle       = document.querySelector('title'), // main.json
       mainLinks       = document.querySelectorAll('.menu-list li'), // main.json
       mainH2          = document.querySelectorAll('h2'), // main.json
       mainIn          = document.querySelectorAll('.paty-tag span:nth-of-type(1)'), // main.json
-      partnerBtnText  = document.querySelector('.partner-btn'),
+      partnerBtnText  = document.querySelector('#partner-btn'),
       partnerLinks    = document.querySelector('.link-blk'); // Dynamically generate partners link
 let renderLinks = data => {
   mainTitle.textContent = data.title;
