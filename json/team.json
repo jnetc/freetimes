@@ -13,7 +13,7 @@
 {
 	"img": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/972086_10201228925780423_1401627227_n.jpg?_nc_cat=0&oh=dababf5ea37fce50ec188231fd10c2ec&oe=5B6AC89D",
 	"name": "Станислав Боревич",
-	"post": "Админестраор начных мероприятий",
+	"post": "Администратор ночных мероприятий",
 	"about": "Вы можете звонить мне по вопросам рикламы ваших ночочных мероприятий.",
 	"btnName": "связаться со мной",
 	"btns": {
@@ -58,6 +58,7 @@
 		"tel": "+358453491091",
 		"facebook": "https://www.facebook.com/TimaMihVideotuotanto/",
 		"telegram": "https://web.telegram.org/#/im?p=u424749253_8959964166105810792",
-		"instagram": "https://www.instagram.com/tima_mih/"
+		"instagram": "https://www.instagram.com/tima_mih/",
+		"site": "https://timamih.com/ru/"
 	}
 }]
