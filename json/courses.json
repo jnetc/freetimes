@@ -30,18 +30,15 @@
 	}
 },
 {
-	"cls": "курсы",
-	"img": "./img/courses/003-min.jpg",
+	"cls": "игра",
+	"img": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/33945140_10157474659354148_8353857999428648960_n.jpg?_nc_cat=0&oh=11e1c8fb6bb43c424a9d64340fbca9e1&oe=5B78CDD9",
 	"name": "латиноамериканские танцы",
-	"days": "пн. ср. пт.",
-	"time": "11:00",
-	"txt": "Теперь люди которые ведут активный образ жизни сами вас найдут, Это сайт для ваших мероприятий. Пока сайт обкатывается это место свободно. Мы можем опубликовать тут ваше мероприятие бесплатно, также мы можем оставить ссылки на ваши соцсети или на ваш веб сайт.  Опишите ваше мероприятие дату место и любую картинку. Мы инвестируем наши ресурсы для продвижения общественных и творческих проектов. Наш сайт регулярно обновляется, дабы все процессы были максимально прозрачными для вас. Спонсорам данного проекта является общественная организация Freetimestars ry.",
-	"price": "55",
+	"days": "пт.",
+	"time": "18:00",
+	"txt": "We started games now at Memphis HESARI every Friday. in collaboration with the biggest Board Games group in Helsinki! The Magnetic game Klask was the hit for the evening brought by Jussi. He is such a fan he donated one unit for our club. Welcome to bring your games to share, ofc just for one night is more normal. We have reserved the cozy snug at the bar for us. If you cant find us, ask at the bar. Welcome to bring your international (intl) games and friends for this evening of fun. Lets play soon! Paul & the crew",
+	"price": "--",
 	"btns": {
-		"geo": "https://goo.gl/maps/Kmfpqg5reGF2",
-		"vk": "https://www.vk.com/",
-		"twitter": "https://www.twitter.com/",
-		"facebook": "https://www.facebook.com/"
+		"facebook": "https://www.facebook.com/events/483583355395841/"
 	}
 },
 {
