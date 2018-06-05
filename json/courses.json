@@ -14,30 +14,14 @@
 	}
 },
 {
-	"cls": "Событие",
-	"img": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.15752-9/34452532_2172075059474334_8708899108720476160_n.jpg?_nc_cat=0&oh=eb0570bf8585637e03762153fc302808&oe=5BB1B1BD",
-	"name": "Театр",
-	"days": "6 июня",
-	"time": "18:30",
-	"txt":  "Логрус представляет спектакль CITY - Только Город по мотивам романа Алессандро Барикко Музыкальный театр Kapsäkki. Спектакль проходит на русском языке! О городе, живущем своей жизнью, о странной дружбе странных персонажей, о том, как это быть другим и по-другому смотреть на вещи и эту жизнь на планете Земля, которую неизвестно почему нужно спасать от ПЕДИКЮРА. Цена билетов при входе 10 евро, по предварительной оплате 8 евро. Бронирование:",
-	"period": "билет",
-	"price": "10",
-	"btns": {
-		"mail": "logrus.info@gmail.com",
-		"geo": "https://goo.gl/maps/jVWrNztZGR32",
-		"facebook": "https://www.facebook.com/logrusry/",
-		"tel": "+358402425527"
-		
-	}
-},
-{
 	"cls": "игра",
 	"img": "https://secure.meetupstatic.com/photos/event/2/6/8/5/highres_51009861.jpeg",
 	"name": "Beer & Board games",
 	"days": "пт.",
 	"time": "18:00",
 	"txt": "We started games now at Memphis HESARI every Friday. in collaboration with the biggest Board Games group in Helsinki! The Magnetic game Klask was the hit for the evening brought by Jussi. He is such a fan he donated one unit for our club. Welcome to bring your games to share, ofc just for one night is more normal. We have reserved the cozy snug at the bar for us. If you cant find us, ask at the bar. Welcome to bring your international (intl) games and friends for this evening of fun. Lets play soon! Paul & the crew",
-	"price": "--",
+	"period": "бесплатно",
+	"price": "0",
 	"btns": {
 		"facebook": "https://www.facebook.com/events/483583355395841/"
 	}
