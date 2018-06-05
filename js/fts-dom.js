@@ -53,29 +53,30 @@ let renderEventParagraphs = getList => {
   for (let j = 0; j < patyParagEl.length; j++) {
     const getPatyStyle  = getComputedStyle(patyParagEl[j]).getPropertyValue('max-height').substring(0,3);
     const patyPreEl     = document.querySelectorAll('.pre-txt');
-    
+
     for (let k = 0; k < patyPreEl.length; k++) {
         // Getting from css line-height: 25px;
       const getPreHeight = patyPreEl[k].scrollHeight + 25;
 
         // Check if content more or not, and hide if low
-      for (let i = 0; i < moreBts.length; i++) {    
-        if (i == j && getPatyStyle < getPreHeight) {
-          moreBts[i].addEventListener('click', eventClickPaty);
+      for (let i = 0; i < moreBts.length; i++) {       
+        if (i == k && getPatyStyle < getPreHeight) {
+          moreBts[i].addEventListener('click', eventClickPaty);          
         } 
-        else if (i == j && getPatyStyle > getPreHeight) {
+        else if (i == k && getPatyStyle > getPreHeight) {
           moreBts[i].style.display = "none";
         }
           // Click event & dynamicly get height content
         function eventClickPaty () {
-          moreBts[i].classList.toggle('pressed-more');
-  
           let getNewStyle = getComputedStyle(patyParagEl[j]).getPropertyValue('max-height').substring(0,3);
-          if (getNewStyle < getPreHeight) {
+          
+          if (j == k && getNewStyle < getPreHeight) {
             patyParagEl[j].style.maxHeight = getPreHeight.toString() + 'px';
+            moreBts[i].classList.add('pressed-more');
           }
-          else if (getNewStyle == getPreHeight) {   
+          else if (j == k && getNewStyle == getPreHeight) {   
             patyParagEl[j].style.maxHeight = getPatyStyle + 'px';
+            moreBts[i].classList.remove('pressed-more');
           }
         }
       }
