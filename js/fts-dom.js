@@ -48,28 +48,36 @@ let renderEventParagraphs = getList => {
   for (let i = 0; i < getList.length; i++) {
     const content = getList[i];
     patyParagEl[i].setAttribute("style", "max-height: 200px");
-    patyParagEl[i].innerHTML += `<pre>${content.text}</pre>`
+    patyParagEl[i].innerHTML += `<p class="pre-txt">${content.text}</p>`
   } 
   for (let j = 0; j < patyParagEl.length; j++) {
     const getPatyStyle  = getComputedStyle(patyParagEl[j]).getPropertyValue('max-height').substring(0,3);
-    const getPatyHeight = patyParagEl[j].scrollHeight;
-      // Check if content more or not, and hide if low
-    for (let i = 0; i < moreBts.length; i++) {    
-      if (i == j && getPatyStyle < getPatyHeight) {
-        moreBts[i].addEventListener('click', eventClickPaty);
-      } 
-      else if (i == j && getPatyStyle > getPatyHeight) {
-        moreBts[i].style.display = "none";
-      }
-        // Click event & dynamicly get height content
-      function eventClickPaty () {
-        moreBts[i].classList.toggle('pressed-more');
-        let getNewStyle = getComputedStyle(patyParagEl[j]).getPropertyValue('max-height').substring(0,3);
-        if (getNewStyle < getPatyHeight) {
-          patyParagEl[j].style.maxHeight = getPatyHeight.toString() + 'px';
+    const patyPreEl     = document.querySelectorAll('.pre-txt');
+
+    for (let k = 0; k < patyPreEl.length; k++) {
+        // Getting from css line-height: 25px;
+      const getPreHeight = patyPreEl[k].scrollHeight + 25;
+
+        // Check if content more or not, and hide if low
+      for (let i = 0; i < moreBts.length; i++) {       
+        if (i == k && getPatyStyle < getPreHeight) {
+          moreBts[i].addEventListener('click', eventClickPaty);          
+        } 
+        else if (i == k && getPatyStyle > getPreHeight) {
+          moreBts[i].style.display = "none";
         }
-        else if (getNewStyle == getPatyHeight) {   
-          patyParagEl[j].style.maxHeight = getPatyStyle + 'px';
+          // Click event & dynamicly get height content
+        function eventClickPaty () {
+          let getNewStyle = getComputedStyle(patyParagEl[j]).getPropertyValue('max-height').substring(0,3);
+          
+          if (j == k && getNewStyle < getPreHeight) {
+            patyParagEl[j].style.maxHeight = getPreHeight.toString() + 'px';
+            moreBts[i].classList.add('pressed-more');
+          }
+          else if (j == k && getNewStyle == getPreHeight) {   
+            patyParagEl[j].style.maxHeight = getPatyStyle + 'px';
+            moreBts[i].classList.remove('pressed-more');
+          }
         }
       }
     }
