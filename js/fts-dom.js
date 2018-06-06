@@ -56,14 +56,14 @@ let renderEventParagraphs = getList => {
 
     for (let k = 0; k < patyPreEl.length; k++) {
         // Getting from css line-height: 25px;
-      const getPreHeight = patyPreEl[k].scrollHeight + 25;
+      const getPreHeight = patyPreEl[k].scrollHeight;     
 
         // Check if content more or not, and hide if low
       for (let i = 0; i < moreBts.length; i++) {       
         if (i == k && getPatyStyle < getPreHeight) {
           moreBts[i].addEventListener('click', eventClickPaty);          
         } 
-        else if (i == k && getPatyStyle > getPreHeight) {
+        else if (i == k && getPatyStyle >= getPreHeight) {
           moreBts[i].style.display = "none";
         }
           // Click event & dynamicly get height content
