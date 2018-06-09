@@ -13,11 +13,11 @@
 	"events": {
 		"ev1": {
 			"ePoster": "./img/events/event1-min.jpg",
-			"eDate": "30",
-			"eMonth": "сентября",
+			"eDate": "21",
+			"eMonth": "июля",
 			"eCap": "Русская дискотека",
 			"eBtn": "подробнее",
-			"eCont": "Теперь люди которые ведут активный образ жизни сами вас найдут, Это сайт для ваших мероприятий. Пока сайт обкатывается это место свободно. Мы можем опубликовать тут ваше мероприятие бесплатно."
+			"eCont": "Russian chicago party Dj Stan и Dj Белый + конкурсы и подарки 21.07.18 начало в 22:00 вход 5е K-18 MY HANI CLUB KEINULAUDANKUJA 4 , HELSINKI"
 		},
 		"ev2": {
 			"ePoster": "./img/events/event2-min.jpg",
