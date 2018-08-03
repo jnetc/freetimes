@@ -51,13 +51,12 @@
 	"img": "./img/team/tima_mih.jpg",
 	"name": "Тима Мих",
 	"post": "Координатор",
-	"about": "Привет могу проконсультировать вас по вопросам обявлений на данном сайте.",
+	"about": "Пожалуйста, сообщайте об ошибках работы нашего сервиса и убедитесь, что информация о вашем мероприятии достоверна.",
 	"btnName": "связаться со мной",
 	"btns": {
 		"tel": "+358453491091",
 		"facebook": "https://www.facebook.com/TimaMihVideotuotanto/",
 		"telegram": "https://web.telegram.org/#/im?p=u424749253_8959964166105810792",
-		"instagram": "https://www.instagram.com/tima_mih/",
-		"site": "https://timamih.com/ru/"
+	  "site": "https://timamih.com/ru/"
 	}
 }]
