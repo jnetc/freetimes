@@ -14,15 +14,16 @@
 	}
 },
 {
-	"cls": "игра",
-	"img": "https://secure.meetupstatic.com/photos/event/2/6/8/5/highres_51009861.jpeg",
-	"name": "Beer & Board games",
-	"days": "пт.",
-	"time": "18:00",
-	"txt": "We started games now at Memphis HESARI every Friday. in collaboration with the biggest Board Games group in Helsinki! The Magnetic game Klask was the hit for the evening brought by Jussi. He is such a fan he donated one unit for our club. Welcome to bring your games to share, ofc just for one night is more normal. We have reserved the cozy snug at the bar for us. If you cant find us, ask at the bar. Welcome to bring your international (intl) games and friends for this evening of fun. Lets play soon! Paul & the crew",
+	"cls": "фестиваль",
+	"img": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/37920009_976379339232121_6659100643577298944_o.jpg?_nc_cat=0&oh=68e3d9f2a11bf2bfe2bffee3d6e278db&oe=5BC89B13",
+	"name": "Международный фестиваль финно-угорской культуры",
+	"days": "19 августа",
+	"time": "12:00-19:00",
+	"txt": "Российский центр науки и культуры в Хельсинки приглашает всех на первый Международный фестиваль финно-угорской культуры ВЕРЕСК, который состоится 19 августа 2018 года c 12.00-19.00 в Linnankoskenpuisto (парк за зданием РЦНК) \n\n Фестиваль ВЕРЕСК - это отличная возможность познакомиться с неповторимой и самобытной культурой финно-угорских народов в прошлом и настоящем.",
 	"period": "бесплатно",
 	"price": "0",
 	"btns": {
-		"facebook": "https://www.facebook.com/events/483583355395841/"
+		"facebook": "https://www.facebook.com/events/1755070791256715/?active_tab=about",
+		"geo": "https://goo.gl/maps/jBNDgRPk1CF2"
 	}
 }]
