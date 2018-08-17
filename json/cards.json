@@ -61,7 +61,7 @@
 		},
 		"ev2": {
 			"ePoster": "./img/events/event2-min.jpg",
-			"eDate": "01",
+			"eDate": "1",
 			"eMonth": "сентября",
 			"eCap": "КАСТИНГ",
 			"eBtn": "подробнее",
