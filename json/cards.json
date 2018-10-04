@@ -43,7 +43,7 @@
 	"month": "ноября",
 	"time": "20:30",
 	"capt": "mma perus kurssi",
-	"text": "Уже начал вести тренировки по боям без правил мма, тренировки проводятся по адресу Seitokai Karate-Do Shotokan RY:n tiloissa Mekaanikonkatu 3 b!\n\n2.10. – 30.11.2018",
+	"text": "Уже начал вести тренировки по боям без правил мма, тренировки проводятся по адресу Seitokai Karate-Do Shotokan RY:n tiloissa Mekaanikonkatu 3 b\n\n2.10. – 30.11.2018",
 	"price": "150",
 	"btns": {
 		"geo": "https://goo.gl/maps/uUyaAP46sTz",
@@ -52,19 +52,19 @@
 	"events": {
 		"ev1": {
 			"ePoster": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/42085926_2276641522409887_3072580673974829056_n.jpg?_nc_cat=102&oh=cbfa2ad7330d6a0c6f24187cff6707e4&oe=5C4B1D91",
-			"eDate": "20:30–21:30",
+			"eDate": "20:30",
 			"eMonth": "кажый вторник",
 			"eCap": "Напоминалка",
 			"eBtn": "подробнее",
-			"eCont": "тренировки по боям без правил мма."
+			"eCont": "тренировки по боям без правил мма 20:30–21:30 по адресу Seitokai Karate-Do Shotokan RY:n tiloissa Mekaanikonkatu 3."
 		},
 		"ev2": {
 			"ePoster": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/42085926_2276641522409887_3072580673974829056_n.jpg?_nc_cat=102&oh=cbfa2ad7330d6a0c6f24187cff6707e4&oe=5C4B1D91",
-			"eDate": "20:30–21:30",
+			"eDate": "20:30",
 			"eMonth": "каждый четверг",
 			"eCap": "Напоминалка",
 			"eBtn": "подробнее",
-			"eCont": "тренировки по боям без правил мма."
+			"eCont": "тренировки по боям без правил мма 20:30–21:30 по адресу Seitokai Karate-Do Shotokan RY:n tiloissa Mekaanikonkatu 3."
 		},
 		"ev3": {
 			"ePoster": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/42085926_2276641522409887_3072580673974829056_n.jpg?_nc_cat=102&oh=cbfa2ad7330d6a0c6f24187cff6707e4&oe=5C4B1D91",
@@ -72,7 +72,7 @@
 			"eMonth": "каждую пяницу",
 			"eCap": "Напоминалка",
 			"eBtn": "подробнее",
-			"eCont": "тренировки по боям без правил мма."
+			"eCont": "тренировки по боям без правил мма 19:30–20:30 по адресу Seitokai Karate-Do Shotokan RY:n tiloissa Mekaanikonkatu 3."
 		}
 	}
 }]
