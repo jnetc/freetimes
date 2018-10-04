@@ -43,7 +43,7 @@
 	"month": "ноября",
 	"time": "20:30",
 	"capt": "mma perus kurssi",
-	"text": "Minulta on kyselty jo pitkään milloin alkaisin itse valmentamaan vapaaottelua kamppailu-urheilusta kiinnostuneille. Nyt se on vihdoinkin mahdollista! Pääsen jakamaan oppejani 2.10.2018 alkavalla vapaaottelun peruskurssilla.\n\nJoten nyt toivotan teidät kaikki tervetulleiksi jo pitkään odotetulle peruskurssille!\n\nKiitos vielä forasecille yhteistyöstä, joka mahdollisti kurssin toteutumisen!",
+	"text": "Уже начал вести тренировки по боям без правил мма, тренировки проводятся по адресу Seitokai Karate-Do Shotokan RY:n tiloissa Mekaanikonkatu 3 b!\n\n2.10. – 30.11.2018",
 	"price": "150",
 	"btns": {
 		"geo": "https://goo.gl/maps/uUyaAP46sTz",
@@ -51,28 +51,28 @@
 	},
 	"events": {
 		"ev1": {
-			"ePoster": "./img/events/event1-min.jpg",
-			"eDate": "19",
-			"eMonth": "августа",
+			"ePoster": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/42085926_2276641522409887_3072580673974829056_n.jpg?_nc_cat=102&oh=cbfa2ad7330d6a0c6f24187cff6707e4&oe=5C4B1D91",
+			"eDate": "-",
+			"eMonth": "кажый вторник",
 			"eCap": "Напоминалка",
 			"eBtn": "подробнее",
-			"eCont": "Это место свободно. Мы можем опубликовать тут ваше мероприятие бесплатно."
+			"eCont": "тренировки по боям без правил мма."
 		},
 		"ev2": {
-			"ePoster": "./img/events/event2-min.jpg",
-			"eDate": "23",
-			"eMonth": "сентября",
+			"ePoster": ".https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/42085926_2276641522409887_3072580673974829056_n.jpg?_nc_cat=102&oh=cbfa2ad7330d6a0c6f24187cff6707e4&oe=5C4B1D91",
+			"eDate": "-",
+			"eMonth": "каждый четверг",
 			"eCap": "Напоминалка",
 			"eBtn": "подробнее",
-			"eCont": "Это место свободно. Мы можем опубликовать тут ваше мероприятие бесплатно."
+			"eCont": "тренировки по боям без правил мма."
 		},
 		"ev3": {
 			"ePoster": "./img/events/event3-min.jpg",
-			"eDate": "5",
-			"eMonth": "декабрь",
+			"eDate": "-",
+			"eMonth": "каждую пяницу",
 			"eCap": "Напоминалка",
 			"eBtn": "подробнее",
-			"eCont": "Это место свободно. Мы можем опубликовать тут ваше мероприятие бесплатно."
+			"eCont": "тренировки по боям без правил мма."
 		}
 	}
 }]
