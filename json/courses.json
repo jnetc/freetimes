@@ -30,16 +30,17 @@
 },
 
 {
-	"cls": "Театр",
-	"img": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/41867101_968393810013301_1243183570931941376_n.jpg?_nc_cat=101&oh=aeb61fb93250f53fd83d4ceea241a69d&oe=5C29D0F6",
-	"name": "VikArt",
-	"days": "29 сентября",
-	"time": "19:00",
-	"txt": "VikArt Theatre Kaapelitehdas KARAS by Marina Dadychenko The Opening Night\n\nКарась-многоплановый спектакль для трех актрис. Работают они прекрасно, хорошая актерская игра-главное в VikArt. Наряду с текстом. Беру всегда новый и смелый.\n\nНичего не имею против повторения классики в театре, но увлечен «Новой Драмой», ее текстами. Еще недавно элитарное явление-она сейчас везде.",
+	"cls": "кружок",
+	"img": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.15752-9/43405799_1845442105573138_1939380319161417728_n.jpg?_nc_cat=104&oh=63fda68537431e2c293db9929d34a136&oe=5C191D74",
+	"name": "русский язык",
+	"days": "Среда",
+	"time": "18:00",
+	"txt": "Уважаемые родители г. Хельсинки\n\nВаши дети забывают русский язык? Или, быть может, растут в двуязычной семье, где финский сильнее?\n\nВаши дети изучают русский язык в школе?\n\nОгромное спасибо педагогам, работающим в школах и преподающим русский язык!\n\nНо что можно успеть за 1 час занятий? \n\nКонечно 1 часа не достаточно!\n\nМеждународный творческий центр приглашает на занятия в студию русского языка\n\nОчень важно общаться со своим ребенком на полноценном, ярком, красивом, живом русском языке — приходите смелей!\n\nСреда\n\n17:00-17:45 Младшая группа\n\n18:00-20:00 Старшая группа \n\nАдрес: Mustankivenraitti Хельсинки.\n\nРайон Vuosaari",
 	"period": "цена",
-	"price": "10",
+	"price": "-",
 	"btns": {
-		"facebook": "https://www.facebook.com/vikartkaapelitehdas/?__xts__[0]=68.ARCqfw9ODA7f5KKBtuCdUtmtW4JQvBKGGgUwnLSpyzBAPDrIXeWi-EZntBpx7lb8qGtnzg0qRABofrnm6lhaz-S90T9r6leOeNxJtPG-fzuLKQuLmYGQolgI75S80dPry8LR1vTh8orTDl3MSs_FXwKw-3cZ9nPBpWruE190XfloZBGkOgVF"
+		"facebook": "https://www.facebook.com/KTT.FI/",
+		"geo": "https://goo.gl/maps/tmtYXZnWq7B2"
 	
 	}
 },
