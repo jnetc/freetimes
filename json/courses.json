@@ -65,13 +65,12 @@
 	"name": "Танцевальная студия",
 	"days": "понедельник",
 	"time": "18:00",
-	"txt": "Международный Творческий центр Kansainvälinen taide-ja toimintakeskus ry\n\nПриглашаем на занятия в Танцевальную студию\n\nдошколят и школьников\n\nПреподаватель Екатерина Гончарова\n\nMustankivenraitti Хельсинки Район Vuosaari\n\nпонедельник 18:00-19:00",
+	"txt": "Международный Творческий центр Kansainvälinen taide-ja toimintakeskus ry\n\nПриглашаем на занятия в Танцевальную студию\n\nдошколят и школьников\n\nПреподаватель Екатерина Гончарова\n\nMustankivenraitti Хельсинки Район Vuosaari\n\nпонедельник 18:00-19:00\n\nтел 0408489123 Елена\n\n0415403474 Екатерина",
 	"period": "цена",
 	"price": "40",
 	"btns": {
 		"facebook": "https://www.facebook.com/KTT.FI/",
 		"geo": "https://goo.gl/maps/tmtYXZnWq7B2",
-		"tel": "0415403474",
-		"tel": "0408489123"
+		"tel": "0415403474"
 	}
 }]
