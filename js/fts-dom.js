@@ -51,7 +51,7 @@ let renderEventParagraphs = getList => {
     patyParagEl[i].innerHTML += `<p class="pre-txt">${content.text}</p>`
   } 
   for (let j = 0; j < patyParagEl.length; j++) {
-    const getPatyStyle  = getComputedStyle(patyParagEl[j]).getPropertyValue('max-height').substring(0,3);
+    const getPatyStyle  = parseFloat(getComputedStyle(patyParagEl[j]).getPropertyValue('max-height'));
     const patyPreEl     = document.querySelectorAll('.pre-txt');
 
     for (let k = 0; k < patyPreEl.length; k++) {
@@ -68,7 +68,7 @@ let renderEventParagraphs = getList => {
         }
           // Click event & dynamicly get height content
         function eventClickPaty () {
-          let getNewStyle = getComputedStyle(patyParagEl[j]).getPropertyValue('max-height').substring(0,3);
+          let getNewStyle = parseFloat(getComputedStyle(patyParagEl[j]).getPropertyValue('max-height'));
           
           if (j == k && getNewStyle < getPreHeight) {
             patyParagEl[j].style.maxHeight = getPreHeight.toString() + 'px';
@@ -225,7 +225,7 @@ let renderCourseParagraphs = getList => {
     crsCont[i].innerHTML += `<pre>${content.txt}</pre>`
   } 
   for (let j = 0; j < crsCont.length; j++) {
-    const getCrsStyle  = getComputedStyle(crsCont[j]).getPropertyValue('max-height').substring(0,3);
+    const getCrsStyle  = parseFloat(getComputedStyle(crsCont[j]).getPropertyValue('max-height'));
     const getCrsHeight = crsCont[j].scrollHeight;
       // Check if content more or not, and hide if low
     for (let i = 0; i < crsMore.length; i++) {   
@@ -238,7 +238,7 @@ let renderCourseParagraphs = getList => {
         // Click course & dynamicly get height content
       function eventClickCrs () {
         this.classList.toggle('pressed-more');
-        let getNewStyle = getComputedStyle(crsCont[j]).getPropertyValue('max-height').substring(0,3);
+        let getNewStyle = parseFloat(getComputedStyle(crsCont[j]).getPropertyValue('max-height'));
         if (getNewStyle < getCrsHeight) {
           crsCont[j].style.maxHeight = getCrsHeight.toString() + 'px';
         }
