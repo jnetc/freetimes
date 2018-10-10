@@ -1,7 +1,7 @@
 [{
 	"img": "https://i.ytimg.com/vi/vc5NN1eneRw/maxresdefault.jpg",
-	"date": "7",
-	"month": "ноября",
+	"date": "14",
+	"month": "октября",
 	"time": "05:00",
 	"capt": "afterparty",
 	"text": "Русский танцевальный утренник в Хельсинки! Мы обрадуем вас разнообразием танцевальной музыки в стиле tec house и deep house! Утренники это новый тренд который даёт заряд позитива c самого утра! 05:00-10:00 K-18 MY HANI CLUB KEINULAUDANKUJA 4, HELSINKI",
@@ -13,23 +13,23 @@
 	"events": {
 		"ev1": {
 			"ePoster": "./img/events/event1-min.jpg",
-			"eDate": "14",
-			"eMonth": "ноября",
+			"eDate": "21",
+			"eMonth": "октября",
 			"eCap": "Напоминалка",
 			"eBtn": "подробнее",
 			"eCont": "Русский танцевальный утренник в Хельсинки! Мы обрадуем вас разнообразием танцевальной музыки в стиле tech house и deep house! Получите заряд позитива и массу новых впечатлений c утра!"
 		},
 		"ev2": {
 			"ePoster": "./img/events/event2-min.jpg",
-			"eDate": "21",
-			"eMonth": "ноября",
+			"eDate": "28",
+			"eMonth": "октября",
 			"eCap": "Напоминалка",
 			"eBtn": "подробнее",
 			"eCont": "Русский танцевальный утренник в Хельсинки! Мы обрадуем вас разнообразием танцевальной музыки в стиле tech house и deep house! Получите заряд позитива и массу новых впечатлений c утра!"
 		},
 		"ev3": {
 			"ePoster": "./img/events/event3-min.jpg",
-			"eDate": "28",
+			"eDate": "4",
 			"eMonth": "ноября",
 			"eCap": "Напоминалка",
 			"eBtn": "подробнее",
