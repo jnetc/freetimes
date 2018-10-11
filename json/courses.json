@@ -53,8 +53,9 @@
 	"period": "цена",
 	"price": "38",
 	"btns": {
-		"geo": "https://goo.gl/maps/VhMG3DPoc212",
-		"facebook": "https://www.facebook.com/events/253344358786137/"
+		"facebook": "https://www.facebook.com/events/253344358786137/",
+		"geo": "https://goo.gl/maps/VhMG3DPoc212"
+		
 	}
 },
 {
