@@ -5,7 +5,6 @@ doc/
 **/old
 **/original
 .ftpconfig
-.htaccess
 .vscode/
 nginx.conf
 gulpfile.js
