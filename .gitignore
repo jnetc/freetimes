@@ -6,7 +6,6 @@ doc/
 **/original
 .ftpconfig
 .vscode/
-nginx.conf
 gulpfile.js
 package.json
 package-lock.json
