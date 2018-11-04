@@ -11,25 +11,25 @@
 	},
 	"events": {
 		"ev1": {
-			"ePoster": "./img/events/event1-min.jpg",
+			"ePoster": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/44509492_568112750285435_175527088525148160_o.jpg?_nc_cat=110&_nc_ht=scontent-arn2-1.xx&oh=a65816b7adde20309cf3a5c5bba6a9eb&oe=5C75D1AF",
 			"eDate": "12",
 			"eMonth": "ноября",
-			"eCap": "Мозгобойня",
+			"eCap": "Напоминалка",
 			"eBtn": "подробнее",
-			"eCont": "Интелектуальная игра"
+			"eCont": "Мозгобойня Интелектуальная игра"
 		},
 		"ev2": {
-			"ePoster": "./img/events/event2-min.jpg",
+			"ePoster": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/44509492_568112750285435_175527088525148160_o.jpg?_nc_cat=110&_nc_ht=scontent-arn2-1.xx&oh=a65816b7adde20309cf3a5c5bba6a9eb&oe=5C75D1AF",
 			"eDate": "26",
 			"eMonth": "ноября",
-			"eCap": "Мозгобойня",
+			"eCap": "Напоминалка",
 			"eBtn": "подробнее",
-			"eCont": "Интелектуальная игра"
+			"eCont": "Мозгобойня Интелектуальная игра"
 		},
 		"ev3": {
 			"ePoster": "./img/events/event3-min.jpg",
-			"eDate": "4",
-			"eMonth": "ноября",
+			"eDate": "30",
+			"eMonth": "декабрь",
 			"eCap": "Напоминалка",
 			"eBtn": "подробнее",
 			"eCont": "Это место свободно!"
