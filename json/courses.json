@@ -44,6 +44,20 @@
 	}
 },
 {
+	"cls": "праздник",
+	"img": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/45155410_2255479614526918_5259122479686746112_n.jpg?_nc_cat=107&_nc_ht=scontent-arn2-1.xx&oh=25045d49e691e3beb491a7de7a7dc9a9&oe=5C756013",
+	"name": "SPECIAL CHRISTMAS",
+	"days": "16 декабря",
+	"time": "14:00",
+	"txt": "Динамичный и веселый праздник - SPECIAL CHRISTMAS \n\nSpecial Event совместно с детскими спортивными клубами UNIFIGHT (Helsinki, Vantaa, Espoo) приглашают Вас на зажигательный Зимний Праздник!",
+	"period": "цена",
+	"price": "45",
+	"btns": {
+		"geo": "https://goo.gl/maps/5ZZdn5e4rzK2",
+		"facebook": "https://www.facebook.com/permalink.php?story_fbid=2255479757860237&id=100001947055006"
+	}
+},
+{
 	"cls": "кружок",
 	"img": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.15752-9/43405799_1845442105573138_1939380319161417728_n.jpg?_nc_cat=104&oh=63fda68537431e2c293db9929d34a136&oe=5C191D74",
 	"name": "русский язык",
