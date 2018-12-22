@@ -1,43 +1,44 @@
 [{
-	"img": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/44509492_568112750285435_175527088525148160_o.jpg?_nc_cat=110&_nc_ht=scontent-arn2-1.xx&oh=a65816b7adde20309cf3a5c5bba6a9eb&oe=5C75D1AF",
-	"date": "26",
-	"month": "ноября",
+	"img": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.15752-9/46521423_279175682734844_612636600412667904_n.jpg?_nc_cat=103&_nc_ht=scontent-arn2-1.xx&oh=f567085123d44b54c68181a37e05726e&oe=5C7B5D2F",
+	"date": "1",
+	"month": "март",
 	"time": "19:00",
-	"capt": "Мозгобойня",
-	"text": "Мозгобойня – это самая масштабная умная игра из вопросов и ответов с простыми правилами. Вопросы подбираются так, чтобы все участники чувствовали азарт и уверенность в своих силах.\n\nДля ответов не нужны глубокие энциклопедические знания, только смекалка и сообразительность.\n\nСыграем?",
-	"price": "10",
+	"capt": "ЛЕНИНГРАД",
+	"text": "Концерт группы (ЛЕНИНГРАД)\n\n1.3.2019 Black Box, Jäähalli, Helsinki\n\nСтоимость билетов от 48,00 / 73,50 €\n\nОграничение по возрасту К18\n\nДвери открыты с 19:00",
+	"price": "73",
 	"btns": {
-		"facebook": "https://www.facebook.com/groups/1208908215837840/"
+		"facebook": "https://www.facebook.com/anthony.pollack?eid=ARCSeM6qhscAFRPN_z2hA2qFyfdh0ElZlwg6j4G9qvJPgfVKbJWwEjEjO3jIu4jQeKiVP5NWxVFBHGAI",
+		"site": "https://www.tiketti.fi/leningrad-black-box-helsingin-jaahalli-helsinki-lippuja/58376"
 	},
 	"events": {
 		"ev1": {
 			"ePoster": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/44509492_568112750285435_175527088525148160_o.jpg?_nc_cat=110&_nc_ht=scontent-arn2-1.xx&oh=a65816b7adde20309cf3a5c5bba6a9eb&oe=5C75D1AF",
-			"eDate": "26",
+			"eDate": "-",
 			"eMonth": "ноября",
 			"eCap": "Напоминалка",
 			"eBtn": "подробнее",
-			"eCont": "Мозгобойня Интелектуальная игра 19:00 Sokos Hotel Presidentti"
+			"eCont": "Место свободно"
 		},
 		"ev2": {
 			"ePoster": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/44509492_568112750285435_175527088525148160_o.jpg?_nc_cat=110&_nc_ht=scontent-arn2-1.xx&oh=a65816b7adde20309cf3a5c5bba6a9eb&oe=5C75D1AF",
-			"eDate": "5",
+			"eDate": "-",
 			"eMonth": "декабря",
 			"eCap": "Напоминалка",
 			"eBtn": "подробнее",
-			"eCont": "Мозгобойня Интелектуальная игра 19:00 Sokos Hotel Presidentti"
+			"eCont": "Место свободно"
 		},
 		"ev3": {
 			"ePoster": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/44509492_568112750285435_175527088525148160_o.jpg?_nc_cat=110&_nc_ht=scontent-arn2-1.xx&oh=a65816b7adde20309cf3a5c5bba6a9eb&oe=5C75D1AF",
-			"eDate": "17",
+			"eDate": "-",
 			"eMonth": "декабря",
 			"eCap": "Напоминалка",
 			"eBtn": "подробнее",
-			"eCont": "Мозгобойня Интелектуальная игра 19:00 Sokos Hotel Presidentti"
+			"eCont": "Место свободно"
 		}
 	}
 },
 {
-	"img": "https://scontent-frx5-1.xx.fbcdn.net/v/t31.0-8/10914853_10152962354023257_5467520187724821576_o.jpg?_nc_cat=108&oh=8bf82c8d69ad9cdb06ff8d3a8327f0c7&oe=5C19AF42",
+	"img": "https://scontent-arn2-1.xx.fbcdn.net/v/t31.0-8/10914853_10152962354023257_5467520187724821576_o.jpg?_nc_cat=108&_nc_ht=scontent-arn2-1.xx&oh=b143d9bdce90ff0f20a3e92969f960e2&oe=5C905642",
 	"date": "2",
 	"month": "ноября",
 	"time": "20:30",
