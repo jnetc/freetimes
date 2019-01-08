@@ -9,33 +9,7 @@
 	"btns": {
 		"facebook": "https://www.facebook.com/anthony.pollack?eid=ARCSeM6qhscAFRPN_z2hA2qFyfdh0ElZlwg6j4G9qvJPgfVKbJWwEjEjO3jIu4jQeKiVP5NWxVFBHGAI",
 		"site": "https://www.tiketti.fi/leningrad-black-box-helsingin-jaahalli-helsinki-lippuja/58376"
-	},
-	"events": {
-		"ev1": {
-			"ePoster": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/44509492_568112750285435_175527088525148160_o.jpg?_nc_cat=110&_nc_ht=scontent-arn2-1.xx&oh=a65816b7adde20309cf3a5c5bba6a9eb&oe=5C75D1AF",
-			"eDate": "-",
-			"eMonth": "ноября",
-			"eCap": "Напоминалка",
-			"eBtn": "подробнее",
-			"eCont": "Место свободно"
-		},
-		"ev2": {
-			"ePoster": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/44509492_568112750285435_175527088525148160_o.jpg?_nc_cat=110&_nc_ht=scontent-arn2-1.xx&oh=a65816b7adde20309cf3a5c5bba6a9eb&oe=5C75D1AF",
-			"eDate": "-",
-			"eMonth": "декабря",
-			"eCap": "Напоминалка",
-			"eBtn": "подробнее",
-			"eCont": "Место свободно"
-		},
-		"ev3": {
-			"ePoster": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/44509492_568112750285435_175527088525148160_o.jpg?_nc_cat=110&_nc_ht=scontent-arn2-1.xx&oh=a65816b7adde20309cf3a5c5bba6a9eb&oe=5C75D1AF",
-			"eDate": "-",
-			"eMonth": "декабря",
-			"eCap": "Напоминалка",
-			"eBtn": "подробнее",
-			"eCont": "Место свободно"
-		}
-	}
+	} 
 },
 {
 	"img": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.15752-9/48411749_436745963526960_2072190951450738688_n.jpg?_nc_cat=102&_nc_ht=scontent-arn2-1.xx&oh=f4c05ad751d9a5a61fa4367e514c67bd&oe=5CD1EB8B",
