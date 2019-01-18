@@ -42,21 +42,6 @@
 	}
 },
 {
-	"cls": "семинар",
-	"img": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/45020408_1354482498020819_2034092392511963136_o.jpg?_nc_cat=105&_nc_ht=scontent-arn2-1.xx&oh=781d7aae15b2c25346a2a1721f49f7c4&oe=5C3C65C3",
-	"name": "BIG NETWORKING DAY",
-	"days": "5 декабря",
-	"time": "14:00",
-	"txt": "Говорят, что окружение влияет на наш успех. Говорят, что связи – решают все. Мы часто слышим современное и популярное слово в бизнес-среде «Networking». Но мы не будем говорить. Мы будем – ДЕЛАТЬ!\n\nВПЕРВЫЕ В ХЕЛЬСИНКИ! ПЕРВЫЙ BIG NETWORKING DAY НА РУССКОМ ЯЗЫКЕ!",
-	"period": "цена",
-	"price": "65",
-	"btns": {
-		"site": "https://malkki-media.com/big-networking-day/?fbclid=IwAR2fjT1mRPG24mPJnB4wD9mdApJtct-9bRV7k0J0W07a72WtayZZhDWQ0BI",
-		"geo": "https://goo.gl/maps/roLHitRiUc22",
-		"facebook": "https://www.facebook.com/events/385268525346419/"
-	}
-},
-{
 	"cls": "тренировки",
 	"img": "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/41653786_10216316502567308_3380419061891465216_n.jpg?_nc_cat=105&_nc_ht=scontent-arn2-1.xx&oh=ac3962640c0ae7d68b00da5e956cf9aa&oe=5C6A573F",
 	"name": "для малышей",
